@@ -137,10 +137,15 @@ public class Client extends Societe {
      * @param nEmloyer int le nombre d'employé
      * @throws ExceptionPersonnaliser si le ratio est inférieur a 10.
      */
-    public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser {
+    public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser,
+            ArithmeticException {
 
         // calcul du ratio
         int totale = chiffreAffaire / nEmloyer;
+
+        if (nEmloyer == 0){
+            throw new ArithmeticException("division par 0");
+        }
 
         // si ratio est inférieur a 10
         if (totale < 10) {
