@@ -1,6 +1,6 @@
-package com.bean.metier;
+package com;
 
-import com.bean.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionPersonnaliser;
 
 /**
  * Cette permet la gestion de l'adresse du client ou prospect.

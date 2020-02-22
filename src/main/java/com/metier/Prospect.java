@@ -1,9 +1,9 @@
-package com.bean.metier;
+package com;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.bean.exception.ExceptionPersonnaliser;
-import com.bean.metier.Societe;
+import com.exception.ExceptionPersonnaliser;
+
 import java.util.Collections;
 
 /**
@@ -23,7 +23,7 @@ public class Prospect extends Societe {
     public Prospect() {
         super();
         // ajoute un user est donne un ID
-        setIdentifiant(Societe.addUser());
+        setIdentifiant(addUser());
     }
 
     /**
@@ -52,7 +52,7 @@ public class Prospect extends Societe {
         this.setInteresse(interesseSt);
 
         // ajoute un user est donne un ID
-        setIdentifiant(Societe.addUser());
+        setIdentifiant(addUser());
     }
 
     /**
@@ -155,7 +155,7 @@ public class Prospect extends Societe {
      */
     public static void trieProspect(List<Prospect> list) {
 
-        Collections.sort(list, com.bean.metier.Societe.comparatorRaisonSociale);
+        Collections.sort(list, Societe.comparatorRaisonSociale);
     }
 
 }

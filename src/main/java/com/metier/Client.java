@@ -1,8 +1,8 @@
-package com.bean.metier;
+package com;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.bean.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionPersonnaliser;
 import java.util.Collections;
 
 /**
@@ -72,6 +72,7 @@ public class Client extends Societe {
      * @throws ExceptionPersonnaliser si le chiffre d'affaire est inférieur à 0.
      */
     private void setChiffreAffaire(int chiffreAffaireSt) throws ExceptionPersonnaliser {
+
         this.chiffreAffaire = chiffreAffaireSt;
     }
 
@@ -152,6 +153,7 @@ public class Client extends Societe {
             throw new ExceptionPersonnaliser("Ratio : le calcul de la moyen chiffre d'affaire / employer, est inférieur à 10");
         }
 
+        // initailisation des variables d'instance.
         this.setChiffreAffaire(chiffreAffaire);
         this.setNombreEmployer(nEmloyer);
 
@@ -168,7 +170,7 @@ public class Client extends Societe {
      * @param list Objet de type list.
      */
     public static void trieClient(List<Client> list) {
-        Collections.sort(list, com.bean.metier.Societe.comparatorRaisonSociale);
+        Collections.sort(list, Societe.comparatorRaisonSociale);
 
     }
 

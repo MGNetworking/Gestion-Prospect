@@ -1,5 +1,6 @@
 import com.bean.exception.ExceptionPersonnaliser;
 import com.bean.metier.Client;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,24 +8,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientTest {
 
+    Client cl ;
+    @BeforeEach
+    void init(){
+        cl = new Client();
+    }
 
     @Test
-    @DisplayName("1er teste")
-    void exception_1_CalculTeste(){
-
-        Client cl = new Client();
+    @DisplayName("Division par Zero")
+    void exceptionCalculDivisionTeste(){
 
         assertThrows(ArithmeticException.class,
                 () -> cl.calculRatioClientEmployer(10, 0) , "divivsion par 0");
 
+    }
+
+
+    @Test
+    @DisplayName("Moyen du chiffre d'affaire : 1")
+    void ex(){
+
         assertThrows(ExceptionPersonnaliser.class,
-                () -> cl.calculRatioClientEmployer(10, 10) , "la moyen de chiffre d'affaire");
-
-
+            () -> cl.calculRatioClientEmployer(10, 10) , "la moyen de chiffre d'affaire");
     }
 
     @Test
-    @DisplayName("2eme teste")
+    @DisplayName("Moyen du chiffre d'affaire : 2")
     void exception_2_CalculTest(){
 
         Client client = new Client();
