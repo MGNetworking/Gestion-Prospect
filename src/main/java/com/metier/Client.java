@@ -41,7 +41,7 @@ public class Client extends Societe {
      * @param nombreEmployerST int le nombre d'employés.
      * @throws ExceptionPersonnaliser si les champs ne sont pas respectées
      */
-    public Client(String raisonSt, String domainSt, int numeroDeRueSt,
+    public Client(String raisonSt, Enum domainSt, int numeroDeRueSt,
             String nomRueSt, String codePostSt, String villeSt,
             String telephoneSt, String emailSt, String commentaireSt,
             int chiffreAffaireSt, int nombreEmployerST) throws ExceptionPersonnaliser {

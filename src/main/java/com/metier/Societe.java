@@ -18,7 +18,7 @@ public abstract class Societe {
     // variable contenant les informations sur les entreprises.
     private int identifiant = 0;
     private String raisonSociale;
-    private String domainSociete;
+    private Enum domainSociete;
     private Adresse listAdresse = null;
     private String telephone;
     private String adresseEmail;
@@ -34,7 +34,7 @@ public abstract class Societe {
      * Constructeur princiaple ,participe à la création : client / prospect.
      *
      * @param raisonSt String les raisons sociale.
-     * @param domainSt String DomainSociete.
+     * @param domainSt Enum DomainSociete.
      * @param numeroAd int le numero d'adresse de la société.
      * @param nomRueSt String le nom de la rue de la société.
      * @param codePostSt String du code postale de la société.
@@ -44,7 +44,7 @@ public abstract class Societe {
      * @param commantaireSt String commentaire de la société.
      * @throws ExceptionPersonnaliser gére les exception de la Classe Société.
      */
-    public Societe(String raisonSt, String domainSt, int numeroAd, String nomRueSt,
+    public Societe(String raisonSt, Enum domainSt, int numeroAd, String nomRueSt,
             String codePostSt, String villeSt, String telephoneSt, String emailSt,
             String commantaireSt) throws ExceptionPersonnaliser {
 
@@ -152,7 +152,7 @@ public abstract class Societe {
      *
      * @return String du domain de la société.
      */
-    public String getDomainSociete() {
+    public Enum getDomainSociete() {
         return this.domainSociete;
     }
 
@@ -163,12 +163,12 @@ public abstract class Societe {
      * @throws ExceptionPersonnaliser si non renseigné par l'utilisateur.
      * @throws NullPointerException si la variable est null.
      */
-    public final void setDomainSociete(String domainSt) throws ExceptionPersonnaliser, NullPointerException {
+    public void setDomainSociete(Enum domainSt) throws ExceptionPersonnaliser, NullPointerException {
 
         if (domainSt == null )
             throw  new NullPointerException("Variable domain Societe Null");
 
-        if (!(domainSt.matches("PUBLIC") | domainSt.matches("PRIVE")))
+        if (!(domainSt.equals("PUBLIC") | domainSt.equals("PRIVE")))
             throw new ExceptionPersonnaliser("Domain Societe : le domain de société n'a pas été renseigné.");
 
         this.domainSociete = domainSt;

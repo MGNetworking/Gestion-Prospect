@@ -527,7 +527,7 @@ public class ControleurFrame {
 
             personnelle[i][0] = String.valueOf(listeSociete.get(i).getIdentifiant());
             personnelle[i][1] = listeSociete.get(i).getRaisonSociale();
-            personnelle[i][2] = listeSociete.get(i).getDomainSociete();
+            personnelle[i][2] = listeSociete.get(i).getDomainSociete().toString();
             personnelle[i][3] = String.valueOf(listeSociete.get(i).getListAdresse().getNumeroDeRueSt());
             personnelle[i][4] = listeSociete.get(i).getListAdresse().getNomRue();
             personnelle[i][5] = listeSociete.get(i).getListAdresse().getCodePost();
@@ -545,7 +545,7 @@ public class ControleurFrame {
             } else {
 
                 personnelle[i][10] = Prospect.getListePropect().get(i).getDatePropect();
-                personnelle[i][11] = Prospect.getListePropect().get(i).getInteresse();
+                personnelle[i][11] = Prospect.getListePropect().get(i).getInteresse().toString();
             }
 
         }
@@ -700,7 +700,7 @@ public class ControleurFrame {
         this.formulaireFrame.getComboDomainSt()
                 .setSelectedItem(DomainSociete
                         .valueOf(societe
-                                .getDomainSociete()));
+                                .getDomainSociete().toString()));
 
         // numero d'adresse
         this.formulaireFrame.getTxNumeroAd()
@@ -761,7 +761,7 @@ public class ControleurFrame {
 
             // ComboBox Interet
             this.formulaireFrame.getComboInteret()
-                    .setSelectedItem(Interet.valueOf(prospect.getInteresse()));
+                    .setSelectedItem(Interet.valueOf(prospect.getInteresse().toString()));
         }
 
     }
@@ -781,9 +781,9 @@ public class ControleurFrame {
                     .getText());
 
             // domain de la société
-            societe.setDomainSociete(this.formulaireFrame.getComboDomainSt()
-                    .getSelectedItem()
-                    .toString());
+            societe.setDomainSociete(DomainSociete.valueOf(this.formulaireFrame.getComboDomainSt()
+                .getSelectedItem()
+                .toString()));
 
             // champs adresse Adresse
             societe.getListAdresse().setNumeroDeRueSt(Integer.parseInt(
@@ -847,9 +847,9 @@ public class ControleurFrame {
                         .getTxDatePropection()
                         .getText());
 
-                prospect.setInteresse(this.formulaireFrame.getComboInteret()
-                        .getSelectedItem()
-                        .toString());
+                prospect.setInteresse(Interet.valueOf(this.formulaireFrame.getComboInteret()
+                    .getSelectedItem()
+                    .toString()));
             }
 
             // Si la modification a été réalisée avec succès, un message sera affiché
@@ -917,8 +917,8 @@ public class ControleurFrame {
 
                     // création d'un Client
                     Client client = new Client(this.formulaireFrame.getTxRaison().getText(),
-                            this.formulaireFrame.getComboDomainSt()
-                            .getSelectedItem().toString(),
+                            DomainSociete.valueOf(this.formulaireFrame.getComboDomainSt()
+                                .getSelectedItem().toString()),
                             Integer.parseInt(this.formulaireFrame.getTxNumeroAd().getText()),
                             this.formulaireFrame.getTxNomRue().getText(),
                             this.formulaireFrame.getTxCodePostale().getText(),
@@ -955,7 +955,7 @@ public class ControleurFrame {
 
                     // Création d'un prospect
                     Prospect prospect = new Prospect(this.formulaireFrame.getTxRaison().getText(),
-                            this.formulaireFrame.getComboDomainSt().getSelectedItem().toString(),
+                            DomainSociete.valueOf(this.formulaireFrame.getComboDomainSt().getSelectedItem().toString()),
                             Integer.parseInt(this.formulaireFrame.getTxNumeroAd().getText()),
                             this.formulaireFrame.getTxNomRue().getText(),
                             this.formulaireFrame.getTxCodePostale().getText(),
@@ -963,7 +963,7 @@ public class ControleurFrame {
                             this.formulaireFrame.getTxTelephone().getText(),
                             this.formulaireFrame.getTxEmail().getText(),
                             this.formulaireFrame.getTxDatePropection().getText(),
-                            this.formulaireFrame.getComboInteret().getSelectedItem().toString(),
+                            Interet.valueOf(this.formulaireFrame.getComboInteret().getSelectedItem().toString()),
                             this.formulaireFrame.getTxCommentaire().getText());
 
                     // Ajoute à la liste le nouveaux Prospect.
@@ -996,23 +996,23 @@ public class ControleurFrame {
      */
     public static void main(String[] agrs) {
         // variable de teste
-        Client client1 = new Client("carefour", DomainSociete.PRIVE.toString(), 10,
+        Client client1 = new Client("carefour", DomainSociete.PRIVE, 10,
                 "rue d en haut", "01800", "molliens-Dreuil",
                 "06 98 44 20 69", "soldat.inconnue@gmail.com",
                 "ils étaient quatre avant, maintenant ils sont trois et ont les connais", 100000, 10);
 
-        Client client2 = new Client("darty", DomainSociete.PUBLIC.toString(), 50,
+        Client client2 = new Client("darty", DomainSociete.PUBLIC, 50,
                 "rue des boulangers", "68130", "Altkirch",
                 "06.98.44.20.69", "Fabien.Zindy@gmail.com",
                 "Je suis un geek, est alors ;) ", 500000, 100);
 
-        Prospect prospect1 = new Prospect("afpa", DomainSociete.PRIVE.toString(), 20,
+        Prospect prospect1 = new Prospect("afpa", DomainSociete.PRIVE, 20,
                 "Rue de chez toi", "80000", "Amiens", "06.07.08.09.10",
-                "Ghalem.maxime@gmail.com", "01/09/1982", Interet.NON.toString(), "Un commentaire de teste");
+                "Ghalem.maxime@gmail.com", "01/09/1982", Interet.NON, "Un commentaire de teste");
 
-        Prospect prospect2 = new Prospect("clemessy", DomainSociete.PUBLIC.toString(), 100,
+        Prospect prospect2 = new Prospect("clemessy", DomainSociete.PUBLIC, 100,
                 "Rue d en haut", "68000", "colmar", "05.17.88.59.11",
-                "Sylvie.Touchot@gmail.com", "10/06/1985", Interet.OUI.toString(), "Tu fait des fautes d'orthographe méme quand tu parle, alors fait gaffe ;) ");
+                "Sylvie.Touchot@gmail.com", "10/06/1985", Interet.OUI, "Tu fait des fautes d'orthographe méme quand tu parle, alors fait gaffe ;) ");
 
         Client.addLisClient(client1);
         Client.addLisClient(client2);
