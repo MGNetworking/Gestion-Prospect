@@ -5,8 +5,8 @@
  */
 package com.DAO;
 
-import com.bean.metier.Client;
-import com.bean.metier.Societe;
+import com.metier.Client;
+import com.metier.Societe;
 
 /**
  *
@@ -31,7 +31,7 @@ public class DAO_Client extends DAO<Client> {
 
     @Override
     Client find(Societe societe) {
-       return new Client(); 
+       return new Client();
     }
-    
+
 }

@@ -1,4 +1,4 @@
-package com;
+package com.metier;
 
 import com.exception.ExceptionPersonnaliser;
 

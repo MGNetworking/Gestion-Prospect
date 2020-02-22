@@ -1,12 +1,11 @@
-import com.bean.exception.ExceptionPersonnaliser;
-import com.bean.metier.Client;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+package com.metier;
 
+import com.exception.ExceptionPersonnaliser;
+
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ClientTest {
+class ClientTest {
 
     Client cl ;
     @BeforeEach
@@ -15,26 +14,32 @@ public class ClientTest {
     }
 
     @Test
-    @DisplayName("Division par Zero")
-    void exceptionCalculDivisionTeste(){
-
+    @DisplayName("Client Division par Zero")
+    void exceptioncalculRatioClientEmployerDivisionParZeroTeste(){
         assertThrows(ArithmeticException.class,
                 () -> cl.calculRatioClientEmployer(10, 0) , "divivsion par 0");
 
     }
 
-
     @Test
-    @DisplayName("Moyen du chiffre d'affaire : 1")
-    void ex(){
+    @DisplayName("Client Moyen du chiffre d'affaire = 1")
+    void exceptioncalculRatioClientEmployerRationEgale1(){
 
         assertThrows(ExceptionPersonnaliser.class,
-            () -> cl.calculRatioClientEmployer(10, 10) , "la moyen de chiffre d'affaire");
+            () -> cl.calculRatioClientEmployer(10, 10) , "la moyen de chiffre d'affaire =1 ");
     }
 
     @Test
-    @DisplayName("Moyen du chiffre d'affaire : 2")
-    void exception_2_CalculTest(){
+    @DisplayName("Client Moyen du chiffre d'affaire = 10")
+    void exceptioncalculRatioClientEmployerRationEgale10(){
+
+        assertThrows(ExceptionPersonnaliser.class,
+            () -> cl.calculRatioClientEmployer(100, 11) , "la moyen de chiffre d'affaire doit etre > 10");
+    }
+
+    @Test
+    @DisplayName("Client Moyen du chiffre d'affaire : AutreTechnique")
+    void exceptioncalculRatioClientEmployer_AutreTechnique_CalculTest(){
 
         Client client = new Client();
 

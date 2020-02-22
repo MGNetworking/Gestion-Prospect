@@ -5,8 +5,8 @@
  */
 package com.DAO;
 
-import com.bean.metier.Societe;
-import com.bean.metier.Prospect;
+import com.metier.Societe;
+import com.metier.Prospect;
 
 /**
  *
@@ -16,7 +16,7 @@ public class DAO_Prospect extends DAO<Prospect> {
 
     @Override
     boolean create(Prospect objet) {
-       
+
         return false;
     }
 
@@ -34,5 +34,5 @@ public class DAO_Prospect extends DAO<Prospect> {
     Prospect find(Societe societe) {
         return new Prospect();
     }
-    
+
 }

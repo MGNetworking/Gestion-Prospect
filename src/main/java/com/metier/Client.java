@@ -1,4 +1,4 @@
-package com;
+package com.metier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,12 +141,13 @@ public class Client extends Societe {
     public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser,
             ArithmeticException {
 
-        // calcul du ratio
-        int totale = chiffreAffaire / nEmloyer;
-
+        // vérifaction du nombre d'emplyer
         if (nEmloyer == 0){
             throw new ArithmeticException("division par 0");
         }
+
+        // calcul du ratio
+        int totale = chiffreAffaire / nEmloyer;
 
         // si ratio est inférieur a 10
         if (totale < 10) {

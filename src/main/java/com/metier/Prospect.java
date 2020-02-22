@@ -1,7 +1,8 @@
-package com;
+package com.metier;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.exception.ExceptionPersonnaliser;
 
 import java.util.Collections;
@@ -29,21 +30,21 @@ public class Prospect extends Societe {
     /**
      * Constructeur permet de créé un Prospect en phase de prospecion.
      *
-     * @param raisonSt String raison sociale du prospecter.
-     * @param domainSt String domain de la société du prospecter.
+     * @param raisonSt      String raison sociale du prospecter.
+     * @param domainSt      String domain de la société du prospecter.
      * @param numeroDeRueSt int numéro de l'adresse du prospecter.
-     * @param nomRueSt String nom de la rue du prospecter.
-     * @param codePostSt String code postale du prospecter.
-     * @param villeSt String ville du prospecter.
-     * @param telephoneSt String numero de telephone du prospecter.
-     * @param emailSt String adresse email du prospecter.
+     * @param nomRueSt      String nom de la rue du prospecter.
+     * @param codePostSt    String code postale du prospecter.
+     * @param villeSt       String ville du prospecter.
+     * @param telephoneSt   String numero de telephone du prospecter.
+     * @param emailSt       String adresse email du prospecter.
      * @param datePropectSt la date du prospecter.
-     * @param interesseSt String intéret du prospecter.
+     * @param interesseSt   String intéret du prospecter.
      * @param commentaireSt String commentaire du prospect
      */
     public Prospect(String raisonSt, String domainSt,
-            int numeroDeRueSt, String nomRueSt, String codePostSt,
-            String villeSt, String telephoneSt, String emailSt, String datePropectSt, String interesseSt, String commentaireSt) {
+                    int numeroDeRueSt, String nomRueSt, String codePostSt,
+                    String villeSt, String telephoneSt, String emailSt, String datePropectSt, String interesseSt, String commentaireSt) {
 
         // constructeur de la classe Societe.
         super(raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt, villeSt, telephoneSt, emailSt, commentaireSt);
@@ -69,17 +70,22 @@ public class Prospect extends Societe {
      *
      * @param datePropectSt String de la date propection du client.
      * @throws ExceptionPersonnaliser si la date est vide ou si le format est
-     * n'est pas respecté.
+     *                                n'est pas respecté.
      */
-    public void setDatePropect(String datePropectSt) throws ExceptionPersonnaliser {
+    public void setDatePropect(String datePropectSt) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (datePropectSt.isEmpty()) {
+        // vérification null
+        if (datePropectSt == null)
+            throw new NullPointerException("variable date null");
+
+        // vérification vide
+        if (datePropectSt.isEmpty())
             throw new ExceptionPersonnaliser("Date de prospection : la date est vide ");
-        }
 
-        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}"))) {
+        // vérification format
+        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
             throw new ExceptionPersonnaliser("Date de prospection : la date entré n'est pas comforme ");
-        }
+
 
         this.datePropect = datePropectSt;
     }
@@ -98,13 +104,20 @@ public class Prospect extends Societe {
      *
      * @param interesse String intérêt du prospect.
      * @throws ExceptionPersonnaliser si le champs ne correspond pas à OUI ou
-     * NON.
+     *                                NON.
+     * @throws NullPointerException si la variable est null.
      */
     public void setInteresse(String interesse) throws ExceptionPersonnaliser {
 
-        if (!(interesse.matches("OUI") | interesse.matches("NON"))) {
+        // variable null
+        if (interesse == null)
+            throw new NullPointerException("Interet prospect null");
+
+        // patern regex
+        if (!(interesse.matches("OUI") | interesse.matches("NON")))
             throw new ExceptionPersonnaliser("Interet : le champs intéret n'a pas été renseigné");
-        }
+
+
         this.interesse = interesse;
 
     }
@@ -149,7 +162,7 @@ public class Prospect extends Societe {
     }
 
     /**
-     * Methode qui permet le trie du liste contenant des objets de type Société.
+     * Méthode qui permet le trie du liste contenant des objets de type Société.
      *
      * @param list de type list
      */

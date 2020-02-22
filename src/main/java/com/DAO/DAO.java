@@ -1,6 +1,6 @@
 package com.DAO;
 
-import com.bean.metier.Societe;
+import com.metier.Societe;
 import java.sql.Connection;
 
 /**
@@ -44,4 +44,4 @@ public abstract class DAO<type> {
      * @return boolean
      */
     abstract type find(Societe societe);
-} 
+}

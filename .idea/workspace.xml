@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e5c699-c49d-4af8-be3a-2582563ac90a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DAO/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO_Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DAO/DAO_Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO_Prospect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DAO/DAO_Prospect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utilitaire/DomainSociete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utilitaire/DomainSociete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utilitaire/Interet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utilitaire/Interet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/ProspectTeste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/SocieteTeste.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -26,9 +39,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/test/java/ClientTest.java" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/bean/metier/Client.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -53,14 +71,109 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.metier" />
+      <recent name="com" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SocieteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client-SGBDR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.metier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.metier" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocieteTest.exceptionDomainStPriveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client-SGBDR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.metier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.metier" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="exceptionDomainStPriveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocieteTest.excetionSetRaisonSocialeNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client-SGBDR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.metier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.metier" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="excetionSetRaisonSocialeNullTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Societe.excetionSetRaisonSocialeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client-SGBDR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.metier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.metier" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.Societe" />
+      <option name="METHOD_NAME" value="excetionSetRaisonSocialeNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Societe.excetionSetRaisonSocialeNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client-SGBDR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.metier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.metier" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.Societe" />
+      <option name="METHOD_NAME" value="excetionSetRaisonSocialeNullTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SocieteTest.exceptionDomainStPriveTest" />
+        <item itemvalue="JUnit.SocieteTeste" />
+        <item itemvalue="JUnit.SocieteTest.excetionSetRaisonSocialeNullTest" />
+        <item itemvalue="JUnit.Societe.excetionSetRaisonSocialeNullTest" />
+        <item itemvalue="JUnit.Societe.excetionSetRaisonSocialeNull" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -76,6 +189,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1668" y="195" width="816" height="729" key="#Intentions" timestamp="1582361286749">
+      <screen x="-1680" y="28" width="1680" height="1000" />
+    </state>
+    <state x="-1668" y="195" width="816" height="729" key="#Intentions/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361286749" />
     <state x="361" y="71" key="#Notifications" timestamp="1582226275032">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -84,38 +201,93 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582226263150" />
-    <state width="1493" height="132" key="GridCell.Tab.0.bottom" timestamp="1582277395526">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1582367427448">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582234663499" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582367427448" />
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1582361738914">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361738914" />
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582361910900">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361910900" />
+    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582374827952">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582374827952" />
+    <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1582361917317">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361917317" />
+    <state x="386" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582367804381">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="386" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582367804381" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582361790721">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361790721" />
+    <state width="1493" height="174" key="GridCell.Tab.0.bottom" timestamp="1582375942480">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="174" key="GridCell.Tab.0.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582375942480" />
+    <state width="1493" height="132" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
     <state width="1493" height="132" key="GridCell.Tab.0.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="132" key="GridCell.Tab.0.center" timestamp="1582277395526">
+    <state width="1493" height="174" key="GridCell.Tab.0.center" timestamp="1582375942480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582234663499" />
+    <state width="1493" height="174" key="GridCell.Tab.0.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582375942480" />
+    <state width="1493" height="132" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
     <state width="1493" height="132" key="GridCell.Tab.0.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="132" key="GridCell.Tab.0.left" timestamp="1582277395526">
+    <state width="1493" height="174" key="GridCell.Tab.0.left" timestamp="1582375942480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582234663499" />
+    <state width="1493" height="174" key="GridCell.Tab.0.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582375942480" />
+    <state width="1493" height="132" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
     <state width="1493" height="132" key="GridCell.Tab.0.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="132" key="GridCell.Tab.0.right" timestamp="1582277395526">
+    <state width="1493" height="174" key="GridCell.Tab.0.right" timestamp="1582375942480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582234663499" />
+    <state width="1493" height="174" key="GridCell.Tab.0.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582375942480" />
+    <state width="1493" height="132" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
     <state width="1493" height="132" key="GridCell.Tab.0.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582270193555">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1582370214902">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582226222487" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1582370214902">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1582370214902">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1582370214902">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
+    <state x="277" y="55" key="SettingsEditor" timestamp="1582360777090">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="55" key="SettingsEditor/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582360777090" />
+    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582278818469" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582373145992">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582373145992" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582270193555" />
     <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1582230737007">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582230737007" />
-    <state x="1920" y="0" width="874" height="811" key="dock-window-1" timestamp="1582270242798">
-      <screen x="1920" y="0" width="1920" height="1030" />
+    <state x="-1687" y="28" width="920" height="1017" key="dock-window-1" timestamp="1582373267894">
+      <screen x="-1680" y="28" width="1680" height="1000" />
     </state>
+    <state x="-1687" y="28" width="920" height="1017" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582373267894" />
+    <state x="1920" y="0" width="874" height="811" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1582277836194" />
     <state x="1920" y="0" width="874" height="811" key="dock-window-1/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582270242798" />
     <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1582271552979">
       <screen x="0" y="0" width="1536" height="824" />

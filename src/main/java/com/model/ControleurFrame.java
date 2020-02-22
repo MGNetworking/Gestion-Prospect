@@ -1,20 +1,15 @@
 package com.model;
 
-import com.DAO.ConnectionSingletonDAO;
 import static com.DAO.ConnectionSingletonDAO.getConnection;
-import com.bean.exception.ExceptionPersonnaliser;
-import com.model.AffichageListeFrame;
-import com.model.FormulaireFrame;
-import com.model.MenuFrame;
-import com.bean.metier.Client;
-import com.bean.utilitaire.DomainSociete;
-import com.bean.utilitaire.Interet;
-import com.bean.metier.Prospect;
-import com.bean.metier.Societe;
+import com.exception.ExceptionPersonnaliser;
+import com.metier.Client;
+import com.utilitaire.DomainSociete;
+import com.utilitaire.Interet;
+import com.metier.Prospect;
+import com.metier.Societe;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
-import java.sql.Connection;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -27,9 +22,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControleurFrame {
 
-    // fenêtre du Menu 
+    // fenêtre du Menu
     private MenuFrame menuFrame;
-    // fenêtre du Formulaire 
+    // fenêtre du Formulaire
     private FormulaireFrame formulaireFrame;
     // fenêtre d'affichage de la liste
     private AffichageListeFrame frameAfficherListe;
@@ -127,10 +122,10 @@ public class ControleurFrame {
             // si c'est un Jtext Field
             if (composant instanceof JTextField) {
 
-                // caste pour recupérer le champs 
+                // caste pour recupérer le champs
                 JTextField jtf = (JTextField) composant;
 
-                // le rendre inéditable 
+                // le rendre inéditable
                 jtf.setEditable(visibleFields);
             }
         }
@@ -212,7 +207,7 @@ public class ControleurFrame {
         // mise a jour du choix de selection user.
         this.selectionMenu = "Menu Prospect";
 
-        // visibilité des panneaux 
+        // visibilité des panneaux
         this.menuFrame.getPanActionUser().setVisible(true);
         this.menuFrame.getPanClientProspect().setVisible(false);
 
@@ -321,7 +316,7 @@ public class ControleurFrame {
      * @param evt de type ActionEvent.
      */
     public void bpAjouterMenuEvent(ActionEvent evt) {
-        
+
         // sélection du choix utilisateur
         this.selectionActionUser = "Ajouter";
 
@@ -364,7 +359,7 @@ public class ControleurFrame {
      * @param evt de type ActionEvent.
      */
     public void menuEvent(ActionEvent evt) {
-        // initialisation du menu 
+        // initialisation du menu
         this.initMenuFrame();
     }
 
@@ -541,7 +536,7 @@ public class ControleurFrame {
             personnelle[i][8] = listeSociete.get(i).getAdresseEmail();
             personnelle[i][9] = listeSociete.get(i).getCommentaire();
 
-            //si client 
+            //si client
             if (client) {
                 personnelle[i][10] = String.valueOf(Client.getListeClient().get(i).getChiffreAffaire());
                 personnelle[i][11] = String.valueOf(Client.getListeClient().get(i).getNombreEmployer());
@@ -583,7 +578,7 @@ public class ControleurFrame {
         // pour les client est les prospects
         this.formulaireFrame.getTxID().setEditable(false);
 
-        // raison sociale 
+        // raison sociale
         this.formulaireFrame.getTxRaison().setText("");
 
         // téléphone
@@ -597,7 +592,7 @@ public class ControleurFrame {
         // comboBox Domain
         this.formulaireFrame.getComboDomainSt().getSelectedItem();
 
-        // ville 
+        // ville
         this.formulaireFrame.getTxVille().setText("");
 
         // code Postale
@@ -606,7 +601,7 @@ public class ControleurFrame {
         // numero d'adresse
         this.formulaireFrame.getTxNumeroAd().setText("");
 
-        // Nom de la rue 
+        // Nom de la rue
         this.formulaireFrame.getTxNomRue().setText("");
 
         // les commentaires
@@ -615,11 +610,11 @@ public class ControleurFrame {
         // si c'est un Client affichage du context pour le client
         if (this.selectionMenu.equals("Menu Client")) {
 
-            // visibilité des panneaux 
+            // visibilité des panneaux
             this.formulaireFrame.getPanClient().setVisible(true);
             this.formulaireFrame.getPanProspect().setVisible(false);
 
-            // titre de la page 
+            // titre de la page
             this.formulaireFrame.getLabelTitreFormulaire()
                     .setText("Ajouter un Client");
 
@@ -630,17 +625,17 @@ public class ControleurFrame {
             // nombre d'employé
             this.formulaireFrame.getTxNombreEmployer().setText("");
 
-            // client Chiffre d'affaire 
+            // client Chiffre d'affaire
             this.formulaireFrame.getTxChiffreAffaire().setText("");
 
             // si c'est un Propest affichage du context pour le prospect
         } else if (this.selectionMenu.equals("Menu Prospect")) {
 
-            // visibilité des panneaux 
+            // visibilité des panneaux
             this.formulaireFrame.getPanClient().setVisible(false);
             this.formulaireFrame.getPanProspect().setVisible(true);
 
-            // titre de la page 
+            // titre de la page
             this.formulaireFrame.getLabelTitreFormulaire()
                     .setText("Ajouter un Prospect");
 
@@ -667,14 +662,14 @@ public class ControleurFrame {
         // choix user pour la modification ou suppression
         Societe societe = this.selectComboClientProspect;
 
-        // visibilité des fenêtres 
+        // visibilité des fenêtres
         this.formulaireFrame.setVisible(true);
         this.menuFrame.setVisible(false);
 
-        // initialisation du titre de la page 
+        // initialisation du titre de la page
         String titrePage = "Titre";
 
-        // si on modifier 
+        // si on modifier
         if (this.selectionActionUser.equals("Modifier")) {
 
             // change le titre de la page
@@ -698,7 +693,7 @@ public class ControleurFrame {
         this.formulaireFrame.getTxID().setText(String.valueOf(societe.getIdentifiant()));
         this.formulaireFrame.getTxID().setEditable(false);
 
-        // raison sociale 
+        // raison sociale
         this.formulaireFrame.getTxRaison().setText(societe.getRaisonSociale());
 
         // comboBox Domain
@@ -722,10 +717,10 @@ public class ControleurFrame {
         this.formulaireFrame.getTxCodePostale()
                 .setText(societe.getListAdresse().getCodePost());
 
-        // ville 
+        // ville
         this.formulaireFrame.getTxVille().setText(societe.getListAdresse().getVille());
 
-        // téléphone 
+        // téléphone
         this.formulaireFrame.getTxTelephone().setText(societe.getTelephone());
 
         // Email
@@ -744,7 +739,7 @@ public class ControleurFrame {
 
             Client client = (Client) societe;
 
-            // client Chiffre d'affaire 
+            // client Chiffre d'affaire
             this.formulaireFrame.getTxChiffreAffaire()
                     .setText(String.valueOf(client.getChiffreAffaire()));
 
@@ -776,7 +771,7 @@ public class ControleurFrame {
      */
     private void modificationSociete() {
 
-        // visibilité des panneaux   
+        // visibilité des panneaux
         try {
             // recupération du choix utilisateur.
             Societe societe = this.selectComboClientProspect;
@@ -790,7 +785,7 @@ public class ControleurFrame {
                     .getSelectedItem()
                     .toString());
 
-            // champs adresse Adresse 
+            // champs adresse Adresse
             societe.getListAdresse().setNumeroDeRueSt(Integer.parseInt(
                     this.formulaireFrame
                     .getTxNumeroAd()
@@ -823,7 +818,7 @@ public class ControleurFrame {
             // partie Client
             if (societe instanceof Client) {
 
-                // visibilité des clients 
+                // visibilité des clients
                 this.formulaireFrame.getPanClient().setVisible(true);
                 this.formulaireFrame.getPanProspect().setVisible(false);
 
@@ -883,7 +878,7 @@ public class ControleurFrame {
      */
     private void supprimerSociete() {
 
-        // nom de la classe selectionné par l'utilisateur 
+        // nom de la classe selectionné par l'utilisateur
         String nomObjetClasse = this.selectComboClientProspect.getClass().getSimpleName();
 
         // boite de dialogue choix oui 0 / non 1
@@ -1024,7 +1019,7 @@ public class ControleurFrame {
 
         Prospect.addListeProspect(prospect1);
         Prospect.addListeProspect(prospect2);
-        
+
         getConnection();
 
         EventQueue.invokeLater(new Runnable() {
@@ -1043,10 +1038,10 @@ public class ControleurFrame {
                 menuF.setControleur(control);
                 formulaireF.setControleur(control);
                 affichageF.setControleur(control);
-                
-                
 
-            } 
+
+
+            }
         });
     }
 }

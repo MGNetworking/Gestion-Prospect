@@ -1,4 +1,4 @@
-package com;
+package com.metier;
 
 import com.exception.ExceptionPersonnaliser;
 import java.util.Comparator;
@@ -124,15 +124,21 @@ public abstract class Societe {
      *
      * @param raisonsocialeST String la raison sociale de l'entreprise.
      * @throws ExceptionPersonnaliser si le champ est vide.
+     * @throws NullPointerException si la variable est null.
      */
-    public final void setRaisonSociale(String raisonsocialeST) throws ExceptionPersonnaliser {
+    public void setRaisonSociale(String raisonsocialeST) throws ExceptionPersonnaliser, NullPointerException {
+
+        // variable null
+        if (raisonsocialeST == null)
+            throw new NullPointerException("variable raison sociale vide ");
+
 
         // si le champs est vide, lève un exception
-        if (raisonsocialeST.isEmpty()) {
+        if (raisonsocialeST.isEmpty())
             throw new ExceptionPersonnaliser("Raison Sociale : Le champs doit être saisi");
-        }
 
-        // Passe en grand caractére la primere lettre de la raison sociale 
+
+        // Passe en grand caractére la première lettre de la raison sociale
         if (raisonsocialeST.matches("[a-z]{1,}")) {
 
             raisonsocialeST = raisonsocialeST.replaceFirst((raisonsocialeST.charAt(0) + ""), (raisonsocialeST.charAt(0) + "").toUpperCase());
@@ -155,12 +161,16 @@ public abstract class Societe {
      *
      * @param domainSt String PRIVE ou PUBLIC
      * @throws ExceptionPersonnaliser si non renseigné par l'utilisateur.
+     * @throws NullPointerException si la variable est null.
      */
-    public final void setDomainSociete(String domainSt) throws ExceptionPersonnaliser {
+    public final void setDomainSociete(String domainSt) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (!(domainSt.matches("PUBLIC") | domainSt.matches("PRIVE"))) {
+        if (domainSt == null )
+            throw  new NullPointerException("Variable domain Societe Null");
+
+        if (!(domainSt.matches("PUBLIC") | domainSt.matches("PRIVE")))
             throw new ExceptionPersonnaliser("Domain Societe : le domain de société n'a pas été renseigné.");
-        }
+
         this.domainSociete = domainSt;
 
     }
