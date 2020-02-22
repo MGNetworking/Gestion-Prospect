@@ -2,6 +2,7 @@ package com.metier;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.exception.ExceptionPersonnaliser;
 import java.util.Collections;
 
@@ -28,23 +29,23 @@ public class Client extends Societe {
     /**
      * Constructeur principale, permet de créé un client d'entreprise.
      *
-     * @param raisonSt String raison sociale du client
-     * @param domainSt String domain de la société du client
-     * @param numeroDeRueSt int numéro de l'adresse du client
-     * @param nomRueSt String nom de la rue du client
-     * @param codePostSt String code postale du client
-     * @param villeSt String ville du client
-     * @param telephoneSt String numero de telephone du client
-     * @param emailSt String adresse email du client
-     * @param commentaireSt String commentaire du client
+     * @param raisonSt         String raison sociale du client
+     * @param domainSt         DomainSociete domain de la société du client
+     * @param numeroDeRueSt    int numéro de l'adresse du client
+     * @param nomRueSt         String nom de la rue du client
+     * @param codePostSt       String code postale du client
+     * @param villeSt          String ville du client
+     * @param telephoneSt      String numero de telephone du client
+     * @param emailSt          String adresse email du client
+     * @param commentaireSt    String commentaire du client
      * @param chiffreAffaireSt int chiffre d'affaire du client
      * @param nombreEmployerST int le nombre d'employés.
      * @throws ExceptionPersonnaliser si les champs ne sont pas respectées
      */
-    public Client(String raisonSt, Enum domainSt, int numeroDeRueSt,
-            String nomRueSt, String codePostSt, String villeSt,
-            String telephoneSt, String emailSt, String commentaireSt,
-            int chiffreAffaireSt, int nombreEmployerST) throws ExceptionPersonnaliser {
+    public Client(String raisonSt, DomainSociete domainSt, int numeroDeRueSt,
+                  String nomRueSt, String codePostSt, String villeSt,
+                  String telephoneSt, String emailSt, String commentaireSt,
+                  int chiffreAffaireSt, int nombreEmployerST) throws ExceptionPersonnaliser {
 
         // constructeur de la classe Societe.
         super(raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt, villeSt, telephoneSt, emailSt, commentaireSt);
@@ -135,14 +136,15 @@ public class Client extends Societe {
      * Permet de calculée le ratio la moyen : Chiffre d'affaire / client.
      *
      * @param chiffreAffaire int le chiffre d'affaire de l'entreprise.
-     * @param nEmloyer int le nombre d'employé
+     * @param nEmloyer       int le nombre d'employé
      * @throws ExceptionPersonnaliser si le ratio est inférieur a 10.
+     * @throws ArithmeticException    dans le cas d'une dividion par zero.
      */
     public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser,
-            ArithmeticException {
+        ArithmeticException {
 
         // vérifaction du nombre d'emplyer
-        if (nEmloyer == 0){
+        if (nEmloyer == 0) {
             throw new ArithmeticException("division par 0");
         }
 
@@ -160,6 +162,10 @@ public class Client extends Societe {
 
     }
 
+    /**
+     * renvoie la raison Sociale.
+     * @return de tyep string
+     */
     @Override
     public String toString() {
         return this.getRaisonSociale();

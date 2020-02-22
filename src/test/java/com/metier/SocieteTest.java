@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SocieteTest {
 
-    // heritage locale pour le teste de la classe abstraite Societe
+    // héritage locale pour les testes de la classe abstraite Societe
     class StTeste extends Societe {
     }
 
@@ -27,23 +27,17 @@ class SocieteTest {
 
     @Test
     @DisplayName("Societe Raison Sociale vide ")
-    void exceptionSetRaisonSocialeVideYTest(){
+    void exceptionSetRaisonSocialeVideYTest() {
         assertThrows(ExceptionPersonnaliser.class,
-            ()-> st.setRaisonSociale(""), "Societe raison sociale vide");
+            () -> st.setRaisonSociale(""), "Societe raison sociale vide");
     }
 
     @Test
     @DisplayName("Societe domain null")
-    void exceptionDomainStNullTest(){
-        assertThrows(NullPointerException.class, ()-> st.setDomainSociete(null),
+    void exceptionDomainStNullTest() {
+        assertThrows(NullPointerException.class, () -> st.setDomainSociete(null),
             "Le domain Societe n'est pas null");
 
     }
-    @Test
-    @DisplayName("Societe domain Public et Prive")
-    void exceptionDomainStPriveTest(){
-        assertThrows(ExceptionPersonnaliser.class, ()-> st.setDomainSociete("prive"),
-            "Le champs domain Societe n'est pas respecté : prive");
 
-    }
 }

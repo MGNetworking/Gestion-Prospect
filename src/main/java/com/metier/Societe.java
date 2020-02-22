@@ -4,10 +4,16 @@ import com.exception.ExceptionPersonnaliser;
 import java.util.Comparator;
 
 /**
- *
  * @author Maxime
  */
 public abstract class Societe {
+
+    public enum DomainSociete {
+
+        PUBLIC,
+        PRIVE;
+    }
+
 
     // constante d'incrémantation
     private static final int INDIC = 1;
@@ -18,7 +24,7 @@ public abstract class Societe {
     // variable contenant les informations sur les entreprises.
     private int identifiant = 0;
     private String raisonSociale;
-    private Enum domainSociete;
+    private DomainSociete domainSociete;
     private Adresse listAdresse = null;
     private String telephone;
     private String adresseEmail;
@@ -33,26 +39,26 @@ public abstract class Societe {
     /**
      * Constructeur princiaple ,participe à la création : client / prospect.
      *
-     * @param raisonSt String les raisons sociale.
-     * @param domainSt Enum DomainSociete.
-     * @param numeroAd int le numero d'adresse de la société.
-     * @param nomRueSt String le nom de la rue de la société.
-     * @param codePostSt String du code postale de la société.
-     * @param villeSt String le nom de la ville de la société.
-     * @param telephoneSt String le téléphone de la société.
-     * @param emailSt String l'adresse Email de la société.
+     * @param raisonSt      String les raisons sociale.
+     * @param domainSt      DomainSociete DomainSociete.
+     * @param numeroAd      int le numero d'adresse de la société.
+     * @param nomRueSt      String le nom de la rue de la société.
+     * @param codePostSt    String du code postale de la société.
+     * @param villeSt       String le nom de la ville de la société.
+     * @param telephoneSt   String le téléphone de la société.
+     * @param emailSt       String l'adresse Email de la société.
      * @param commantaireSt String commentaire de la société.
      * @throws ExceptionPersonnaliser gére les exception de la Classe Société.
      */
-    public Societe(String raisonSt, Enum domainSt, int numeroAd, String nomRueSt,
-            String codePostSt, String villeSt, String telephoneSt, String emailSt,
-            String commantaireSt) throws ExceptionPersonnaliser {
+    public Societe(String raisonSt, DomainSociete domainSt, int numeroAd, String nomRueSt,
+                   String codePostSt, String villeSt, String telephoneSt, String emailSt,
+                   String commantaireSt) throws ExceptionPersonnaliser {
 
         this.setRaisonSociale(raisonSt);
         this.setDomainSociete(domainSt);
 
         // champs Adresse
-        this.setListAdresse(numeroAd, nomRueSt, codePostSt, villeSt);
+        this.setAdresseSt(numeroAd, nomRueSt, codePostSt, villeSt);
 
         this.setTelephone(telephoneSt);
         this.setAdresseEmail(emailSt);
@@ -124,7 +130,7 @@ public abstract class Societe {
      *
      * @param raisonsocialeST String la raison sociale de l'entreprise.
      * @throws ExceptionPersonnaliser si le champ est vide.
-     * @throws NullPointerException si la variable est null.
+     * @throws NullPointerException   si la variable est null.
      */
     public void setRaisonSociale(String raisonsocialeST) throws ExceptionPersonnaliser, NullPointerException {
 
@@ -152,7 +158,7 @@ public abstract class Societe {
      *
      * @return String du domain de la société.
      */
-    public Enum getDomainSociete() {
+    public DomainSociete getDomainSociete() {
         return this.domainSociete;
     }
 
@@ -161,15 +167,15 @@ public abstract class Societe {
      *
      * @param domainSt String PRIVE ou PUBLIC
      * @throws ExceptionPersonnaliser si non renseigné par l'utilisateur.
-     * @throws NullPointerException si la variable est null.
+     * @throws NullPointerException   si la variable est null.
      */
-    public void setDomainSociete(Enum domainSt) throws ExceptionPersonnaliser, NullPointerException {
+    public void setDomainSociete(DomainSociete domainSt) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (domainSt == null )
-            throw  new NullPointerException("Variable domain Societe Null");
+        if (domainSt == null)
+            throw new NullPointerException("Variable domain Societe Null");
 
-        if (!(domainSt.equals("PUBLIC") | domainSt.equals("PRIVE")))
-            throw new ExceptionPersonnaliser("Domain Societe : le domain de société n'a pas été renseigné.");
+        if (!(domainSt.equals(DomainSociete.PUBLIC) | domainSt.equals(DomainSociete.PRIVE)))
+            throw new ExceptionPersonnaliser("Erreur sur Domain Societe PRIVE ou PUBLIC ");
 
         this.domainSociete = domainSt;
 
@@ -180,7 +186,7 @@ public abstract class Societe {
      *
      * @return un Objet de type Adresse.
      */
-    public Adresse getListAdresse() {
+    public Adresse getAdresse() {
         return listAdresse;
     }
 
@@ -188,14 +194,13 @@ public abstract class Societe {
      * Modification ou ajout des champs concernants la société.
      *
      * @param numeroAd int le numero de la société.
-     * @param nomRue String le nom de la rue de la société.
+     * @param nomRue   String le nom de la rue de la société.
      * @param codePost String le code postale de la société.
-     * @param ville String le nom de la ville de la société.
+     * @param ville    String le nom de la ville de la société.
      * @throws ExceptionPersonnaliser si l'un des champs n'a pas été renseigner.
      */
-    public void setListAdresse(int numeroAd, String nomRue,
-            String codePost, String ville) throws ExceptionPersonnaliser {
-
+    public void setAdresseSt(int numeroAd, String nomRue,
+                             String codePost, String ville) throws ExceptionPersonnaliser {
         this.listAdresse = new Adresse(numeroAd, nomRue, codePost, ville);
     }
 
@@ -243,7 +248,7 @@ public abstract class Societe {
      *
      * @param adresseEmailSt String de l'adresse Email de la societe.
      * @throws ExceptionPersonnaliser si le champ est vide ou si le format n'a
-     * pas été pas respecter.
+     *                                pas été pas respecter.
      */
     public void setAdresseEmail(String adresseEmailSt) throws ExceptionPersonnaliser {
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.exception.ExceptionPersonnaliser;
-
 import java.util.Collections;
 
 /**
@@ -12,8 +11,15 @@ import java.util.Collections;
  */
 public class Prospect extends Societe {
 
+    public enum Interet {
+
+        OUI,
+        NON;
+
+    }
+
     private String datePropect;
-    private Enum interesse;
+    private Interet interesse;
 
     // La liste des Prospects
     private static List<Prospect> listePropect = new ArrayList<>(50);
@@ -39,12 +45,12 @@ public class Prospect extends Societe {
      * @param telephoneSt   String numero de telephone du prospecter.
      * @param emailSt       String adresse email du prospecter.
      * @param datePropectSt la date du prospecter.
-     * @param interesseSt   Enum intéret du prospecter.
+     * @param interesseSt   Interet intéret du prospecter.
      * @param commentaireSt String commentaire du prospect
      */
-    public Prospect(String raisonSt, Enum domainSt,
+    public Prospect(String raisonSt, DomainSociete domainSt,
                     int numeroDeRueSt, String nomRueSt, String codePostSt,
-                    String villeSt, String telephoneSt, String emailSt, String datePropectSt, Enum interesseSt, String commentaireSt) {
+                    String villeSt, String telephoneSt, String emailSt, String datePropectSt, Interet interesseSt, String commentaireSt) {
 
         // constructeur de la classe Societe.
         super(raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt, villeSt, telephoneSt, emailSt, commentaireSt);
@@ -107,14 +113,14 @@ public class Prospect extends Societe {
      *                                NON.
      * @throws NullPointerException si la variable est null.
      */
-    public void setInteresse(Enum interesse) throws ExceptionPersonnaliser {
+    public void setInteresse(Interet interesse) throws ExceptionPersonnaliser {
 
         // variable null
         if (interesse == null)
             throw new NullPointerException("Interet prospect null");
 
         // patern regex
-        if (!(interesse.equals("OUI") | interesse.equals("NON")))
+        if (!(interesse.equals(Interet.OUI) | interesse.equals(Interet.NON)))
             throw new ExceptionPersonnaliser("Interet : le champs intéret n'a pas été renseigné");
 
 

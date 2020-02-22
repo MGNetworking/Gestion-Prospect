@@ -3,10 +3,11 @@ package com.model;
 import static com.DAO.ConnectionSingletonDAO.getConnection;
 import com.exception.ExceptionPersonnaliser;
 import com.metier.Client;
-import com.utilitaire.DomainSociete;
-import com.utilitaire.Interet;
 import com.metier.Prospect;
 import com.metier.Societe;
+import com.metier.Societe.DomainSociete;
+import com.metier.Prospect.Interet;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -528,10 +529,10 @@ public class ControleurFrame {
             personnelle[i][0] = String.valueOf(listeSociete.get(i).getIdentifiant());
             personnelle[i][1] = listeSociete.get(i).getRaisonSociale();
             personnelle[i][2] = listeSociete.get(i).getDomainSociete().toString();
-            personnelle[i][3] = String.valueOf(listeSociete.get(i).getListAdresse().getNumeroDeRueSt());
-            personnelle[i][4] = listeSociete.get(i).getListAdresse().getNomRue();
-            personnelle[i][5] = listeSociete.get(i).getListAdresse().getCodePost();
-            personnelle[i][6] = listeSociete.get(i).getListAdresse().getVille();
+            personnelle[i][3] = String.valueOf(listeSociete.get(i).getAdresse().getNumeroDeRueSt());
+            personnelle[i][4] = listeSociete.get(i).getAdresse().getNomRue();
+            personnelle[i][5] = listeSociete.get(i).getAdresse().getCodePost();
+            personnelle[i][6] = listeSociete.get(i).getAdresse().getVille();
             personnelle[i][7] = listeSociete.get(i).getTelephone();
             personnelle[i][8] = listeSociete.get(i).getAdresseEmail();
             personnelle[i][9] = listeSociete.get(i).getCommentaire();
@@ -706,19 +707,19 @@ public class ControleurFrame {
         this.formulaireFrame.getTxNumeroAd()
                 .setText(String
                         .valueOf(societe
-                                .getListAdresse()
+                                .getAdresse()
                                 .getNumeroDeRueSt()));
 
         // nom de la rue
         this.formulaireFrame.getTxNomRue()
-                .setText(societe.getListAdresse().getNomRue());
+                .setText(societe.getAdresse().getNomRue());
 
         // code Postale
         this.formulaireFrame.getTxCodePostale()
-                .setText(societe.getListAdresse().getCodePost());
+                .setText(societe.getAdresse().getCodePost());
 
         // ville
-        this.formulaireFrame.getTxVille().setText(societe.getListAdresse().getVille());
+        this.formulaireFrame.getTxVille().setText(societe.getAdresse().getVille());
 
         // téléphone
         this.formulaireFrame.getTxTelephone().setText(societe.getTelephone());
@@ -786,22 +787,22 @@ public class ControleurFrame {
                 .toString()));
 
             // champs adresse Adresse
-            societe.getListAdresse().setNumeroDeRueSt(Integer.parseInt(
+            societe.getAdresse().setNumeroDeRueSt(Integer.parseInt(
                     this.formulaireFrame
                     .getTxNumeroAd()
                     .getText()));
 
-            societe.getListAdresse().setNomRue(
+            societe.getAdresse().setNomRue(
                     this.formulaireFrame
                     .getTxNomRue()
                     .getText());
 
-            societe.getListAdresse().setCodePost(
+            societe.getAdresse().setCodePost(
                     this.formulaireFrame
                     .getTxCodePostale()
                     .getText());
 
-            societe.getListAdresse().setVille(
+            societe.getAdresse().setVille(
                     this.formulaireFrame
                     .getTxVille()
                     .getText());
