@@ -78,6 +78,6 @@ public class AdresseTest {
     @DisplayName("Le format de la ville n'est pas respectée")
     void exceptionSetVilleCharTest(){
         assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setVille("123456"), "L'objet ville de type string doit étre composer de caratére");
+            ()-> ad.setVille("pp"), "L'objet ville de type string doit étre composer de caratére");
     }
 }
