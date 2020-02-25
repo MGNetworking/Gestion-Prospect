@@ -1,4 +1,6 @@
-package com.model;
+package com.listener;
+
+import com.model.MenuFrame;
 
 import javax.swing.JButton;
 
@@ -6,7 +8,7 @@ public class ActionModifSuppri implements java.awt.event.ActionListener {
 
     private MenuFrame menuFrame;
 
-    ActionModifSuppri(MenuFrame frame) {
+    public ActionModifSuppri(MenuFrame frame) {
         this.menuFrame = frame;
     }
 

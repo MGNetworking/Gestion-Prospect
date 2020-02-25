@@ -1,8 +1,9 @@
-package com.model;
+package com.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.model.FormulaireFrame;
 import com.model.MenuFrame.Action;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ public class ActionValideFormulaire implements ActionListener {
 
     private FormulaireFrame formulaireFrame;
 
-    ActionValideFormulaire(FormulaireFrame frame) {
+    public ActionValideFormulaire(FormulaireFrame frame) {
         this.formulaireFrame = frame;
     }
 

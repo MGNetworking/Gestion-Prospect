@@ -1,10 +1,11 @@
-package com.model;
+package com.listener;
 
 import com.metier.Societe;
 
 import javax.swing.*;
 
 import com.metier.Societe.TypeSociete;
+import com.model.MenuFrame;
 
 public class ActionClientProspect implements java.awt.event.ActionListener {
 
@@ -17,7 +18,7 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
      * @param frame
      * @param controFrame
      */
-    ActionClientProspect(MenuFrame frame) {
+    public ActionClientProspect(MenuFrame frame) {
         this.menuFrame = frame;
 
     }

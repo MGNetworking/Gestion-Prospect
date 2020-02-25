@@ -1,13 +1,12 @@
 package com.model;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.listener.ActionQuitter;
+import com.listener.ActionRetourMenu;
 import com.metier.Client;
 import com.metier.Prospect;
 import com.metier.Societe;
-import com.model.MenuFrame.Action;
 import com.metier.Societe.TypeSociete;
 
 import java.util.List;

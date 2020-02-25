@@ -1,4 +1,7 @@
-package com.model;
+package com.listener;
+
+import com.model.ControleurFrame;
+import com.model.MenuFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +16,7 @@ public class ActionRetourMenu implements ActionListener {
      *
      * @param frame
      */
-    ActionRetourMenu(JFrame frame) {
+    public ActionRetourMenu(JFrame frame) {
         this.jframe = frame;
     }
 

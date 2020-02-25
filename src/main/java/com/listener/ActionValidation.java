@@ -1,5 +1,8 @@
-package com.model;
+package com.listener;
 
+import com.model.ControleurFrame;
+import com.model.FormulaireFrame;
+import com.model.MenuFrame;
 import com.model.MenuFrame.Action;
 
 import javax.swing.*;
@@ -15,7 +18,7 @@ public class ActionValidation implements java.awt.event.ActionListener {
      *
      * @param frame
      */
-    ActionValidation(MenuFrame frame, ControleurFrame controleur) {
+    public ActionValidation(MenuFrame frame, ControleurFrame controleur) {
         this.menuFrame = frame;
         this.controleur = controleur;
 

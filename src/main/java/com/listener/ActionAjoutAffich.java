@@ -1,5 +1,9 @@
-package com.model;
+package com.listener;
 
+import com.model.AffichageListeFrame;
+import com.model.ControleurFrame;
+import com.model.FormulaireFrame;
+import com.model.MenuFrame;
 import com.model.MenuFrame.Action;
 
 import javax.swing.JButton;
@@ -15,7 +19,7 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
      *
      * @param frame
      */
-    ActionAjoutAffich(MenuFrame frame, ControleurFrame controleur) {
+    public ActionAjoutAffich(MenuFrame frame, ControleurFrame controleur) {
         this.menuFrame = frame;
         this.Controleur = controleur;
     }
