@@ -1,27 +1,27 @@
 package com.model;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
-import com.model.MenuFrame.action;
-
-public class ActionButtonChoix implements java.awt.event.ActionListener {
+public class ActionModifSuppri implements java.awt.event.ActionListener {
 
     private MenuFrame menuFrame;
-    private ControleurFrame controleurFrame;
 
-    public ActionButtonChoix(MenuFrame frame, ControleurFrame controlFrame) {
+    ActionModifSuppri(MenuFrame frame) {
         this.menuFrame = frame;
-        this.controleurFrame = controlFrame;
     }
 
-
+    /**
+     * Action du bouton Modifier et supprimer.
+     *
+     * @param e de type ActionEvent
+     */
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
-        
-        JButton bp = (JButton) e.getSource();                   // caste de la source
-        String nomButton = (String) bp.toString();              // recupération de la valeur du bp
+
+        JButton bp = (JButton) e.getSource();                   // caste de la source Modifier ou supprimer
+        String nomButton = (String) bp.getText();               // recupération de la valeur du bp
         this.menuFrame.getPanValidationUser().setVisible(true); // visibilité la combobox et du pb valider
-        this.menuFrame.setActionUser(nomButton);                // garde en memoire l'action utilisateur
+        this.menuFrame.setMemoireModifiSup(nomButton);          // garde en memoire l'action utilisateur
 
 
     }

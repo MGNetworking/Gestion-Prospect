@@ -6,21 +6,33 @@ import javax.swing.*;
 
 import com.metier.Societe.TypeSociete;
 
-public class ActionButtonSelectionSociete implements java.awt.event.ActionListener {
+public class ActionClientProspect implements java.awt.event.ActionListener {
 
     private MenuFrame menuFrame;
-    private ControleurFrame controleurFrame;
 
-    public ActionButtonSelectionSociete(MenuFrame frame, ControleurFrame controFrame) {
+    /**
+     * Ce Listener permet de gérer l"action utilisateur sur le menu,
+     * dans le but de sélectionné la parti client ou prospect.
+     *
+     * @param frame
+     * @param controFrame
+     */
+    ActionClientProspect(MenuFrame frame) {
         this.menuFrame = frame;
-        this.controleurFrame = controFrame;
+
     }
 
+    /**
+     * Evenement sur les bouton Client et prospect.
+     *
+     * @param e de type ActionEvent
+     * @throws NullPointerException si le choix ne trouve pas de correspondance
+     */
     @Override
-    public void actionPerformed(java.awt.event.ActionEvent e) throws RuntimeException {
+    public void actionPerformed(java.awt.event.ActionEvent e) throws NullPointerException {
 
         JButton bp = (JButton) e.getSource();   // récupération de l'évenement.
-        String nombp = (String) bp.toString();  // récupération du nom du bouton
+        String nombp = (String) bp.getText();  // récupération du nom du bouton
         String choix = null;                    // choix du client ou du prospect
 
         // contexte de choix Client
@@ -28,26 +40,33 @@ public class ActionButtonSelectionSociete implements java.awt.event.ActionListen
         this.menuFrame.getPanClientProspect().setVisible(false);
 
         // aiguillage par le nom du bouton client ou propect
-        if (TypeSociete.CLIENT.equals(nombp)) {
-            choix = Societe.TypeSociete.CLIENT.toString();
+        if (nombp.equals(TypeSociete.CLIENT.getTypeSociete())) {
+            choix = Societe.TypeSociete.CLIENT.getTypeSociete();
 
-        } else if (TypeSociete.PROSPECT.equals(nombp)) {
-            choix = TypeSociete.PROSPECT.toString();
+
+        } else if (nombp.equals(TypeSociete.PROSPECT.getTypeSociete())) {
+            choix = TypeSociete.PROSPECT.getTypeSociete();
+
         }
 
         // Initialisation des composants
         if (choix != null) {
+
             this.menuFrame.getLabelTitreMenuDeSelection().setText(choix);
+
+            // garde en memoire le choix client prospect
+            this.menuFrame.setMemoireMenuClientProspect(choix);
+
 
             // initialisation du model
             DefaultComboBoxModel model = new DefaultComboBoxModel(
-                this.controleurFrame.getListeChoixSociete(choix).toArray());
+                this.menuFrame.getControleur().getListeChoixSociete(choix).toArray());
 
-            model.setSelectedItem("Liste des " + choix);
+            model.setSelectedItem("Liste des " + choix +"S");
             this.menuFrame.getJComboBoxListeSociete().setModel(model);
 
         } else {
-            throw new RuntimeException("Erreur dans l'évenment du bouton client / prospect ");
+            throw new NullPointerException("Erreur dans l'évènement du bouton client / prospect "+ choix + " nom bp : " +nombp);
         }
 
     }

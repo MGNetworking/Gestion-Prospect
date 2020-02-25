@@ -8,6 +8,23 @@ import java.util.Comparator;
  */
 public abstract class Societe {
 
+    public enum TypeSociete{
+        CLIENT("CLIENT"),
+        PROSPECT("PROSPECT");
+
+        private String type;
+
+        TypeSociete(String typeSociete){
+            this.type = typeSociete;
+        }
+
+        public String getTypeSociete(){
+            return type;
+        }
+
+
+    }
+
     public enum DomainSociete {
 
         PUBLIC,

@@ -2,6 +2,15 @@ package com.model;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import com.metier.Client;
+import com.metier.Prospect;
+import com.metier.Societe;
+import com.model.MenuFrame.Action;
+import com.metier.Societe.TypeSociete;
+
+import java.util.List;
 
 /**
  * Cette classe permet l'affichage de la liste des clients ou des prospect.
@@ -10,36 +19,153 @@ import javax.swing.JTable;
  */
 public class AffichageListeFrame extends javax.swing.JFrame {
 
-    // ControleurFrame des Frames
-    private ControleurFrame controleur;
+    private String choixMemoireClientProspect;
 
     /**
-     * Constructeur implicite.
+     * Constructeur
      */
-    public AffichageListeFrame() {
+    public AffichageListeFrame(String memoireClientProspect) {
+
+        this.setVisible(true);
+        this.choixMemoireClientProspect = memoireClientProspect;
+
         initComponents();
-        
+
+        this.setModelAffichageListe(
+            iniDataModelAfficheList(this.choixMemoireClientProspect),
+            initTitreDataModelAffichageListe(this.choixMemoireClientProspect));
+
     }
 
     /**
-     * Modifie le controleur
+     * Permet d'initialiser le model de données du Jtable.
+     * <p>
+     * Pour le model :</p>
+     * <ul>
+     * <li>La matrice récupère les champs du client ou du prospect. </Li>
+     * <li> Le tableau de String récupère les noms  </li>
+     * </ul>
      *
-     * @param controleur de type ControleurFrame.
+     * @param dataSt  String matrice de données, Client ou Prospect.
+     * @param titreSt String tableau champs appartenant à client ou prospect.
      */
-    public void setControleur(ControleurFrame controleur) {
-        this.controleur = controleur;
+    public void setModelAffichageListe(String[][] dataSt, String[] titreSt) {
+
+        DefaultTableModel model = new DefaultTableModel(dataSt, titreSt) {
+
+            @Override // permet pas la modification
+            public boolean isCellEditable(int ligne, int colonne) {
+
+                return false;
+            }
+        };
+
+        // changement du model
+        this.panTbAffichageListe.setModel(model);
+
     }
 
-    public JLabel getjLabelTitreTableau() {
-        return jLabelTitreTableau;
+    /**
+     * Initialisation des titre du tableau d'affichage.
+     *
+     * @param choix String l'utilisateur choisi d'affiché le tableau des clients
+     *              ou des prospects.
+     * @return String tableau des entêtes du tableau.
+     */
+    public String[] initTitreDataModelAffichageListe(String choix) {
+
+        String[] finaleData = new String[12];
+
+        finaleData[0] = "Identifiant";
+        finaleData[1] = "RaisonSociale";
+        finaleData[2] = "Domain";
+        finaleData[3] = "N° adresse";
+        finaleData[4] = "Nom de rue";
+        finaleData[5] = "Code postale";
+        finaleData[6] = "Ville";
+        finaleData[7] = "Téléphone";
+        finaleData[8] = "Email";
+        finaleData[9] = "Commentaire";
+
+        // si c'est client
+        if (choix.equals(Societe.TypeSociete.CLIENT.getTypeSociete())) {
+            this.jLabelTitreTableau.setText("Tableau des Clients");
+            finaleData[10] = "Chiffre d'affaire";
+            finaleData[11] = "Nombre employer";
+
+            // si c'est prospect
+        } else if (choix.equals(TypeSociete.PROSPECT.getTypeSociete())) {
+
+            this.jLabelTitreTableau.setText("Tableau des Prospects");
+            finaleData[10] = "Date de prospection";
+            finaleData[11] = "Interet";
+
+        }
+        return finaleData;
     }
 
-    public void setjLabelTitreTableau(JLabel jLabelTitreTableau) {
-        this.jLabelTitreTableau = jLabelTitreTableau;
-    }
+    /**
+     * Initialise les données du jTable soit pour un Client soit pour un
+     * Prospect.
+     *
+     * @param chUser String choix utilisateur fait au menu du programme.
+     * @return String tableau à 2 dimention avec les données de soit Client ou
+     * soit prospect.
+     */
+    private String[][] iniDataModelAfficheList(String chUser) {
 
-    public JTable getjTableAffichage() {
-        return panTbAffichageListe;
+        // declaration d'une liste acceptant les liste Clients ou Prospects
+        List<? extends Societe> listeSociete = null;
+        // taille du tableau
+        int sizeArray = 0;
+        // flag entre client et prospect
+        boolean client = true;
+        // si c'est Client
+        if (chUser.equals(TypeSociete.CLIENT.getTypeSociete())) {
+
+            // TODO fair methode vers controleur
+            listeSociete = Client.getListeClient();
+            sizeArray = Client.getSizeListeClient();
+
+        } else if (chUser.equals(TypeSociete.PROSPECT.getTypeSociete())) {
+            client = false;
+            // TODO fair methode vers controleur
+            listeSociete = Prospect.getListePropect();
+            sizeArray = Prospect.getSizeListeProspect();
+        }
+
+        // Initialisation du tableau d'affichage
+        String[][] personnelle = new String[sizeArray][12];
+
+        // Pour chaque Client
+        for (int i = 0; i < sizeArray; i++) {
+
+            personnelle[i][0] = String.valueOf(listeSociete.get(i).getIdentifiant());
+            personnelle[i][1] = listeSociete.get(i).getRaisonSociale();
+            personnelle[i][2] = listeSociete.get(i).getDomainSociete().toString();
+            personnelle[i][3] = String.valueOf(listeSociete.get(i).getAdresse().getNumeroDeRueSt());
+            personnelle[i][4] = listeSociete.get(i).getAdresse().getNomRue();
+            personnelle[i][5] = listeSociete.get(i).getAdresse().getCodePost();
+            personnelle[i][6] = listeSociete.get(i).getAdresse().getVille();
+            personnelle[i][7] = listeSociete.get(i).getTelephone();
+            personnelle[i][8] = listeSociete.get(i).getAdresseEmail();
+            personnelle[i][9] = listeSociete.get(i).getCommentaire();
+
+            //si client
+            if (client) {
+                personnelle[i][10] = String.valueOf(Client.getListeClient().get(i).getChiffreAffaire());
+                personnelle[i][11] = String.valueOf(Client.getListeClient().get(i).getNombreEmployer());
+
+                // si prospect
+            } else {
+
+                personnelle[i][10] = Prospect.getListePropect().get(i).getDatePropect();
+                personnelle[i][11] = Prospect.getListePropect().get(i).getInteresse().toString();
+            }
+
+        }
+
+        return personnelle;
     }
 
     /**
@@ -70,61 +196,53 @@ public class AffichageListeFrame extends javax.swing.JFrame {
         jPanelTableauAffichage.setLayout(jPanelTableauAffichageLayout);
         jPanelTableauAffichageLayout.setHorizontalGroup(
             jPanelTableauAffichageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTableauAffichageLayout.setVerticalGroup(
             jPanelTableauAffichageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addContainerGap())
         );
 
         bpMenu.setText("Menu");
         bpMenu.setPreferredSize(new java.awt.Dimension(80, 32));
-        bpMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bpMenuActionPerformed(evt);
-            }
-        });
+        bpMenu.addActionListener(new ActionRetourMenu(this));
 
         jButton1.setText("Quitter");
         jButton1.setPreferredSize(new java.awt.Dimension(80, 32));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(new ActionQuitter());
 
         javax.swing.GroupLayout panFooterAffichageListeLayout = new javax.swing.GroupLayout(panFooterAffichageListe);
         panFooterAffichageListe.setLayout(panFooterAffichageListeLayout);
         panFooterAffichageListeLayout.setHorizontalGroup(
             panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
         );
         panFooterAffichageListeLayout.setVerticalGroup(
             panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panTbAffichageListe.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object[][]{
 
             },
-            new String [] {
+            new String[]{
 
             }
         ));
@@ -135,50 +253,32 @@ public class AffichageListeFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(512, 512, 512)
-                        .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(311, 752, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(512, 512, 512)
+                            .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(311, 752, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(171, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * Bouton menu, pour revenir au menu du programme.
-     *
-     * @param evt du type ActionEvent
-     */
-    private void bpMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpMenuActionPerformed
-        controleur.menuEvent(evt);
-    }//GEN-LAST:event_bpMenuActionPerformed
-    /**
-     * Bouton quitter, fait quitter le programme.
-     *
-     * @param evt du type ActionEvent
-     */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controleur.quitterEvent(evt);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bpMenu;

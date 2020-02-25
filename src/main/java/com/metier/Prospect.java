@@ -37,7 +37,7 @@ public class Prospect extends Societe {
      * Constructeur permet de créé un Prospect en phase de prospecion.
      *
      * @param raisonSt      String raison sociale du prospecter.
-     * @param domainSt      String domain de la société du prospecter.
+     * @param domainSt      DomainSociete domain de la société du prospecter.
      * @param numeroDeRueSt int numéro de l'adresse du prospecter.
      * @param nomRueSt      String nom de la rue du prospecter.
      * @param codePostSt    String code postale du prospecter.

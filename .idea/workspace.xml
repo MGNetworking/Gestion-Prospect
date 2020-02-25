@@ -2,14 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e5c699-c49d-4af8-be3a-2582563ac90a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionAjoutAffich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionAjoutAffich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionClientProspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionClientProspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionModifSuppri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionModifSuppri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionQuitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionQuitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionRetourMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionRetourMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ActionValideFormulaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ActionValideFormulaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="25" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -23,21 +41,29 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="majMetier" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ActionClientProspect.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ActionModifSuppri.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ActionRetourMenu.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ActionValideFormulaire.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ActionValidation.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ActionAjoutAffich.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" root0="SKIP_INSPECTION" />
@@ -61,11 +87,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet Java Maven" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2 projet Fabien/ecf-01-reverso-proposition" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -79,8 +105,21 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdresseTest.exceptionSetVilleCharTest">
-    <configuration name="AdresseTest.exceptionSetVilleCharTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.principale.Main" />
+      <module name="Gestion-Client-SGBDR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.principale.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdresseTest.exceptionSetVilleNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gestion-Client-SGBDR" />
       <extension name="coverage">
         <pattern>
@@ -90,13 +129,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
       <option name="MAIN_CLASS_NAME" value="com.metier.AdresseTest" />
-      <option name="METHOD_NAME" value="exceptionSetVilleCharTest" />
+      <option name="METHOD_NAME" value="exceptionSetVilleNullTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SocieteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProspectTest.testAdd (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gestion-Client-SGBDR" />
       <extension name="coverage">
         <pattern>
@@ -105,29 +144,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SocieteTest.exceptionDomainStPriveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gestion-Client-SGBDR" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.metier.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
-      <option name="METHOD_NAME" value="exceptionDomainStPriveTest" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.ProspectTest" />
+      <option name="METHOD_NAME" value="testAdd(int,int,int)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SocieteTest.excetionSetRaisonSocialeNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProspectTest.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gestion-Client-SGBDR" />
       <extension name="coverage">
         <pattern>
@@ -136,14 +160,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
-      <option name="METHOD_NAME" value="excetionSetRaisonSocialeNullTest" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.ProspectTest" />
+      <option name="METHOD_NAME" value="testAdd" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Societe.excetionSetRaisonSocialeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProspectTest.validSetDatePropectFormatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gestion-Client-SGBDR" />
       <extension name="coverage">
         <pattern>
@@ -152,8 +176,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.Societe" />
-      <option name="METHOD_NAME" value="excetionSetRaisonSocialeNull" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.ProspectTest" />
+      <option name="METHOD_NAME" value="validSetDatePropectFormatTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdresseTest.exceptionSetVilleCharTest" />
-        <item itemvalue="JUnit.Societe.excetionSetRaisonSocialeNull" />
-        <item itemvalue="JUnit.SocieteTest.excetionSetRaisonSocialeNullTest" />
-        <item itemvalue="JUnit.SocieteTest.exceptionDomainStPriveTest" />
-        <item itemvalue="JUnit.SocieteTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ProspectTest.testAdd (1)" />
+        <item itemvalue="JUnit.ProspectTest.testAdd" />
+        <item itemvalue="JUnit.ProspectTest.validSetDatePropectFormatTest" />
+        <item itemvalue="JUnit.AdresseTest.exceptionSetVilleNullTest" />
       </list>
     </recent_temporary>
   </component>
@@ -195,18 +219,24 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582226263150" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1582367427448">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582617652032">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582367427448" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617652032" />
+    <state x="574" y="122" width="592" height="567" key="#com.intellij.ide.util.MemberChooser" timestamp="1582551113493">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="122" width="592" height="567" key="#com.intellij.ide.util.MemberChooser/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582479808032" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582551113493" />
     <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1582361738914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361738914" />
-    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582361910900">
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582617599137">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361910900" />
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617599137" />
     <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582374827952">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -215,95 +245,165 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361917317" />
-    <state x="386" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582367804381">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582467558012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="386" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582367804381" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582467558012" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582394179670">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582394179670" />
-    <state width="1493" height="174" key="GridCell.Tab.0.bottom" timestamp="1582415404032">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1582627425420">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="174" key="GridCell.Tab.0.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582415404032" />
-    <state width="1493" height="132" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
-    <state width="1493" height="132" key="GridCell.Tab.0.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="174" key="GridCell.Tab.0.center" timestamp="1582415404031">
+    <state x="549" y="167" key="FileChooserDialogImpl/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582450228037" />
+    <state x="549" y="167" key="FileChooserDialogImpl/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582627425420" />
+    <state width="1493" height="66" key="GridCell.Tab.0.bottom" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="174" key="GridCell.Tab.0.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582415404031" />
-    <state width="1493" height="132" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
-    <state width="1493" height="132" key="GridCell.Tab.0.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="174" key="GridCell.Tab.0.left" timestamp="1582415404031">
+    <state width="1493" height="66" key="GridCell.Tab.0.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="79" key="GridCell.Tab.0.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708907" />
+    <state width="1493" height="66" key="GridCell.Tab.0.center" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="174" key="GridCell.Tab.0.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582415404031" />
-    <state width="1493" height="132" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
-    <state width="1493" height="132" key="GridCell.Tab.0.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="174" key="GridCell.Tab.0.right" timestamp="1582415404032">
+    <state width="1493" height="66" key="GridCell.Tab.0.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="79" key="GridCell.Tab.0.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708906" />
+    <state width="1493" height="66" key="GridCell.Tab.0.left" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="174" key="GridCell.Tab.0.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582415404032" />
-    <state width="1493" height="132" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582283056287" />
-    <state width="1493" height="132" key="GridCell.Tab.0.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582277395526" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1582370214902">
+    <state width="1493" height="66" key="GridCell.Tab.0.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582646533114" />
+    <state width="1493" height="79" key="GridCell.Tab.0.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708906" />
+    <state width="1493" height="66" key="GridCell.Tab.0.right" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1582370214902">
+    <state width="1493" height="66" key="GridCell.Tab.0.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="79" key="GridCell.Tab.0.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708907" />
+    <state width="1493" height="66" key="GridCell.Tab.1.bottom" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1582370214902">
+    <state width="1493" height="66" key="GridCell.Tab.1.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107102" />
+    <state width="1493" height="66" key="GridCell.Tab.1.center" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1582370214902">
+    <state width="1493" height="66" key="GridCell.Tab.1.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107101" />
+    <state width="1493" height="66" key="GridCell.Tab.1.left" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582370214902" />
-    <state x="277" y="55" key="SettingsEditor" timestamp="1582360777090">
+    <state width="1493" height="66" key="GridCell.Tab.1.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107101" />
+    <state width="1493" height="66" key="GridCell.Tab.1.right" timestamp="1582661278606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="55" key="SettingsEditor/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582360777090" />
+    <state width="1493" height="66" key="GridCell.Tab.1.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661278606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107101" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1582617845969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1582617845969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1582617845969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1582617845969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
+    <state x="277" y="55" key="SettingsEditor" timestamp="1582660762294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="55" key="SettingsEditor/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582660762294" />
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582278818469" />
     <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog" timestamp="1582377005223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582377005223" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582444622425">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1582628786025">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582444622425" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582270193555" />
+    <state width="498" height="446" key="SwitcherDM/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582628786025" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582657752493">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582657752493" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582615778177" />
     <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1582230737007">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582230737007" />
-    <state x="1913" y="28" width="854" height="1017" key="dock-window-1" timestamp="1582444705883">
+    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1582660718587">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582660718587" />
+    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617835614" />
+    <state x="1920" y="28" width="1051" height="811" maximized="true" key="dock-window-1" timestamp="1582657865961">
       <screen x="1920" y="28" width="1680" height="1010" />
     </state>
     <state x="2753" y="28" width="854" height="1017" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@-1680.28.1680.1000" timestamp="1582444638226" />
-    <state x="1913" y="28" width="854" height="1017" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582444705883" />
-    <state x="1920" y="0" width="874" height="811" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1582277836194" />
-    <state x="1920" y="0" width="874" height="811" key="dock-window-1/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582270242798" />
-    <state x="1920" y="248" width="970" height="353" key="dock-window-2" timestamp="1582398685976">
-      <screen x="1920" y="28" width="1680" height="1010" />
+    <state x="1920" y="28" width="1051" height="811" maximized="true" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582657865961" />
+    <state x="2806" y="-15" width="959" height="1047" maximized="true" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1582646528591" />
+    <state x="2806" y="-15" width="959" height="1047" key="dock-window-1/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582641783546" />
+    <state x="-1687" y="28" width="691" height="1017" key="dock-window-2" timestamp="1582661262440">
+      <screen x="-1680" y="28" width="1680" height="1000" />
     </state>
-    <state x="1920" y="248" width="970" height="353" key="dock-window-2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582398685976" />
+    <state x="-1687" y="28" width="691" height="1017" key="dock-window-2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661262440" />
+    <state x="413" y="83" width="773" height="825" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1582646525932" />
+    <state x="-996" y="0" width="1003" height="1047" key="dock-window-2/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582641783546" />
+    <state x="-1010" y="28" width="1017" height="1017" key="dock-window-3" timestamp="1582661262440">
+      <screen x="-1680" y="28" width="1680" height="1000" />
+    </state>
+    <state x="-1010" y="28" width="1017" height="1017" key="dock-window-3/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661262440" />
+    <state x="1913" y="0" width="974" height="1047" key="dock-window-3/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582549504707" />
+    <state x="1920" y="0" width="960" height="1040" key="dock-window-4" timestamp="1582615514910">
+      <screen x="1920" y="0" width="1920" height="1030" />
+    </state>
+    <state x="1920" y="0" width="960" height="1040" key="dock-window-4/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582615514910" />
     <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1582271552979">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="10" width="609" height="804" key="find.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582230986719" />
     <state x="463" y="10" width="609" height="804" key="find.popup/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582271552979" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1582386301682">
+    <state x="511" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1582553767320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582386301682" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1582230572380">
+    <state x="511" y="125" key="git4idea.branch.GitSmartOperationDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582553767320" />
+    <state x="426" y="187" key="run.anything.popup" timestamp="1582557151992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582230572380" />
+    <state x="426" y="187" key="run.anything.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582458864630" />
+    <state x="426" y="187" key="run.anything.popup/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582557151992" />
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1582467086684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582467086684" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java</url>
+          <line>252</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Gestion_Client$Main.ic" NAME="Main Coverage Results" MODIFIED="1582621107033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.Main.*</FILTER>
+    </SUITE>
   </component>
 </project>

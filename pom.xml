@@ -69,7 +69,7 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <mainClass>com.model.ControleurFrame</mainClass>
+                        <mainClass>com.principale.Main</mainClass>
                     </configuration>
                 </plugin>
                   <plugin>
