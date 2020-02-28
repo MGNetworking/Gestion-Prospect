@@ -1,14 +1,12 @@
 package com.listener;
 
 import com.model.AffichageListeFrame;
-import com.model.ControleurFrame;
+import com.controleur.ControleurFrame;
 import com.model.FormulaireFrame;
 import com.model.MenuFrame;
 import com.model.MenuFrame.Action;
 
 import javax.swing.JButton;
-
-import com.model.MenuFrame.Action;
 
 public class ActionAjoutAffich implements java.awt.event.ActionListener {
 
@@ -22,6 +20,7 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
     public ActionAjoutAffich(MenuFrame frame, ControleurFrame controleur) {
         this.menuFrame = frame;
         this.Controleur = controleur;
+
     }
 
     @Override

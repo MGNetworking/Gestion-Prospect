@@ -14,16 +14,11 @@ public class Client extends Societe {
     private int chiffreAffaire;
     private int nombreEmployer;
 
-    // Liste des Clients
-    private static List<Client> listeClient = new ArrayList<>(50);
-
     /**
      * Constructeur implicite.
      */
     public Client() {
         super();
-        // ajoute un user est donne un ID
-        setIdentifiant(Societe.addUser());
     }
 
     /**
@@ -98,41 +93,6 @@ public class Client extends Societe {
     }
 
     /**
-     * Permet d'ajoute un client à la liste
-     *
-     * @param client de type Client.
-     */
-    public static void addLisClient(Client client) {
-        listeClient.add(client);
-    }
-
-    /**
-     * la liste de la société.
-     *
-     * @return List qui contient la liste des clients.
-     */
-    public static List<Client> getListeClient() {
-        return listeClient;
-    }
-
-    /**
-     * Supprime un client de la liste.
-     *
-     * @param client de type Client.
-     */
-    public static void removeListeClient(Client client) {
-
-        listeClient.remove(client);
-    }
-
-    /**
-     * @return le taille de la liste Client.
-     */
-    public static int getSizeListeClient() {
-        return listeClient.size();
-    }
-
-    /**
      * Permet de calculée le ratio la moyen : Chiffre d'affaire / client.
      *
      * @param chiffreAffaire int le chiffre d'affaire de l'entreprise.
@@ -162,6 +122,8 @@ public class Client extends Societe {
 
     }
 
+    // todo créé des methode @Override pour tout les champs des Societe.
+
     /**
      * renvoie la raison Sociale.
      * @return de tyep string
@@ -169,16 +131,6 @@ public class Client extends Societe {
     @Override
     public String toString() {
         return this.getRaisonSociale();
-    }
-
-    /**
-     * Trie la liste avec avec object comparateur.
-     *
-     * @param list Objet de type list.
-     */
-    public static void trieClient(List<Client> list) {
-        Collections.sort(list, Societe.comparatorRaisonSociale);
-
     }
 
 }

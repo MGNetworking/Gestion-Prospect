@@ -2,6 +2,8 @@ package com.DAO;
 
 import com.metier.Societe;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Cette classe permet la création de manière générique les méthodes d'accés
@@ -11,8 +13,12 @@ import java.sql.Connection;
  */
 public abstract class DAO<type> {
 
-    // instance de la connection SGBD
-    protected Connection connection;
+
+    protected Connection connection;    // instance de la connection SGBD
+
+    DAO(Connection connec){
+        this.connection = connec;
+    }
 
     /**
      * Methode pour la création
@@ -44,4 +50,11 @@ public abstract class DAO<type> {
      * @return boolean
      */
     abstract type find(Societe societe);
+
+    /**
+     * Import tout les élements de la base de données.
+     * @return
+     */
+    abstract List<String> findAll() throws SQLException;
+
 }

@@ -2,6 +2,7 @@ package com.model;
 
 import javax.swing.*;
 
+import com.controleur.ControleurFrame;
 import com.listener.*;
 import com.metier.Client;
 import com.metier.Prospect;

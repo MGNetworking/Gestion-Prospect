@@ -1,5 +1,6 @@
 package com.model;
 
+import com.controleur.ControleurFrame;
 import com.exception.ExceptionPersonnaliser;
 import com.listener.ActionQuitter;
 import com.listener.ActionRetourMenu;
@@ -14,6 +15,8 @@ import com.metier.Prospect.Interet;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Cette classe permet la gestion du formulaire de modification de suppréssion
@@ -65,13 +68,13 @@ public class FormulaireFrame extends javax.swing.JFrame {
         initComboInteret();
 
 
-        if (memoireClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())){
+        if (memoireClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
             this.panProspect.setVisible(false);
-            this.labelTitreFormulaire.setText("Ajouté un "+ memoireClientProspect);
+            this.labelTitreFormulaire.setText("Ajouté un " + memoireClientProspect);
 
-        }else if (memoireClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())){
+        } else if (memoireClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
             this.panClient.setVisible(false);
-            this.labelTitreFormulaire.setText("Ajouté un "+ memoireClientProspect);
+            this.labelTitreFormulaire.setText("Ajouté un " + memoireClientProspect);
         }
         this.setVisible(true);
         this.affichageAjout();
@@ -254,9 +257,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                 // boite de dialogue choix oui 0 / non 1
                 int choix = JOptionPane.showConfirmDialog(null,
-                                    "southaitez vous ajouter ce client ",
-                                    "Ajouter", JOptionPane.YES_NO_OPTION);
-                if(choix==0){
+                    "southaitez vous ajouter ce client ",
+                    "Ajouter", JOptionPane.YES_NO_OPTION);
+                if (choix == 0) {
 
                     this.controleur.addClientControle(client);      // Ajoute à la liste le nouveaux Client
                     new MenuFrame(new ControleurFrame());
@@ -282,10 +285,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                 // propose de l'ajoute
                 int choix = JOptionPane.showConfirmDialog(null,
-                                    "southaitez vous ajouter ce client "
-                                    , "Ajouter", JOptionPane.YES_NO_OPTION);
+                    "southaitez vous ajouter ce client "
+                    , "Ajouter", JOptionPane.YES_NO_OPTION);
 
-                if(choix==0){
+                if (choix == 0) {
 
                     this.controleur.addProspectControl(prospect);       // Ajoute à la liste le nouveaux Client
                     new MenuFrame(new ControleurFrame());
@@ -293,7 +296,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 }
             }
 
-        }catch (IllegalArgumentException ill) {// Erreur de saisi d'entier dans unchamps de caractère
+        } catch (IllegalArgumentException ill) {// Erreur de saisi d'entier dans unchamps de caractère
             JOptionPane.showMessageDialog(null, "Erreur vous devez choisir le domain : PRIVE ou PUBLIC",
                 "Erreur de saisi Utilisateur ", JOptionPane.ERROR_MESSAGE);
 
@@ -310,6 +313,62 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 + excep.getMessage() + excep.getStackTrace());
         }
 
+    }
+
+
+    /**
+     * Envoie les données concernant le Client ou le prospect contenue dans la frame.
+     */
+    public List<String> ajouterSocieteSGBD() throws ExceptionPersonnaliser {
+
+        List<String> donnee = null;
+
+        // si c'est un client
+        if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
+
+            donnee = new ArrayList<>();
+            // recupération de composant
+            for (Component composant : this.getComponents()) {
+
+                // si le compant est un JTextField
+                if (composant instanceof JTextField) {
+
+                    // on exclu les éléments du prospect date de prospection
+                    if (!(composant.getName().equals(this.txDatePropection))) {
+                        donnee.add(((JTextField) composant).getText());
+                    }
+
+                }
+
+                // on exclu les élément prospect comboBox interet
+                if (!(composant.getName().equals(this.initComboInteret()))) {
+                    donnee.
+                } else if (composant instanceof JComboBox) {
+                    donnee.add(((JComboBox) composant).getSelectedItem().toString());
+                }
+
+            }
+
+            // si c'est un Prospect
+        } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
+
+            donnee = new ArrayList<>();
+            // recupération de composant
+            for (Component composant : this.getComponents()) {
+
+                // trie par JTextField
+                if (composant instanceof JTextField) {
+
+                    // on exclu les éléments du client : Domain , interet
+                    if (!(composant.getName().equals(txNombreEmployer) || composant.getName().equals(txNombreEmployer))) {
+                        donnee.add(((JTextField) composant).getText());
+                    }
+
+                }
+            }
+        }
+
+        return donnee;
     }
 
     /**

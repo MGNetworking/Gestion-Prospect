@@ -21,16 +21,11 @@ public class Prospect extends Societe {
     private String datePropect;
     private Interet interesse;
 
-    // La liste des Prospects
-    private static List<Prospect> listePropect = new ArrayList<>(50);
-
     /**
      * Constructeur par défaut sans paramétre.
      */
     public Prospect() {
         super();
-        // ajoute un user est donne un ID
-        setIdentifiant(addUser());
     }
 
     /**
@@ -57,9 +52,6 @@ public class Prospect extends Societe {
 
         this.setDatePropect(datePropectSt);
         this.setInteresse(interesseSt);
-
-        // ajoute un user est donne un ID
-        setIdentifiant(addUser());
     }
 
     /**
@@ -128,53 +120,9 @@ public class Prospect extends Societe {
 
     }
 
-    /**
-     * Permet d'ajouter un prospect à la liste.
-     *
-     * @param prospect de type Prospect.
-     */
-    public static void addListeProspect(Prospect prospect) {
-        listePropect.add(prospect);
-    }
-
-    /**
-     * La liste des prospects
-     *
-     * @return de type List, la liste des clients prospecter.
-     */
-    public static List<Prospect> getListePropect() {
-        return listePropect;
-    }
-
-    /**
-     * Supprime un prospect de la liste des prospect
-     *
-     * @param prospect de type prospect.
-     */
-    public static void removeListeProspect(Prospect prospect) {
-        listePropect.remove(prospect);
-    }
-
-    /**
-     * @return int la liste des Prospect
-     */
-    public static int getSizeListeProspect() {
-        return listePropect.size();
-    }
-
     @Override
     public String toString() {
         return this.getRaisonSociale();
-    }
-
-    /**
-     * Méthode qui permet le trie du liste contenant des objets de type Société.
-     *
-     * @param list de type list
-     */
-    public static void trieProspect(List<Prospect> list) {
-
-        Collections.sort(list, Societe.comparatorRaisonSociale);
     }
 
 }

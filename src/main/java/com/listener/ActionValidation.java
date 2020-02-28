@@ -1,6 +1,6 @@
 package com.listener;
 
-import com.model.ControleurFrame;
+import com.controleur.ControleurFrame;
 import com.model.FormulaireFrame;
 import com.model.MenuFrame;
 import com.model.MenuFrame.Action;

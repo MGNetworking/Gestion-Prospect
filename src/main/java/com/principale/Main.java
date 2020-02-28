@@ -3,7 +3,7 @@ package com.principale;
 import com.metier.Client;
 import com.metier.Prospect;
 import com.metier.Societe;
-import com.model.ControleurFrame;
+import com.controleur.ControleurFrame;
 import com.model.MenuFrame;
 
 import java.awt.*;
