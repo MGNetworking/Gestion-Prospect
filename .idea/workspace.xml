@@ -2,29 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e5c699-c49d-4af8-be3a-2582563ac90a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/ConnectionSingletonDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DAO/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO_Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO_Prospect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestio Client script insert .sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client .bpd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client .mcd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client .mpd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client V1.0  .bcd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client V1.0  .mcd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client V1.0 .bpd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client V1.0 .mpd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de donnees/Gestion client script des tables .sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/Client_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/ConnectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DAO/Prospect_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionQuitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionQuitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ControleurFrame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,13 +41,52 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="25" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/DAO/Client_DAO.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+            <state relative-caret-position="720">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="760">
+              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="920">
+              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="900">
+              <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-324">
+              <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -71,6 +114,7 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" root0="SKIP_INSPECTION" />
@@ -82,16 +126,35 @@
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/DAO/Client_DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/principale/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" />
       </list>
     </option>
   </component>
@@ -103,10 +166,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="15" />
-    <option name="y" value="-10" />
-    <option name="width" value="1750" />
-    <option name="height" value="980" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1532" />
+    <option name="height" value="974" />
   </component>
   <component name="ProjectId" id="1Y4ZPv5KpDB0mBqgIJKHtZhWJ3E" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -116,6 +179,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,67 +217,19 @@
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="controleur" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="listener" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="metier" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="principale" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -258,7 +274,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Maven.Gestion-Client [exec:java]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.principale.Main" />
       <module name="Gestion-Client-SGBDR" />
@@ -336,6 +352,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Gestion-Client [exec:java]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="exec:java" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.AdresseTest.exceptionSetVilleNullTest" />
+      <item itemvalue="JUnit.ProspectTest.testAdd" />
+      <item itemvalue="JUnit.ProspectTest.testAdd (1)" />
+      <item itemvalue="JUnit.ProspectTest.validSetDatePropectFormatTest" />
+      <item itemvalue="Maven.Gestion-Client [exec:java]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -356,46 +405,57 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582203806803</updated>
-      <workItem from="1582879289001" duration="73000" />
+      <workItem from="1582879289001" duration="7767000" />
+      <workItem from="1582893088907" duration="21323000" />
+      <workItem from="1582965633966" duration="837000" />
+      <workItem from="1582989424576" duration="630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73000" />
+    <option name="totallyTimeSpent" value="30557000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19261745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.4362606" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" side_tool="true" visible="true" weight="0.3295302" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3895184" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="7" weight="0.44563758" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,28 +645,181 @@
     </state>
     <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582467086684" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java</url>
-          <line>258</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Gestion_Client$Main.ic" NAME="Main Coverage Results" MODIFIED="1582621107033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.Main.*</FILTER>
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/DAO/Client_DAO.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/javax/swing/JFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+        <state relative-caret-position="300">
+          <caret line="670" column="20" selection-start-line="670" selection-start-column="11" selection-end-line="670" selection-end-column="20" />
+          <folding>
+            <element signature="e#23469#23470#0" expanded="true" />
+            <element signature="e#23522#23523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding>
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionQuitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/javax/swing/JComboBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="312" selection-start-line="312" selection-end-line="312" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="155" column="79" lean-forward="true" selection-start-line="155" selection-start-column="79" selection-end-line="155" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="81" column="67" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6960">
+          <caret line="368" column="53" selection-start-line="368" selection-start-column="53" selection-end-line="368" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <element signature="e#4627#4628#0" expanded="true" />
+            <element signature="e#4673#4674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-324">
+          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
         </state>
       </provider>
     </entry>

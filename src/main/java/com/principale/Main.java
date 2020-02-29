@@ -5,10 +5,7 @@ import com.metier.Prospect;
 import com.metier.Societe;
 import com.controleur.ControleurFrame;
 import com.model.MenuFrame;
-
 import java.awt.*;
-
-import static com.DAO.ConnectionSingletonDAO.getConnection;
 
 public class Main {
 
@@ -37,13 +34,13 @@ public class Main {
             "Rue d en haut", "68000", "colmar", "05.17.88.59.11",
             "Sylvie.Touchot@gmail.com", "10/06/1985", Prospect.Interet.OUI, "Tu fait des fautes d'orthographe méme quand tu parle, alors fait gaffe ;) ");
 
-        Client.addLisClient(client1);
+/*        Client.addLisClient(client1);
         Client.addLisClient(client2);
 
         Prospect.addListeProspect(prospect1);
         Prospect.addListeProspect(prospect2);
 
-        getConnection(); // connection SGBD
+        getConnection(); // connection SGBD*/
 
         EventQueue.invokeLater(new Runnable() {
 

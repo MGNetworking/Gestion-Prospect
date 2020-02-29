@@ -36,7 +36,7 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
 
         } else if (Action.AFFICHAGE_LISTE.getAction().equals(nomButton)) {
             // TODO a faire implementation de la frame et faire un New MenuFrame pour le retour
-            new AffichageListeFrame(this.menuFrame.getMemoireClientProspect());
+            new AffichageListeFrame(this.menuFrame.getMemoireClientProspect(), this.Controleur);
         }
 
         this.menuFrame.dispose();   //  libaire les resources de la Frame menu

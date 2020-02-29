@@ -1,6 +1,7 @@
 package com.metier;
 
 import com.exception.ExceptionPersonnaliser;
+
 import java.util.Comparator;
 
 /**
@@ -8,17 +9,17 @@ import java.util.Comparator;
  */
 public abstract class Societe {
 
-    public enum TypeSociete{
+    public enum TypeSociete {
         CLIENT("CLIENT"),
         PROSPECT("PROSPECT");
 
         private String type;
 
-        TypeSociete(String typeSociete){
+        TypeSociete(String typeSociete) {
             this.type = typeSociete;
         }
 
-        public String getTypeSociete(){
+        public String getTypeSociete() {
             return type;
         }
 
@@ -31,20 +32,13 @@ public abstract class Societe {
         PRIVE;
     }
 
-
-    // constante d'incrémantation
-    private static final int INDIC = 1;
-
-    // compteur du nombre de personne
-    private static int compteur = 0;
-
     // variable contenant les informations sur les entreprises.
     private int identifiant = 0;
     private String raisonSociale;
     private DomainSociete domainSociete;
     private Adresse listAdresse = null;
     private String telephone;
-    private String adresseEmail;
+    private String email;
     private String commentaire;
 
     /**
@@ -56,6 +50,7 @@ public abstract class Societe {
     /**
      * Constructeur princiaple ,participe à la création : client / prospect.
      *
+     * @param identifiant   int identifiant de la societe
      * @param raisonSt      String les raisons sociale.
      * @param domainSt      DomainSociete DomainSociete.
      * @param numeroAd      int le numero d'adresse de la société.
@@ -67,7 +62,7 @@ public abstract class Societe {
      * @param commantaireSt String commentaire de la société.
      * @throws ExceptionPersonnaliser gére les exception de la Classe Société.
      */
-    public Societe(String raisonSt, DomainSociete domainSt, int numeroAd, String nomRueSt,
+    public Societe(int identifiant,String raisonSt, DomainSociete domainSt, int numeroAd, String nomRueSt,
                    String codePostSt, String villeSt, String telephoneSt, String emailSt,
                    String commantaireSt) throws ExceptionPersonnaliser {
 
@@ -78,58 +73,27 @@ public abstract class Societe {
         this.setAdresseSt(numeroAd, nomRueSt, codePostSt, villeSt);
 
         this.setTelephone(telephoneSt);
-        this.setAdresseEmail(emailSt);
+        this.setEmail(emailSt);
         this.setCommentaire(commantaireSt);
 
     }
 
     /**
-     * Identifiant de la société.
+     * renvoi l'identifiant
      *
-     * @return int de l'identifiant de la société.
+     * @return de type int
      */
     public int getIdentifiant() {
-        return identifiant;
+        return this.identifiant;
     }
 
     /**
-     * Ajoute un ID a un utilisateur.
+     * modifi l'indentifiant
      *
-     * @param valeur int valeur ID.
+     * @param id de type int
      */
-    protected void setIdentifiant(int valeur) {
-        this.identifiant = valeur;
-    }
-
-    /**
-     * Compteur du nombre de personne créée.
-     *
-     * @return le nombre de personnes.
-     */
-    public static int getCompteur() {
-        return compteur;
-    }
-
-    /**
-     * Modificateur du nombre de personnes créées.
-     *
-     * @param compteur
-     */
-    private static void setCompteur(int compteurSt) {
-        Societe.compteur = compteurSt;
-    }
-
-    /**
-     * Ajoute l'identifiant à un utilisateur et d'incrémenter le compteur du
-     * nombre de personne.
-     *
-     * @return int de la valeur du nouvelle indic.
-     */
-    protected static int addUser() {
-
-        int valueConteur = Societe.getCompteur() + INDIC;
-        Societe.setCompteur(valueConteur);
-        return valueConteur;
+    public void setIdentifiant(int id) {
+        this.identifiant = id;
     }
 
     /**
@@ -244,9 +208,9 @@ public abstract class Societe {
         }
 
         // format du numéro de téléphone
-        if (!(telephone.matches("[0-9-.]{14}|[0-9- ]{14}"))) {
+/*        if (!(telephone.matches("[0-9-.]{14}|[0-9- ]{14}"))) {
             throw new ExceptionPersonnaliser("Téléphone : le format du numéro ne pas comforme");
-        }
+        }*/
 
         this.telephone = telephone;
     }
@@ -256,8 +220,8 @@ public abstract class Societe {
      *
      * @return String de l'adresse email.
      */
-    public String getAdresseEmail() {
-        return adresseEmail;
+    public String getEmail() {
+        return email;
     }
 
     /**
@@ -267,7 +231,7 @@ public abstract class Societe {
      * @throws ExceptionPersonnaliser si le champ est vide ou si le format n'a
      *                                pas été pas respecter.
      */
-    public void setAdresseEmail(String adresseEmailSt) throws ExceptionPersonnaliser {
+    public void setEmail(String adresseEmailSt) throws ExceptionPersonnaliser {
 
         if (adresseEmailSt.isEmpty()) {
             throw new ExceptionPersonnaliser("Adresse Email : l'adresse Email doit étre renseigné ");
@@ -278,7 +242,7 @@ public abstract class Societe {
             throw new ExceptionPersonnaliser("Adresse Email : entré une adresse eamil valide");
         }
 
-        this.adresseEmail = adresseEmailSt;
+        this.email = adresseEmailSt;
 
     }
 
@@ -298,6 +262,7 @@ public abstract class Societe {
         this.commentaire = commentaireSt;
     }
 
+    // TODO a déplacer
     /**
      * Objet qui permet la comparaison entre deux nom d'entreprise.
      */

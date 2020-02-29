@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.DAO;
+package com.persistance;
 
 import com.metier.Societe;
 import com.metier.Prospect;
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class Prospect_DAO extends DAO<Prospect> {
 
-    Prospect_DAO(Connection connec) {
+    public Prospect_DAO(Connection connec) {
         super(connec);
     }
 
@@ -41,7 +41,7 @@ public class Prospect_DAO extends DAO<Prospect> {
     }
 
     @Override
-    public List<String> findAll()throws SQLException {
+    public List<Societe> findAll()throws SQLException {
         return null;
     }
 

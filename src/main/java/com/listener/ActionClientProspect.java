@@ -7,6 +7,8 @@ import javax.swing.*;
 import com.metier.Societe.TypeSociete;
 import com.model.MenuFrame;
 
+import java.sql.SQLException;
+
 public class ActionClientProspect implements java.awt.event.ActionListener {
 
     private MenuFrame menuFrame;
@@ -61,13 +63,14 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
 
             // initialisation du model
             DefaultComboBoxModel model = new DefaultComboBoxModel(
-                this.menuFrame.getControleur().getListeChoixSociete(choix).toArray());
+                        this.menuFrame.getControleur().getListeSocieteControleur(choix).toArray());
 
-            model.setSelectedItem("Liste des " + choix +"S");
+
+
             this.menuFrame.getJComboBoxListeSociete().setModel(model);
 
         } else {
-            throw new NullPointerException("Erreur dans l'évènement du bouton client / prospect "+ choix + " nom bp : " +nombp);
+            throw new NullPointerException("Erreur dans l'évènement du bouton client / prospect " + choix + " nom bp : " + nombp);
         }
 
     }

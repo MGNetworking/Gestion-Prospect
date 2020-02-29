@@ -1,4 +1,4 @@
-package com.DAO;
+package com.persistance;
 
 import com.metier.Societe;
 import java.sql.Connection;
@@ -55,6 +55,6 @@ public abstract class DAO<type> {
      * Import tout les élements de la base de données.
      * @return
      */
-    abstract List<String> findAll() throws SQLException;
+    abstract List<Societe> findAll() throws SQLException;
 
 }

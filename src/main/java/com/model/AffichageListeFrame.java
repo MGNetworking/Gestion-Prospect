@@ -2,6 +2,7 @@ package com.model;
 
 import javax.swing.table.DefaultTableModel;
 
+import com.controleur.ControleurFrame;
 import com.listener.ActionQuitter;
 import com.listener.ActionRetourMenu;
 import com.metier.Client;
@@ -9,6 +10,7 @@ import com.metier.Prospect;
 import com.metier.Societe;
 import com.metier.Societe.TypeSociete;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,20 +21,22 @@ import java.util.List;
 public class AffichageListeFrame extends javax.swing.JFrame {
 
     private String choixMemoireClientProspect;
+    private ControleurFrame controleur;
 
     /**
      * Constructeur
      */
-    public AffichageListeFrame(String memoireClientProspect) {
+    public AffichageListeFrame(String memoireClientProspect, ControleurFrame controleur) {
 
         this.setVisible(true);
         this.choixMemoireClientProspect = memoireClientProspect;
+        this.controleur = controleur;
 
         initComponents();
 
         this.setModelAffichageListe(
-            iniDataModelAfficheList(this.choixMemoireClientProspect),
-            initTitreDataModelAffichageListe(this.choixMemoireClientProspect));
+                iniDataModelAfficheList(this.choixMemoireClientProspect),
+                initTitreDataModelAffichageListe(this.choixMemoireClientProspect));
 
     }
 
@@ -113,25 +117,30 @@ public class AffichageListeFrame extends javax.swing.JFrame {
      */
     private String[][] iniDataModelAfficheList(String chUser) {
 
-        // declaration d'une liste acceptant les liste Clients ou Prospects
-        List<? extends Societe> listeSociete = null;
-        // taille du tableau
-        int sizeArray = 0;
-        // flag entre client et prospect
-        boolean client = true;
-        // si c'est Client
-        if (chUser.equals(TypeSociete.CLIENT.getTypeSociete())) {
+        List<? extends Societe> listeSociete = null;// liste acceptant les liste Clients ou Prospects
+        int sizeArray = 0;                          // taille du tableau
+        boolean flagClient = true;                  // flag entre client et prospect
 
-            // TODO fair methode vers controleur
-            listeSociete = Client.getListeClient();
-            sizeArray = Client.getSizeListeClient();
 
-        } else if (chUser.equals(TypeSociete.PROSPECT.getTypeSociete())) {
-            client = false;
-            // TODO fair methode vers controleur
-            listeSociete = Prospect.getListePropect();
-            sizeArray = Prospect.getSizeListeProspect();
+        try {// si c'est Client
+
+            if (chUser.equals(TypeSociete.CLIENT.getTypeSociete())) {
+
+                listeSociete = this.controleur.getListeSocieteControleur(this.choixMemoireClientProspect);
+                sizeArray = listeSociete.size();
+
+            } else if (chUser.equals(TypeSociete.PROSPECT.getTypeSociete())) {
+
+                flagClient = false;
+                listeSociete = this.controleur.getListeSocieteControleur(this.choixMemoireClientProspect);
+                sizeArray = listeSociete.size();
+
+            }
+
+        } catch (RuntimeException runt) {
+            System.out.println("Runtime exception");
         }
+
 
         // Initialisation du tableau d'affichage
         String[][] personnelle = new String[sizeArray][12];
@@ -147,19 +156,20 @@ public class AffichageListeFrame extends javax.swing.JFrame {
             personnelle[i][5] = listeSociete.get(i).getAdresse().getCodePost();
             personnelle[i][6] = listeSociete.get(i).getAdresse().getVille();
             personnelle[i][7] = listeSociete.get(i).getTelephone();
-            personnelle[i][8] = listeSociete.get(i).getAdresseEmail();
+            personnelle[i][8] = listeSociete.get(i).getEmail();
             personnelle[i][9] = listeSociete.get(i).getCommentaire();
 
-            //si client
-            if (client) {
-                personnelle[i][10] = String.valueOf(Client.getListeClient().get(i).getChiffreAffaire());
-                personnelle[i][11] = String.valueOf(Client.getListeClient().get(i).getNombreEmployer());
 
-                // si prospect
-            } else {
 
-                personnelle[i][10] = Prospect.getListePropect().get(i).getDatePropect();
-                personnelle[i][11] = Prospect.getListePropect().get(i).getInteresse().toString();
+            if (flagClient) {   //si client
+
+                personnelle[i][10] = String.valueOf(((Client) listeSociete.get(i)).getChiffreAffaire());
+                personnelle[i][11] = String.valueOf(((Client) listeSociete.get(i)).getNombreEmployer());
+
+            } else {            // si prospect
+
+                personnelle[i][10] = ((Prospect) listeSociete.get(i)).getDatePropect();
+                personnelle[i][11] = ((Prospect) listeSociete.get(i)).getInteresse().toString();
             }
 
         }
@@ -194,18 +204,18 @@ public class AffichageListeFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelTableauAffichageLayout = new javax.swing.GroupLayout(jPanelTableauAffichage);
         jPanelTableauAffichage.setLayout(jPanelTableauAffichageLayout);
         jPanelTableauAffichageLayout.setHorizontalGroup(
-            jPanelTableauAffichageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jPanelTableauAffichageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTableauAffichageLayout.setVerticalGroup(
-            jPanelTableauAffichageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addContainerGap())
+                jPanelTableauAffichageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelTableauAffichageLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabelTitreTableau, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         bpMenu.setText("Menu");
@@ -219,31 +229,31 @@ public class AffichageListeFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout panFooterAffichageListeLayout = new javax.swing.GroupLayout(panFooterAffichageListe);
         panFooterAffichageListe.setLayout(panFooterAffichageListeLayout);
         panFooterAffichageListeLayout.setHorizontalGroup(
-            panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
+                panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
         panFooterAffichageListeLayout.setVerticalGroup(
-            panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panFooterAffichageListeLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panFooterAffichageListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(bpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panTbAffichageListe.setModel(new javax.swing.table.DefaultTableModel(
-            new Object[][]{
+                new Object[][]{
 
-            },
-            new String[]{
+                },
+                new String[]{
 
-            }
+                }
         ));
         panTbAffichageListe.setPreferredSize(new java.awt.Dimension(1920, 750));
         jScrollPane1.setViewportView(panTbAffichageListe);
@@ -251,29 +261,29 @@ public class AffichageListeFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(512, 512, 512)
-                            .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(311, 752, Short.MAX_VALUE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap())
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(512, 512, 512)
+                                                .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(311, 752, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(171, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanelTableauAffichage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(panFooterAffichageListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         pack();

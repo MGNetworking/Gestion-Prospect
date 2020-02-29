@@ -31,6 +31,7 @@ public class Prospect extends Societe {
     /**
      * Constructeur permet de créé un Prospect en phase de prospecion.
      *
+     * @param identifiant   int identifiant de la societe
      * @param raisonSt      String raison sociale du prospecter.
      * @param domainSt      DomainSociete domain de la société du prospecter.
      * @param numeroDeRueSt int numéro de l'adresse du prospecter.
@@ -43,12 +44,13 @@ public class Prospect extends Societe {
      * @param interesseSt   Interet intéret du prospecter.
      * @param commentaireSt String commentaire du prospect
      */
-    public Prospect(String raisonSt, DomainSociete domainSt,
+    public Prospect(int identifiant, String raisonSt, DomainSociete domainSt,
                     int numeroDeRueSt, String nomRueSt, String codePostSt,
                     String villeSt, String telephoneSt, String emailSt, String datePropectSt, Interet interesseSt, String commentaireSt) {
 
         // constructeur de la classe Societe.
-        super(raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt, villeSt, telephoneSt, emailSt, commentaireSt);
+        super(identifiant,raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
+                villeSt, telephoneSt, emailSt, commentaireSt);
 
         this.setDatePropect(datePropectSt);
         this.setInteresse(interesseSt);

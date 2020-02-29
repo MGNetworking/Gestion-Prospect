@@ -24,6 +24,7 @@ public class Client extends Societe {
     /**
      * Constructeur principale, permet de créé un client d'entreprise.
      *
+     * @param identifiant      int identifiant de la societe
      * @param raisonSt         String raison sociale du client
      * @param domainSt         DomainSociete domain de la société du client
      * @param numeroDeRueSt    int numéro de l'adresse du client
@@ -37,18 +38,17 @@ public class Client extends Societe {
      * @param nombreEmployerST int le nombre d'employés.
      * @throws ExceptionPersonnaliser si les champs ne sont pas respectées
      */
-    public Client(String raisonSt, DomainSociete domainSt, int numeroDeRueSt,
+    public Client(int identifiant, String raisonSt, DomainSociete domainSt, int numeroDeRueSt,
                   String nomRueSt, String codePostSt, String villeSt,
                   String telephoneSt, String emailSt, String commentaireSt,
                   int chiffreAffaireSt, int nombreEmployerST) throws ExceptionPersonnaliser {
 
         // constructeur de la classe Societe.
-        super(raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt, villeSt, telephoneSt, emailSt, commentaireSt);
+        super(identifiant ,raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
+                villeSt, telephoneSt, emailSt, commentaireSt);
 
         this.calculRatioClientEmployer(chiffreAffaireSt, nombreEmployerST);
 
-        // ajoute un user est donne un ID
-        setIdentifiant(Societe.addUser());
 
     }
 
@@ -121,8 +121,6 @@ public class Client extends Societe {
         this.setNombreEmployer(nEmloyer);
 
     }
-
-    // todo créé des methode @Override pour tout les champs des Societe.
 
     /**
      * renvoie la raison Sociale.
