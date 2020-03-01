@@ -25,16 +25,16 @@ import javax.swing.*;
 public class ControleurFrame {
 
     private Client_DAO client_dao;
-    private Prospect_DAO Prospect_dao;
+    private Prospect_DAO prospect_dao;
 
     /**
      * Cette est l'interface entre les données est l'application
      */
     public ControleurFrame() {
 
-        // Acces au base de donnéées
+        // Acces au base de données
         this.client_dao = new Client_DAO(ConnectionDAO.getConnectionPostgres());        // instance avec connection SGBD
-        this.Prospect_dao = new Prospect_DAO(ConnectionDAO.getConnectionPostgres());
+        this.prospect_dao = new Prospect_DAO(ConnectionDAO.getConnectionPostgres());
 
     }
     /**
@@ -63,16 +63,28 @@ public class ControleurFrame {
 
 
             try{
+                System.out.println("Client ");
                 list = this.client_dao.findAll();
 
             }catch (SQLException sql){
-                System.out.println("Erreur dans getListeSocieteControleur() " + sql.getMessage());
+                System.out.println("Erreur dans getListeSocieteControleur() client " + sql.getMessage());
             }
 
 
 
         } else if (choixSociete.equals(TypeSociete.PROSPECT.getTypeSociete())) {
-            // TODO a implementer list = this.Prospect_dao.findAll();
+
+            try{
+
+                list = this.prospect_dao.findAll();
+
+                System.out.println("Prospect findAll ");
+            }catch (SQLException sql){
+                System.out.println("Erreur dans getListeSocieteControleur() prospect" + sql.getMessage());
+            }catch (Exception e){
+                System.out.println("Erreur exec prospect" + e.getMessage());
+            }
+
         } else {
             throw new RuntimeException("Erreur sur le renvoi de la liste");
         }
@@ -108,39 +120,4 @@ public class ControleurFrame {
         }
     }
 
-
-    public void getCLientSGBD() {
-        String LISTE_CLIENT = "select s.id_societe , raisonsociale , \"domain\" , telephone ,email , a.numero" +
-                ", a.rue , a.codepostale, a.ville, chiffreaffaire, nombreemployer " +
-                "from gestion.societe s " +
-                "inner join gestion.adresse a ON s.id_adresse = a.id_adresse " +
-                "inner join gestion.client  c on c.id_societe = s.id_societe;";
-
-        String req = "select * from gestion.societe;";
-
-        try {
-            PreparedStatement prepStat = ConnectionDAO.getConnectionPostgres().prepareStatement(req);
-
-            ResultSet resultSet = prepStat.executeQuery();
-
-            while (resultSet.next()) {// passe le 1er curseur avec le next
-
-
-                System.out.println("Values : " + resultSet.getString("id_societe"));
-                System.out.println("Values : " + resultSet.getString("id_adresse"));
-                System.out.println("Values : " + resultSet.getString("raisonsociale"));
-                System.out.println("Values : " + resultSet.getString("domain"));
-                System.out.println("Values : " + resultSet.getString("telephone"));
-                System.out.println("Values : " + resultSet.getString("email"));
-
-            }
-
-            //Client.addLisClient();
-
-
-        } catch (SQLException sqle) {
-            System.err.format("SQL Error [State: %s]\n Message : %s",
-                    sqle.getSQLState(), sqle.getMessage());
-        }
-    }
 }

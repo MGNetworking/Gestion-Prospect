@@ -23,13 +23,22 @@ public abstract class Societe {
             return type;
         }
 
-
     }
 
     public enum DomainSociete {
 
-        PUBLIC,
-        PRIVE;
+        PUBLIC("PUBLIC"),
+        PRIVE("PRIVE");
+
+        private String domain;
+
+        DomainSociete(String domain){
+            this.domain = domain;
+        }
+
+        public String getDomainst(){
+            return this.domain;
+        }
     }
 
     // variable contenant les informations sur les entreprises.

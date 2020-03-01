@@ -2,6 +2,7 @@ package com.listener;
 
 import com.metier.Societe;
 
+import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 
 import com.metier.Societe.TypeSociete;
@@ -60,17 +61,19 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
             // garde en memoire le choix client prospect
             this.menuFrame.setMemoireMenuClientProspect(choix);
 
-
-            // initialisation du model
-            DefaultComboBoxModel model = new DefaultComboBoxModel(
+            try{
+                // initialisation du model
+                DefaultComboBoxModel model = new DefaultComboBoxModel(
                         this.menuFrame.getControleur().getListeSocieteControleur(choix).toArray());
+                System.out.println("prospect apres getList ");
+                this.menuFrame.getJComboBoxListeSociete().setModel(model);
+
+            }catch (Exception exc){
+                // TODO voir les logg
+                System.out.println("Erreur : " + exc.getMessage());
+            }
 
 
-
-            this.menuFrame.getJComboBoxListeSociete().setModel(model);
-
-        } else {
-            throw new NullPointerException("Erreur dans l'évènement du bouton client / prospect " + choix + " nom bp : " + nombp);
         }
 
     }

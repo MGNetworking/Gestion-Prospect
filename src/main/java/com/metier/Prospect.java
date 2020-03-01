@@ -29,7 +29,7 @@ public class Prospect extends Societe {
     }
 
     /**
-     * Constructeur permet de créé un Prospect en phase de prospecion.
+     * Constructeur permet de créé un Prospect en phase de prospection.
      *
      * @param identifiant   int identifiant de la societe
      * @param raisonSt      String raison sociale du prospecter.
@@ -82,9 +82,9 @@ public class Prospect extends Societe {
         if (datePropectSt.isEmpty())
             throw new ExceptionPersonnaliser("Date de prospection : la date est vide ");
 
-        // vérification format
+/*        // vérification format
         if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
-            throw new ExceptionPersonnaliser("Date de prospection : la date entré n'est pas comforme ");
+            throw new ExceptionPersonnaliser("Date de prospection : la date entré n'est pas comforme ");*/
 
 
         this.datePropect = datePropectSt;

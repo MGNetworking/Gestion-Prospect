@@ -24,7 +24,7 @@ import java.awt.*;
  */
 public class FormulaireFrame extends javax.swing.JFrame {
 
-    private Action actionTypeMenu;
+    private String actionTypeMenu;
     private Societe societe;
     private String memoirechoixClientProspect;
     private ControleurFrame controleur;
@@ -36,12 +36,12 @@ public class FormulaireFrame extends javax.swing.JFrame {
      * @param actionTypeMenu de type Enumeration
      */
     public FormulaireFrame(Societe societe, Action actionTypeMenu, ControleurFrame controleur) {
-
+        initComponents();
         this.societe = societe;
-        this.actionTypeMenu = actionTypeMenu;
+        this.actionTypeMenu = actionTypeMenu.getAction();
         this.controleur = controleur;
 
-        initComponents();
+
         initComboDomain();
         initComboInteret();
 
@@ -56,12 +56,12 @@ public class FormulaireFrame extends javax.swing.JFrame {
      * @param actionTypeMenu        de type Enumeration
      */
     public FormulaireFrame(String memoireClientProspect, Action actionTypeMenu, ControleurFrame controleur) {
-
+        initComponents();
         this.controleur = controleur;
         this.memoirechoixClientProspect = memoireClientProspect;
-        this.actionTypeMenu = actionTypeMenu;
+        this.actionTypeMenu = actionTypeMenu.getAction();
 
-        initComponents();
+
         initComboDomain();
         initComboInteret();
 
@@ -91,7 +91,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
      * @see com.model.MenuFrame.Action
      * @return une enumeration Action
      */
-    public Action getActionTypeMenu() {
+    public String getActionTypeMenu() {
         return this.actionTypeMenu;
     }
 
@@ -120,19 +120,17 @@ public class FormulaireFrame extends javax.swing.JFrame {
      */
     private void masqueChamps(boolean editableFields) {
 
-        // Pour chaque composant du formulaire
-        for (Component composant : this.getComponents()) {
+        for (Component component : this.panFormulaire.getComponents()) {  // Pour chaque composant du formulaire
 
-            // si c'est un Jtext Field
-            if (composant instanceof JTextField) {
-
-                // caste pour recupérer le champs
-                JTextField jtf = (JTextField) composant;
-
-                // le rendre inéditable
-                jtf.setEditable(editableFields);
+            if ( component instanceof JTextField) {                       // si c'est un Jtext Field
+                JTextField jtf = (JTextField) component;                  // caste pour recupérer le champs
+                jtf.setEditable(false);                                   // le rendre inéditable
             }
         }
+        // Element seule prospect et client a masqué
+        this.txDatePropection.setEnabled(editableFields);
+        this.txNombreEmployer.setEnabled(editableFields);
+        this.txChiffreAffaire.setEnabled(editableFields);
     }
 
     /**
@@ -162,7 +160,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         // affiche les champs masqués
         this.masqueChamps(true);
-        this.bpValiderFormulaire.setText(this.actionTypeMenu.getAction());
+        this.bpValiderFormulaire.setText(this.actionTypeMenu);
         this.txID.setEditable(false);
         this.txTelephone.setToolTipText("Format : xx.xx.xx.xx.xx");
         this.txEmail.setToolTipText("Format : xxxx.xxxx@gmail.com");
@@ -202,20 +200,22 @@ public class FormulaireFrame extends javax.swing.JFrame {
         String titrePage = "Titre";
 
         // si on modifier
-        if (this.actionTypeMenu.equals(Action.MODIFICATION.getAction())) {
 
-            // change le titre de la page
+        if (Action.MODIFICATION.getAction().equals(this.actionTypeMenu)) {
+
+            this.masqueChamps(true); // réaffiche les chhamps de la page
+            // change le titre de la page et valeur du bouton
             titrePage = Action.MODIFICATION.toString() + " : " + societe.getClass().getSimpleName();
             this.bpValiderFormulaire.setText(Action.MODIFICATION.toString());
 
-            // réaffiche les chhamps de la page
-            this.masqueChamps(true);
-            // si on supprime
-        } else if (this.actionTypeMenu.equals(Action.SUPPRESSION.getAction())) {
 
+            // si on supprime
+        } else if (Action.SUPPRESSION.getAction().equals(this.actionTypeMenu)) {
+
+            this.masqueChamps(false); // réaffiche les chhamps de la page
             titrePage = Action.SUPPRESSION.toString() + " : " + societe.getClass().getSimpleName();
             this.bpValiderFormulaire.setText(Action.SUPPRESSION.toString());
-            this.masqueChamps(false);
+
         }
 
         // champs commun au client et prospect.
@@ -269,7 +269,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
             if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
                 // création d'un Client
-                Client client = new Client(this.txRaison.getText(),
+                Client client = new Client(
+                        Integer.parseInt(this.txID.getText()),
+                        this.txRaison.getText(),
                         DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()),
                         Integer.parseInt(this.txNumeroAd.getText()),
                         this.txNomRue.getText(),
@@ -288,7 +290,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 if (choix == 0) {
 
                     this.controleur.addSocieteControleur(client);      // Ajoute à la liste le nouveaux Client
-                    new MenuFrame(new ControleurFrame());
+                    new MenuFrame(this.controleur);
                     this.dispose();
                 }
 
@@ -297,7 +299,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
             } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
                 // Création d'un prospect
-                Prospect prospect = new Prospect(this.txRaison.getText(),
+                Prospect prospect = new Prospect(
+                        Integer.parseInt(this.txID.getText()),
+                        this.txRaison.getText(),
                         DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()),
                         Integer.parseInt(this.txNumeroAd.getText()),
                         this.txNomRue.getText(),
@@ -317,7 +321,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 if (choix == 0) {
 
                     this.controleur.addSocieteControleur(prospect);       // Ajoute à la liste le nouveaux Client
-                    new MenuFrame(new ControleurFrame());
+                    new MenuFrame(this.controleur);
                     this.dispose();
                 }
             }
@@ -362,13 +366,13 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                 this.controleur.deleteSocieteControle((Client) this.societe);
                 this.dispose();                             // après suppression, quitte le formulaire
-                new MenuFrame(new ControleurFrame());       // creation d'un Frame Menu
+                new MenuFrame(this.controleur);       // creation d'un Frame Menu
 
             } else if (this.societe instanceof Prospect) {
 
                 this.controleur.deleteSocieteControle((Prospect) this.societe);
                 this.dispose();                             // après suppression, quitte le formulaire
-                new MenuFrame(new ControleurFrame());       // creation d'un Frame Menu
+                new MenuFrame(this.controleur);       // creation d'un Frame Menu
 
             }
         }
@@ -378,6 +382,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
      * Modifie les attributs d'un client ou d'un prospect.
      */
     public void modificationSociete() {
+
 
         try {
             // recupération du choix utilisateur.
@@ -407,7 +412,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                         Integer.parseInt(this.txChiffreAffaire.getText()),
                         Integer.parseInt(this.txNombreEmployer.getText()));
 
-
+                // TODO le renvoier a la base de données par le controleur
             } else if (societe instanceof Prospect) {       // partie Prospect
 
                 Prospect prospect = (Prospect) societe;
@@ -418,13 +423,15 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                 prospect.setDatePropect(this.txDatePropection.getText());
                 prospect.setInteresse(Interet.valueOf(this.comboInteresset.getSelectedItem().toString()));
+
+                // TODO le renvoier a la base de données par le controleur
             }
 
             // Si la modification a été réalisée avec succès, un message sera affiché
             JOptionPane.showMessageDialog(null,
                     "Modification effectuée sur le client",
                     "Modification", JOptionPane.INFORMATION_MESSAGE);
-            new MenuFrame(new ControleurFrame());
+            new MenuFrame(this.controleur);
             this.dispose();
 
             // erreur de saisi d'entier dans un champs de caractère
@@ -827,7 +834,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         labelCommentaireClient.setText("Commentaire :");
 
-        bpValiderFormulaire.setText(this.actionTypeMenu.getAction());
+        bpValiderFormulaire.setText(this.actionTypeMenu);
         bpValiderFormulaire.setMaximumSize(new java.awt.Dimension(69, 32));
         bpValiderFormulaire.setMinimumSize(new java.awt.Dimension(69, 32));
         bpValiderFormulaire.setName("valider"); // NOI18N

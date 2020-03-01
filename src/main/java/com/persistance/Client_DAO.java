@@ -14,17 +14,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import com.metier.Societe.DomainSociete;
 
 /**
  * @author Maxime
  */
 public class Client_DAO extends DAO<Client> {
 
-    private String LISTE_CLIENT = "select s.id_societe , raisonsociale , \"domain\" , telephone ,email , a.numero" +
-            ", a.rue , a.codepostale, a.ville, chiffreaffaire, nombreemployer " +
-            "from gestion.societe s " +
-            "inner join gestion.adresse a ON s.id_adresse = a.id_adresse " +
-            "inner join gestion.client  c on c.id_societe = s.id_societe;";
+    private String LISTE_CLIENT = "select s.societe_id , raison_sociale , \"domain\" , telephone ,email , a.numero, a.rue , a.cd_postale, a.ville, chiffre_affaire, employer_nb , s.commentaire\n" +
+            "      from gestion.societe s " +
+            "            inner join gestion.adresse a ON s.societe_id = a.societe_id" +
+            "            inner join gestion.client  c on c.societe_id = s.societe_id;";
 
 
     /**
@@ -61,43 +61,39 @@ public class Client_DAO extends DAO<Client> {
     public List<Societe> findAll() throws SQLException, NumberFormatException {
 
         List<Societe> listClient = new ArrayList<>();
-
-
-        // prepare la connection avec des parametres SQL
-        PreparedStatement pst = this.connection.prepareStatement(LISTE_CLIENT);
-
-        ResultSet rst = pst.executeQuery(); // recupération de la requette
-
-    int i = 0;
         try {
+
+        // prepare une reqette de type select a la base de données
+        PreparedStatement pst = this.connection.prepareStatement(LISTE_CLIENT);
+        ResultSet rst = pst.executeQuery(); // récupére le resultat de la requette
+
             while (rst.next()) {
+
+                // créer un client à chaque itération
                 listClient.add(new Client(
-                        Integer.parseInt(   rst.getString("id_societe")),
-                                            rst.getString("raisonsociale"),
-                        Integer.parseInt(   rst.getString("numero"),
-                                            rst.getString("rue"),
-                                            rst.getString("codepostale"),
-                                            rst.getString("ville"),
-                                            rst.getString("telephone"),
-                                            rst.getString("email"),
-                        Societe.DomainSociete.valueOf(rst.getString("domain")),
-                        );
-
-                cl.setTelephone();
-                cl.setEmail();
-                cl.setAdresseSt(),
-                        ,
-                        ,
-                        );
-
-                cl.calculRatioClientEmployer(Integer.parseInt(rst.getString("chiffreaffaire")),
-                        Integer.parseInt(rst.getString("nombreemployer")));
+                        Integer.parseInt(rst.getString("societe_id")),
+                        rst.getString("raison_sociale"),
+                        DomainSociete.valueOf(rst.getString("domain")),
+                        Integer.parseInt(rst.getString("numero")),
+                        rst.getString("rue"),
+                        rst.getString("cd_postale"),
+                        rst.getString("ville"),
+                        rst.getString("telephone"),
+                        rst.getString("email"),
+                        rst.getString("commentaire"),
+                        Integer.parseInt(rst.getString("chiffre_affaire")),
+                        Integer.parseInt(rst.getString("employer_nb"))
+                ));
             }
 
-
-
         } catch (SQLException sql) {
-            throw  new SQLException("FindAll " + sql.getMessage());
+
+            System.err.format("SQL Error [State: %s]\n Message : %s",
+                    sql.getSQLState(), sql.getMessage());
+            throw new SQLException("FindAll " + sql.getMessage());
+
+        }catch (Exception e) {
+            throw new SQLException("FindAll " + e.getMessage());
 
         }
 
