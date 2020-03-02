@@ -41,19 +41,13 @@ public class ActionValidation implements java.awt.event.ActionListener {
 
             // choix = modifier / supprimer
             if (this.menuFrame.getMemoModifSup().equals(Action.MODIFICATION.getAction())) {
-
-                new FormulaireFrame(this.menuFrame.getChoixComboBoxClientProspect(),
-                                                                Action.MODIFICATION, this.controleur);
+                new FormulaireFrame(this.menuFrame.getChoixComboBoxClientProspect(),Action.MODIFICATION, this.controleur);
                 this.menuFrame.dispose();     //  libaire les resources de la Frame menu
 
             } else if (this.menuFrame.getMemoModifSup().equals(Action.SUPPRESSION.getAction())) {
-
-                new FormulaireFrame(this.menuFrame.getChoixComboBoxClientProspect(),
-                                                                 Action.SUPPRESSION, this.controleur);
+                new FormulaireFrame(this.menuFrame.getChoixComboBoxClientProspect(),Action.SUPPRESSION, this.controleur);
                 this.menuFrame.dispose();     //  libaire les resources de la Frame menu
             }
-
-
         }
 
     }

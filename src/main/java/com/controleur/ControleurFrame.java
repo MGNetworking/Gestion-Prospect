@@ -1,22 +1,27 @@
 package com.controleur;
 
+import javax.swing.*;
+import java.util.List;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+
+import com.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionDAO;
+import com.metier.Societe.TypeSociete;
 
 import com.metier.Prospect;
-import com.model.MenuFrame;
-import com.persistance.Client_DAO;
-import com.exception.ExceptionPersonnaliser;
-import com.metier.Client;
-import com.metier.Societe.TypeSociete;
 import com.metier.Societe;
+import com.metier.Client;
+
+import com.persistance.Client_DAO;
 import com.persistance.ConnectionDAO;
 import com.persistance.Prospect_DAO;
 
-import javax.swing.*;
+import com.model.MenuFrame;
+
+
 
 
 /**
@@ -54,34 +59,29 @@ public class ControleurFrame {
      * @param choixSociete de type String
      * @return un objet de type List
      */
-    public List<Societe> getListeSocieteControleur(String choixSociete)  {
+    public List<Societe> getListeSocieteControleur(String choixSociete) {
 
-        List list = null;
+        List listSt = null;
 
         // En fonction du choix renvoie la liste des Client ou prospect
         if (choixSociete.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
-
-            try{
-                System.out.println("Client ");
-                list = this.client_dao.findAll();
-
-            }catch (SQLException sql){
-                System.out.println("Erreur dans getListeSocieteControleur() client " + sql.getMessage());
+            try {
+                listSt = this.client_dao.findAll();
+                // todo cree un indic pour cleint et prospect qui permet de donnée un id a la création du prochain
+            } catch (SQLException sql) {
+                System.err.format("SQL Error [State: %s]\n Message : %s",
+                        sql.getSQLState(), sql.getMessage());
             }
-
-
 
         } else if (choixSociete.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
-            try{
-
-                list = this.prospect_dao.findAll();
-
-                System.out.println("Prospect findAll ");
-            }catch (SQLException sql){
-                System.out.println("Erreur dans getListeSocieteControleur() prospect" + sql.getMessage());
-            }catch (Exception e){
+            try {
+                listSt = this.prospect_dao.findAll();
+            } catch (SQLException sql) {
+                System.err.format("SQL Error [State: %s]\n Message : %s",
+                        sql.getSQLState(), sql.getMessage());
+            } catch (Exception e) {
                 System.out.println("Erreur exec prospect" + e.getMessage());
             }
 
@@ -89,7 +89,7 @@ public class ControleurFrame {
             throw new RuntimeException("Erreur sur le renvoi de la liste");
         }
 
-        return list;
+        return listSt;
     }
 
     /**
@@ -97,14 +97,17 @@ public class ControleurFrame {
      *
      * @param st de type Societe.
      */
-    public void addSocieteControleur(Societe st) {
+    public boolean addSocieteControleur(Societe st)throws SQLException, ExceptionDAO, NumberFormatException {
+        // todo revoyer le boolean et créé une boite de dialogue pour la confirmation
+        boolean controle = false;
 
         if (st instanceof Client) {
+            controle =  client_dao.create((Client) st);
 
         } else if (st instanceof Prospect) {
-
+            controle = prospect_dao.create((Prospect) st);
         }
-
+        return controle;
     }
 
     /**
@@ -113,9 +116,23 @@ public class ControleurFrame {
      * @param Societe
      */
     public void deleteSocieteControle(Societe st) {
+        // todo revoyer le boolean et créé une boite de dialogue pour la confirmation
         if (st instanceof Client) {
+            client_dao.delete((Client) st);
 
         } else if (st instanceof Prospect) {
+            prospect_dao.create((Prospect) st);
+        }
+    }
+
+    public void updateSocieteControleur(Societe st) {
+        // todo revoyer le boolean et créé une boite de dialogue pour la confirmation
+
+        if (st instanceof Client) {
+            client_dao.update((Client) st);
+
+        } else if (st instanceof Prospect) {
+            prospect_dao.update((Prospect) st);
 
         }
     }

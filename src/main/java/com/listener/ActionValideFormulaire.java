@@ -20,7 +20,7 @@ public class ActionValideFormulaire implements ActionListener {
     }
 
     /**
-     * Cette Evenement gére l'action sur le bouton valide de la frame Formulaire/
+     * Cette Evenement gére l'action sur le bouton valide de la frame Formulaire
      *
      * @param e de type ActionEvent
      */
@@ -28,6 +28,7 @@ public class ActionValideFormulaire implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String nomBp = (String) ((JButton) e.getSource()).getText();
+
 
         if (nomBp.equals(Action.MODIFICATION.getAction())) {
             this.formulaireFrame.modificationSociete();
@@ -37,8 +38,7 @@ public class ActionValideFormulaire implements ActionListener {
 
         } else if (nomBp.equals(Action.AJOUT.getAction())) {
 
-            // this.formulaireFrame.ajouterSociete();
-            this.controleur.addSocieteControleur( this.formulaireFrame.getSociete());
+            this.formulaireFrame.ajouterSociete();
         }
 
     }

@@ -15,6 +15,7 @@ import java.util.List;
 import java.sql.Types.*;
 import com.metier.Prospect.Interet;
 import com.metier.Societe.DomainSociete;
+import org.omg.CORBA.PRIVATE_MEMBER;
 
 /**
  *
@@ -27,6 +28,15 @@ public class Prospect_DAO extends DAO<Prospect> {
             "      from gestion.societe s \n" +
             "            inner join gestion.adresse a ON s.societe_id = a.societe_id " +
             "            inner join gestion.prospect  p on p.societe_id = s.societe_id;";
+
+    private String LISTE_SOCIETE ="insert into gestion.societe (raison_sociale,\"domain\",telephone,email,commentaire) " +
+            "values(?,?,?,?,?);";
+
+    private String INSERT_ADRESSE = "insert into gestion.adresse (societe_id ,cd_postale , numero , rue , ville )" +
+            "values(?,?,?,?,?);";
+
+    private String INSERT_CLIENT = "insert into prospect (societe_id ,date_prospection ,interet ) " +
+            "values (?,?,?);";
 
     public Prospect_DAO(Connection connec) {
         super(connec);

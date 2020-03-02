@@ -26,7 +26,7 @@ public abstract class DAO<type> {
      * @param objet
      * @return boolean
      */
-    abstract boolean create(type objet);
+    abstract boolean create(type objet) throws SQLException;
 
     /**
      * Méthode pour la suppréssion.

@@ -1,5 +1,7 @@
 package com.listener;
 
+import com.metier.Client;
+import com.metier.Prospect;
 import com.metier.Societe;
 
 import javax.sound.midi.SysexMessage;
@@ -7,8 +9,10 @@ import javax.swing.*;
 
 import com.metier.Societe.TypeSociete;
 import com.model.MenuFrame;
+import org.omg.CORBA.SystemException;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ActionClientProspect implements java.awt.event.ActionListener {
 
@@ -60,12 +64,11 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
 
             // garde en memoire le choix client prospect
             this.menuFrame.setMemoireMenuClientProspect(choix);
-
             try{
                 // initialisation du model
                 DefaultComboBoxModel model = new DefaultComboBoxModel(
                         this.menuFrame.getControleur().getListeSocieteControleur(choix).toArray());
-                System.out.println("prospect apres getList ");
+
                 this.menuFrame.getJComboBoxListeSociete().setModel(model);
 
             }catch (Exception exc){

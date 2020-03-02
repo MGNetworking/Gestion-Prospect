@@ -9,46 +9,15 @@ import java.util.Comparator;
  */
 public abstract class Societe {
 
-    public enum TypeSociete {
-        CLIENT("CLIENT"),
-        PROSPECT("PROSPECT");
-
-        private String type;
-
-        TypeSociete(String typeSociete) {
-            this.type = typeSociete;
-        }
-
-        public String getTypeSociete() {
-            return type;
-        }
-
-    }
-
-    public enum DomainSociete {
-
-        PUBLIC("PUBLIC"),
-        PRIVE("PRIVE");
-
-        private String domain;
-
-        DomainSociete(String domain){
-            this.domain = domain;
-        }
-
-        public String getDomainst(){
-            return this.domain;
-        }
-    }
 
     // variable contenant les informations sur les entreprises.
-    private int identifiant = 0;
-    private String raisonSociale;
+    private int identifiant;
+    private String raisonSociale = "";
     private DomainSociete domainSociete;
     private Adresse listAdresse = null;
-    private String telephone;
-    private String email;
-    private String commentaire;
+    private String telephone = "";
+    private String email = "";
+    private String commentaire = "";
 
     /**
      * Constructeur implicite.
@@ -71,10 +40,11 @@ public abstract class Societe {
      * @param commantaireSt String commentaire de la société.
      * @throws ExceptionPersonnaliser gére les exception de la Classe Société.
      */
-    public Societe(int identifiant,String raisonSt, DomainSociete domainSt, int numeroAd, String nomRueSt,
+    public Societe(int identifiant, String raisonSt, DomainSociete domainSt, int numeroAd, String nomRueSt,
                    String codePostSt, String villeSt, String telephoneSt, String emailSt,
                    String commantaireSt) throws ExceptionPersonnaliser {
 
+        this.setIdentifiant(identifiant);
         this.setRaisonSociale(raisonSt);
         this.setDomainSociete(domainSt);
 
@@ -126,17 +96,16 @@ public abstract class Societe {
 
         // variable null
         if (raisonsocialeST == null)
-            throw new NullPointerException("variable raison sociale vide ");
+            throw new NullPointerException("Raison Sociale : variable raison sociale vide ");
 
 
         // si le champs est vide, lève un exception
         if (raisonsocialeST.isEmpty())
-            throw new ExceptionPersonnaliser("Raison Sociale : Le champs doit être saisi");
+            throw new ExceptionPersonnaliser("Raison Sociale : Le champs vide");
 
 
         // Passe en grand caractére la première lettre de la raison sociale
         if (raisonsocialeST.matches("[a-z]{1,}")) {
-
             raisonsocialeST = raisonsocialeST.replaceFirst((raisonsocialeST.charAt(0) + ""), (raisonsocialeST.charAt(0) + "").toUpperCase());
         }
 
@@ -161,11 +130,13 @@ public abstract class Societe {
      */
     public void setDomainSociete(DomainSociete domainSt) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (domainSt == null)
-            throw new NullPointerException("Variable domain Societe Null");
+        if (domainSt == null) {
+            throw new NullPointerException("Domain societe : Variable domain Societe Null");
+        }
 
-        if (!(domainSt.equals(DomainSociete.PUBLIC) | domainSt.equals(DomainSociete.PRIVE)))
-            throw new ExceptionPersonnaliser("Erreur sur Domain Societe PRIVE ou PUBLIC ");
+        if (!(domainSt.equals(DomainSociete.PUBLIC) | domainSt.equals(DomainSociete.PRIVE))) {
+            throw new ExceptionPersonnaliser("Erreur sur le Domain Societe PRIVE ou PUBLIC " + domainSt);
+        }
 
         this.domainSociete = domainSt;
 
@@ -283,5 +254,59 @@ public abstract class Societe {
         }
 
     };
+
+    //******************************* parti enumération
+
+    public enum ExceptionSociete {
+
+        EMPTY_RAISONSOCIALE,
+        MATCH_RAISONSOCIALE,
+        DOMAIN_PUBLIC,
+        DOMAIN_PRIVE,
+        EMPTY_TELEPHONE,
+        MATCH_TELEPHONE,
+        EMPTY_EMAIL,
+        MATCH_EMAIL,
+
+    }
+
+    /**
+     * Type de clientèle
+     */
+    public enum TypeSociete {
+        CLIENT("CLIENT"),
+        PROSPECT("PROSPECT");
+
+        private String type;
+
+        TypeSociete(String typeSociete) {
+            this.type = typeSociete;
+        }
+
+        public String getTypeSociete() {
+            return type;
+        }
+
+    }
+
+    /**
+     * Secteur d'activité des entreprise
+     */
+    public enum DomainSociete {
+
+        PUBLIC("PUBLIC"),
+        PRIVE("PRIVE");
+
+        private String domain;
+
+        DomainSociete(String domain) {
+            this.domain = domain;
+        }
+
+        public String getDomainst() {
+            return this.domain;
+        }
+    }
+
 
 }

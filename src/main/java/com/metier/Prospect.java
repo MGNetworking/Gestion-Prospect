@@ -11,12 +11,7 @@ import java.util.Collections;
  */
 public class Prospect extends Societe {
 
-    public enum Interet {
 
-        OUI,
-        NON;
-
-    }
 
     private String datePropect;
     private Interet interesse;
@@ -127,4 +122,13 @@ public class Prospect extends Societe {
         return this.getRaisonSociale();
     }
 
+    /**
+     *
+     */
+    public enum Interet {
+
+        OUI,
+        NON;
+
+    }
 }

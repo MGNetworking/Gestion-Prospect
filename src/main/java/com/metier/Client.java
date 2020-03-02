@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.exception.ExceptionPersonnaliser;
+
 import java.util.Collections;
 
 /**
@@ -16,6 +17,11 @@ public class Client extends Societe {
 
     /**
      * Constructeur implicite.
+     * Ce constructeur posséde une méthode calcul ratio qui prend en charge
+     * le chiffre d'affaire et le nombre d'employés.
+     * L'utilisateur de ce constructeur doit utilise la méthode :
+     * calculRatioClientEmployer(int chiffreAffaire, int nEmloyer)
+     * pour ajouter les valeurs liées chiffres d'affaires et le nombre d'employés.
      */
     public Client() {
         super();
@@ -44,7 +50,7 @@ public class Client extends Societe {
                   int chiffreAffaireSt, int nombreEmployerST) throws ExceptionPersonnaliser {
 
         // constructeur de la classe Societe.
-        super(identifiant ,raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
+        super(identifiant, raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
                 villeSt, telephoneSt, emailSt, commentaireSt);
 
         this.calculRatioClientEmployer(chiffreAffaireSt, nombreEmployerST);
@@ -101,7 +107,7 @@ public class Client extends Societe {
      * @throws ArithmeticException    dans le cas d'une dividion par zero.
      */
     public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser,
-        ArithmeticException {
+            ArithmeticException {
 
         // vérifaction du nombre d'emplyer
         if (nEmloyer == 0) {
@@ -124,6 +130,7 @@ public class Client extends Societe {
 
     /**
      * renvoie la raison Sociale.
+     *
      * @return de tyep string
      */
     @Override

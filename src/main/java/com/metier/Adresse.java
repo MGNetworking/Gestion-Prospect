@@ -9,6 +9,19 @@ import com.exception.ExceptionPersonnaliser;
  */
 public class Adresse {
 
+    public enum ExceptionType {
+
+        NUMERO_RUE_INF_0,
+        EMPTY_NOM_RUE,
+        MATCH_NOM_RUE,
+        EMPTY_CD_POSTALE,
+        MACTH_CD_POSTALE,
+        EMPTY_NOM_VILLE,
+        MATCH_NOM_VILLE,
+
+        EXCEPTION_TYPE() {}
+    }
+
     private int numeroDeRueSt;
     private String nomRue;
     private String codePost;
@@ -54,7 +67,7 @@ public class Adresse {
     public void setNumeroDeRueSt(int numeroDeRueSt) throws ExceptionPersonnaliser {
 
         if (numeroDeRueSt <= 0)
-            throw new ExceptionPersonnaliser("Numéro rue <= 0");
+            throw new ExceptionPersonnaliser("Numéro rue <= 0", ExceptionType.NUMERO_RUE_INF_0);
 
 
         this.numeroDeRueSt = numeroDeRueSt;
@@ -78,15 +91,20 @@ public class Adresse {
      */
     public void setNomRue(String nomRue) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (nomRue == null)
+        if (nomRue == null) {
             throw new NullPointerException("nom de la rue = null ");
+        }
 
-        if (nomRue.isEmpty())
-            throw new ExceptionPersonnaliser("Non de la rue : vous devez entrer le noms de la rue");
+
+        if (nomRue.isEmpty()) {
+            throw new ExceptionPersonnaliser("Non de la rue vide", ExceptionType.EMPTY_NOM_RUE);
+        }
+
 
         // permet de verifié le format du nom de la rue
+        // todo les accents ne passe pas le é par exemple
         if (!(nomRue.matches("[a-z \'A-Z]*"))) {
-            throw new ExceptionPersonnaliser("Non de la rue : le nom de la rue doit contenir des lettres");
+            throw new ExceptionPersonnaliser("Non de la rue : contient des chiffres", ExceptionType.MATCH_NOM_RUE);
         }
 
         this.nomRue = nomRue;
@@ -110,16 +128,19 @@ public class Adresse {
      */
     public void setCodePost(String codePost) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (codePost == null)
+        if (codePost == null) {
             throw new NullPointerException("code postale Null");
+        }
 
-        if (codePost.isEmpty())
-            throw new ExceptionPersonnaliser("Code Postale : Vous devez entrer le code postale");
+        if (codePost.isEmpty()) {
+            throw new ExceptionPersonnaliser("Code Postale : vide ", ExceptionType.EMPTY_CD_POSTALE);
+        }
 
 
-        if (!(codePost.matches("^[0-9]{1}[1-9]{1}[0-9]{3}") | codePost.matches("^[1-9]{1}[0-9]{4}")))
-            throw new ExceptionPersonnaliser("Code Postale : Le format : " + codePost + " n'est pas bon");
-
+        if (!(codePost.matches("^[0-9]{1}[1-9]{1}[0-9]{3}") | codePost.matches("^[1-9]{1}[0-9]{4}"))) {
+            throw new ExceptionPersonnaliser("Code Postale : Le format non respecté ",
+                    ExceptionType.MACTH_CD_POSTALE);
+        }
 
         this.codePost = codePost;
     }
@@ -142,15 +163,17 @@ public class Adresse {
      */
     public void setVille(String ville) throws ExceptionPersonnaliser, NullPointerException {
 
-        if (ville == null)
+        if (ville == null){
             throw new NullPointerException("nom de la ville = null");
+        }
 
-        if (ville.isEmpty())
-            throw new ExceptionPersonnaliser("Ville : vous devez entrer le nom de la ville");
+        if (ville.isEmpty()){
+            throw new ExceptionPersonnaliser("Erreur Ville : vide ", ExceptionType.EMPTY_NOM_VILLE);
+        }
 
-
-        if (ville.matches("[a-zA-Z]{1,2}"))
-            throw new ExceptionPersonnaliser("Ville : la ville doit comporter au minimum trois lettres");
+        if (ville.matches("[a-zA-Z]{1,2}")) {
+            throw new ExceptionPersonnaliser("Ville : format ville 3 caractére non respecter ", ExceptionType.MATCH_NOM_VILLE);
+        }
 
 
         this.ville = ville;

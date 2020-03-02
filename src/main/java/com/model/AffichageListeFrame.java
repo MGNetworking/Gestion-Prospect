@@ -27,17 +27,18 @@ public class AffichageListeFrame extends javax.swing.JFrame {
      * Constructeur
      */
     public AffichageListeFrame(String memoireClientProspect, ControleurFrame controleur) {
+        initComponents();
 
-        this.setVisible(true);
         this.choixMemoireClientProspect = memoireClientProspect;
         this.controleur = controleur;
 
-        initComponents();
+
 
         this.setModelAffichageListe(
                 iniDataModelAfficheList(this.choixMemoireClientProspect),
                 initTitreDataModelAffichageListe(this.choixMemoireClientProspect));
 
+        this.setVisible(true);
     }
 
     /**

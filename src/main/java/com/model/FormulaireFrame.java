@@ -15,6 +15,7 @@ import com.metier.Prospect.Interet;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 
 /**
  * Cette classe permet la gestion du formulaire de modification de suppréssion
@@ -41,7 +42,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
         this.actionTypeMenu = actionTypeMenu.getAction();
         this.controleur = controleur;
 
-
         initComboDomain();
         initComboInteret();
 
@@ -61,10 +61,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
         this.memoirechoixClientProspect = memoireClientProspect;
         this.actionTypeMenu = actionTypeMenu.getAction();
 
-
         initComboDomain();
         initComboInteret();
-
 
         if (memoireClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
             this.panProspect.setVisible(false);
@@ -74,8 +72,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
             this.panClient.setVisible(false);
             this.labelTitreFormulaire.setText("Ajouté un " + memoireClientProspect);
         }
-        this.setVisible(true);
+
         this.affichageAjout();
+        this.setVisible(true);
     }
 
 
@@ -88,8 +87,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
      * <li>AFFICHAGE_LISTE</li>
      * </ul>
      *
-     * @see com.model.MenuFrame.Action
      * @return une enumeration Action
+     * @see com.model.MenuFrame.Action
      */
     public String getActionTypeMenu() {
         return this.actionTypeMenu;
@@ -106,9 +105,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
     /**
      * renvoi un objet de type Societe
+     *
      * @return de type String
      */
-    public Societe getSociete(){
+    public Societe getSociete() {
         return this.societe;
     }
 
@@ -122,9 +122,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         for (Component component : this.panFormulaire.getComponents()) {  // Pour chaque composant du formulaire
 
-            if ( component instanceof JTextField) {                       // si c'est un Jtext Field
+            if (component instanceof JTextField) {                        // si c'est un Jtext Field
                 JTextField jtf = (JTextField) component;                  // caste pour recupérer le champs
-                jtf.setEditable(false);                                   // le rendre inéditable
+                jtf.setEditable(editableFields);                                   // le rendre inéditable
             }
         }
         // Element seule prospect et client a masqué
@@ -138,7 +138,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
      */
     private void initComboDomain() {
         DefaultComboBoxModel model = new DefaultComboBoxModel(DomainSociete.values());
-        model.setSelectedItem("Domaine de la société");
+        //model.setSelectedItem("Domaine de la société");
         this.comboDomainSt.setModel(model);
     }
 
@@ -203,7 +203,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         if (Action.MODIFICATION.getAction().equals(this.actionTypeMenu)) {
 
-            this.masqueChamps(true); // réaffiche les chhamps de la page
+            this.masqueChamps(true); // réaffiche les champs de la page
             // change le titre de la page et valeur du bouton
             titrePage = Action.MODIFICATION.toString() + " : " + societe.getClass().getSimpleName();
             this.bpValiderFormulaire.setText(Action.MODIFICATION.toString());
@@ -264,86 +264,223 @@ public class FormulaireFrame extends javax.swing.JFrame {
      */
     public void ajouterSociete() {
 
+        // Création d'un prospect temporaire
+        Client client = new Client();
+        Prospect prospect = new Prospect();
+
+
         try {
-            // si c'est un client
+            // choix du client
             if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
-                // création d'un Client
-                Client client = new Client(
-                        Integer.parseInt(this.txID.getText()),
-                        this.txRaison.getText(),
-                        DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()),
-                        Integer.parseInt(this.txNumeroAd.getText()),
-                        this.txNomRue.getText(),
-                        this.txCodePostale.getText(),
-                        this.txVille.getText(),
-                        this.txTelephone.getText().trim(),
-                        this.txEmail.getText(),
-                        this.txCommentaire.getText(),
+                // passage des valeurs du client
+                client.setRaisonSociale(this.txRaison.getText().trim());
+                client.setTelephone(this.txTelephone.getText().trim());
+                client.setEmail(this.txEmail.getText());
+                client.setCommentaire(this.txCommentaire.getText());
+                client.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
+
+                client.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText()),
+                        this.txNomRue.getText().trim(),
+                        this.txCodePostale.getText().trim(),
+                        this.txVille.getText().trim());
+
+                client.calculRatioClientEmployer(
                         Integer.parseInt(this.txChiffreAffaire.getText()),
                         Integer.parseInt(this.txNombreEmployer.getText()));
 
-                // boite de dialogue choix oui 0 / non 1
+
+                // boite de dialogue propose la sauvegarde choix oui 0 / non 1
                 int choix = JOptionPane.showConfirmDialog(null,
                         "southaitez vous ajouter ce client ",
-                        "Ajouter", JOptionPane.YES_NO_OPTION);
+                        "Ajouter",
+                        JOptionPane.YES_NO_OPTION);
+
                 if (choix == 0) {
 
-                    this.controleur.addSocieteControleur(client);      // Ajoute à la liste le nouveaux Client
+                    // Ajoute à la liste le nouveaux Client
+                    boolean retourSGBD = this.controleur.addSocieteControleur(client);
+                    if (retourSGBD == true) {
+                        JOptionPane.showMessageDialog(null,
+                                "La création a était réalisé avec succés",
+                                "Transaction SGBD",
+                                JOptionPane.INFORMATION_MESSAGE);
+
+                        new MenuFrame(this.controleur);
+                        this.dispose();
+
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "échec de l'ajoute du Client",
+                                "Transaction SGBD",
+                                JOptionPane.ERROR_MESSAGE);
+
+                    }
+
                     new MenuFrame(this.controleur);
                     this.dispose();
                 }
 
 
-                // si c'est un Prospect
+                // choix du Prospect
             } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
-                // Création d'un prospect
-                Prospect prospect = new Prospect(
-                        Integer.parseInt(this.txID.getText()),
-                        this.txRaison.getText(),
-                        DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()),
-                        Integer.parseInt(this.txNumeroAd.getText()),
-                        this.txNomRue.getText(),
-                        this.txCodePostale.getText(),
-                        this.txVille.getText(),
-                        this.txTelephone.getText().trim(),
-                        this.txEmail.getText(),
-                        this.txDatePropection.getText(),
-                        Interet.valueOf(this.comboInteresset.getSelectedItem().toString()),
-                        this.txCommentaire.getText());
+                // passage des valeurs du prospect
+                prospect.setRaisonSociale(this.txRaison.getText().trim());
+                prospect.setTelephone(this.txTelephone.getText().trim());
+                prospect.setEmail(this.txEmail.getText());
+                prospect.setCommentaire(this.txCommentaire.getText());
+                prospect.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
 
-                // propose de l'ajoute
+                prospect.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText()),
+                        this.txNomRue.getText().trim(),
+                        this.txCodePostale.getText().trim(),
+                        this.txVille.getText().trim());
+
+                prospect.setDatePropect(this.txDatePropection.getText());
+                prospect.setInteresse(Interet.valueOf(this.comboInteresset.getSelectedItem().toString()));
+
+                // boite de dialogue propose la sauvegarde choix oui 0 / non 1
                 int choix = JOptionPane.showConfirmDialog(null,
                         "southaitez vous ajouter ce client "
                         , "Ajouter", JOptionPane.YES_NO_OPTION);
 
                 if (choix == 0) {
 
-                    this.controleur.addSocieteControleur(prospect);       // Ajoute à la liste le nouveaux Client
-                    new MenuFrame(this.controleur);
-                    this.dispose();
+                    // Ajoute à la liste le nouveaux prospect
+                    boolean retourSGBD = this.controleur.addSocieteControleur(prospect);
+
+                    if (retourSGBD == true) {// permet d'affiché un message
+                        JOptionPane.showMessageDialog(null,
+                                "La création a était réalisé avec succés",
+                                "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
+
+                        new MenuFrame(this.controleur);
+                        this.dispose();
+
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "échec de l'ajoute du Prospect",
+                                "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
 
-        } catch (IllegalArgumentException ill) {// Erreur de saisi d'entier dans unchamps de caractère
-            JOptionPane.showMessageDialog(null, "Erreur vous devez choisir le domain : PRIVE ou PUBLIC",
-                    "Erreur de saisi Utilisateur ", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException nub) {
+            JOptionPane.showMessageDialog(null,
+                    "Vous entré des valeurs numériques dans le champs numero d'adresse .\n" +
+                            "veuillez entré une nouvelle valeur numerique.",
+                    "ERREUR de saisi : Adresse",
+                    JOptionPane.INFORMATION_MESSAGE);
 
-        }/*catch (NumberFormatException nbfe) {// Erreur de saisi d'entier dans unchamps de caractère
-            JOptionPane.showMessageDialog(null, "Erreur de saisi : veuillez entrer des valeurs numériques dans les champs demandés",
-                "Erreur de saisi Utilisateur ", JOptionPane.ERROR_MESSAGE);
+        } catch (ExceptionPersonnaliser exp) {
+            switch (exp.getIndicationTp()) {
 
-        }*/ catch (ExceptionPersonnaliser excePerso) {// Exception venant des classes métier
-            JOptionPane.showMessageDialog(null, excePerso.getMessage(),
-                    "Erreur de saisi Utilisateur ", JOptionPane.ERROR_MESSAGE);
+                case NUMERO_RUE_INF_0: {
+                    JOptionPane.showMessageDialog(null,
+                            "Le numero de la rue ne peut pas étre inférieur ou égale à 0.\n" +
+                                    "veuillez entré une nouvelle valeurs.",
+                            "ERREUR de saisi : numero de rue",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+                case EMPTY_NOM_RUE: {
+                    JOptionPane.showMessageDialog(null,
+                            "Le nom de la rue doit étre renseigner.\n" +
+                                    "veuillez renseigner le noms de la rue.",
+                            "ERREUR de saisi : nom de la rue",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+                case MATCH_NOM_RUE: {
+                    JOptionPane.showMessageDialog(null,
+                            "Le nom de la rue doit ne comporte pas de chiffre.\n" +
+                                    "Veuillez renseigner un autre noms de rue.",
+                            "ERREUR de saisi : nom de la rue",
+                            JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (Exception excep) {// Exception venant d'une erreur d'excution
-            System.out.println("Erreur d'exécution du programme"
-                    + excep.getMessage() + excep.getStackTrace());
+                    break;
+                }
+                case MACTH_CD_POSTALE: {
+                    JOptionPane.showMessageDialog(null,
+                            "Le nom de la rue ne doit pas comporte de chiffre.\n" +
+                                    "Veuillez renseigner un autre noms de rue.",
+                            "ERREUR de saisi : le code postale",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+                case EMPTY_CD_POSTALE: {
+                    JOptionPane.showMessageDialog(null,
+                            "Le code postale doit étre renseigné.\n" +
+                                    "Veuillez renseigner le code postale.",
+                            "ERREUR de saisi : le code postale",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+                case MATCH_NOM_VILLE: {
+                    JOptionPane.showMessageDialog(null,
+                            "Le noms de la ville doit comporter un minimum lettre.\n" +
+                                    "Veuillez renseigner correctement le nom de la ville.",
+                            "ERREUR de saisi : le nom de la ville",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+
+            }
+
+            switch (exp.getIndicationSt()){
+                case EMPTY_EMAIL:{
+
+                    break;
+                }
+                case MATCH_EMAIL:{
+
+                    break;
+                }
+                case EMPTY_RAISONSOCIALE:{
+
+                    break;
+                }
+                case MATCH_RAISONSOCIALE:{
+
+                    break;
+                }
+                case DOMAIN_PRIVE:{
+
+                    break;
+                }
+                case DOMAIN_PUBLIC:{
+
+                    break;
+                }
+                case EMPTY_TELEPHONE:{
+
+                    break;
+                }
+                case MATCH_TELEPHONE:{
+
+                    break;
+                }
+
+            }
+        } catch (SQLException sql) {// venant de l'insertion dans la base de données
+
+            System.err.format("SQL Error [State: %s]\n Message : %s",
+                    sql.getSQLState(), sql.getMessage());
+
+        } catch (Exception excep) { // Exception venant d'une erreur d'execution
+
+            System.err.format("Erreur d'exécution du programme"
+                    , excep.getStackTrace(), excep.getMessage());
+
+        } finally { // fin de l'insertion du nouveau Prospect ou client
+
+            // supression des références des l'objets
+            client = null;
+            prospect = null;
+
         }
     }
-
 
 
     /**

@@ -58,9 +58,7 @@ public class ConnectionDAO {
 
         if (connection == null) {
             connection = ConnectionDAO.createConnectionSimple();
-
         }
-
         return connection;
     }
 
