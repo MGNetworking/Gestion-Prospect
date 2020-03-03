@@ -255,18 +255,21 @@ public abstract class Societe {
 
     };
 
-    //******************************* parti enumération
-
+    /**
+     * Enumeration pour a gestion des erreur de cette classe
+     */
     public enum ExceptionSociete {
 
         EMPTY_RAISONSOCIALE,
-        MATCH_RAISONSOCIALE,
-        DOMAIN_PUBLIC,
-        DOMAIN_PRIVE,
+
+        DOMAIN_PRIVE_PUBLIC,
         EMPTY_TELEPHONE,
         MATCH_TELEPHONE,
         EMPTY_EMAIL,
-        MATCH_EMAIL,
+        MATCH_EMAIL;
+
+        ExceptionSociete() {
+        }
 
     }
 

@@ -114,11 +114,9 @@ public class Client extends Societe {
             throw new ArithmeticException("division par 0");
         }
 
-        // calcul du ratio
-        int totale = chiffreAffaire / nEmloyer;
+        int totale = chiffreAffaire / nEmloyer;  // calcul du ratio
 
-        // si ratio est inférieur a 10
-        if (totale < 10) {
+        if (totale < 10) { // si ratio est inférieur a 10
             throw new ExceptionPersonnaliser("Ratio : le calcul de la moyen chiffre d'affaire / employer, est inférieur à 10");
         }
 
@@ -136,6 +134,15 @@ public class Client extends Societe {
     @Override
     public String toString() {
         return this.getRaisonSociale();
+    }
+
+    public enum ExceptionClient {
+
+        CALCUL_RATIO;
+
+        ExceptionClient() {
+        }
+
     }
 
 }

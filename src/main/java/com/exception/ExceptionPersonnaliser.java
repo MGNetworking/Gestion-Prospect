@@ -5,21 +5,26 @@
  */
 package com.exception;
 
-import com.metier.Adresse.ExceptionType;
+import com.metier.Adresse;
+import com.metier.Adresse.ExceptionAdresse;
 import com.metier.Societe.ExceptionSociete;
+import com.metier.Prospect.ExceptionProspect;
+import com.metier.Client.ExceptionClient;
 
 /**
  * @author Maxime
  */
 public class ExceptionPersonnaliser extends RuntimeException {
 
-    ExceptionType indicationTp;
+    ExceptionAdresse indicationAdresse;
     ExceptionSociete indicationSt;
+    ExceptionProspect indicationPs;
+    ExceptionClient indicationCl;
 
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
+     * Ce constructeur permet de créer une exception de type RuntimeException
      *
-     * @param message
+     * @param message de type String
      */
     public ExceptionPersonnaliser(String message) {
         super(message);
@@ -28,15 +33,15 @@ public class ExceptionPersonnaliser extends RuntimeException {
     /**
      * Ce constructeur permet de crées une exception de type RuntimeException
      * et d'ajouté des renseignements pour l'utilisateur.
-     * Elle utilise une enumeration de type ExceptionType qui permet de
+     * Elle utilise une enumeration de type ExceptionAdresse qui permet de
      * retracer l'exception en rapport avec elle.
      *
      * @param message      de type String
-     * @param indicationTp de type ExceptionType, l'ajout des indications
+     * @param indicationTp de type ExceptionAdresse, l'ajout des indications
      */
-    public ExceptionPersonnaliser(String message, ExceptionType indicationTp) {
+    public ExceptionPersonnaliser(String message, ExceptionAdresse indicationAdresse) {
         super(message);
-        this.indicationTp = indicationTp;
+        this.indicationAdresse = indicationAdresse;
 
     }
 
@@ -46,24 +51,73 @@ public class ExceptionPersonnaliser extends RuntimeException {
      * Elle utilise une enumeration de type ExceptionSociete qui permet de
      * retracer l'exception en rapport avec elle.
      *
-     * @param message
-     * @param indicationSt
+     * @param message      de type String
+     * @param indicationSt de type ExceptionSociete, l'ajout des indications
      */
     public ExceptionPersonnaliser(String message, ExceptionSociete indicationSt) {
         this.indicationSt = indicationSt;
     }
 
-
     /**
+     * Ce constructeur permet de crées une exception de type RuntimeException
+     * et d'ajouté des renseignements pour l'utilisateur.
+     * Elle utilise une enumeration de type ExceptionProspect qui permet de
+     * retracer l'exception en rapport avec elle.
      *
-     * @return
+     * @param message            de type String
+     * @param indicationProspect de type ExceptionProspect, l'ajout des indications
      */
-    public ExceptionType getIndicationTp() {
-        return this.indicationTp;
+    public ExceptionPersonnaliser(String message, ExceptionProspect indicationProspect) {
+        this.indicationPs = indicationProspect;
+
     }
 
-    public ExceptionSociete getIndicationSt(){
+    /**
+     * Ce constructeur permet de crées une exception de type RuntimeException
+     * et d'ajouté des renseignements pour l'utilisateur.
+     * Elle utilise une enumeration de type ExceptionClient qui permet de
+     * retracer l'exception en rapport avec elle.
+     *
+     * @param message          de type String
+     * @param indicationClient de type ExceptionClient, l'ajout des indications
+     */
+    public ExceptionPersonnaliser(String message, ExceptionClient indicationClient) {
+
+    }
+
+    /**
+     * recupére une indication pour les exceptions Adresse
+     *
+     * @return de type enumération ExceptionAdresse
+     */
+    public ExceptionAdresse getIndicationAdresse() {
+        return this.indicationAdresse;
+    }
+
+    /**
+     * recupére une indication pour les exceptions sociétés
+     *
+     * @return de type enumération ExceptionSociete
+     */
+    public ExceptionSociete getIndicationSt() {
         return this.indicationSt;
     }
 
+    /**
+     * recupére une indication pour les exceptions Prospects
+     *
+     * @return de type enumération ExceptionProspect
+     */
+    public ExceptionProspect getIndicationPs() {
+        return this.indicationPs;
+    }
+
+    /**
+     * recupére une indication pour les exceptions clients
+     *
+     * @return de type enumération ExceptionClient
+     */
+    public ExceptionClient getIndicationCl() {
+        return this.indicationCl;
+    }
 }

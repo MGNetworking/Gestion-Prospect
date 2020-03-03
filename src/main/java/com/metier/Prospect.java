@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.exception.ExceptionPersonnaliser;
+
 import java.util.Collections;
 
 /**
  * Cette classe permet la création d'un client en phase de prospection.
  */
 public class Prospect extends Societe {
-
-
 
     private String datePropect;
     private Interet interesse;
@@ -44,7 +43,7 @@ public class Prospect extends Societe {
                     String villeSt, String telephoneSt, String emailSt, String datePropectSt, Interet interesseSt, String commentaireSt) {
 
         // constructeur de la classe Societe.
-        super(identifiant,raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
+        super(identifiant, raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
                 villeSt, telephoneSt, emailSt, commentaireSt);
 
         this.setDatePropect(datePropectSt);
@@ -100,7 +99,7 @@ public class Prospect extends Societe {
      * @param interesse String intérêt du prospect.
      * @throws ExceptionPersonnaliser si le champs ne correspond pas à OUI ou
      *                                NON.
-     * @throws NullPointerException si la variable est null.
+     * @throws NullPointerException   si la variable est null.
      */
     public void setInteresse(Interet interesse) throws ExceptionPersonnaliser {
 
@@ -117,18 +116,40 @@ public class Prospect extends Societe {
 
     }
 
+    /**
+     * renvoi l'informations sur la raison, elle utiliser pour objet de type combobox
+     *
+     * @return String
+     */
     @Override
     public String toString() {
         return this.getRaisonSociale();
     }
 
     /**
-     *
+     * Enumeration pour le centre d'intéret du prospect
      */
     public enum Interet {
 
         OUI,
         NON;
+
+        Interet() {
+        }
+
+    }
+
+    /**
+     * Enumeration pour a gestion des erreur de cette classe
+     */
+    public enum ExceptionProspect {
+
+        INTERET_OUI_NON,
+        MACTH_DATE,
+        EMPTY_DATE;
+
+        ExceptionProspect() {
+        }
 
     }
 }
