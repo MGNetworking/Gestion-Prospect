@@ -7,16 +7,14 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,93 +35,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="769">
-                    <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="80">
-                    <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="569">
-                    <caret line="75" column="61" selection-start-line="75" selection-start-column="61" selection-end-line="75" selection-end-column="61" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="520">
-                    <caret line="30" selection-start-line="30" selection-end-line="30" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-1245">
-                    <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="e#10379#10380#0" expanded="true" />
-                      <element signature="e#10414#10415#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-953">
-                    <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-                    <folding>
-                      <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
-                      <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
-                      <element signature="docComment;method#getRaisonSociale#0;class#Societe#0" />
-                      <element signature="docComment;method#setRaisonSociale#0;class#Societe#0" />
-                      <element signature="docComment;method#getDomainSociete#0;class#Societe#0" />
-                      <element signature="docComment;method#setDomainSociete#0;class#Societe#0" />
-                      <element signature="docComment;method#getAdresse#0;class#Societe#0" />
-                      <element signature="e#4662#4663#0" expanded="true" />
-                      <element signature="e#4696#4697#0" expanded="true" />
-                      <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
-                      <element signature="docComment;method#getTelephone#0;class#Societe#0" />
-                      <element signature="e#5487#5488#0" expanded="true" />
-                      <element signature="e#5519#5520#0" expanded="true" />
-                      <element signature="docComment;method#setTelephone#0;class#Societe#0" />
-                      <element signature="e#6414#6415#0" expanded="true" />
-                      <element signature="e#6442#6443#0" expanded="true" />
-                      <element signature="e#7325#7326#0" expanded="true" />
-                      <element signature="e#7359#7360#0" expanded="true" />
-                      <element signature="e#7525#7526#0" expanded="true" />
-                      <element signature="e#7573#7574#0" expanded="true" />
-                      <element signature="e#8905#8906#0" expanded="true" />
-                      <element signature="e#8947#8948#0" expanded="true" />
-                    </folding>
+                  <state relative-caret-position="460">
+                    <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
                   </state>
                 </provider>
               </entry>
@@ -137,24 +53,52 @@
         <state>
           <leaf>
             <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="369">
-                    <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="e#3908#3909#0" expanded="true" />
-                      <element signature="e#3948#3949#0" expanded="true" />
-                    </folding>
+                  <state relative-caret-position="519">
+                    <caret line="34" selection-start-line="34" selection-end-line="34" />
                   </state>
                 </provider>
               </entry>
             </file>
             <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-1285">
-                    <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+                  <state relative-caret-position="200">
+                    <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="580">
+                    <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="4">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="3060">
+                    <caret line="174" selection-start-line="173" selection-end-line="174" />
+                    <folding>
+                      <element signature="e#4627#4628#0" expanded="true" />
+                      <element signature="e#4673#4674#0" expanded="true" />
+                      <element signature="e#6248#6249#0" expanded="true" />
+                      <element signature="e#6297#6298#0" expanded="true" />
+                      <element signature="e#6740#30572#0" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -162,7 +106,7 @@
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-205">
+                  <state relative-caret-position="320">
                     <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
                     <folding>
                       <element signature="e#2757#2758#0" expanded="true" />
@@ -173,12 +117,76 @@
               </entry>
             </file>
             <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-95">
+                    <caret line="274" column="27" selection-start-line="274" selection-start-column="27" selection-end-line="274" selection-end-column="27" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                      <element signature="e#2624#2625#0" expanded="true" />
+                      <element signature="e#2653#2654#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-295">
+                    <caret line="245" selection-start-line="245" selection-end-line="245" />
+                    <folding>
+                      <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
+                      <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
+                      <element signature="docComment;method#getRaisonSociale#0;class#Societe#0" />
+                      <element signature="docComment;method#setRaisonSociale#0;class#Societe#0" />
+                      <element signature="docComment;method#getDomainSociete#0;class#Societe#0" />
+                      <element signature="docComment;method#setDomainSociete#0;class#Societe#0" />
+                      <element signature="docComment;method#getAdresse#0;class#Societe#0" />
+                      <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
+                      <element signature="docComment;method#getTelephone#0;class#Societe#0" />
+                      <element signature="docComment;method#setTelephone#0;class#Societe#0" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="450">
-                    <caret line="343" column="76" selection-start-line="343" selection-start-column="76" selection-end-line="343" selection-end-column="76" />
+                  <state relative-caret-position="3651">
+                    <caret line="276" column="51" selection-start-line="276" selection-start-column="51" selection-end-line="276" selection-end-column="51" />
                     <folding>
                       <element signature="docComment;class#FormulaireFrame#0" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="900">
+                    <caret line="64" selection-start-line="64" selection-end-line="64" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="705">
+                    <caret line="251" selection-start-line="251" selection-end-line="251" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -189,34 +197,38 @@
       </content>
     </window>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Gestion-Client" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
-              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="-44">
+              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="66" column="11" lean-forward="true" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+            <state relative-caret-position="96">
+              <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1558">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -236,6 +248,7 @@
     <findStrings>
       <find>13</find>
       <find>domainSociete</find>
+      <find>JCo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -283,21 +296,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/principale/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/principale/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" />
       </list>
     </option>
   </component>
@@ -309,8 +322,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="467" />
-    <option name="y" value="-18" />
+    <option name="x" value="466" />
+    <option name="y" value="-19" />
     <option name="width" value="1535" />
     <option name="height" value="975" />
   </component>
@@ -355,6 +368,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controleur" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
@@ -452,7 +474,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.Gestion-Client [compile,exec:java]">
+  <component name="RunManager" selected="Maven.Gestion-Client [clean,compile,exec:java]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.principale.Main" />
       <module name="Gestion-Client-SGBDR" />
@@ -530,7 +552,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Gestion-Client [compile,exec:java]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+    <configuration name="Gestion-Client [clean,compile,exec:java]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -541,6 +563,7 @@
             </option>
             <option name="goals">
               <list>
+                <option value="clean" />
                 <option value="compile" />
                 <option value="exec:java" />
               </list>
@@ -562,7 +585,7 @@
       <item itemvalue="JUnit.ProspectTest.testAdd" />
       <item itemvalue="JUnit.ProspectTest.testAdd (1)" />
       <item itemvalue="JUnit.ProspectTest.validSetDatePropectFormatTest" />
-      <item itemvalue="Maven.Gestion-Client [compile,exec:java]" />
+      <item itemvalue="Maven.Gestion-Client [clean,compile,exec:java]" />
     </list>
     <recent_temporary>
       <list>
@@ -593,12 +616,13 @@
       <workItem from="1583219907611" duration="22355000" />
       <workItem from="1583306678624" duration="12456000" />
       <workItem from="1583341288242" duration="9128000" />
-      <workItem from="1583393163774" duration="19158000" />
+      <workItem from="1583393163774" duration="24026000" />
+      <workItem from="1583426714281" duration="14508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169144000" />
+    <option name="totallyTimeSpent" value="188520000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,18 +635,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18993288" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.25167784" />
+      <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.27919462" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" sideWeight="0.5021097" side_tool="true" weight="0.27919462" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.73371106" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33569404" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21388102" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -630,7 +653,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22237961" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17280453" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -653,188 +676,112 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1668" y="195" width="816" height="729" key="#Intentions" timestamp="1582361286749">
-      <screen x="-1680" y="28" width="1680" height="1000" />
-    </state>
-    <state x="-1668" y="195" width="816" height="729" key="#Intentions/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361286749" />
-    <state x="361" y="71" key="#Notifications" timestamp="1582226275032">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="71" key="#Notifications/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582226275032" />
-    <state x="361" y="71" key="#Project_Structure" timestamp="1582226263150">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="71" key="#Project_Structure/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582226263150" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582617652032">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617652032" />
-    <state x="574" y="122" width="592" height="567" key="#com.intellij.ide.util.MemberChooser" timestamp="1582551113493">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="122" width="592" height="567" key="#com.intellij.ide.util.MemberChooser/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582479808032" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582551113493" />
-    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1582361738914">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582361738914" />
-    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582662585031">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582662585031" />
-    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617599137" />
-    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582374827952">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582374827952" />
-    <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1582662597757">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582662597757" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582467558012">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582467558012" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582394179670">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582394179670" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1582627425420">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582450228037" />
-    <state x="549" y="167" key="FileChooserDialogImpl/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582627425420" />
-    <state width="1493" height="277" key="GridCell.Tab.0.bottom" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.0.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="79" key="GridCell.Tab.0.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708907" />
-    <state width="1493" height="277" key="GridCell.Tab.0.center" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.0.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="79" key="GridCell.Tab.0.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708906" />
-    <state width="1493" height="277" key="GridCell.Tab.0.left" timestamp="1582661451834">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.0.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451834" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582646533114" />
-    <state width="1493" height="79" key="GridCell.Tab.0.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708906" />
-    <state width="1493" height="277" key="GridCell.Tab.0.right" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.0.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="79" key="GridCell.Tab.0.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582640708907" />
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107102" />
-    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107101" />
-    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107101" />
-    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1582661451835">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582661451835" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582646533115" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582621107101" />
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1582617845969">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
-    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1582617845969">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
-    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1582617845969">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
-    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1582617845969">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617845969" />
-    <state x="277" y="55" key="SettingsEditor" timestamp="1582660762294">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="277" y="55" key="SettingsEditor/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582660762294" />
-    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582278818469" />
-    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog" timestamp="1582377005223">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582377005223" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1582628786025">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582628786025" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582657752493">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582657752493" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582615778177" />
-    <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1582230737007">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582230737007" />
-    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1582660718587">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582660718587" />
-    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582617835614" />
-    <state x="1920" y="28" width="1051" height="811" maximized="true" key="dock-window-1" timestamp="1582657865961">
-      <screen x="1920" y="28" width="1680" height="1010" />
-    </state>
-    <state x="2753" y="28" width="854" height="1017" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@-1680.28.1680.1000" timestamp="1582444638226" />
-    <state x="1920" y="28" width="1051" height="811" maximized="true" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582657865961" />
-    <state x="2806" y="-15" width="959" height="1047" maximized="true" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1582646528591" />
-    <state x="2806" y="-15" width="959" height="1047" key="dock-window-1/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582641783546" />
-    <state x="-1687" y="28" width="777" height="1017" key="dock-window-2" timestamp="1582662676022">
-      <screen x="-1680" y="28" width="1680" height="1000" />
-    </state>
-    <state x="-1687" y="28" width="777" height="1017" key="dock-window-2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582662676022" />
-    <state x="413" y="83" width="773" height="825" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1582646525932" />
-    <state x="-996" y="0" width="1003" height="1047" key="dock-window-2/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582641783546" />
-    <state x="-924" y="28" width="931" height="1017" key="dock-window-3" timestamp="1582662676022">
-      <screen x="-1680" y="28" width="1680" height="1000" />
-    </state>
-    <state x="-924" y="28" width="931" height="1017" key="dock-window-3/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582662676022" />
-    <state x="1913" y="0" width="974" height="1047" key="dock-window-3/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582549504707" />
-    <state x="1920" y="0" width="960" height="1040" key="dock-window-4" timestamp="1582615514910">
-      <screen x="1920" y="0" width="1920" height="1030" />
-    </state>
-    <state x="1920" y="0" width="960" height="1040" key="dock-window-4/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582615514910" />
-    <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1582271552979">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="463" y="10" width="609" height="804" key="find.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582230986719" />
-    <state x="463" y="10" width="609" height="804" key="find.popup/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582271552979" />
-    <state x="511" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1582553767320">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="511" y="125" key="git4idea.branch.GitSmartOperationDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582553767320" />
-    <state x="426" y="187" key="run.anything.popup" timestamp="1582557151992">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="426" y="187" key="run.anything.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582458864630" />
-    <state x="426" y="187" key="run.anything.popup/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1582557151992" />
-    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1582467086684">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" timestamp="1582467086684" />
+    <state x="-1668" y="195" width="816" height="729" key="#Intentions" />
+    <state x="-1668" y="195" width="816" height="729" key="#Intentions/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="361" y="71" key="#Notifications" />
+    <state x="361" y="71" key="#Notifications/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="361" y="71" key="#Project_Structure" />
+    <state x="361" y="71" key="#Project_Structure/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="574" y="122" width="592" height="567" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="574" y="122" width="592" height="567" key="#com.intellij.ide.util.MemberChooser/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog" />
+    <state x="499" y="189" key="#com.intellij.ide.util.PackageChooserDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" />
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="436" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" />
+    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" />
+    <state x="566" y="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="549" y="167" key="FileChooserDialogImpl" />
+    <state x="549" y="167" key="FileChooserDialogImpl/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="549" y="167" key="FileChooserDialogImpl/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.0.bottom" />
+    <state width="1493" height="277" key="GridCell.Tab.0.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="79" key="GridCell.Tab.0.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.0.center" />
+    <state width="1493" height="277" key="GridCell.Tab.0.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="79" key="GridCell.Tab.0.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.0.left" />
+    <state width="1493" height="277" key="GridCell.Tab.0.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="79" key="GridCell.Tab.0.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.0.right" />
+    <state width="1493" height="277" key="GridCell.Tab.0.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="79" key="GridCell.Tab.0.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom" />
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.1.center" />
+    <state width="1493" height="277" key="GridCell.Tab.1.center/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.1.left" />
+    <state width="1493" height="277" key="GridCell.Tab.1.left/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="277" key="GridCell.Tab.1.right" />
+    <state width="1493" height="277" key="GridCell.Tab.1.right/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="277" y="55" key="SettingsEditor" />
+    <state x="277" y="55" key="SettingsEditor/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" />
+    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog" />
+    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state width="498" height="446" key="SwitcherDM" />
+    <state width="498" height="446" key="SwitcherDM/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog" />
+    <state x="540" y="131" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" />
+    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="333" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="1920" y="28" width="1051" height="811" maximized="true" key="dock-window-1" />
+    <state x="2753" y="28" width="854" height="1017" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@-1680.28.1680.1000" />
+    <state x="1920" y="28" width="1051" height="811" maximized="true" key="dock-window-1/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="2806" y="-15" width="959" height="1047" maximized="true" key="dock-window-1/0.0.1536.824@0.0.1536.824" />
+    <state x="2806" y="-15" width="959" height="1047" key="dock-window-1/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="-1687" y="28" width="777" height="1017" key="dock-window-2" />
+    <state x="-1687" y="28" width="777" height="1017" key="dock-window-2/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="413" y="83" width="773" height="825" key="dock-window-2/0.0.1536.824@0.0.1536.824" />
+    <state x="-996" y="0" width="1003" height="1047" key="dock-window-2/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="-924" y="28" width="931" height="1017" key="dock-window-3" />
+    <state x="-924" y="28" width="931" height="1017" key="dock-window-3/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="1913" y="0" width="974" height="1047" key="dock-window-3/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="1920" y="0" width="960" height="1040" key="dock-window-4" />
+    <state x="1920" y="0" width="960" height="1040" key="dock-window-4/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="463" y="10" width="609" height="804" key="find.popup" />
+    <state x="463" y="10" width="609" height="804" key="find.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="463" y="10" width="609" height="804" key="find.popup/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="511" y="125" key="git4idea.branch.GitSmartOperationDialog" />
+    <state x="511" y="125" key="git4idea.branch.GitSmartOperationDialog/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="426" y="187" key="run.anything.popup" />
+    <state x="426" y="187" key="run.anything.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
+    <state x="426" y="187" key="run.anything.popup/1920.0.1920.1030/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" />
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup" />
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/-1680.28.1680.1000/1920.28.1680.1010/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Gestion_Client$Main.ic" NAME="Main Coverage Results" MODIFIED="1582621107033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -908,17 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1858">
-          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
-          <folding>
-            <element signature="e#4000#4001#0" expanded="true" />
-            <element signature="e#4046#4047#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/lang/Exception.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -944,84 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="64" column="77" selection-start-line="64" selection-start-column="77" selection-end-line="64" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="36" column="58" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
-          <folding>
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#458#459#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="395" column="58" selection-start-line="395" selection-start-column="58" selection-end-line="395" selection-end-column="58" />
-          <folding>
-            <element signature="e#4627#4628#0" expanded="true" />
-            <element signature="e#4673#4674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/javax/sound/sampled/EnumControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="75" column="61" selection-start-line="75" selection-start-column="61" selection-end-line="75" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
@@ -1044,16 +906,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1285">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="310">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="174" selection-start-line="173" selection-end-line="174" />
+          <folding>
+            <element signature="e#4627#4628#0" expanded="true" />
+            <element signature="e#4673#4674#0" expanded="true" />
+            <element signature="e#6248#6249#0" expanded="true" />
+            <element signature="e#6297#6298#0" expanded="true" />
+            <element signature="e#6740#30572#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-205">
+        <state relative-caret-position="320">
           <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
           <folding>
             <element signature="e#2757#2758#0" expanded="true" />
@@ -1062,10 +969,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3651">
+          <caret line="276" column="51" selection-start-line="276" selection-start-column="51" selection-end-line="276" selection-end-column="51" />
+          <folding>
+            <element signature="docComment;class#FormulaireFrame#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-953">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="-295">
+          <caret line="245" selection-start-line="245" selection-end-line="245" />
           <folding>
             <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
             <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
@@ -1074,74 +1033,56 @@
             <element signature="docComment;method#getDomainSociete#0;class#Societe#0" />
             <element signature="docComment;method#setDomainSociete#0;class#Societe#0" />
             <element signature="docComment;method#getAdresse#0;class#Societe#0" />
-            <element signature="e#4662#4663#0" expanded="true" />
-            <element signature="e#4696#4697#0" expanded="true" />
             <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
             <element signature="docComment;method#getTelephone#0;class#Societe#0" />
-            <element signature="e#5487#5488#0" expanded="true" />
-            <element signature="e#5519#5520#0" expanded="true" />
             <element signature="docComment;method#setTelephone#0;class#Societe#0" />
-            <element signature="e#6414#6415#0" expanded="true" />
-            <element signature="e#6442#6443#0" expanded="true" />
-            <element signature="e#7325#7326#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7525#7526#0" expanded="true" />
-            <element signature="e#7573#7574#0" expanded="true" />
-            <element signature="e#8905#8906#0" expanded="true" />
-            <element signature="e#8947#8948#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/sql/PreparedStatement.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/util/Comparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+        <state relative-caret-position="186">
+          <caret line="149" column="8" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        <state relative-caret-position="-1558">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="66" column="11" lean-forward="true" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+        <state relative-caret-position="-95">
+          <caret line="274" column="27" selection-start-line="274" selection-start-column="27" selection-end-line="274" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2624#2625#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1245">
-          <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
+        <state relative-caret-position="705">
+          <caret line="251" selection-start-line="251" selection-end-line="251" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#10379#10380#0" expanded="true" />
-            <element signature="e#10414#10415#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="343" column="76" selection-start-line="343" selection-start-column="76" selection-end-line="343" selection-end-column="76" />
+        <state relative-caret-position="96">
+          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
           <folding>
-            <element signature="docComment;class#FormulaireFrame#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
           </folding>
         </state>
       </provider>

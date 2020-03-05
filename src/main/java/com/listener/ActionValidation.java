@@ -37,6 +37,7 @@ public class ActionValidation implements java.awt.event.ActionListener {
             JOptionPane.showMessageDialog(null, "Vous devez choisir dans la "
                     + "liste des clients ou prospects avant de validé ",
                 "Erreur sélection", JOptionPane.INFORMATION_MESSAGE);
+
         } else {
 
             // choix = modifier / supprimer
@@ -52,11 +53,6 @@ public class ActionValidation implements java.awt.event.ActionListener {
 
                 this.menuFrame.dispose();     //  libaire les resources de la Frame menu
 
-            }else if (this.menuFrame.getMemoModifSup().equals(Action.AJOUT.getAction())){
-                new FormulaireFrame(this.menuFrame.getChoixComboBoxClientProspect(),
-                        Action.MODIFICATION, this.controleur,this.menuFrame.getMemoireClientProspect());
-
-                this.menuFrame.dispose();     //  libaire les resources de la Frame menu
             }
         }
 

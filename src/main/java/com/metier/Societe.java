@@ -7,7 +7,7 @@ import java.util.Comparator;
 /**
  * @author Maxime
  */
-public abstract class Societe {
+public abstract class Societe{
 
 
     // variable contenant les informations sur les entreprises.
@@ -243,17 +243,7 @@ public abstract class Societe {
     }
 
     // TODO a déplacer
-    /**
-     * Objet qui permet la comparaison entre deux nom d'entreprise.
-     */
-    protected static Comparator<Societe> comparatorRaisonSociale = new Comparator<Societe>() {
 
-        @Override
-        public int compare(Societe societe1, Societe societe2) {
-            return societe1.getRaisonSociale().compareTo(societe2.getRaisonSociale());
-        }
-
-    };
 
     /**
      * Enumeration pour a gestion des erreur de cette classe

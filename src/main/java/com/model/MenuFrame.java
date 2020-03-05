@@ -164,7 +164,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Cette récupère Le choix du client ou du prospect de la comboBox.
+     * Cette Méthode récupère Le choix du client ou du prospect de la comboBox.
      *
      * @param evt de type ActionEvent.
      */
@@ -175,6 +175,7 @@ public class MenuFrame extends javax.swing.JFrame {
             // récupération du Client dans la liste des Clients
             this.choixComboBoxClientProspect = (Client) this.getJComboBoxListeSociete()
                 .getSelectedItem();
+
         }
 
         if (memoClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
@@ -393,7 +394,7 @@ public class MenuFrame extends javax.swing.JFrame {
         bpAjouter.setMaximumSize(new java.awt.Dimension(100, 32));
         bpAjouter.setName("ajouter"); // NOI18N
         bpAjouter.setPreferredSize(new java.awt.Dimension(100, 32));
-        bpAjouter.addActionListener(this.actionModifSuppri);
+        bpAjouter.addActionListener(this.actionAjoutAffich);
 
         javax.swing.GroupLayout panActionUserLayout = new javax.swing.GroupLayout(panActionUser);
         panActionUser.setLayout(panActionUserLayout);

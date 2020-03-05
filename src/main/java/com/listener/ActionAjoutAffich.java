@@ -14,7 +14,7 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
     private ControleurFrame Controleur;
 
     /**
-     * Action du bouton Ajout ou Affichage Liste
+     * Action du bouton Ajout ou Affichage Liste dans le menu principale
      *
      * @param frame
      */
@@ -30,9 +30,16 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
         JButton bp = (JButton) e.getSource();                   // caste de la source ajouter et affichage liste
         String nomButton = (String) bp.getText();              // recupération de la valeur du bp
 
-        if (Action.AFFICHAGE_LISTE.getAction().equals(nomButton)) {
-            // TODO a faire implementation de la frame et faire un New MenuFrame pour le retour
+        // pour l'affichage de liste
+        if (nomButton.equals(Action.AFFICHAGE_LISTE.getAction())) {
+
             new AffichageListeFrame(this.menuFrame.getMemoireClientProspect(), this.Controleur);
+
+            // pour l'affichage de l'ajoute
+        } else if (nomButton.equals(Action.AJOUT.getAction())) {
+
+            new FormulaireFrame(Action.AJOUT, this.Controleur ,this.menuFrame.getMemoireClientProspect());
+            this.menuFrame.dispose();     //  libaire les resources de la Frame menu
         }
 
         this.menuFrame.dispose();   //  libaire les resources de la Frame menu

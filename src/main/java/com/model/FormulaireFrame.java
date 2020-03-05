@@ -31,11 +31,31 @@ public class FormulaireFrame extends javax.swing.JFrame {
     private String memoirechoixClientProspect;
     private ControleurFrame controleur;
 
+
+    /**
+     * Constructeur pour l'ajout d'un client ou prospect
+     *
+     * @param actionTypeMenu             de type String
+     * @param controleur                 de type ControleurFrame
+     * @param memoirechoixClientProspect de type String
+     */
+    public FormulaireFrame(Action actionTypeMenu, ControleurFrame controleur, String memoirechoixClientProspect) {
+        initComponents();
+        this.actionTypeMenu = actionTypeMenu.getAction();
+        this.controleur = controleur;
+        this.memoirechoixClientProspect = memoirechoixClientProspect;
+
+        initComboDomain();
+        initComboInteret();
+        this.affichageAjout();
+
+    }
+
     /**
      * Constructeur pour la modification, suppression et l'ajout d'un client ou d'un prospect
      *
      * @param societe        de type Societe
-     * @param actionTypeMenu de type Enumeration
+     * @param actionTypeMenu de type String
      */
     public FormulaireFrame(Societe societe, Action actionTypeMenu, ControleurFrame controleur, String memoirechoixClientProspect) {
         initComponents();
@@ -67,7 +87,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
         return this.actionTypeMenu;
     }
 
-/*    *//**
+    /*    *//**
      * renvoie le choix d'un client ou d'un prospect.
      *
      * @return de type string
@@ -111,7 +131,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
      */
     private void initComboDomain() {
         DefaultComboBoxModel model = new DefaultComboBoxModel(DomainSociete.values());
-        //model.setSelectedItem("Domaine de la société");
+        model.setSelectedItem("Domaine de la société");
         this.comboDomainSt.setModel(model);
     }
 
@@ -138,28 +158,29 @@ public class FormulaireFrame extends javax.swing.JFrame {
         this.txTelephone.setToolTipText("Format : xx.xx.xx.xx.xx");
         this.txEmail.setToolTipText("Format : xxxx.xxxx@gmail.com");
 
-
+        System.out.println("memo : " + memoirechoixClientProspect);
         // si c'est un Client affichage du context pour le client
-        if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT)) {
+        if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
             // visibilité des panneaux
             this.panClient.setVisible(true);
             this.panProspect.setVisible(false);
-            this.labelTitreFormulaire.setText("Ajouter d'un " + TypeSociete.CLIENT);
-            this.txID.setText("No values");
+            this.labelTitreFormulaire.setText("Ajouter d'un " + TypeSociete.CLIENT.getTypeSociete());
+            this.txID.setText("");
 
             // si c'est un Propest affichage du context pour le prospect
-        } else if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT)) {
+        } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
             // visibilité des panneaux
             this.panClient.setVisible(false);
             this.panProspect.setVisible(true);
-            this.labelTitreFormulaire.setText("Ajouter d'un " + TypeSociete.PROSPECT);
-            this.txID.setText("No values");
+            this.labelTitreFormulaire.setText("Ajouter d'un " + TypeSociete.PROSPECT.getTypeSociete());
+            this.txID.setText("");
             this.comboInteresset.getSelectedItem();
 
         }
 
+        this.setVisible(true);
     }
 
     /**
@@ -251,8 +272,12 @@ public class FormulaireFrame extends javax.swing.JFrame {
             // choix du client
             if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
                 System.out.println("client passage ");
+
                 // passage des valeurs du client
-                client.setIdentifiant(Integer.parseInt(this.txID.getText()));
+                if (action == false){// si modifier
+                    client.setIdentifiant(Integer.parseInt(this.txID.getText()));
+                }
+
                 client.setRaisonSociale(this.txRaison.getText().trim());
                 client.setTelephone(this.txTelephone.getText().trim());
                 client.setEmail(this.txEmail.getText().trim());
@@ -341,7 +366,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
             } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
                 // passage des valeurs du prospect
-                prospect.setIdentifiant(Integer.parseInt(this.txID.getText()));
+                if (action == false){ // si modifier
+                    prospect.setIdentifiant(Integer.parseInt(this.txID.getText()));
+                }
+
                 prospect.setRaisonSociale(this.txRaison.getText().trim());
                 prospect.setTelephone(this.txTelephone.getText().trim());
                 prospect.setEmail(this.txEmail.getText());
@@ -418,7 +446,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         } catch (NumberFormatException nub) {
             JOptionPane.showMessageDialog(null,
-                    "Vous entré des valeurs numériques dans le champs numero d'adresse .\n" +
+                    "Vous avez entré des valeurs numériques dans le champs numero d'adresse .\n" +
                             "veuillez entré une nouvelle valeur numerique.",
                     "ERREUR de saisi : Adresse",
                     JOptionPane.INFORMATION_MESSAGE);
@@ -579,7 +607,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         } catch (Exception excep) { // Exception venant d'une erreur d'execution
 
-            System.err.format("Erreur d'exécution du programme"+ excep.getStackTrace()+ " : " +excep.getMessage());
+            System.err.format("Erreur d'exécution du programme" + excep.getStackTrace() + " : " + excep.getMessage());
 
 
         } finally { // fin de l'insertion du nouveau Prospect ou client

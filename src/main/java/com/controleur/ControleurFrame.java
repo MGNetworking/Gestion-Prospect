@@ -40,16 +40,6 @@ public class ControleurFrame {
         this.prospect_dao = new Prospect_DAO(ConnectionDAO.getConnectionPostgres());
 
     }
-    /**
-     * Méthode qui permet le trie du liste contenant des objets de type Société.
-     *
-     * @param list de type list
-     */
-/*    public static void trieProspect(List<Prospect> list) {
-
-        Collections.sort(list, Societe.comparatorRaisonSociale);
-    }*/
-    // TODO debut
 
     /**
      * Permet d'obtenir la liste des client ou prospect.
@@ -87,12 +77,12 @@ public class ControleurFrame {
         boolean operation = false;
 
         if (st instanceof Client) {
-            operation  = client_dao.create((Client) st);
+            operation = client_dao.create((Client) st);
 
         } else if (st instanceof Prospect) {
-            operation  = prospect_dao.create((Prospect) st);
+            operation = prospect_dao.create((Prospect) st);
         }
-        return operation ;
+        return operation;
     }
 
     /**
@@ -108,13 +98,13 @@ public class ControleurFrame {
             operation = client_dao.delete((Client) st);
 
         } else if (st instanceof Prospect) {
-            operation = prospect_dao.create((Prospect) st);
+            operation = prospect_dao.delete((Prospect) st);
         }
 
         return operation;
     }
 
-    public boolean updateSocieteControleur(Societe st)throws SQLException  {
+    public boolean updateSocieteControleur(Societe st) throws SQLException {
 
         boolean operation = false;
 
