@@ -393,7 +393,7 @@ public class MenuFrame extends javax.swing.JFrame {
         bpAjouter.setMaximumSize(new java.awt.Dimension(100, 32));
         bpAjouter.setName("ajouter"); // NOI18N
         bpAjouter.setPreferredSize(new java.awt.Dimension(100, 32));
-        bpAjouter.addActionListener(this.actionAjoutAffich);
+        bpAjouter.addActionListener(this.actionModifSuppri);
 
         javax.swing.GroupLayout panActionUserLayout = new javax.swing.GroupLayout(panActionUser);
         panActionUser.setLayout(panActionUserLayout);

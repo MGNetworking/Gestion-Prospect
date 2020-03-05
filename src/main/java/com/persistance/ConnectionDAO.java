@@ -14,7 +14,7 @@ public class ConnectionDAO {
 /*
     // exemple
     static {
-        connection = connectionSimple.createConnectionSimple();
+        connection = connectionSimple.createConnection();
         System.out.println("Connection established");
     }*/
 
@@ -31,7 +31,7 @@ public class ConnectionDAO {
      *
      * @return de type Connection
      */
-    private static Connection createConnectionSimple() {
+    private static Connection createConnection() {
         Connection connection = null;
         try {
 
@@ -57,7 +57,7 @@ public class ConnectionDAO {
     public static Connection getConnectionPostgres() {
 
         if (connection == null) {
-            connection = ConnectionDAO.createConnectionSimple();
+            connection = ConnectionDAO.createConnection();
         }
         return connection;
     }

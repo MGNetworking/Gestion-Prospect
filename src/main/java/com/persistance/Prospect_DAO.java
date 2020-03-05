@@ -5,6 +5,7 @@
  */
 package com.persistance;
 
+import com.exception.ExceptionPersonnaliser;
 import com.metier.Client;
 import com.metier.Societe;
 import com.metier.Prospect;
@@ -46,7 +47,7 @@ public class Prospect_DAO extends DAO<Prospect> {
     public boolean create(Prospect objet) {return false;}
 
     @Override
-    public boolean delete(Prospect objet) {
+    public boolean delete(Prospect objet)throws SQLException {
         return false;
     }
 
@@ -61,7 +62,7 @@ public class Prospect_DAO extends DAO<Prospect> {
     }
 
     @Override
-    public List<Societe> findAll()throws SQLException {
+    public List<Societe> findAll()throws SQLException, ExceptionPersonnaliser {
 
 
         List<Societe> listProspect = new ArrayList<>();

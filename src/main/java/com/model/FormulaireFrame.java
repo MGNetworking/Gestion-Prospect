@@ -1,6 +1,7 @@
 package com.model;
 
 import com.controleur.ControleurFrame;
+import com.exception.ExceptionDAO;
 import com.exception.ExceptionPersonnaliser;
 import com.listener.ActionQuitter;
 import com.listener.ActionRetourMenu;
@@ -31,16 +32,17 @@ public class FormulaireFrame extends javax.swing.JFrame {
     private ControleurFrame controleur;
 
     /**
-     * Constructeur pour la modification, suppression d'un client ou d'un prospect
+     * Constructeur pour la modification, suppression et l'ajout d'un client ou d'un prospect
      *
      * @param societe        de type Societe
      * @param actionTypeMenu de type Enumeration
      */
-    public FormulaireFrame(Societe societe, Action actionTypeMenu, ControleurFrame controleur) {
+    public FormulaireFrame(Societe societe, Action actionTypeMenu, ControleurFrame controleur, String memoirechoixClientProspect) {
         initComponents();
         this.societe = societe;
         this.actionTypeMenu = actionTypeMenu.getAction();
         this.controleur = controleur;
+        this.memoirechoixClientProspect = memoirechoixClientProspect;
 
         initComboDomain();
         initComboInteret();
@@ -48,35 +50,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
         this.affichageModifierSupprimer();
         this.setVisible(true);
     }
-
-    /**
-     * Constructeur pour l'ajoute d'un client ou d'un prospect
-     *
-     * @param memoireClientProspect de type String
-     * @param actionTypeMenu        de type Enumeration
-     */
-    public FormulaireFrame(String memoireClientProspect, Action actionTypeMenu, ControleurFrame controleur) {
-        initComponents();
-        this.controleur = controleur;
-        this.memoirechoixClientProspect = memoireClientProspect;
-        this.actionTypeMenu = actionTypeMenu.getAction();
-
-        initComboDomain();
-        initComboInteret();
-
-        if (memoireClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
-            this.panProspect.setVisible(false);
-            this.labelTitreFormulaire.setText("Ajouté un " + memoireClientProspect);
-
-        } else if (memoireClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
-            this.panClient.setVisible(false);
-            this.labelTitreFormulaire.setText("Ajouté un " + memoireClientProspect);
-        }
-
-        this.affichageAjout();
-        this.setVisible(true);
-    }
-
 
     /**
      * renvoi l'action fait par l'utilisateur.
@@ -94,14 +67,14 @@ public class FormulaireFrame extends javax.swing.JFrame {
         return this.actionTypeMenu;
     }
 
-    /**
+/*    *//**
      * renvoie le choix d'un client ou d'un prospect.
      *
      * @return de type string
-     */
+     *//*
     public String getMemoireChoixClientProspect() {
         return this.memoirechoixClientProspect;
-    }
+    }*/
 
     /**
      * renvoi un objet de type Societe
@@ -195,6 +168,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
      */
     public void affichageModifierSupprimer() {
 
+
         // choix user pour la modification ou suppression
         Societe societe = this.societe;
         String titrePage = "Titre";
@@ -261,66 +235,105 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
     /**
      * Cette méthode valide les informations du formulaire client ou prospect
+     * si true ajoute
+     * si false modifi
+     *
+     * @param action de type boolean
      */
-    public void ajouterSociete() {
+    public void ajouterModifierSociete(boolean action) {
 
         // Création d'un prospect temporaire
         Client client = new Client();
         Prospect prospect = new Prospect();
 
-
+        System.out.println("Debut ");
         try {
             // choix du client
             if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
-
+                System.out.println("client passage ");
                 // passage des valeurs du client
+                client.setIdentifiant(Integer.parseInt(this.txID.getText()));
                 client.setRaisonSociale(this.txRaison.getText().trim());
                 client.setTelephone(this.txTelephone.getText().trim());
-                client.setEmail(this.txEmail.getText());
-                client.setCommentaire(this.txCommentaire.getText());
+                client.setEmail(this.txEmail.getText().trim());
+                client.setCommentaire(this.txCommentaire.getText().trim());
                 client.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
 
-                client.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText()),
+                client.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText().trim()),
                         this.txNomRue.getText().trim(),
                         this.txCodePostale.getText().trim(),
                         this.txVille.getText().trim());
 
                 client.calculRatioClientEmployer(
-                        Integer.parseInt(this.txChiffreAffaire.getText()),
-                        Integer.parseInt(this.txNombreEmployer.getText()));
+                        Integer.parseInt(this.txChiffreAffaire.getText().trim()),
+                        Integer.parseInt(this.txNombreEmployer.getText().trim()));
 
+                // si c'est ajouter client
+                if (action == true) {
+                    // boite de dialogue propose la sauvegarde choix oui 0 / non 1
+                    int choix = JOptionPane.showConfirmDialog(null,
+                            "southaitez vous ajouter ce client ",
+                            "Ajouter",
+                            JOptionPane.YES_NO_OPTION);
 
-                // boite de dialogue propose la sauvegarde choix oui 0 / non 1
-                int choix = JOptionPane.showConfirmDialog(null,
-                        "southaitez vous ajouter ce client ",
-                        "Ajouter",
-                        JOptionPane.YES_NO_OPTION);
+                    if (choix == 0) {
 
-                if (choix == 0) {
+                        // Ajoute à la base de données le client
+                        boolean retourSGBD = this.controleur.addSocieteControleur(client);
 
-                    // Ajoute à la base de données le client
-                    boolean retourSGBD = this.controleur.addSocieteControleur(client);
+                        if (retourSGBD == true) {
+                            JOptionPane.showMessageDialog(null,
+                                    "La création à était réalisé avec succés",
+                                    "Transaction SGBD",
+                                    JOptionPane.INFORMATION_MESSAGE);
 
-                    if (retourSGBD == true) {
-                        JOptionPane.showMessageDialog(null,
-                                "La création a était réalisé avec succés",
-                                "Transaction SGBD",
-                                JOptionPane.INFORMATION_MESSAGE);
+                            new MenuFrame(this.controleur);
+                            this.dispose();
+                            client = null;
 
-                        new MenuFrame(this.controleur);
-                        this.dispose();
-                        client = null;
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "échec de l'ajoute du Client",
+                                    "Transaction SGBD",
+                                    JOptionPane.ERROR_MESSAGE);
+                        }
 
-                    } else {
-                        JOptionPane.showMessageDialog(null,
-                                "échec de l'ajoute du Client",
-                                "Transaction SGBD",
-                                JOptionPane.ERROR_MESSAGE);
 
                     }
 
-                    new MenuFrame(this.controleur);
-                    this.dispose();
+                    // si c'est modifier client
+                } else if (action == false) {
+                    System.out.println("Client modification : ");
+                    // boite de dialogue propose la sauvegarde choix oui 0 / non 1
+                    int choix = JOptionPane.showConfirmDialog(null,
+                            "southaitez vous modifié ce client ",
+                            "Modification",
+                            JOptionPane.YES_NO_OPTION);
+
+                    if (choix == 0) {
+
+                        // Modifier à la base de données le client
+                        boolean retourSGBD = this.controleur.updateSocieteControleur(client);
+
+                        if (retourSGBD == true) {
+                            JOptionPane.showMessageDialog(null,
+                                    "La modification à était réalisé avec succés",
+                                    "Transaction SGBD",
+                                    JOptionPane.INFORMATION_MESSAGE);
+
+                            new MenuFrame(this.controleur);
+                            this.dispose();
+                            client = null;
+
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "échec de la modification du Client",
+                                    "Transaction SGBD",
+                                    JOptionPane.ERROR_MESSAGE);
+
+                        }
+
+                    }
                 }
 
 
@@ -328,6 +341,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
             } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
                 // passage des valeurs du prospect
+                prospect.setIdentifiant(Integer.parseInt(this.txID.getText()));
                 prospect.setRaisonSociale(this.txRaison.getText().trim());
                 prospect.setTelephone(this.txTelephone.getText().trim());
                 prospect.setEmail(this.txEmail.getText());
@@ -342,32 +356,64 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 prospect.setDatePropect(this.txDatePropection.getText());
                 prospect.setInteresse(Interet.valueOf(this.comboInteresset.getSelectedItem().toString()));
 
-                // boite de dialogue propose la sauvegarde choix oui 0 / non 1
-                int choix = JOptionPane.showConfirmDialog(null,
-                        "southaitez vous ajouter ce client "
-                        , "Ajouter", JOptionPane.YES_NO_OPTION);
+                // ajouter prospect
+                if (action == true) {
+                    // boite de dialogue propose la sauvegarde choix oui 0 / non 1
+                    int choix = JOptionPane.showConfirmDialog(null,
+                            "southaitez vous ajouter ce prospect "
+                            , "Ajouter", JOptionPane.YES_NO_OPTION);
 
-                if (choix == 0) {
+                    if (choix == 0) {
 
-                    // Ajoute à la base de données le prospect
-                    boolean retourSGBD = this.controleur.addSocieteControleur(prospect);
+                        // Ajoute à la base de données le prospect
+                        boolean retourSGBD = this.controleur.addSocieteControleur(prospect);
 
-                    if (retourSGBD == true) {// permet d'affiché un message
-                        JOptionPane.showMessageDialog(null,
-                                "La création a était réalisé avec succés",
-                                "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
+                        if (retourSGBD == true) {// permet d'affiché un message
+                            JOptionPane.showMessageDialog(null,
+                                    "La création a était réalisé avec succés",
+                                    "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
 
-                        new MenuFrame(this.controleur);
-                        this.dispose();
+                            new MenuFrame(this.controleur);
+                            this.dispose();
+                            prospect = null;
 
-                        prospect = null;
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "échec de l'ajoute du Prospect",
+                                    "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
 
-                    } else {
-                        JOptionPane.showMessageDialog(null,
-                                "échec de l'ajoute du Prospect",
-                                "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
+                    // modification prospect
+                } else if (action == false) {
+
+                    // boite de dialogue propose la sauvegarde choix oui 0 / non 1
+                    int choix = JOptionPane.showConfirmDialog(null,
+                            "southaitez vous modifié ce prospect "
+                            , "Modification", JOptionPane.YES_NO_OPTION);
+
+                    if (choix == 0) {
+
+                        // Modifie le prospect
+                        boolean retourSGBD = this.controleur.updateSocieteControleur(prospect);
+
+                        if (retourSGBD == true) {// permet d'affiché un message
+                            JOptionPane.showMessageDialog(null,
+                                    "La modification a était réalisé avec succés",
+                                    "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
+
+                            new MenuFrame(this.controleur);
+                            this.dispose();
+                            prospect = null;
+
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "échec de la modification du Prospect",
+                                    "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
                 }
+
             }
 
         } catch (NumberFormatException nub) {
@@ -400,7 +446,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 }
                 case MATCH_NOM_RUE: {
                     JOptionPane.showMessageDialog(null,
-                            "Le nom de la rue doit ne comporte pas de chiffre.\n" +
+                            "Le nom de la rue doit ne pas comporté de chiffre.\n" +
                                     "Veuillez renseigner un autre noms de rue.",
                             "ERREUR de saisi : nom de la rue",
                             JOptionPane.INFORMATION_MESSAGE);
@@ -533,8 +579,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         } catch (Exception excep) { // Exception venant d'une erreur d'execution
 
-            System.err.format("Erreur d'exécution du programme"
-                    , excep.getStackTrace(), excep.getMessage());
+            System.err.format("Erreur d'exécution du programme"+ excep.getStackTrace()+ " : " +excep.getMessage());
+
 
         } finally { // fin de l'insertion du nouveau Prospect ou client
 
@@ -561,97 +607,31 @@ public class FormulaireFrame extends javax.swing.JFrame {
         // si l'utilisateur supprime l'object
         if (choix == 0) {
 
-            // suppression des objets clients ou prospects
-            if (this.societe instanceof Client) {
+            try {
+                // suppression des objets clients ou prospects
+                if (this.societe instanceof Client) {
 
-                this.controleur.deleteSocieteControle((Client) this.societe);
-                this.dispose();                             // après suppression, quitte le formulaire
-                new MenuFrame(this.controleur);       // creation d'un Frame Menu
+                    Boolean message = this.controleur.deleteSocieteControle((Client) this.societe);
+                    this.dispose();                       // après suppression, quitte le formulaire
+                    new MenuFrame(this.controleur);       // creation d'un Frame Menu
 
-            } else if (this.societe instanceof Prospect) {
+                } else if (this.societe instanceof Prospect) {
 
-                this.controleur.deleteSocieteControle((Prospect) this.societe);
-                this.dispose();                             // après suppression, quitte le formulaire
-                new MenuFrame(this.controleur);       // creation d'un Frame Menu
+                    this.controleur.deleteSocieteControle((Prospect) this.societe);
+                    this.dispose();                       // après suppression, quitte le formulaire
+                    new MenuFrame(this.controleur);       // creation d'un Frame Menu
 
-            }
-        }
-    }
+                }
+            } catch (SQLException sql) {
+                System.err.format("SQL Error [State: %s]\n Message : %s",
+                        sql.getSQLState(), sql.getMessage());
 
-    /**
-     * Modifie les attributs d'un client ou d'un prospect.
-     */
-    public void modificationSociete() {
-
-
-        try {
-            // recupération du choix utilisateur.
-            Societe societe = this.societe;
-            societe.setRaisonSociale(this.txRaison.getText());
-            societe.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
-
-            // champs adresse Adresse
-            societe.getAdresse().setNumeroDeRueSt(Integer.parseInt(this.txNumeroAd.getText()));
-            societe.getAdresse().setNomRue(this.txNomRue.getText());
-            societe.getAdresse().setCodePost(this.txCodePostale.getText());
-            societe.getAdresse().setVille(this.txVille.getText());
-            societe.setTelephone(this.txTelephone.getText());
-            societe.setEmail(this.txEmail.getText());
-            societe.setCommentaire(this.txCommentaire.getText());
-
-
-            if (societe instanceof Client) {                // partie Client
-
-                Client client = (Client) societe;
-
-                // visibilité des clients
-                this.panClient.setVisible(true);
-                this.panProspect.setVisible(false);
-
-                client.calculRatioClientEmployer(           // calcul ratio
-                        Integer.parseInt(this.txChiffreAffaire.getText()),
-                        Integer.parseInt(this.txNombreEmployer.getText()));
-
-                // TODO le renvoier a la base de données par le controleur
-            } else if (societe instanceof Prospect) {       // partie Prospect
-
-                Prospect prospect = (Prospect) societe;
-
-                // visibilité des Prospects
-                this.panClient.setVisible(false);
-                this.panProspect.setVisible(true);
-
-                prospect.setDatePropect(this.txDatePropection.getText());
-                prospect.setInteresse(Interet.valueOf(this.comboInteresset.getSelectedItem().toString()));
-
-                // TODO le renvoier a la base de données par le controleur
+            } catch (Exception ex) {
+                System.err.format("SQL Error [State: %s]\n Message : %s",
+                        ex.getStackTrace(), ex.getMessage());
             }
 
-            // Si la modification a été réalisée avec succès, un message sera affiché
-            JOptionPane.showMessageDialog(null,
-                    "Modification effectuée sur le client",
-                    "Modification", JOptionPane.INFORMATION_MESSAGE);
-            new MenuFrame(this.controleur);
-            this.dispose();
-
-            // erreur de saisi d'entier dans un champs de caractère
-        } catch (NumberFormatException nbfe) {
-            JOptionPane.showMessageDialog(null,
-                    "Erreur de saisi : veuillez entrer des valeurs numériques " +
-                            "\n dans les champs demandés",
-                    "Erreur de saisi Utilisateur", JOptionPane.INFORMATION_MESSAGE);
-
-            // exception venant des classes métiers
-        } catch (ExceptionPersonnaliser excePerso) {
-            JOptionPane.showMessageDialog(null, excePerso.getMessage(),
-                    "Erreur de saisi Utilisateur ", JOptionPane.ERROR_MESSAGE);
-
-            // exception venant d'une erreur d'excution
-        } catch (Exception excep) {
-            System.out.println("Erreur d'exécution du programme"
-                    + excep.getStackTrace());
         }
-
     }
 
     private void initComponents() {

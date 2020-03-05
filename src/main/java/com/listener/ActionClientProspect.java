@@ -71,6 +71,9 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
 
                 this.menuFrame.getJComboBoxListeSociete().setModel(model);
 
+            }catch (SQLException sql){
+                System.err.format("SQL Error [State: %s]\n Message : %s",
+                        sql.getSQLState(), sql.getMessage());
             }catch (Exception exc){
                 // TODO voir les logg
                 System.out.println("Erreur : " + exc.getMessage());

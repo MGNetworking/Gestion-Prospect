@@ -12,12 +12,12 @@ public abstract class Societe {
 
     // variable contenant les informations sur les entreprises.
     private int identifiant;
-    private String raisonSociale = "";
+    private String raisonSociale ;
     private DomainSociete domainSociete;
-    private Adresse listAdresse = null;
-    private String telephone = "";
-    private String email = "";
-    private String commentaire = "";
+    private Adresse listAdresse;
+    private String telephone;
+    private String email;
+    private String commentaire ;
 
     /**
      * Constructeur implicite.

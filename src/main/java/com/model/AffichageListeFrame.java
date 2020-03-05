@@ -33,7 +33,6 @@ public class AffichageListeFrame extends javax.swing.JFrame {
         this.controleur = controleur;
 
 
-
         this.setModelAffichageListe(
                 iniDataModelAfficheList(this.choixMemoireClientProspect),
                 initTitreDataModelAffichageListe(this.choixMemoireClientProspect));
@@ -138,8 +137,15 @@ public class AffichageListeFrame extends javax.swing.JFrame {
 
             }
 
-        } catch (RuntimeException runt) {
-            System.out.println("Runtime exception");
+        } catch (NumberFormatException e) {
+            System.out.println("Erreur de format de données : " + e.getMessage());
+
+        } catch (SQLException sql) {
+            System.err.format("SQL Error [State: %s]\n Message : %s",
+                    sql.getSQLState(), sql.getMessage());
+
+        } catch (Exception e) {
+            System.out.println("Erreur exec prospect" + e.getMessage());
         }
 
 
@@ -159,7 +165,6 @@ public class AffichageListeFrame extends javax.swing.JFrame {
             personnelle[i][7] = listeSociete.get(i).getTelephone();
             personnelle[i][8] = listeSociete.get(i).getEmail();
             personnelle[i][9] = listeSociete.get(i).getCommentaire();
-
 
 
             if (flagClient) {   //si client

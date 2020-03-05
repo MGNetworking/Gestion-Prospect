@@ -26,7 +26,7 @@ public abstract class DAO<type> {
      * @param objet
      * @return boolean
      */
-    abstract boolean create(type objet) throws SQLException;
+    abstract boolean create(type objet) throws SQLException,Exception;
 
     /**
      * Méthode pour la suppréssion.
@@ -34,7 +34,7 @@ public abstract class DAO<type> {
      * @param objet
      * @return boolean
      */
-    abstract boolean delete(type objet);
+    abstract boolean delete(type objet)throws SQLException;
 
     /**
      * Méthode pour la mise à jour
@@ -42,7 +42,7 @@ public abstract class DAO<type> {
      * @param objet
      * @return boolean
      */
-    abstract boolean update(type objet);
+    abstract boolean update(type objet)throws SQLException;
 
     /**
      * Méthode de recherche des informations.
@@ -55,6 +55,6 @@ public abstract class DAO<type> {
      * Import tout les élements de la base de données.
      * @return
      */
-    abstract List<Societe> findAll() throws SQLException;
+    abstract List<Societe> findAll() throws SQLException,Exception;
 
 }

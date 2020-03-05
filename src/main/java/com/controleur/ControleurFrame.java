@@ -22,8 +22,6 @@ import com.persistance.Prospect_DAO;
 import com.model.MenuFrame;
 
 
-
-
 /**
  * @author Maxime
  */
@@ -59,34 +57,21 @@ public class ControleurFrame {
      * @param choixSociete de type String
      * @return un objet de type List
      */
-    public List<Societe> getListeSocieteControleur(String choixSociete) {
+    public List<Societe> getListeSocieteControleur(String choixSociete) throws SQLException, ExceptionPersonnaliser {
 
         List listSt = null;
 
         // En fonction du choix renvoie la liste des Client ou prospect
         if (choixSociete.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
-            try {
-                listSt = this.client_dao.findAll();
-                // todo cree un indic pour cleint et prospect qui permet de donnée un id a la création du prochain
-            } catch (SQLException sql) {
-                System.err.format("SQL Error [State: %s]\n Message : %s",
-                        sql.getSQLState(), sql.getMessage());
-            }
+            listSt = this.client_dao.findAll();
 
         } else if (choixSociete.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
-            try {
-                listSt = this.prospect_dao.findAll();
-            } catch (SQLException sql) {
-                System.err.format("SQL Error [State: %s]\n Message : %s",
-                        sql.getSQLState(), sql.getMessage());
-            } catch (Exception e) {
-                System.out.println("Erreur exec prospect" + e.getMessage());
-            }
+            listSt = this.prospect_dao.findAll();
 
         } else {
-            throw new RuntimeException("Erreur sur le renvoi de la liste");
+            throw new ExceptionPersonnaliser("Erreur sur le renvoi de la liste");
         }
 
         return listSt;
@@ -97,17 +82,17 @@ public class ControleurFrame {
      *
      * @param st de type Societe.
      */
-    public boolean addSocieteControleur(Societe st)throws SQLException, ExceptionDAO, NumberFormatException {
-        // todo revoyer le boolean et créé une boite de dialogue pour la confirmation
-        boolean controle = false;
+    public boolean addSocieteControleur(Societe st) throws SQLException, ExceptionPersonnaliser, NumberFormatException {
+
+        boolean operation = false;
 
         if (st instanceof Client) {
-            controle =  client_dao.create((Client) st);
+            operation  = client_dao.create((Client) st);
 
         } else if (st instanceof Prospect) {
-            controle = prospect_dao.create((Prospect) st);
+            operation  = prospect_dao.create((Prospect) st);
         }
-        return controle;
+        return operation ;
     }
 
     /**
@@ -115,26 +100,33 @@ public class ControleurFrame {
      *
      * @param Societe
      */
-    public void deleteSocieteControle(Societe st) {
-        // todo revoyer le boolean et créé une boite de dialogue pour la confirmation
+    public boolean deleteSocieteControle(Societe st) throws SQLException {
+
+        boolean operation = false;
+
         if (st instanceof Client) {
-            client_dao.delete((Client) st);
+            operation = client_dao.delete((Client) st);
 
         } else if (st instanceof Prospect) {
-            prospect_dao.create((Prospect) st);
+            operation = prospect_dao.create((Prospect) st);
         }
+
+        return operation;
     }
 
-    public void updateSocieteControleur(Societe st) {
-        // todo revoyer le boolean et créé une boite de dialogue pour la confirmation
+    public boolean updateSocieteControleur(Societe st)throws SQLException  {
+
+        boolean operation = false;
 
         if (st instanceof Client) {
-            client_dao.update((Client) st);
+            operation = client_dao.update((Client) st);
 
         } else if (st instanceof Prospect) {
-            prospect_dao.update((Prospect) st);
+            operation = prospect_dao.update((Prospect) st);
 
         }
+
+        return operation;
     }
 
 }
