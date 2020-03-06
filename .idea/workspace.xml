@@ -3,18 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="30e5c699-c49d-4af8-be3a-2582563ac90a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,7 +29,7 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
                 <provider selected="true" editor-type-id="text-editor">
@@ -51,90 +46,38 @@
     <window id="2">
       <content type="file-editors">
         <state>
-          <leaf>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="519">
-                    <caret line="34" selection-start-line="34" selection-end-line="34" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="200">
-                    <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="580">
-                    <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="4">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="3060">
-                    <caret line="174" selection-start-line="173" selection-end-line="174" />
-                    <folding>
-                      <element signature="e#4627#4628#0" expanded="true" />
-                      <element signature="e#4673#4674#0" expanded="true" />
-                      <element signature="e#6248#6249#0" expanded="true" />
-                      <element signature="e#6297#6298#0" expanded="true" />
-                      <element signature="e#6740#30572#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="320">
-                    <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+                  <state relative-caret-position="1329">
+                    <caret line="177" column="34" lean-forward="true" selection-start-line="177" selection-start-column="34" selection-end-line="177" selection-end-column="34" />
                     <folding>
-                      <element signature="e#2757#2758#0" expanded="true" />
-                      <element signature="e#2788#2789#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-95">
-                    <caret line="274" column="27" selection-start-line="274" selection-start-column="27" selection-end-line="274" selection-end-column="27" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="e#2624#2625#0" expanded="true" />
-                      <element signature="e#2653#2654#0" expanded="true" />
+                      <element signature="e#5136#5137#0" expanded="true" />
+                      <element signature="e#5177#5178#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
               </entry>
             </file>
             <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1369">
+                    <caret line="142" column="22" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
+                    <folding>
+                      <element signature="e#4714#4715#0" expanded="true" />
+                      <element signature="e#4740#4741#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-295">
-                    <caret line="245" selection-start-line="245" selection-end-line="245" />
+                  <state relative-caret-position="451">
+                    <caret line="136" selection-start-line="136" selection-end-line="136" />
                     <folding>
                       <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
                       <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
@@ -146,7 +89,46 @@
                       <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
                       <element signature="docComment;method#getTelephone#0;class#Societe#0" />
                       <element signature="docComment;method#setTelephone#0;class#Societe#0" />
+                      <element signature="e#6588#6589#0" expanded="true" />
+                      <element signature="e#7572#7573#0" expanded="true" />
+                      <element signature="e#7786#7787#0" expanded="true" />
+                      <element signature="e#8802#8803#0" expanded="true" />
+                      <element signature="e#8842#8843#0" expanded="true" />
                     </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="903">
+                    <caret line="135" column="16" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
+                    <folding>
+                      <element signature="e#4549#4550#0" expanded="true" />
+                      <element signature="e#4589#4590#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-980">
+                    <caret line="21" column="65" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="609">
+                    <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
                   </state>
                 </provider>
               </entry>
@@ -155,38 +137,17 @@
         </state>
       </content>
     </window>
-    <window id="3">
+    <window id="1">
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="3651">
-                    <caret line="276" column="51" selection-start-line="276" selection-start-column="51" selection-end-line="276" selection-end-column="51" />
+                  <state relative-caret-position="483">
+                    <caret line="468" column="86" selection-start-line="468" selection-start-column="86" selection-end-line="468" selection-end-column="86" />
                     <folding>
                       <element signature="docComment;class#FormulaireFrame#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="900">
-                    <caret line="64" selection-start-line="64" selection-end-line="64" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="705">
-                    <caret line="251" selection-start-line="251" selection-end-line="251" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -205,7 +166,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
+            <state relative-caret-position="-414">
               <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
             </state>
           </provider>
@@ -214,21 +175,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+            <state relative-caret-position="354">
+              <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#507#508#0" expanded="true" />
                 <element signature="e#547#548#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1558">
-              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -249,6 +202,7 @@
       <find>13</find>
       <find>domainSociete</find>
       <find>JCo</find>
+      <find>DOMAIN_PRIVE_PUBLIC</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -293,24 +247,24 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExecptionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/principale/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
       </list>
     </option>
   </component>
@@ -322,8 +276,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="466" />
-    <option name="y" value="-19" />
+    <option name="x" value="465" />
+    <option name="y" value="-20" />
     <option name="width" value="1535" />
     <option name="height" value="975" />
   </component>
@@ -376,7 +330,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="controleur" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
@@ -391,24 +345,6 @@
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="persistance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="principale" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -417,10 +353,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -617,12 +549,13 @@
       <workItem from="1583306678624" duration="12456000" />
       <workItem from="1583341288242" duration="9128000" />
       <workItem from="1583393163774" duration="24026000" />
-      <workItem from="1583426714281" duration="14508000" />
+      <workItem from="1583426714281" duration="16388000" />
+      <workItem from="1583479292072" duration="9403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188520000" />
+    <option name="totallyTimeSpent" value="199803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -635,8 +568,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.25167784" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.25503355" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.27919462" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -645,7 +579,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5021097" side_tool="true" weight="0.27919462" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.73371106" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21388102" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5934844" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -653,7 +587,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17280453" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1756374" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -894,18 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3908#3909#0" expanded="true" />
-            <element signature="e#3948#3949#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -951,92 +873,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-          <folding>
-            <element signature="e#2757#2758#0" expanded="true" />
-            <element signature="e#2788#2789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3651">
-          <caret line="276" column="51" selection-start-line="276" selection-start-column="51" selection-end-line="276" selection-end-column="51" />
-          <folding>
-            <element signature="docComment;class#FormulaireFrame#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="245" selection-start-line="245" selection-end-line="245" />
-          <folding>
-            <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
-            <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
-            <element signature="docComment;method#getRaisonSociale#0;class#Societe#0" />
-            <element signature="docComment;method#setRaisonSociale#0;class#Societe#0" />
-            <element signature="docComment;method#getDomainSociete#0;class#Societe#0" />
-            <element signature="docComment;method#setDomainSociete#0;class#Societe#0" />
-            <element signature="docComment;method#getAdresse#0;class#Societe#0" />
-            <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
-            <element signature="docComment;method#getTelephone#0;class#Societe#0" />
-            <element signature="docComment;method#setTelephone#0;class#Societe#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1047,16 +887,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1558">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
+        <state relative-caret-position="-81">
           <caret line="274" column="27" selection-start-line="274" selection-start-column="27" selection-end-line="274" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1076,13 +909,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+        <state relative-caret-position="460">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-980">
+          <caret line="21" column="65" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="135" column="16" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
+          <folding>
+            <element signature="e#4549#4550#0" expanded="true" />
+            <element signature="e#4589#4590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1329">
+          <caret line="177" column="34" lean-forward="true" selection-start-line="177" selection-start-column="34" selection-end-line="177" selection-end-column="34" />
+          <folding>
+            <element signature="e#5136#5137#0" expanded="true" />
+            <element signature="e#5177#5178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1369">
+          <caret line="142" column="22" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
+          <folding>
+            <element signature="e#4714#4715#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
             <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
+          <folding>
+            <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
+            <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
+            <element signature="docComment;method#getRaisonSociale#0;class#Societe#0" />
+            <element signature="docComment;method#setRaisonSociale#0;class#Societe#0" />
+            <element signature="docComment;method#getDomainSociete#0;class#Societe#0" />
+            <element signature="docComment;method#setDomainSociete#0;class#Societe#0" />
+            <element signature="docComment;method#getAdresse#0;class#Societe#0" />
+            <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
+            <element signature="docComment;method#getTelephone#0;class#Societe#0" />
+            <element signature="docComment;method#setTelephone#0;class#Societe#0" />
+            <element signature="e#6588#6589#0" expanded="true" />
+            <element signature="e#7572#7573#0" expanded="true" />
+            <element signature="e#7786#7787#0" expanded="true" />
+            <element signature="e#8802#8803#0" expanded="true" />
+            <element signature="e#8842#8843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="468" column="86" selection-start-line="468" selection-start-column="86" selection-end-line="468" selection-end-column="86" />
+          <folding>
+            <element signature="docComment;class#FormulaireFrame#0" />
           </folding>
         </state>
       </provider>

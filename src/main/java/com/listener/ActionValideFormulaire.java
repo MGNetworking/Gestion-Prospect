@@ -30,7 +30,6 @@ public class ActionValideFormulaire implements ActionListener {
         String nomBp = (String) ((JButton) e.getSource()).getText();
 
         if (nomBp.equals(Action.MODIFICATION.getAction())) {
-            System.out.println("Client modification bp: ");
             this.formulaireFrame.ajouterModifierSociete(false);
 
         } else if (nomBp.equals(Action.SUPPRESSION.getAction())) {

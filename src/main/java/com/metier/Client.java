@@ -118,7 +118,8 @@ public class Client extends Societe {
         int totale = chiffreAffaire / nEmloyer;  // calcul du ratio
 
         if (totale < 10) { // si ratio est inférieur a 10
-            throw new ExceptionPersonnaliser("Ratio : le calcul de la moyen chiffre d'affaire / employer, est inférieur à 10");
+            throw new ExceptionPersonnaliser("Ratio :  chiffre d'affaire / employer inférieur à 10",
+                    ExceptionClient.CALCUL_RATIO);
         }
 
         // initailisation des variables d'instance.
@@ -130,7 +131,7 @@ public class Client extends Societe {
     /**
      * renvoie la raison Sociale.
      *
-     * @return de tyep string
+     * @return de type String
      */
     @Override
     public String toString() {
@@ -139,9 +140,12 @@ public class Client extends Societe {
 
     public enum ExceptionClient {
 
-        CALCUL_RATIO;
+        IS_NULL_CLIENT(-1),
+        CALCUL_RATIO(1);
+        int ch;
 
-        ExceptionClient() {
+        ExceptionClient(int chiffre) {
+            this.ch = chiffre;
         }
 
     }

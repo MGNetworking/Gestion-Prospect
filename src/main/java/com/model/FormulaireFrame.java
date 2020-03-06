@@ -6,6 +6,7 @@ import com.exception.ExceptionPersonnaliser;
 import com.listener.ActionQuitter;
 import com.listener.ActionRetourMenu;
 import com.listener.ActionValideFormulaire;
+import com.metier.Adresse;
 import com.metier.Client;
 import com.metier.Prospect;
 import com.metier.Societe;
@@ -13,6 +14,11 @@ import com.metier.Societe.DomainSociete;
 import com.model.MenuFrame.Action;
 import com.metier.Societe.TypeSociete;
 import com.metier.Prospect.Interet;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import com.metier.Adresse.ExceptionAdresse;
+import com.metier.Client.ExceptionClient;
+import com.metier.Societe.ExceptionSociete;
+import com.metier.Prospect.ExceptionProspect;
 
 import javax.swing.*;
 import java.awt.*;
@@ -267,14 +273,14 @@ public class FormulaireFrame extends javax.swing.JFrame {
         Client client = new Client();
         Prospect prospect = new Prospect();
 
-        System.out.println("Debut ");
+
         try {
             // choix du client
             if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
-                System.out.println("client passage ");
+
 
                 // passage des valeurs du client
-                if (action == false){// si modifier
+                if (action == false) {// si modifier
                     client.setIdentifiant(Integer.parseInt(this.txID.getText()));
                 }
 
@@ -355,9 +361,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                                     "échec de la modification du Client",
                                     "Transaction SGBD",
                                     JOptionPane.ERROR_MESSAGE);
-
                         }
-
                     }
                 }
 
@@ -366,22 +370,24 @@ public class FormulaireFrame extends javax.swing.JFrame {
             } else if (this.memoirechoixClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
                 // passage des valeurs du prospect
-                if (action == false){ // si modifier
+                if (action == false) { // si modifier
                     prospect.setIdentifiant(Integer.parseInt(this.txID.getText()));
                 }
 
-                prospect.setRaisonSociale(this.txRaison.getText().trim());
-                prospect.setTelephone(this.txTelephone.getText().trim());
+                prospect.setRaisonSociale(this.txRaison.getText());
+                prospect.setTelephone(this.txTelephone.getText());
                 prospect.setEmail(this.txEmail.getText());
                 prospect.setCommentaire(this.txCommentaire.getText());
+                System.out.println("valeur domain: " + this.comboDomainSt.getSelectedItem().toString());
                 prospect.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
 
                 prospect.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText()),
-                        this.txNomRue.getText().trim(),
-                        this.txCodePostale.getText().trim(),
-                        this.txVille.getText().trim());
+                        this.txNomRue.getText(),
+                        this.txCodePostale.getText(),
+                        this.txVille.getText());
 
                 prospect.setDatePropect(this.txDatePropection.getText());
+                System.out.println("valeur Interet: " + this.comboInteresset.getSelectedItem().toString());
                 prospect.setInteresse(Interet.valueOf(this.comboInteresset.getSelectedItem().toString()));
 
                 // ajouter prospect
@@ -444,173 +450,212 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
             }
 
-        } catch (NumberFormatException nub) {
+        } catch (NumberFormatException nub) {       // erreur venant caste d'entier
             JOptionPane.showMessageDialog(null,
-                    "Vous avez entré des valeurs numériques dans le champs numero d'adresse .\n" +
+                    "Une valeur numérique est attendu dans le champs numero d'adresse .\n" +
                             "veuillez entré une nouvelle valeur numerique.",
                     "ERREUR de saisi : Adresse",
                     JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (ExceptionPersonnaliser exp) {
+        } catch (IllegalArgumentException ill) {    // Exception venant des conbobox
 
-            // exception sur la classe adresse
-            switch (exp.getIndicationAdresse()) {
+            JOptionPane.showMessageDialog(null,
+                    "Une valeur de la comboBox non selectionnées .\n" +
+                            "veuillez fair une sélection dans la conboBox.",
+                    "ERREUR de saisi : Adresse",
+                    JOptionPane.INFORMATION_MESSAGE);
 
-                case NUMERO_RUE_INF_0: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le numero de la rue ne peut pas étre inférieur ou égale à 0.\n" +
-                                    "veuillez entré une nouvelle valeurs.",
-                            "ERREUR de saisi : numero de rue",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case EMPTY_NOM_RUE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le nom de la rue doit étre renseigner.\n" +
-                                    "veuillez renseigner le noms de la rue.",
-                            "ERREUR de saisi : nom de la rue",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case MATCH_NOM_RUE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le nom de la rue doit ne pas comporté de chiffre.\n" +
-                                    "Veuillez renseigner un autre noms de rue.",
-                            "ERREUR de saisi : nom de la rue",
-                            JOptionPane.INFORMATION_MESSAGE);
 
-                    break;
-                }
-                case MACTH_CD_POSTALE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le nom de la rue ne doit pas comporte de chiffre.\n" +
-                                    "Veuillez renseigner un autre noms de rue.",
-                            "ERREUR de saisi : le code postale",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case EMPTY_CD_POSTALE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le code postale doit étre renseigné.\n" +
-                                    "Veuillez renseigner le code postale.",
-                            "ERREUR de saisi : le code postale",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case MATCH_NOM_VILLE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le noms de la ville doit comporter un minimum lettre.\n" +
-                                    "Veuillez renseigner correctement le nom de la ville.",
-                            "ERREUR de saisi : le nom de la ville",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
+        } catch (ExceptionPersonnaliser exp) {      // Erreur venant des classe métier
+
+            if (exp.getIndicationAdresse() != ExceptionAdresse.IS_NULL_ADRESSE) {
+
+
+                // exception sur la classe adresse
+                switch (exp.getIndicationAdresse()) {
+
+                    case NUMERO_RUE_INF_0: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le numero de la rue ne peut pas étre inférieur ou égale à 0.\n" +
+                                        "veuillez entré une nouvelle valeurs.",
+                                "ERREUR de saisi : numero de rue",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case EMPTY_NOM_RUE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le nom de la rue doit étre renseigner.\n" +
+                                        "veuillez renseigner le noms de la rue.",
+                                "ERREUR de saisi : nom de la rue",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case MATCH_NOM_RUE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le nom de la rue doit ne pas comporté de chiffre.\n" +
+                                        "Veuillez renseigner un autre noms de rue.",
+                                "ERREUR de saisi : nom de la rue",
+                                JOptionPane.INFORMATION_MESSAGE);
+
+                        break;
+                    }
+                    case MACTH_CD_POSTALE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le nom de la rue ne doit pas comporte de chiffre.\n" +
+                                        "Veuillez renseigner un autre noms de rue.",
+                                "ERREUR de saisi : le code postale",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case EMPTY_CD_POSTALE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le code postale doit étre renseigné.\n" +
+                                        "Veuillez renseigner le code postale.",
+                                "ERREUR de saisi : le code postale",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case EMPTY_NOM_VILLE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le noms de la ville est vide .\n" +
+                                        "Veuillez entré un nom le nom de la ville.",
+                                "ERREUR de saisi : le nom de la ville",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case MATCH_NOM_VILLE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le noms de la ville doit comporter un minimum lettre.\n" +
+                                        "Veuillez renseigner correctement le nom de la ville.",
+                                "ERREUR de saisi : le nom de la ville",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+
                 }
 
+            } else if (exp.getIndicationSt() != ExceptionSociete.IS_NULL_SOCIETE) {
+
+
+                // exception sur la Societe
+                switch (exp.getIndicationSt()) {
+                    case EMPTY_EMAIL: {
+                        JOptionPane.showMessageDialog(null,
+                                "L'adresse email n'est pas saisi.\n" +
+                                        "Veuillez saisir l'adresse email.",
+                                "ERREUR de saisi : L'adresse email",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case MATCH_EMAIL: {
+                        JOptionPane.showMessageDialog(null,
+                                "L'adresse Email présente une anomalie, elle n'est pas conforme\n" +
+                                        "au standart attendu.\n" +
+                                        "Veuillez resaisir l'adresse email.",
+                                "ERREUR de saisi : L'adresse email",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case EMPTY_RAISONSOCIALE: {
+                        JOptionPane.showMessageDialog(null,
+                                "La raison sociale est vide\n" +
+                                        "Veuillez saisir la raison sociale",
+                                "ERREUR de saisi : La raison sociale",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+
+                    case DOMAIN_PRIVE_PUBLIC: {
+                        JOptionPane.showMessageDialog(null,
+                                "Vous devez fair une sélection da,s la conboBox Domain : PRIVE ou PUBLIC\n" +
+                                        "Veuillez fair une sélection",
+                                "ERREUR de saisi : Domain de la société",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+
+                    case EMPTY_TELEPHONE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le numéro de téléphone n'est pas renseigné\n" +
+                                        "Veuillez saisir le numéro de téléphone",
+                                "ERREUR de saisi : le numéro de téléphone",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case MATCH_TELEPHONE: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le numéro de téléphone n'est pas conforme au standart attendu\n" +
+                                        "Veuillez resaisir le numéro de téléphone",
+                                "ERREUR de saisi : le numéro de téléphone",
+                                JOptionPane.INFORMATION_MESSAGE);
+
+                        break;
+                    }
+
+                }
+            } else if (exp.getIndicationCl() != ExceptionClient.IS_NULL_CLIENT) {
+
+
+                // exception sur la client
+                switch (exp.getIndicationCl()) {
+                    case CALCUL_RATIO: {
+                        JOptionPane.showMessageDialog(null,
+                                "Le calcul du ratio chiffre d'affaire nombre d'employés et inferieur a 0\n" +
+                                        "Veuillez resaisir l'un des champs correspondant " +
+                                        "au chiffre d'affaire et nombre d'employés",
+                                "ERREUR de saisi : le calcul du ratio",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                }
+            } else if (exp.getIndicationPs() != ExceptionProspect.IS_NULL_PROSPECT) {
+
+
+                // exception sur la classe Prospect
+                switch (exp.getIndicationPs()) {
+                    case EMPTY_DATE: {
+                        JOptionPane.showMessageDialog(null,
+                                "La date n'a pas était saisi\n" +
+                                        "Veuillez saisir la date",
+                                "ERREUR de saisi : La date",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case MACTH_DATE: {
+                        JOptionPane.showMessageDialog(null,
+                                "La date ne correspond pas au format attendu\n" +
+                                        "Veuillez resaisir la date",
+                                "ERREUR de saisi : La date",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case INTERET_OUI_NON: {
+                        JOptionPane.showMessageDialog(null,
+                                "Vous devez fair une sélection dans la conbBox Interet : OUI ou NON\n" +
+                                        "Veuillez fair une sléection",
+                                "ERREUR de saisi : Intéret",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                }
             }
-            // exception sur la Societe
-            switch (exp.getIndicationSt()) {
-                case EMPTY_EMAIL: {
-                    JOptionPane.showMessageDialog(null,
-                            "L'adresse email n'est pas saisi.\n" +
-                                    "Veuillez saisir l'adresse email.",
-                            "ERREUR de saisi : L'adresse email",
-                            JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException sql) {                // SQL erreur
 
-                    break;
-                }
-                case MATCH_EMAIL: {
-                    JOptionPane.showMessageDialog(null,
-                            "L'adresse email présente une anomalie, elle n'est pas conforme " +
-                                    "au standart attendur.\n" +
-                                    "Veuillez resaisir l'adresse email.",
-                            "ERREUR de saisi : L'adresse email",
-                            JOptionPane.INFORMATION_MESSAGE);
+            System.err.format("SQL Error [State: %s]\n " +
+                            "Message : %s",sql.getSQLState() +"\n" ,
+                                            sql.getMessage());
 
-                    break;
-                }
-                case EMPTY_RAISONSOCIALE: {
-                    JOptionPane.showMessageDialog(null,
-                            "La raison sociale est vide" +
-                                    "Veuillez saisir la raison sociale",
-                            "ERREUR de saisi : La raison sociale",
-                            JOptionPane.INFORMATION_MESSAGE);
+        } catch (NullPointerException nullEx) {     // Exception venant d'une référence
 
-                    break;
-                }
-
-                case DOMAIN_PRIVE_PUBLIC: {
-                    System.err.format("Erreur sur la comboBox domain Prive ou Public \n" +
-                            exp.getStackTrace() + exp.getMessage());
-                    break;
-                }
-
-                case EMPTY_TELEPHONE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le numéro de téléphone n'est pas renseigné" +
-                                    "Veuillez saisir le numéro de téléphone",
-                            "ERREUR de saisi : le numéro de téléphone",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case MATCH_TELEPHONE: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le numéro de téléphone n'est pas conforme au standart attendu" +
-                                    "Veuillez resaisir le numéro de téléphone",
-                            "ERREUR de saisi : le numéro de téléphone",
-                            JOptionPane.INFORMATION_MESSAGE);
-
-                    break;
-                }
-
-            }
-            // exception sur la client
-            switch (exp.getIndicationCl()) {
-                case CALCUL_RATIO: {
-                    JOptionPane.showMessageDialog(null,
-                            "Le calcul du ratio chiffre d'affaire nombre d'employés et inferieur a 0" +
-                                    "Veuillez resaisir l'un des champs correspondant " +
-                                    "au chiffre d'affaire et nombre d'employés",
-                            "ERREUR de saisi : le calcul du ratio",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-            }
-            // exception sur la classe Prospect
-            switch (exp.getIndicationPs()) {
-                case EMPTY_DATE: {
-                    JOptionPane.showMessageDialog(null,
-                            "La date n'a pas était saisi" +
-                                    "Veuillez saisir la date",
-                            "ERREUR de saisi : La date",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case MACTH_DATE: {
-                    JOptionPane.showMessageDialog(null,
-                            "La date ne correspond pas au format attendu" +
-                                    "Veuillez resaisir la date",
-                            "ERREUR de saisi : La date",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case INTERET_OUI_NON: {
-                    System.err.format("ERREUR sur la comboBox Interet" +
-                            exp.getStackTrace() + exp.getMessage());
-                    break;
-                }
-            }
-
-        } catch (SQLException sql) {// venant de l'insertion dans la base de données
-
-            System.err.format("SQL Error [State: %s]\n Message : %s",
-                    sql.getSQLState(), sql.getMessage());
-
-        } catch (Exception excep) { // Exception venant d'une erreur d'execution
-
-            System.err.format("Erreur d'exécution du programme" + excep.getStackTrace() + " : " + excep.getMessage());
+            System.err.format("Error Null pointeur : " + nullEx.getStackTrace() + " : " + nullEx.getMessage());
 
 
-        } finally { // fin de l'insertion du nouveau Prospect ou client
+        } catch (Exception excep) {                 // Exception venant d'une erreur d'execution
+
+            System.err.format("Error execution : " + excep.getStackTrace() + " : " + excep.getMessage());
+
+
+        } finally {                                 // fin de l'insertion du nouveau Prospect ou client
 
             // supression des références des l'objets
             client = null;

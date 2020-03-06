@@ -54,7 +54,8 @@ public class Adresse {
     public void setNumeroDeRueSt(int numeroDeRueSt) throws ExceptionPersonnaliser {
 
         if (numeroDeRueSt <= 0)
-            throw new ExceptionPersonnaliser("Numéro rue <= 0", ExceptionAdresse.NUMERO_RUE_INF_0);
+            throw new ExceptionPersonnaliser("Numéro rue <= 0",
+                    ExceptionAdresse.NUMERO_RUE_INF_0);
 
 
         this.numeroDeRueSt = numeroDeRueSt;
@@ -84,14 +85,16 @@ public class Adresse {
 
 
         if (nomRue.isEmpty()) {
-            throw new ExceptionPersonnaliser("Non de la rue vide", ExceptionAdresse.EMPTY_NOM_RUE);
+            throw new ExceptionPersonnaliser("Non de la rue vide",
+                    ExceptionAdresse.EMPTY_NOM_RUE);
         }
 
 
         // permet de verifié le format du nom de la rue
         // todo les accents ne passe pas le é par exemple
         if (!(nomRue.matches("[a-z \'A-Z]*"))) {
-            throw new ExceptionPersonnaliser("Non de la rue : contient des chiffres", ExceptionAdresse.MATCH_NOM_RUE);
+            throw new ExceptionPersonnaliser("Non de la rue : contient des chiffres",
+                    ExceptionAdresse.MATCH_NOM_RUE);
         }
 
         this.nomRue = nomRue;
@@ -120,7 +123,8 @@ public class Adresse {
         }
 
         if (codePost.isEmpty()) {
-            throw new ExceptionPersonnaliser("Code Postale : vide ", ExceptionAdresse.EMPTY_CD_POSTALE);
+            throw new ExceptionPersonnaliser("Code Postale : vide ",
+                    ExceptionAdresse.EMPTY_CD_POSTALE);
         }
 
 
@@ -155,11 +159,13 @@ public class Adresse {
         }
 
         if (ville.isEmpty()) {
-            throw new ExceptionPersonnaliser("Erreur Ville : vide ", ExceptionAdresse.EMPTY_NOM_VILLE);
+            throw new ExceptionPersonnaliser("Erreur Ville : vide ",
+                    ExceptionAdresse.EMPTY_NOM_VILLE);
         }
 
         if (ville.matches("[a-zA-Z]{1,2}")) {
-            throw new ExceptionPersonnaliser("Ville : format ville 3 caractére non respecter ", ExceptionAdresse.MATCH_NOM_VILLE);
+            throw new ExceptionPersonnaliser("Ville : format ville 3 caractére non respecter ",
+                    ExceptionAdresse.MATCH_NOM_VILLE);
         }
 
 
@@ -171,15 +177,18 @@ public class Adresse {
      */
     public enum ExceptionAdresse {
 
-        NUMERO_RUE_INF_0,
-        EMPTY_NOM_RUE,
-        MATCH_NOM_RUE,
-        EMPTY_CD_POSTALE,
-        MACTH_CD_POSTALE,
-        EMPTY_NOM_VILLE,
-        MATCH_NOM_VILLE;
+        IS_NULL_ADRESSE(-1),
+        NUMERO_RUE_INF_0(1),
+        EMPTY_NOM_RUE(2),
+        MATCH_NOM_RUE(3),
+        EMPTY_CD_POSTALE(4),
+        MACTH_CD_POSTALE(5),
+        EMPTY_NOM_VILLE(6),
+        MATCH_NOM_VILLE(7);
+        int ch;
 
-        ExceptionAdresse() {
+        ExceptionAdresse(int chiffre) {
+            this.ch = chiffre;
         }
     }
 

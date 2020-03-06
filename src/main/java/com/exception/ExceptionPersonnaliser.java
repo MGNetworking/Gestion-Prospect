@@ -16,10 +16,10 @@ import com.metier.Client.ExceptionClient;
  */
 public class ExceptionPersonnaliser extends RuntimeException {
 
-    ExceptionAdresse indicationAdresse;
-    ExceptionSociete indicationSt;
-    ExceptionProspect indicationPs;
-    ExceptionClient indicationCl;
+    ExceptionAdresse indicationAdresse = ExceptionAdresse.IS_NULL_ADRESSE;
+    ExceptionSociete indicationSt= ExceptionSociete.IS_NULL_SOCIETE;
+    ExceptionProspect indicationPs = ExceptionProspect.IS_NULL_PROSPECT;
+    ExceptionClient indicationCl = ExceptionClient.IS_NULL_CLIENT;
 
     /**
      * Ce constructeur permet de créer une exception de type RuntimeException
@@ -55,6 +55,7 @@ public class ExceptionPersonnaliser extends RuntimeException {
      * @param indicationSt de type ExceptionSociete, l'ajout des indications
      */
     public ExceptionPersonnaliser(String message, ExceptionSociete indicationSt) {
+        super(message);
         this.indicationSt = indicationSt;
     }
 
@@ -68,6 +69,7 @@ public class ExceptionPersonnaliser extends RuntimeException {
      * @param indicationProspect de type ExceptionProspect, l'ajout des indications
      */
     public ExceptionPersonnaliser(String message, ExceptionProspect indicationProspect) {
+        super(message);
         this.indicationPs = indicationProspect;
 
     }
@@ -82,7 +84,8 @@ public class ExceptionPersonnaliser extends RuntimeException {
      * @param indicationClient de type ExceptionClient, l'ajout des indications
      */
     public ExceptionPersonnaliser(String message, ExceptionClient indicationClient) {
-
+        super(message);
+        this.indicationCl = indicationClient;
     }
 
     /**

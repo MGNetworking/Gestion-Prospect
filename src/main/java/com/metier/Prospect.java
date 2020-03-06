@@ -74,11 +74,13 @@ public class Prospect extends Societe {
 
         // vérification vide
         if (datePropectSt.isEmpty())
-            throw new ExceptionPersonnaliser("Date de prospection : la date est vide ");
+            throw new ExceptionPersonnaliser("Date de prospection : la date est vide ",
+                    ExceptionProspect.EMPTY_DATE);
 
-/*        // vérification format
+        // vérification format
         if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
-            throw new ExceptionPersonnaliser("Date de prospection : la date entré n'est pas comforme ");*/
+            throw new ExceptionPersonnaliser("Date de prospection : la date entré n'est pas comforme ",
+                    ExceptionProspect.MACTH_DATE);
 
 
         this.datePropect = datePropectSt;
@@ -103,13 +105,15 @@ public class Prospect extends Societe {
      */
     public void setInteresse(Interet interesse) throws ExceptionPersonnaliser {
 
+
         // variable null
         if (interesse == null)
             throw new NullPointerException("Interet prospect null");
 
         // patern regex
         if (!(interesse.equals(Interet.OUI) | interesse.equals(Interet.NON)))
-            throw new ExceptionPersonnaliser("Interet : le champs intéret n'a pas été renseigné");
+            throw new ExceptionPersonnaliser("Interet : le champs intéret n'a pas été renseigné",
+                    ExceptionProspect.INTERET_OUI_NON);
 
 
         this.interesse = interesse;
@@ -144,11 +148,15 @@ public class Prospect extends Societe {
      */
     public enum ExceptionProspect {
 
-        INTERET_OUI_NON,
-        MACTH_DATE,
-        EMPTY_DATE;
+        IS_NULL_PROSPECT(-1),
+        INTERET_OUI_NON(1),
+        MACTH_DATE(2),
+        EMPTY_DATE(3);
 
-        ExceptionProspect() {
+        int ch;
+
+        ExceptionProspect(int chiffre) {
+            this.ch = chiffre;
         }
 
     }
