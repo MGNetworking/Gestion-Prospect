@@ -5,24 +5,13 @@
  */
 package com.exception;
 
-import com.metier.Adresse;
-import com.metier.Adresse.ExceptionAdresse;
-import com.metier.Societe.ExceptionSociete;
-import com.metier.Prospect.ExceptionProspect;
-import com.metier.Client.ExceptionClient;
-
 /**
  * @author Maxime
  */
-public class ExceptionPersonnaliser extends RuntimeException {
-
-    ExceptionAdresse indicationAdresse = ExceptionAdresse.IS_NULL_ADRESSE;
-    ExceptionSociete indicationSt= ExceptionSociete.IS_NULL_SOCIETE;
-    ExceptionProspect indicationPs = ExceptionProspect.IS_NULL_PROSPECT;
-    ExceptionClient indicationCl = ExceptionClient.IS_NULL_CLIENT;
+public abstract class ExceptionPersonnaliser extends RuntimeException {
 
     /**
-     * Ce constructeur permet de créer une exception de type RuntimeException
+     * Ce constructeur permet de créer une exception de type RuntimeException.
      *
      * @param message de type String
      */
@@ -30,97 +19,67 @@ public class ExceptionPersonnaliser extends RuntimeException {
         super(message);
     }
 
+
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
-     * et d'ajouté des renseignements pour l'utilisateur.
-     * Elle utilise une enumeration de type ExceptionAdresse qui permet de
-     * retracer l'exception en rapport avec elle.
-     *
-     * @param message      de type String
-     * @param indicationTp de type ExceptionAdresse, l'ajout des indications
+     * Enumeration pour a gestion des erreur pour la classe Prospect.
      */
-    public ExceptionPersonnaliser(String message, ExceptionAdresse indicationAdresse) {
-        super(message);
-        this.indicationAdresse = indicationAdresse;
+    public enum ExceptionEnumProspect {
+
+        IS_NULL_PROSPECT,
+        INTERET_OUI_NON,
+        MACTH_DATE,
+        EMPTY_DATE;
+
+        ExceptionEnumProspect() {
+        }
+    }
+
+    /**
+     * Enumeration pour a gestion des erreur pour la classe Client.
+     */
+    public enum ExceptionEnumClient {
+
+        IS_NULL_CLIENT,
+        CALCUL_RATIO;
+
+        ExceptionEnumClient() {
+        }
 
     }
 
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
-     * et d'ajouté des renseignements pour l'utilisateur.
-     * Elle utilise une enumeration de type ExceptionSociete qui permet de
-     * retracer l'exception en rapport avec elle.
-     *
-     * @param message      de type String
-     * @param indicationSt de type ExceptionSociete, l'ajout des indications
+     * Enumeration pour a gestion des erreur de cette classe Adresse.
      */
-    public ExceptionPersonnaliser(String message, ExceptionSociete indicationSt) {
-        super(message);
-        this.indicationSt = indicationSt;
+    public enum ExceptionEnumAdresse {
+
+        IS_NULL_ADRESSE,
+        NUMERO_RUE_INF_0,
+        EMPTY_NOM_RUE,
+        MATCH_NOM_RUE,
+        EMPTY_CD_POSTALE,
+        MACTH_CD_POSTALE,
+        EMPTY_NOM_VILLE,
+        MATCH_NOM_VILLE;
+
+        ExceptionEnumAdresse() {
+        }
     }
 
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
-     * et d'ajouté des renseignements pour l'utilisateur.
-     * Elle utilise une enumeration de type ExceptionProspect qui permet de
-     * retracer l'exception en rapport avec elle.
-     *
-     * @param message            de type String
-     * @param indicationProspect de type ExceptionProspect, l'ajout des indications
+     * Enumeration pour a gestion des erreur de la classe Societe.
      */
-    public ExceptionPersonnaliser(String message, ExceptionProspect indicationProspect) {
-        super(message);
-        this.indicationPs = indicationProspect;
+    public enum ExceptionEnumSociete {
 
-    }
+        IS_NULL_SOCIETE,
+        EMPTY_RAISONSOCIALE,
+        DOMAIN_PRIVE_PUBLIC,
+        EMPTY_TELEPHONE,
+        MATCH_TELEPHONE,
+        EMPTY_EMAIL,
+        MATCH_EMAIL;
 
-    /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
-     * et d'ajouté des renseignements pour l'utilisateur.
-     * Elle utilise une enumeration de type ExceptionClient qui permet de
-     * retracer l'exception en rapport avec elle.
-     *
-     * @param message          de type String
-     * @param indicationClient de type ExceptionClient, l'ajout des indications
-     */
-    public ExceptionPersonnaliser(String message, ExceptionClient indicationClient) {
-        super(message);
-        this.indicationCl = indicationClient;
-    }
+        ExceptionEnumSociete() {
+        }
 
-    /**
-     * recupére une indication pour les exceptions Adresse
-     *
-     * @return de type enumération ExceptionAdresse
-     */
-    public ExceptionAdresse getIndicationAdresse() {
-        return this.indicationAdresse;
-    }
-
-    /**
-     * recupére une indication pour les exceptions sociétés
-     *
-     * @return de type enumération ExceptionSociete
-     */
-    public ExceptionSociete getIndicationSt() {
-        return this.indicationSt;
-    }
-
-    /**
-     * recupére une indication pour les exceptions Prospects
-     *
-     * @return de type enumération ExceptionProspect
-     */
-    public ExceptionProspect getIndicationPs() {
-        return this.indicationPs;
-    }
-
-    /**
-     * recupére une indication pour les exceptions clients
-     *
-     * @return de type enumération ExceptionClient
-     */
-    public ExceptionClient getIndicationCl() {
-        return this.indicationCl;
     }
 }

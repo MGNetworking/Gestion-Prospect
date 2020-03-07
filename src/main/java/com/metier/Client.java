@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import com.exception.ExceptionClient;
 import com.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumClient;
 
 import java.util.Collections;
 
@@ -118,8 +120,8 @@ public class Client extends Societe {
         int totale = chiffreAffaire / nEmloyer;  // calcul du ratio
 
         if (totale < 10) { // si ratio est inférieur a 10
-            throw new ExceptionPersonnaliser("Ratio :  chiffre d'affaire / employer inférieur à 10",
-                    ExceptionClient.CALCUL_RATIO);
+            throw new ExceptionClient("Ratio :  chiffre d'affaire / employer inférieur à 10",
+                    ExceptionEnumClient.CALCUL_RATIO);
         }
 
         // initailisation des variables d'instance.
@@ -138,16 +140,5 @@ public class Client extends Societe {
         return this.getRaisonSociale();
     }
 
-    public enum ExceptionClient {
-
-        IS_NULL_CLIENT(-1),
-        CALCUL_RATIO(1);
-        int ch;
-
-        ExceptionClient(int chiffre) {
-            this.ch = chiffre;
-        }
-
-    }
 
 }

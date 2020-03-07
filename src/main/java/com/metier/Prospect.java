@@ -3,7 +3,11 @@ package com.metier;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumProspect;
+import com.exception.ExceptionProspect;
+
 
 import java.util.Collections;
 
@@ -11,6 +15,17 @@ import java.util.Collections;
  * Cette classe permet la création d'un client en phase de prospection.
  */
 public class Prospect extends Societe {
+
+    /**
+     * Enumeration pour le centre d'intéret du prospect
+     */
+    public enum Interet {
+        OUI,
+        NON;
+        Interet() {
+        }
+
+    }
 
     private String datePropect;
     private Interet interesse;
@@ -69,18 +84,19 @@ public class Prospect extends Societe {
     public void setDatePropect(String datePropectSt) throws ExceptionPersonnaliser, NullPointerException {
 
         // vérification null
-        if (datePropectSt == null)
+        if (datePropectSt == null) {
             throw new NullPointerException("variable date null");
+        }
 
         // vérification vide
         if (datePropectSt.isEmpty())
-            throw new ExceptionPersonnaliser("Date de prospection : la date est vide ",
-                    ExceptionProspect.EMPTY_DATE);
+            throw new ExceptionProspect("Date de prospection : la date est vide ",
+                    ExceptionEnumProspect.EMPTY_DATE);
 
         // vérification format
-        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
-            throw new ExceptionPersonnaliser("Date de prospection : la date entré n'est pas comforme ",
-                    ExceptionProspect.MACTH_DATE);
+/*        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
+            throw new ExceptionProspect("Date de prospection : la date entré n'est pas comforme ",
+                    ExceptionEnumProspect.MACTH_DATE);*/
 
 
         this.datePropect = datePropectSt;
@@ -107,13 +123,14 @@ public class Prospect extends Societe {
 
 
         // variable null
-        if (interesse == null)
+        if (interesse == null) {
             throw new NullPointerException("Interet prospect null");
+        }
 
         // patern regex
         if (!(interesse.equals(Interet.OUI) | interesse.equals(Interet.NON)))
-            throw new ExceptionPersonnaliser("Interet : le champs intéret n'a pas été renseigné",
-                    ExceptionProspect.INTERET_OUI_NON);
+            throw new ExceptionProspect("Interet : le champs intéret n'a pas été renseigné",
+                    ExceptionEnumProspect.INTERET_OUI_NON);
 
 
         this.interesse = interesse;
@@ -130,34 +147,6 @@ public class Prospect extends Societe {
         return this.getRaisonSociale();
     }
 
-    /**
-     * Enumeration pour le centre d'intéret du prospect
-     */
-    public enum Interet {
 
-        OUI,
-        NON;
 
-        Interet() {
-        }
-
-    }
-
-    /**
-     * Enumeration pour a gestion des erreur de cette classe
-     */
-    public enum ExceptionProspect {
-
-        IS_NULL_PROSPECT(-1),
-        INTERET_OUI_NON(1),
-        MACTH_DATE(2),
-        EMPTY_DATE(3);
-
-        int ch;
-
-        ExceptionProspect(int chiffre) {
-            this.ch = chiffre;
-        }
-
-    }
 }

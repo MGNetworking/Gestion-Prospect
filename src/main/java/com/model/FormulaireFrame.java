@@ -1,8 +1,7 @@
 package com.model;
 
 import com.controleur.ControleurFrame;
-import com.exception.ExceptionDAO;
-import com.exception.ExceptionPersonnaliser;
+import com.exception.*;
 import com.listener.ActionQuitter;
 import com.listener.ActionRetourMenu;
 import com.listener.ActionValideFormulaire;
@@ -15,10 +14,11 @@ import com.model.MenuFrame.Action;
 import com.metier.Societe.TypeSociete;
 import com.metier.Prospect.Interet;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-import com.metier.Adresse.ExceptionAdresse;
-import com.metier.Client.ExceptionClient;
-import com.metier.Societe.ExceptionSociete;
-import com.metier.Prospect.ExceptionProspect;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumAdresse;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumClient;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumProspect;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumSociete;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +36,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
     private Societe societe;
     private String memoirechoixClientProspect;
     private ControleurFrame controleur;
-
 
     /**
      * Constructeur pour l'ajout d'un client ou prospect
@@ -466,9 +465,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                     JOptionPane.INFORMATION_MESSAGE);
 
 
-        } catch (ExceptionPersonnaliser exp) {      // Erreur venant des classe métier
-
-            if (exp.getIndicationAdresse() != ExceptionAdresse.IS_NULL_ADRESSE) {
+        } catch (ExceptionAdresse exp ) {      // Erreur venant des classe métier
 
 
                 // exception sur la classe adresse
@@ -534,11 +531,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                 }
 
-            } else if (exp.getIndicationSt() != ExceptionSociete.IS_NULL_SOCIETE) {
 
+        } catch (ExceptionSociete exp ) {           // exception sur la Societe
 
-                // exception sur la Societe
-                switch (exp.getIndicationSt()) {
+                switch (exp.getIndicationSociete()) {
                     case EMPTY_EMAIL: {
                         JOptionPane.showMessageDialog(null,
                                 "L'adresse email n'est pas saisi.\n" +
@@ -593,11 +589,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
                     }
 
                 }
-            } else if (exp.getIndicationCl() != ExceptionClient.IS_NULL_CLIENT) {
 
+        } catch (ExceptionClient exp ) {    // exception sur la client
 
-                // exception sur la client
-                switch (exp.getIndicationCl()) {
+                switch (exp.getIndicationClient()) {
                     case CALCUL_RATIO: {
                         JOptionPane.showMessageDialog(null,
                                 "Le calcul du ratio chiffre d'affaire nombre d'employés et inferieur a 0\n" +
@@ -608,11 +603,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
                         break;
                     }
                 }
-            } else if (exp.getIndicationPs() != ExceptionProspect.IS_NULL_PROSPECT) {
 
+        } catch (ExceptionProspect exp ) { // exception sur la classe Prospect
 
-                // exception sur la classe Prospect
-                switch (exp.getIndicationPs()) {
+                switch (exp.getIndicationProspect()) {
                     case EMPTY_DATE: {
                         JOptionPane.showMessageDialog(null,
                                 "La date n'a pas était saisi\n" +
@@ -638,22 +632,15 @@ public class FormulaireFrame extends javax.swing.JFrame {
                         break;
                     }
                 }
-            }
-        } catch (SQLException sql) {                // SQL erreur
 
-            System.err.format("SQL Error [State: %s]\n " +
-                            "Message : %s",sql.getSQLState() +"\n" ,
-                                            sql.getMessage());
+        } catch (SQLException sql) {                // SQL erreur
+            System.err.format("SQL Error [State: %s]\n " +"Message : %s",sql.getSQLState() +"\n" , sql.getMessage());
 
         } catch (NullPointerException nullEx) {     // Exception venant d'une référence
-
             System.err.format("Error Null pointeur : " + nullEx.getStackTrace() + " : " + nullEx.getMessage());
 
-
         } catch (Exception excep) {                 // Exception venant d'une erreur d'execution
-
             System.err.format("Error execution : " + excep.getStackTrace() + " : " + excep.getMessage());
-
 
         } finally {                                 // fin de l'insertion du nouveau Prospect ou client
 

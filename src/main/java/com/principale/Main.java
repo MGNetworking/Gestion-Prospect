@@ -9,10 +9,15 @@ import com.model.MenuFrame;
 import com.persistance.Client_DAO;
 import com.persistance.ConnectionDAO;
 
+import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Main {
+
+    private static final Logger LOGGER_MAIN = Logger.getLogger(Main.class.getName());
 
     /**
      * Point d'entré du programme.
@@ -21,47 +26,32 @@ public class Main {
      */
     public static void main(String[] agrs) {
 
-
-        Client_DAO clientDAO = new Client_DAO(ConnectionDAO.getConnectionPostgres());
-/*
-
         try {
-            List<Societe> listClient = clientDAO.findAll();
 
-            listClient.forEach(x -> System.out.println(x));
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
 
-            listClient.get(0).setCommentaire("un ancien commentaire 3");
-            listClient.get(0).setRaisonSociale("truc 3");
-            listClient.get(0).setEmail("email.foo@gmail.com");
-            listClient.get(0).setDomainSociete(Societe.DomainSociete.PUBLIC);
-            listClient.get(0).setTelephone("06 99 08 09 99");
-
-
-            listClient.get(0).getAdresse().setCodePost("99000");
-            listClient.get(0).getAdresse().setNomRue("Rue machin");
-            listClient.get(0).getAdresse().setNumeroDeRueSt(1982);
-            listClient.get(0).getAdresse().setVille("Super truc");
-
-
-
-            clientDAO.update((Client) listClient.get(0));
-
-        } catch (ExceptionPersonnaliser ex) {
-            System.out.println("Erreur : " + ex.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            LOGGER_MAIN.severe(ex.getMessage());
+        } catch (InstantiationException ex) {
+            LOGGER_MAIN.severe(ex.getMessage());
+        } catch (IllegalAccessException ex) {
+            LOGGER_MAIN.severe(ex.getMessage());
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            LOGGER_MAIN.severe(ex.getMessage());
         }
 
-*/
-
-
-       EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
 
             @Override
             public void run() {
                 ControleurFrame controleurFrame = new ControleurFrame();
                 MenuFrame menuF = new MenuFrame(controleurFrame);
+
 
             }
         });

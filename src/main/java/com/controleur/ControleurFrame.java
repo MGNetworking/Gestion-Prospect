@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.exception.ExceptionPersonnaliser;
-import com.exception.ExceptionDAO;
 import com.metier.Societe.TypeSociete;
 
 import com.metier.Prospect;
@@ -35,8 +34,8 @@ public class ControleurFrame {
      */
     public ControleurFrame() {
 
-        // Acces au base de données
-        this.client_dao = new Client_DAO(ConnectionDAO.getConnectionPostgres());        // instance avec connection SGBD
+        // Acces à la base de données
+        this.client_dao = new Client_DAO(ConnectionDAO.getConnectionPostgres());
         this.prospect_dao = new Prospect_DAO(ConnectionDAO.getConnectionPostgres());
 
     }
@@ -47,7 +46,7 @@ public class ControleurFrame {
      * @param choixSociete de type String
      * @return un objet de type List
      */
-    public List<Societe> getListeSocieteControleur(String choixSociete) throws SQLException, ExceptionPersonnaliser {
+    public List<Societe> getListeSocieteControleur(String choixSociete) throws SQLException{
 
         List listSt = null;
 
@@ -61,18 +60,18 @@ public class ControleurFrame {
             listSt = this.prospect_dao.findAll();
 
         } else {
-            throw new ExceptionPersonnaliser("Erreur sur le renvoi de la liste");
+            throw new SQLException("Erreur sur le renvoi de la liste");
         }
 
         return listSt;
     }
 
     /**
-     * recupération du client ou prospect
+     * Recupération du client ou prospect
      *
      * @param st de type Societe.
      */
-    public boolean addSocieteControleur(Societe st) throws SQLException, ExceptionPersonnaliser, NumberFormatException {
+    public boolean addSocieteControleur(Societe st) throws SQLException {
 
         boolean operation = false;
 
@@ -86,7 +85,7 @@ public class ControleurFrame {
     }
 
     /**
-     * permet de supprimer un client ou prospect
+     * Permet de supprimer un client ou prospect
      *
      * @param Societe
      */
@@ -104,6 +103,12 @@ public class ControleurFrame {
         return operation;
     }
 
+    /**
+     *
+     * @param st
+     * @return
+     * @throws SQLException
+     */
     public boolean updateSocieteControleur(Societe st) throws SQLException {
 
         boolean operation = false;

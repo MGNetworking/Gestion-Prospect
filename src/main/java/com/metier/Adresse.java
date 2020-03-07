@@ -1,6 +1,8 @@
 package com.metier;
 
+import com.exception.ExceptionAdresse;
 import com.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionPersonnaliser.ExceptionEnumAdresse;
 
 /**
  * Cette permet la gestion de l'adresse du client ou prospect.
@@ -54,8 +56,8 @@ public class Adresse {
     public void setNumeroDeRueSt(int numeroDeRueSt) throws ExceptionPersonnaliser {
 
         if (numeroDeRueSt <= 0)
-            throw new ExceptionPersonnaliser("Numéro rue <= 0",
-                    ExceptionAdresse.NUMERO_RUE_INF_0);
+            throw new ExceptionAdresse("Numéro rue <= 0",
+                    ExceptionEnumAdresse.NUMERO_RUE_INF_0);
 
 
         this.numeroDeRueSt = numeroDeRueSt;
@@ -85,16 +87,16 @@ public class Adresse {
 
 
         if (nomRue.isEmpty()) {
-            throw new ExceptionPersonnaliser("Non de la rue vide",
-                    ExceptionAdresse.EMPTY_NOM_RUE);
+            throw new ExceptionAdresse("Non de la rue vide",
+                    ExceptionEnumAdresse.EMPTY_NOM_RUE);
         }
 
 
         // permet de verifié le format du nom de la rue
         // todo les accents ne passe pas le é par exemple
         if (!(nomRue.matches("[a-z \'A-Z]*"))) {
-            throw new ExceptionPersonnaliser("Non de la rue : contient des chiffres",
-                    ExceptionAdresse.MATCH_NOM_RUE);
+            throw new ExceptionAdresse("Non de la rue : contient des chiffres",
+                    ExceptionEnumAdresse.MATCH_NOM_RUE);
         }
 
         this.nomRue = nomRue;
@@ -123,14 +125,14 @@ public class Adresse {
         }
 
         if (codePost.isEmpty()) {
-            throw new ExceptionPersonnaliser("Code Postale : vide ",
-                    ExceptionAdresse.EMPTY_CD_POSTALE);
+            throw new ExceptionAdresse("Code Postale : vide ",
+                    ExceptionEnumAdresse.EMPTY_CD_POSTALE);
         }
 
 
         if (!(codePost.matches("^[0-9]{1}[1-9]{1}[0-9]{3}") | codePost.matches("^[1-9]{1}[0-9]{4}"))) {
-            throw new ExceptionPersonnaliser("Code Postale : Le format non respecté ",
-                    ExceptionAdresse.MACTH_CD_POSTALE);
+            throw new ExceptionAdresse("Code Postale : Le format non respecté ",
+                    ExceptionEnumAdresse.MACTH_CD_POSTALE);
         }
 
         this.codePost = codePost;
@@ -159,37 +161,18 @@ public class Adresse {
         }
 
         if (ville.isEmpty()) {
-            throw new ExceptionPersonnaliser("Erreur Ville : vide ",
-                    ExceptionAdresse.EMPTY_NOM_VILLE);
+            throw new ExceptionAdresse("Erreur Ville : vide ",
+                    ExceptionEnumAdresse.EMPTY_NOM_VILLE);
         }
 
         if (ville.matches("[a-zA-Z]{1,2}")) {
-            throw new ExceptionPersonnaliser("Ville : format ville 3 caractére non respecter ",
-                    ExceptionAdresse.MATCH_NOM_VILLE);
+            throw new ExceptionAdresse("Ville : format ville 3 caractére non respecter ",
+                    ExceptionEnumAdresse.MATCH_NOM_VILLE);
         }
 
 
         this.ville = ville;
     }
 
-    /**
-     * Enumeration pour a gestion des erreur de cette classe
-     */
-    public enum ExceptionAdresse {
-
-        IS_NULL_ADRESSE(-1),
-        NUMERO_RUE_INF_0(1),
-        EMPTY_NOM_RUE(2),
-        MATCH_NOM_RUE(3),
-        EMPTY_CD_POSTALE(4),
-        MACTH_CD_POSTALE(5),
-        EMPTY_NOM_VILLE(6),
-        MATCH_NOM_VILLE(7);
-        int ch;
-
-        ExceptionAdresse(int chiffre) {
-            this.ch = chiffre;
-        }
-    }
 
 }

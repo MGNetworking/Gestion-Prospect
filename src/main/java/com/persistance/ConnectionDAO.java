@@ -1,70 +1,84 @@
 package com.persistance;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.util.logging.Logger;
 
 /**
- * Classe de connection à la base de données.
+ * Classe permet la connection à la base de données.
+ * Elle utilise de le design patern Singleton pour garantire
+ * L'unicité de la connection.
  */
 public class ConnectionDAO {
 
-    private static final String SGBD_NAME = "postgres";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "root";
+    // connection SGBD
     private static Connection connection = null;
+    // Logger utilise pour sont implémentation un desing Patner Singleton
+    private static final Logger LOGGER_DAO = Logger.getLogger(ConnectionDAO.class.getName());
 
-/*
-    // exemple
+
+    // Pour la fermeture de la connection
     static {
-        connection = connectionSimple.createConnection();
-        System.out.println("Connection established");
-    }*/
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                if (null != connection) {
+                    try {
+                        connection.close();
+                        LOGGER_DAO.info("Fermeture de la onnection");
+                    } catch (SQLException sql) {
+                        LOGGER_DAO.severe(sql.getMessage());
 
-    /**
-     * Constructeur implicite pour design pattern Singleton.
-     * Il est private pour ne pas étre instancié depuis l'extérieur de cette classe et garantire
-     * l'unicité de la connection.
-     */
-    private ConnectionDAO() {
+                    }
+                }
+            }
+        });
 
     }
-
 
     /**
      * Délégue la création de la connection à la base de données.
      *
      * @return de type Connection
      */
-    private static Connection createConnection() {
-        Connection connection = null;
-        try {
-
-            // creation d'une connection unique SGBD
-            connection = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/" + SGBD_NAME, USER, PASSWORD);
-            System.out.println("Connection Reussi");
-
-        } catch (SQLException sqle) {
-            System.err.format("SQL Error [State: %s]\n Message : %s",
-                    sqle.getSQLState(), sqle.getMessage());
-        }
-
-        return connection;
-    }
-
-
-    /**
-     * Permet d'appeller la connection.
-     *
-     * @return de type connection.
-     */
     public static Connection getConnectionPostgres() {
+        Properties proprieteConnection = new Properties();
 
+        // si connection null
         if (connection == null) {
-            connection = ConnectionDAO.createConnection();
+
+            // ouverture d'un flux en lecture vers le fichier de propriété propriétés
+            try (InputStream inputStream = ConnectionDAO
+                    .class
+                    .getClassLoader()
+                    .getResourceAsStream("connection.properties")) {
+
+                // lecture
+                proprieteConnection.load(inputStream);
+
+                // creation d'une connection unique SGBD vers postgre
+                // https://jdbc.postgresql.org/documentation/head/connect.html
+                connection = DriverManager.getConnection(
+                        (String) proprieteConnection.get("url"), proprieteConnection);
+
+                System.out.println("Connection Reussi");
+
+            } catch (IOException ioe) {
+                LOGGER_DAO.severe("le fichier de configuration n'a put étre chargée : " + ioe.getMessage());
+            } catch (SQLException sql) {
+                LOGGER_DAO.severe("La connection a la base de données a échoué" + sql.getMessage() + sql.getSQLState());
+            } catch (Exception ex) {
+                LOGGER_DAO.severe("Erreur de type : " + ex.getMessage() + ex.getStackTrace());
+            }
         }
+
+
         return connection;
     }
+
 
 }

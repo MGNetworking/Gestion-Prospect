@@ -5,7 +5,6 @@
  */
 package com.persistance;
 
-import com.exception.ExceptionDAO;
 import com.metier.Client;
 import com.metier.Societe;
 
@@ -30,7 +29,7 @@ public class Client_DAO extends DAO<Client> {
             "            inner join gestion.adresse a ON s.societe_id = a.societe_id" +
             "            inner join gestion.client  c on c.societe_id = s.societe_id;";
 
-    // insert Client
+    // Insert Client
     private static final String INSERT_SOCIETE = "insert into gestion.societe " +
             "(raison_sociale,domainst,telephone,email,commentaire) " +
             "values(?,?,?,?,?);";
@@ -87,9 +86,6 @@ public class Client_DAO extends DAO<Client> {
      * @param client de type Client
      * @return booelan l'etat d'excution de la transaction.
      * @throws SQLException en cas de problème de liè au données entre la base et le programme
-     * @throws ExceptionDAO vérifie la clef génére par l'action du statement.Si la clef n'est pas généré les
-     *                      données ne pour pas etre insert correcement.Donc, cette méthode permet de garentir l'intégrité des données
-     *                      envoyées
      */
     @Override
     public boolean create(Client client) throws SQLException {
@@ -160,7 +156,6 @@ public class Client_DAO extends DAO<Client> {
      * @param client de type Client
      * @return boolean true si l'opération.
      * @throws SQLException
-     * @throws ExceptionDAO
      */
     @Override
     public boolean delete(Client client) throws SQLException {

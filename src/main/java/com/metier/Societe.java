@@ -1,6 +1,8 @@
 package com.metier;
 
+import com.exception.ExceptionPersonnaliser.ExceptionEnumSociete;
 import com.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionSociete;
 
 import java.util.Comparator;
 
@@ -101,8 +103,8 @@ public abstract class Societe {
 
         // si le champs est vide, lève un exception
         if (raisonsocialeST.isEmpty())
-            throw new ExceptionPersonnaliser("Raison Sociale : Le champs vide",
-                    ExceptionSociete.EMPTY_RAISONSOCIALE);
+            throw new ExceptionSociete("Raison Sociale : Le champs vide",
+                    ExceptionEnumSociete.EMPTY_RAISONSOCIALE);
 
 
         // Passe en grand caractére la première lettre de la raison sociale
@@ -136,7 +138,8 @@ public abstract class Societe {
         }
 
         if (!(domainSt.equals(DomainSociete.PUBLIC) | domainSt.equals(DomainSociete.PRIVE))) {
-            throw new ExceptionPersonnaliser("Erreur sur le Domain Societe PRIVE ou PUBLIC " + ExceptionSociete.DOMAIN_PRIVE_PUBLIC);
+            throw new ExceptionSociete("Erreur sur le Domain Societe PRIVE ou PUBLIC " ,
+                    ExceptionEnumSociete.DOMAIN_PRIVE_PUBLIC);
         }
 
         this.domainSociete = domainSt;
@@ -185,14 +188,16 @@ public abstract class Societe {
 
         // si c'est vide
         if (telephone.isEmpty()) {
-            throw new ExceptionPersonnaliser("Téléphone : vous n'avez pas renseigner le numéro de l'entreprise ",
-                    ExceptionSociete.EMPTY_TELEPHONE);
+            throw new ExceptionSociete("Téléphone : vous n'avez pas renseigner le numéro de l'entreprise ",
+                    ExceptionEnumSociete.EMPTY_TELEPHONE);
         }
 
         // format du numéro de téléphone
-/*        if (!(telephone.matches("[0-9-.]{14}|[0-9- ]{14}"))) {
-            throw new ExceptionPersonnaliser("Téléphone : le format du numéro ne pas comforme",ExceptionSociete.MATCH_TELEPHONE);
-        }*/
+/*
+        if (!(telephone.matches("[0-9-.]{14}|[0-9- ]{14}"))) {
+            throw new ExceptionSociete("Téléphone : le format du numéro ne pas comforme",ExceptionEnumSociete.MATCH_TELEPHONE);
+        }
+*/
 
         this.telephone = telephone;
     }
@@ -216,13 +221,13 @@ public abstract class Societe {
     public void setEmail(String adresseEmailSt) throws ExceptionPersonnaliser {
 
         if (adresseEmailSt.isEmpty()) {
-            throw new ExceptionPersonnaliser("Adresse Email : l'adresse Email doit étre renseigné ",
-                    ExceptionSociete.EMPTY_EMAIL);
+            throw new ExceptionSociete("Adresse Email : l'adresse Email doit étre renseigné ",
+                    ExceptionEnumSociete.EMPTY_EMAIL);
         }
 
         if (adresseEmailSt.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$")) {
-            throw new ExceptionPersonnaliser("Adresse Email : entré une adresse eamil valide",
-                    ExceptionSociete.MATCH_EMAIL);
+            throw new ExceptionSociete("Adresse Email : entré une adresse eamil valide",
+                    ExceptionEnumSociete.MATCH_EMAIL);
         }
 
         this.email = adresseEmailSt;
@@ -283,25 +288,5 @@ public abstract class Societe {
         }
     }
 
-    /**
-     * Enumeration pour a gestion des erreur de cette classe
-     */
-    public enum ExceptionSociete {
-
-        IS_NULL_SOCIETE(-1),
-        EMPTY_RAISONSOCIALE(1),
-        DOMAIN_PRIVE_PUBLIC(2),
-        EMPTY_TELEPHONE(3),
-        MATCH_TELEPHONE(4),
-        EMPTY_EMAIL(5),
-        MATCH_EMAIL(6);
-
-        int ch;
-
-        ExceptionSociete(int chiffre) {
-            this.ch = chiffre;
-        }
-
-    }
 
 }
