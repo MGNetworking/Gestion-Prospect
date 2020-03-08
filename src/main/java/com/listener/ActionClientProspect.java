@@ -9,7 +9,6 @@ import javax.swing.*;
 
 import com.metier.Societe.TypeSociete;
 import com.model.MenuFrame;
-import org.omg.CORBA.SystemException;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -76,7 +75,7 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
                 System.err.format("SQL Error [State: %s]\n Message : %s",
                         sql.getSQLState(), sql.getMessage());
             }catch (Exception exc){
-                System.out.println("Erreur : " + exc.getMessage());
+                System.out.println("Erreur ActionClientProspect : " + exc.getMessage());
             }
 
 

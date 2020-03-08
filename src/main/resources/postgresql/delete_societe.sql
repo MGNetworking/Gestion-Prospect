@@ -1,0 +1,1 @@
+delete from societe where societe_id = ?;

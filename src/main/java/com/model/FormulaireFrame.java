@@ -13,7 +13,6 @@ import com.metier.Societe.DomainSociete;
 import com.model.MenuFrame.Action;
 import com.metier.Societe.TypeSociete;
 import com.metier.Prospect.Interet;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import com.exception.ExceptionPersonnaliser.ExceptionEnumAdresse;
 import com.exception.ExceptionPersonnaliser.ExceptionEnumClient;
 import com.exception.ExceptionPersonnaliser.ExceptionEnumProspect;

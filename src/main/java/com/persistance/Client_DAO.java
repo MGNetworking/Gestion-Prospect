@@ -8,9 +8,11 @@ package com.persistance;
 import com.metier.Client;
 import com.metier.Societe;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.metier.Societe.DomainSociete;
 
@@ -22,50 +24,7 @@ import com.metier.Societe.DomainSociete;
  */
 public class Client_DAO extends DAO<Client> {
 
-    // recupére la liste des client
-    private static final String LISTE_CLIENT = "select s.societe_id , raison_sociale , domainst , telephone ,email , a.numero, " +
-            "a.rue , a.cd_postale, a.ville, chiffre_affaire, employer_nb , s.commentaire\n" +
-            "      from gestion.societe s " +
-            "            inner join gestion.adresse a ON s.societe_id = a.societe_id" +
-            "            inner join gestion.client  c on c.societe_id = s.societe_id;";
-
-    // Insert Client
-    private static final String INSERT_SOCIETE = "insert into gestion.societe " +
-            "(raison_sociale,domainst,telephone,email,commentaire) " +
-            "values(?,?,?,?,?);";
-
-    private static final String INSERT_ADRESSE_CLIENT = "insert into gestion.adresse " +
-            "(societe_id ,cd_postale , numero , rue , ville )" +
-            "values(?,?,?,?,?);";
-
-    private static final String INSERT_CLIENT = "insert into gestion.client " +
-            "(societe_id ,chiffre_affaire ,employer_nb )" +
-            "values(?,?,?);";
-
-    // Delete Client
-    private static final String DELETE_CLIENT = "delete from gestion.societe where societe_id = ?;";
-
-    // Update Cleint
-    private static final String UPDATE_SOCIETE_CLIENT = "update gestion.societe " +
-            "set raison_sociale = ? ," +
-            "domainst = ? ," +
-            "telephone = ? ," +
-            "email = ? ," +
-            "commentaire = ? " +
-            "where societe_id = ? ;";
-
-    private static final String UPDATE_ADRESSE_CLIENT = "update gestion.adresse " +
-            "set numero = ? ," +
-            "rue = ? ," +
-            "cd_postale = ? , " +
-            "ville = ? " +
-            "where societe_id = ? ;";
-
-    private static final String UPDATE_CLIENT = "update gestion.client " +
-            "set chiffre_affaire = ?," +
-            "employer_nb = ?" +
-            "where societe_id = ?;";
-
+    private static Logger LOGGER_CL_DAO = Logger.getLogger(DAO.class.getName());
 
     /**
      * Ce controleur doit fonctionné avec une connection de Base de données.
@@ -93,56 +52,64 @@ public class Client_DAO extends DAO<Client> {
         // Début transaction
         this.connection.setAutoCommit(false);
 
-        boolean insert = false;
+        try {
 
-        //le PreparedStatement est un objet qui représente une instruction SQL précompilée, pour la table societe
-        PreparedStatement pstSociete = this.connection.prepareStatement(INSERT_SOCIETE, Statement.RETURN_GENERATED_KEYS);
-        pstSociete.setObject(1, client.getRaisonSociale());
-        pstSociete.setObject(2, client.getDomainSociete().toString(), Types.OTHER);
-        pstSociete.setObject(3, client.getTelephone());
-        pstSociete.setObject(4, client.getEmail());
-        pstSociete.setObject(5, client.getCommentaire());
 
-        if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
-            insert = false;
-            // todo ecrire un logger
-        } else {
-            insert = true;
+            boolean insert = false;
+
+            //le PreparedStatement est un objet qui représente une instruction SQL précompilée, pour la table societe
+            PreparedStatement pstSociete = this.connection.prepareStatement(this.getQuery("insert_societe"), Statement.RETURN_GENERATED_KEYS);
+            pstSociete.setObject(1, client.getRaisonSociale());
+            pstSociete.setObject(2, client.getDomainSociete().toString(), Types.OTHER);
+            pstSociete.setObject(3, client.getTelephone());
+            pstSociete.setObject(4, client.getEmail());
+            pstSociete.setObject(5, client.getCommentaire());
+
+            if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
+                insert = false;
+                // todo ecrire un logger
+            } else {
+                insert = true;
+            }
+
+            // récupération de la clef généré pour les insertions des table en références
+            ResultSet resultKeys = pstSociete.getGeneratedKeys();
+            resultKeys.next();                              // passe l'index au suivant
+            int idKey = resultKeys.getInt(1);   //  envoi de la clef
+
+            // Un objet qui représente une instruction SQL précompilée, pour la table adresse
+            PreparedStatement pstAdresse = this.connection.prepareStatement(this.getQuery("insert_adresse"),
+                    Statement.RETURN_GENERATED_KEYS);
+            pstAdresse.setObject(1, idKey); // ajoute l'id societe
+            pstAdresse.setObject(2, Integer.parseInt(client.getAdresse().getCodePost()));
+            pstAdresse.setObject(3, client.getAdresse().getNumeroDeRueSt());
+            pstAdresse.setObject(4, client.getAdresse().getNomRue());
+            pstAdresse.setObject(5, client.getAdresse().getVille());
+
+            if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
+                insert = false;
+                // todo ecrire un logger
+            } else {
+                insert = true;
+            }
+
+            // Un objet qui représente une instruction SQL précompilée, pour la table Client
+            PreparedStatement pstClient = this.connection.prepareStatement(this.getQuery("insert_client"),
+                    Statement.RETURN_GENERATED_KEYS);
+            pstClient.setObject(1, idKey); // ajoute l'id societe
+            pstClient.setObject(2, client.getChiffreAffaire());
+            pstClient.setObject(3, client.getNombreEmployer());
+
+            if (pstClient.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
+                insert = false;
+                // todo ecrire un logger
+            } else {
+                insert = true;
+            }
+        } catch (IOException ioe) {
+            LOGGER_CL_DAO.severe("Erreur create client : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
         }
-
-        // récupération de la clef généré pour les insertions des table en références
-        ResultSet resultKeys = pstSociete.getGeneratedKeys();
-        resultKeys.next();                              // passe l'index au suivant
-        int idKey = resultKeys.getInt(1);   //  envoi de la clef
-
-        // Un objet qui représente une instruction SQL précompilée, pour la table adresse
-        PreparedStatement pstAdresse = this.connection.prepareStatement(INSERT_ADRESSE_CLIENT, Statement.RETURN_GENERATED_KEYS);
-        pstAdresse.setObject(1, idKey); // ajoute l'id societe
-        pstAdresse.setObject(2, Integer.parseInt(client.getAdresse().getCodePost()));
-        pstAdresse.setObject(3, client.getAdresse().getNumeroDeRueSt());
-        pstAdresse.setObject(4, client.getAdresse().getNomRue());
-        pstAdresse.setObject(5, client.getAdresse().getVille());
-
-        if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
-            insert = false;
-            // todo ecrire un logger
-        } else {
-            insert = true;
-        }
-
-        // Un objet qui représente une instruction SQL précompilée, pour la table Client
-        PreparedStatement pstClient = this.connection.prepareStatement(INSERT_CLIENT, Statement.RETURN_GENERATED_KEYS);
-        pstClient.setObject(1, idKey); // ajoute l'id societe
-        pstClient.setObject(2, client.getChiffreAffaire());
-        pstClient.setObject(3, client.getNombreEmployer());
-
-        if (pstClient.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
-            insert = false;
-            // todo ecrire un logger
-        } else {
-            insert = true;
-        }
-
         this.connection.commit();            // validation de la transaction et fin transaction
         this.connection.setAutoCommit(true);
 
@@ -161,18 +128,25 @@ public class Client_DAO extends DAO<Client> {
     public boolean delete(Client client) throws SQLException {
 
         boolean operation = false;
+        try {
 
-        PreparedStatement pst = connection.prepareStatement(DELETE_CLIENT);
-        pst.setInt(1, client.getIdentifiant());
-        int resultat = pst.executeUpdate();
 
-        if (resultat == 0) { // vérifie la transaction
-            operation = true;
-            // todo ecrire un logger
-        } else {
-            operation = false;
+            PreparedStatement pst = connection.prepareStatement(this.getQuery("delete_societe"));
+
+            pst.setInt(1, client.getIdentifiant());
+            int resultat = pst.executeUpdate();
+
+            if (resultat == 0) { // vérifie la transaction
+                operation = true;
+                // todo ecrire un logger
+            } else {
+                operation = false;
+            }
+        } catch (IOException ioe) {
+
+            LOGGER_CL_DAO.severe("Erreur delete client : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
         }
-
         return operation;
     }
 
@@ -184,8 +158,7 @@ public class Client_DAO extends DAO<Client> {
 
         try {
 
-            System.out.println(UPDATE_SOCIETE_CLIENT);
-            PreparedStatement pstStClient = connection.prepareStatement(UPDATE_SOCIETE_CLIENT);
+            PreparedStatement pstStClient = connection.prepareStatement(this.getQuery("update_societe"));
 
             pstStClient.setString(1, client.getRaisonSociale());
             pstStClient.setString(2, client.getDomainSociete().getDomainst());
@@ -202,8 +175,7 @@ public class Client_DAO extends DAO<Client> {
                 operation = true;
             }
 
-            System.out.println(UPDATE_ADRESSE_CLIENT);
-            PreparedStatement pstAdClient = connection.prepareStatement(UPDATE_ADRESSE_CLIENT);
+            PreparedStatement pstAdClient = connection.prepareStatement(this.getQuery("update_adresse"));
             pstAdClient.setInt(1, client.getAdresse().getNumeroDeRueSt());
             pstAdClient.setString(2, client.getAdresse().getNomRue());
             pstAdClient.setString(3, String.valueOf(client.getAdresse().getCodePost()));
@@ -212,7 +184,6 @@ public class Client_DAO extends DAO<Client> {
 
             int resultatAd = pstAdClient.executeUpdate();
 
-
             if (resultatAd == 0) {
 
                 operation = false;
@@ -220,7 +191,7 @@ public class Client_DAO extends DAO<Client> {
                 operation = true;
             }
 
-            PreparedStatement psPsClient = connection.prepareStatement(UPDATE_CLIENT);
+            PreparedStatement psPsClient = connection.prepareStatement(this.getQuery("update_client"));
             psPsClient.setObject(1, client.getChiffreAffaire());
             psPsClient.setObject(2, client.getNombreEmployer());
             psPsClient.setInt(3, client.getIdentifiant());
@@ -236,9 +207,16 @@ public class Client_DAO extends DAO<Client> {
 
 
         } catch (SQLException sql) {
+
             throw new SQLException("UPDATE SQL :" + sql.getSQLState() + "\n" +
                     "Message : " + sql.getMessage() + "\n" +
                     "Code ERREUR : " + sql.getErrorCode());
+
+        } catch (IOException ioe) {
+
+            LOGGER_CL_DAO.severe("Erreur update client : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
+
         } finally {
 
             this.connection.commit();
@@ -268,9 +246,16 @@ public class Client_DAO extends DAO<Client> {
         List<Societe> listClient = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rst = null;
+        try {
 
-        pst = this.connection.prepareStatement(LISTE_CLIENT); // preparation de la requete
-        rst = pst.executeQuery();       // excécute est renvoi le resultat
+            pst = this.connection.prepareStatement(this.getQuery("select_client")); // preparation de la requete
+            rst = pst.executeQuery();       // excécute est renvoi le resultat
+        } catch (IOException ioe) {
+
+            LOGGER_CL_DAO.severe("Erreur select client : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
+
+        }
 
         while (rst.next()) {            // créer un client à chaque itération
 

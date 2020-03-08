@@ -10,11 +10,13 @@ import com.metier.Client;
 import com.metier.Societe;
 import com.metier.Prospect;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.sql.Types.*;
+import java.util.logging.Logger;
 
 import com.metier.Prospect.Interet;
 import com.metier.Societe.DomainSociete;
@@ -28,48 +30,7 @@ import org.omg.CORBA.PRIVATE_MEMBER;
  */
 public class Prospect_DAO extends DAO<Prospect> {
 
-    private String LISTE_PROSPECT = "select s.societe_id , raison_sociale , domainst , telephone ,email , a.numero, " +
-            "a.rue , a.cd_postale, a.ville,  date_prospection , interet , s.commentaire" +
-            "      from gestion.societe s \n" +
-            "            inner join gestion.adresse a ON s.societe_id = a.societe_id " +
-            "            inner join gestion.prospect  p on p.societe_id = s.societe_id;";
-
-    // inseret Prospect
-    private String INSERT_SOCIETE_PROSPECT = "insert into gestion.societe " +
-            " (raison_sociale,domainst,telephone,email,commentaire) " +
-            " values(?,?,?,?,?);";
-
-    private String INSERT_ADRESSE_PROSPECT = "insert into gestion.adresse " +
-            " (societe_id ,cd_postale , numero , rue , ville ) " +
-            " values(?,?,?,?,?);";
-
-    private String INSERT_PROSPECT = "insert into gestion.prospect " +
-            " (societe_id ,date_prospection ,interet ) " +
-            " values (?, to_date(?, 'DD/MM/YYYY') ,?);";
-
-    // Delete Client
-    private static final String DELETE_PROSPECT = "delete from gestion.societe where societe_id = ?;";
-
-    // Update Cleint
-    private static final String UPDATE_SOCIETE_PROSPECT = "update gestion.societe " +
-            "set raison_sociale = ? ," +
-            "domainst = ? ," +
-            "telephone = ? ," +
-            "email = ? ," +
-            "commentaire = ? " +
-            "where societe_id = ? ;";
-
-    private static final String UPDATE_ADRESSE_PROSPECT = "update gestion.adresse " +
-            "set numero = ? ," +
-            "rue = ? ," +
-            "cd_postale = ? , " +
-            "ville = ? " +
-            "where societe_id = ? ;";
-
-    private static final String UPDATE_PROSPECT = "update gestion.prospect " +
-            "set date_prospection = to_date(?, 'YYYY-MM-DD') ," +
-            "interet = ?" +
-            "where societe_id = ?;";
+    private static Logger LOGGER_PS_DAO = Logger.getLogger(Prospect_DAO.class.getName());
 
     /**
      * Ce constructeur doit prendre en paramètre en connection a la base de données.
@@ -95,59 +56,69 @@ public class Prospect_DAO extends DAO<Prospect> {
         this.connection.setAutoCommit(false);
 
         boolean insert = false;
+        try {
 
-        //le PreparedStatement est un objet qui représente une instruction SQL précompilée, pour la table societe
-        PreparedStatement pstSociete = this.connection.prepareStatement(INSERT_SOCIETE_PROSPECT, Statement.RETURN_GENERATED_KEYS);
-        pstSociete.setObject(1, prospect.getRaisonSociale());
-        pstSociete.setObject(2, prospect.getDomainSociete().toString(), Types.OTHER);
-        pstSociete.setObject(3, prospect.getTelephone());
-        pstSociete.setObject(4, prospect.getEmail());
-        pstSociete.setObject(5, prospect.getCommentaire());
 
-        if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
-            insert = false;
-            System.out.println("etape 1: ");
-            // todo ecrire un logger
-        } else {
-            insert = true;
+            //le PreparedStatement est un objet qui représente une instruction SQL précompilée, pour la table societe
+            PreparedStatement pstSociete = this.connection.prepareStatement(this.getQuery("insert_societe"),
+                    Statement.RETURN_GENERATED_KEYS);
+            pstSociete.setObject(1, prospect.getRaisonSociale());
+            pstSociete.setObject(2, prospect.getDomainSociete().toString(), Types.OTHER);
+            pstSociete.setObject(3, prospect.getTelephone());
+            pstSociete.setObject(4, prospect.getEmail());
+            pstSociete.setObject(5, prospect.getCommentaire());
+
+            if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
+                insert = false;
+                System.out.println("etape 1: ");
+                // todo ecrire un logger
+            } else {
+                insert = true;
+            }
+
+            // récupération de la clef généré pour les insertions des table en références
+            ResultSet resultKeys = pstSociete.getGeneratedKeys();
+            resultKeys.next();                              // passe l'index au suivant
+            int idKey = resultKeys.getInt(1);   //  envoi de la clef
+            System.out.println("Clef : " + idKey);
+
+            // Un objet qui représente une instruction SQL précompilée, pour la table adresse
+            PreparedStatement pstAdresse = this.connection.prepareStatement(this.getQuery("insert_adresse")
+                    , Statement.RETURN_GENERATED_KEYS);
+
+            pstAdresse.setObject(1, idKey); // ajoute l'id societe
+            pstAdresse.setObject(2, Integer.parseInt(prospect.getAdresse().getCodePost()));
+            pstAdresse.setObject(3, prospect.getAdresse().getNumeroDeRueSt());
+            pstAdresse.setObject(4, prospect.getAdresse().getNomRue());
+            pstAdresse.setObject(5, prospect.getAdresse().getVille());
+
+            if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
+                insert = false;
+
+                // todo ecrire un logger
+            } else {
+                insert = true;
+            }
+
+            // Un objet qui représente une instruction SQL précompilée, pour la table Client
+            PreparedStatement pstProspect = this.connection.prepareStatement(this.getQuery("insert_prospect"),
+                    Statement.RETURN_GENERATED_KEYS);
+
+            pstProspect.setObject(1, idKey); // ajoute l'id societe
+            pstProspect.setString(2, prospect.getDatePropect());
+            pstProspect.setObject(3, prospect.getInteresse(), Types.OTHER);
+
+            if (pstProspect.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
+                insert = false;
+
+                // todo ecrire un logger
+            } else {
+                insert = true;
+            }
+        } catch (IOException ioe) {
+            LOGGER_PS_DAO.severe("requete create prospect: " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
         }
-
-        // récupération de la clef généré pour les insertions des table en références
-        ResultSet resultKeys = pstSociete.getGeneratedKeys();
-        resultKeys.next();                              // passe l'index au suivant
-        int idKey = resultKeys.getInt(1);   //  envoi de la clef
-        System.out.println("Clef : " + idKey);
-
-        // Un objet qui représente une instruction SQL précompilée, pour la table adresse
-        PreparedStatement pstAdresse = this.connection.prepareStatement(INSERT_ADRESSE_PROSPECT, Statement.RETURN_GENERATED_KEYS);
-        pstAdresse.setObject(1, idKey); // ajoute l'id societe
-        pstAdresse.setObject(2, Integer.parseInt(prospect.getAdresse().getCodePost()));
-        pstAdresse.setObject(3, prospect.getAdresse().getNumeroDeRueSt());
-        pstAdresse.setObject(4, prospect.getAdresse().getNomRue());
-        pstAdresse.setObject(5, prospect.getAdresse().getVille());
-
-        if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
-            insert = false;
-
-            // todo ecrire un logger
-        } else {
-            insert = true;
-        }
-
-        // Un objet qui représente une instruction SQL précompilée, pour la table Client
-        PreparedStatement pstProspect = this.connection.prepareStatement(INSERT_PROSPECT, Statement.RETURN_GENERATED_KEYS);
-        pstProspect.setObject(1, idKey); // ajoute l'id societe
-        pstProspect.setString(2, prospect.getDatePropect());
-        pstProspect.setObject(3, prospect.getInteresse(), Types.OTHER);
-
-        if (pstProspect.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
-            insert = false;
-
-            // todo ecrire un logger
-        } else {
-            insert = true;
-        }
-
         this.connection.commit();            // validation de la transaction et fin transaction
         this.connection.setAutoCommit(true);
 
@@ -165,18 +136,24 @@ public class Prospect_DAO extends DAO<Prospect> {
     public boolean delete(Prospect prospect) throws SQLException {
 
         boolean operation = false;
+        try {
 
-        PreparedStatement pst = connection.prepareStatement(DELETE_PROSPECT);
-        pst.setInt(1, prospect.getIdentifiant());
-        int resultat = pst.executeUpdate();
+            PreparedStatement pst = connection.prepareStatement(this.getQuery("delete_societe"));
+            pst.setInt(1, prospect.getIdentifiant());
+            int resultat = pst.executeUpdate();
 
-        if (resultat == 0) { // vérifie la transaction
-            operation = true;
-            // todo ecrire un logger
-        } else {
-            operation = false;
+            if (resultat == 0) { // vérifie la transaction
+                operation = true;
+                // todo ecrire un logger
+            } else {
+                operation = false;
+            }
+
+
+        } catch (IOException ioe) {
+            LOGGER_PS_DAO.severe("requete delete prospect : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
         }
-
         return operation;
     }
 
@@ -196,7 +173,7 @@ public class Prospect_DAO extends DAO<Prospect> {
 
         try {
             // update sur les champs du Client
-            PreparedStatement pstSTProspect = connection.prepareStatement(UPDATE_SOCIETE_PROSPECT);
+            PreparedStatement pstSTProspect = connection.prepareStatement(this.getQuery("update_societe"));
 
             pstSTProspect.setString(1, prospect.getRaisonSociale());
             pstSTProspect.setString(2, prospect.getDomainSociete().getDomainst());
@@ -214,7 +191,7 @@ public class Prospect_DAO extends DAO<Prospect> {
             }
 
             // update sur les champs de l'adresse
-            PreparedStatement pstAdProspect = connection.prepareStatement(UPDATE_ADRESSE_PROSPECT);
+            PreparedStatement pstAdProspect = connection.prepareStatement(this.getQuery("update_adresse"));
 
             pstAdProspect.setInt(1, prospect.getAdresse().getNumeroDeRueSt());
             pstAdProspect.setString(2, prospect.getAdresse().getNomRue());
@@ -231,7 +208,7 @@ public class Prospect_DAO extends DAO<Prospect> {
             }
 
             // update sur les champs du prospect
-            PreparedStatement psPs = connection.prepareStatement(UPDATE_PROSPECT);
+            PreparedStatement psPs = connection.prepareStatement(this.getQuery("update_prospect"));
 
             psPs.setString(1, prospect.getDatePropect());
             psPs.setString(2, prospect.getInteresse().toString());
@@ -250,6 +227,11 @@ public class Prospect_DAO extends DAO<Prospect> {
             throw new SQLException("UPDATE SQL :" + sql.getSQLState() + "\n" +
                     "Message : " + sql.getMessage() + "\n" +
                     "Code ERREUR : " + sql.getErrorCode());
+
+        } catch (IOException ioe) {
+
+            LOGGER_PS_DAO.severe("requete update prospect : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
         } finally {
 
             this.connection.commit();
@@ -281,34 +263,41 @@ public class Prospect_DAO extends DAO<Prospect> {
         PreparedStatement pst = null;
         ResultSet rst = null;
 
+        try {
 
-        pst = this.connection.prepareStatement(LISTE_PROSPECT); // preparation de la requete
-        rst = pst.executeQuery();       // excécute est renvoi le resultat
 
-        int i = 0;
-        while (rst.next()) {            // créer un client à chaque itération
+            pst = this.connection.prepareStatement(this.getQuery("select_prospect")); // preparation de la requete
+            rst = pst.executeQuery();       // excécute est renvoi le resultat
 
-            listProspect.add(new Prospect(
-                    Integer.parseInt(rst.getString("societe_id")),
-                    rst.getString("raison_sociale"),
-                    DomainSociete.valueOf(rst.getString("domainst")),
-                    Integer.parseInt(rst.getString("numero")),
-                    rst.getString("rue"),
-                    rst.getString("cd_postale"),
-                    rst.getString("ville"),
-                    rst.getString("telephone"),
-                    rst.getString("email"),
-                    rst.getString("date_prospection"),
-                    Interet.valueOf(rst.getString("interet")),
-                    rst.getString("commentaire")
+            int i = 0;
+            while (rst.next()) {            // créer un client à chaque itération
 
-            ));
+                listProspect.add(new Prospect(
+                        Integer.parseInt(rst.getString("societe_id")),
+                        rst.getString("raison_sociale"),
+                        DomainSociete.valueOf(rst.getString("domainst")),
+                        Integer.parseInt(rst.getString("numero")),
+                        rst.getString("rue"),
+                        rst.getString("cd_postale"),
+                        rst.getString("ville"),
+                        rst.getString("telephone"),
+                        rst.getString("email"),
+                        rst.getString("date_prospection"),
+                        Interet.valueOf(rst.getString("interet")),
+                        rst.getString("commentaire")
+
+                ));
+            }
+
+            if (rst != null) {                  // fermeture du ResultSet
+                rst.close();
+            }
+
+        } catch (IOException ioe) {
+
+            LOGGER_PS_DAO.severe("requete select  prospect : " + ioe.getMessage() +
+                    "\n" + ioe.getStackTrace());
         }
-
-        if (rst != null) {                  // fermeture du ResultSet
-            rst.close();
-        }
-
         this.trieSociete(listProspect);     // trie de la liste
         return listProspect;
     }
