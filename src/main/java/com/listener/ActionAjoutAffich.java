@@ -31,7 +31,7 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
         String nomButton = (String) bp.getText();              // recupération de la valeur du bp
 
         // pour l'affichage de liste
-        if (nomButton.equals(Action.AFFICHAGE_LISTE.getAction())) {
+        if (nomButton.equals(Action.AFFICHAGE.getAction())) {
 
             new AffichageListeFrame(this.menuFrame.getMemoireClientProspect(), this.Controleur);
 

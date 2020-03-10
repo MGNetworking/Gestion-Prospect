@@ -1,18 +1,9 @@
 package com.principale;
 
-import com.exception.ExceptionPersonnaliser;
-import com.metier.Client;
-import com.metier.Prospect;
-import com.metier.Societe;
 import com.controleur.ControleurFrame;
 import com.model.MenuFrame;
-import com.persistance.Client_DAO;
-import com.persistance.ConnectionDAO;
 
-import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Logger;
 
 public class Main {

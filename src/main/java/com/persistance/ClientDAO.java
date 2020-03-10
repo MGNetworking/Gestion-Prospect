@@ -22,7 +22,7 @@ import com.metier.Societe.DomainSociete;
  *
  * @author Maxime
  */
-public class Client_DAO extends DAO<Client> {
+public class ClientDAO extends DAO<Client> {
 
     private static Logger LOGGER_CL_DAO = Logger.getLogger(DAO.class.getName());
 
@@ -31,7 +31,7 @@ public class Client_DAO extends DAO<Client> {
      *
      * @param connection de type connection.
      */
-    public Client_DAO(Connection connection) {
+    public ClientDAO(Connection connection) {
         super(connection);
     }
 

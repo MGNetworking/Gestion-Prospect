@@ -36,11 +36,11 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
      * @throws NullPointerException si le choix ne trouve pas de correspondance
      */
     @Override
-    public void actionPerformed(java.awt.event.ActionEvent e) throws NullPointerException {
+    public void actionPerformed(java.awt.event.ActionEvent e) {
 
-        JButton bp = (JButton) e.getSource();   // récupération de l'évenement.
+        JButton bp = (JButton) e.getSource();  // récupération de l'évenement.
         String nombp = (String) bp.getText();  // récupération du nom du bouton
-        String choix = null;                    // choix du client ou du prospect
+        String choix = null;                   // choix du client ou du prospect
 
         // contexte de choix Client
         this.menuFrame.getPanActionUser().setVisible(true);
@@ -59,7 +59,7 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
         // Initialisation des composants
         if (choix != null) {
 
-            this.menuFrame.getLabelTitreMenuDeSelection().setText(choix);
+            this.menuFrame.getLabelTitreMenuDeSelection().setText("CHOIX : "+choix);
 
             // garde en memoire le choix client prospect
             this.menuFrame.setMemoireMenuClientProspect(choix);
@@ -72,9 +72,12 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
                 this.menuFrame.getJComboBoxListeSociete().setModel(model);
 
             }catch (SQLException sql){
+
                 System.err.format("SQL Error [State: %s]\n Message : %s",
                         sql.getSQLState(), sql.getMessage());
+
             }catch (Exception exc){
+
                 System.out.println("Erreur ActionClientProspect : " + exc.getMessage());
             }
 

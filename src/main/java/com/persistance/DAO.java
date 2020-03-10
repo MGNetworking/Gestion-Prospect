@@ -25,8 +25,8 @@ public abstract class DAO<type> {
     private static Logger LOGGER_DAO = Logger.getLogger((DAO.class.getName()));
 
 
-    protected Connection connection;                        // Instance de la connection SGBD
-    protected Map<String, String> queryMap = new HashMap<>();  // liste des requetes
+    protected Connection connection;                            // Instance de la connection SGBD
+    protected Map<String, String> queryMap = new HashMap<>();   // liste des requetes
 
     DAO(Connection connec) {
         this.connection = connec;
@@ -103,12 +103,11 @@ public abstract class DAO<type> {
      */
     protected String getQuery(String nameQuery) throws IOException {
 
-        LOGGER_DAO.info("Message debut : " + nameQuery + " fichier : ");
         if (!queryMap.keySet().contains(nameQuery)) {
             StringBuilder builder = new StringBuilder();
 
             String path = "postgresql/" + nameQuery + ".sql";
-            LOGGER_DAO.info("Path : " + path);
+
 
             try (BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
@@ -122,8 +121,6 @@ public abstract class DAO<type> {
                     builder.append(line);
                 }
 
-
-                LOGGER_DAO.info("Name " + queryMap.get(nameQuery) + " query : " + builder.toString());
                 queryMap.put(nameQuery, builder.toString());
 
             } catch (NullPointerException nulP) {

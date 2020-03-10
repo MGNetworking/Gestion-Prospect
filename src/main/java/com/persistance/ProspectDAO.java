@@ -5,22 +5,17 @@
  */
 package com.persistance;
 
-import com.exception.ExceptionPersonnaliser;
-import com.metier.Client;
 import com.metier.Societe;
 import com.metier.Prospect;
 
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.sql.Types.*;
 import java.util.logging.Logger;
 
 import com.metier.Prospect.Interet;
 import com.metier.Societe.DomainSociete;
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 /**
  * Cette classe permet de la gestion de la persistance des données concernant
@@ -28,9 +23,9 @@ import org.omg.CORBA.PRIVATE_MEMBER;
  *
  * @author Maxime
  */
-public class Prospect_DAO extends DAO<Prospect> {
+public class ProspectDAO extends DAO<Prospect> {
 
-    private static Logger LOGGER_PS_DAO = Logger.getLogger(Prospect_DAO.class.getName());
+    private static Logger LOGGER_PS_DAO = Logger.getLogger(ProspectDAO.class.getName());
 
     /**
      * Ce constructeur doit prendre en paramètre en connection a la base de données.
@@ -38,7 +33,7 @@ public class Prospect_DAO extends DAO<Prospect> {
      *
      * @param connec de type Connection
      */
-    public Prospect_DAO(Connection connec) {
+    public ProspectDAO(Connection connec) {
         super(connec);
     }
 

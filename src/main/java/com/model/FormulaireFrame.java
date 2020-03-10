@@ -81,7 +81,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
      * <li>MODIFICATION</li>
      * <li>SUPPRESSION</li>
      * <li>AJOUT</li>
-     * <li>AFFICHAGE_LISTE</li>
+     * <li>AFFICHAGE</li>
      * </ul>
      *
      * @return une enumeration Action

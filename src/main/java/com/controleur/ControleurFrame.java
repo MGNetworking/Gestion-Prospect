@@ -1,24 +1,18 @@
 package com.controleur;
 
-import javax.swing.*;
 import java.util.List;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.exception.ExceptionPersonnaliser;
 import com.metier.Societe.TypeSociete;
 
 import com.metier.Prospect;
 import com.metier.Societe;
 import com.metier.Client;
 
-import com.persistance.Client_DAO;
+import com.persistance.ClientDAO;
 import com.persistance.ConnectionDAO;
-import com.persistance.Prospect_DAO;
-
-import com.model.MenuFrame;
+import com.persistance.ProspectDAO;
 
 
 /**
@@ -26,8 +20,8 @@ import com.model.MenuFrame;
  */
 public class ControleurFrame {
 
-    private Client_DAO client_dao;
-    private Prospect_DAO prospect_dao;
+    private ClientDAO client_dao;
+    private ProspectDAO prospect_dao;
 
     /**
      * Cette est l'interface entre les données est l'application
@@ -35,8 +29,8 @@ public class ControleurFrame {
     public ControleurFrame() {
 
         // Acces à la base de données
-        this.client_dao = new Client_DAO(ConnectionDAO.getConnectionPostgres());
-        this.prospect_dao = new Prospect_DAO(ConnectionDAO.getConnectionPostgres());
+        this.client_dao = new ClientDAO(ConnectionDAO.getConnectionPostgres());
+        this.prospect_dao = new ProspectDAO(ConnectionDAO.getConnectionPostgres());
 
     }
 
