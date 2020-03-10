@@ -54,7 +54,6 @@ public class Client_DAO extends DAO<Client> {
 
         try {
 
-
             boolean insert = false;
 
             //le PreparedStatement est un objet qui représente une instruction SQL précompilée, pour la table societe
