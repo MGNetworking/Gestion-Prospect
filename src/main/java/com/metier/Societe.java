@@ -4,7 +4,10 @@ import com.exception.ExceptionPersonnaliser.ExceptionEnumSociete;
 import com.exception.ExceptionPersonnaliser;
 import com.exception.ExceptionSociete;
 
+import static com.exception.ExceptionPersonnaliser.ExceptionEnumSociete.*;
+
 import java.util.Comparator;
+
 
 /**
  * @author Maxime
@@ -94,7 +97,7 @@ public abstract class Societe {
      * @throws ExceptionPersonnaliser si le champ est vide.
      * @throws NullPointerException   si la variable est null.
      */
-    public void setRaisonSociale(String raisonsocialeST) throws ExceptionPersonnaliser, NullPointerException {
+    public void setRaisonSociale(String raisonsocialeST) throws ExceptionSociete, NullPointerException {
 
         // variable null
         if (raisonsocialeST == null)
@@ -102,10 +105,14 @@ public abstract class Societe {
 
 
         // si le champs est vide, lève un exception
-        if (raisonsocialeST.isEmpty())
-            throw new ExceptionSociete("Raison Sociale : Le champs vide",
-                    ExceptionEnumSociete.EMPTY_RAISONSOCIALE);
+        if (raisonsocialeST.isEmpty()) {
+            throw new ExceptionSociete("Raison Sociale : Le champs vide", EMPTY_RAISONSOCIALE);
+        }
 
+        // si champs moin de 4 lettre uniquement
+        if (!(raisonsocialeST.matches("^[a-z A-Z]{4,}$"))) {
+            throw new ExceptionSociete("raison sociale : non match 3 caractére", MATCH__RAISONSOCIALE);
+        }
 
         // Passe en grand caractére la première lettre de la raison sociale
         if (raisonsocialeST.matches("[a-z]{1,}")) {
@@ -137,11 +144,6 @@ public abstract class Societe {
             throw new NullPointerException("Domain societe : Variable domain Societe Null");
         }
 
-        if (!(domainSt.equals(DomainSociete.PUBLIC) | domainSt.equals(DomainSociete.PRIVE))) {
-            throw new ExceptionSociete("Erreur sur le Domain Societe PRIVE ou PUBLIC " ,
-                    ExceptionEnumSociete.DOMAIN_PRIVE_PUBLIC);
-        }
-
         this.domainSociete = domainSt;
 
     }
@@ -156,7 +158,7 @@ public abstract class Societe {
     }
 
     /**
-     * Modification ou ajout des champs concernants la société.
+     * Modification des champs concernants l'adresse de la société.
      *
      * @param numeroAd int le numero de la société.
      * @param nomRue   String le nom de la rue de la société.
@@ -179,7 +181,7 @@ public abstract class Societe {
     }
 
     /**
-     * Modification ou ajout du numéro de téléphon de l'entreprise.
+     * Modification du numéro de téléphon de l'entreprise.
      *
      * @param telephone String le numero de téléphone de l'entreprise.
      * @throws ExceptionPersonnaliser si le champ est vide.
@@ -189,15 +191,15 @@ public abstract class Societe {
         // si c'est vide
         if (telephone.isEmpty()) {
             throw new ExceptionSociete("Téléphone : vous n'avez pas renseigner le numéro de l'entreprise ",
-                    ExceptionEnumSociete.EMPTY_TELEPHONE);
+                EMPTY_TELEPHONE);
         }
 
         // format du numéro de téléphone
-/*
-        if (!(telephone.matches("[0-9-.]{14}|[0-9- ]{14}"))) {
-            throw new ExceptionSociete("Téléphone : le format du numéro ne pas comforme",ExceptionEnumSociete.MATCH_TELEPHONE);
+        if (!(telephone.matches("^0\\d(\\s|-)?(\\d{2}(\\s|-)?){4}$"))) {
+            throw new ExceptionSociete("Téléphone : le format du numéro n'est pas comforme",
+                MATCH_TELEPHONE);
         }
-*/
+
 
         this.telephone = telephone;
     }
@@ -222,12 +224,12 @@ public abstract class Societe {
 
         if (adresseEmailSt.isEmpty()) {
             throw new ExceptionSociete("Adresse Email : l'adresse Email doit étre renseigné ",
-                    ExceptionEnumSociete.EMPTY_EMAIL);
+                ExceptionEnumSociete.EMPTY_EMAIL);
         }
-
-        if (adresseEmailSt.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$")) {
+        System.out.println("Email : " + adresseEmailSt + " " + adresseEmailSt.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$"));
+        if (!adresseEmailSt.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) {
             throw new ExceptionSociete("Adresse Email : entré une adresse eamil valide",
-                    ExceptionEnumSociete.MATCH_EMAIL);
+                ExceptionEnumSociete.MATCH_EMAIL);
         }
 
         this.email = adresseEmailSt;

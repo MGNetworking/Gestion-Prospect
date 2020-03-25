@@ -28,7 +28,7 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
     public void actionPerformed(java.awt.event.ActionEvent e) {
 
         JButton bp = (JButton) e.getSource();                   // caste de la source ajouter et affichage liste
-        String nomButton = (String) bp.getText();              // recupération de la valeur du bp
+        String nomButton = (String) bp.getText();               // recupération de la valeur du bp
 
         // pour l'affichage de liste
         if (nomButton.equals(Action.AFFICHAGE.getAction())) {

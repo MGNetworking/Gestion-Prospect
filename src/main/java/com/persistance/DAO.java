@@ -1,6 +1,5 @@
 package com.persistance;
 
-import com.metier.Societe;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -13,6 +12,7 @@ import java.util.*;
 import java.util.logging.Logger;
 
 import com.metier.Societe;
+import com.metier.Societe;
 
 /**
  * Cette classe permet la création de manière générique des méthodes d'accés
@@ -22,7 +22,7 @@ import com.metier.Societe;
  */
 public abstract class DAO<type> {
 
-    private static Logger LOGGER_DAO = Logger.getLogger((DAO.class.getName()));
+    private static Logger LOGGER_DAO = Logger.getLogger(DAO.class.getName());
 
 
     protected Connection connection;                            // Instance de la connection SGBD
@@ -104,33 +104,25 @@ public abstract class DAO<type> {
     protected String getQuery(String nameQuery) throws IOException {
 
         if (!queryMap.keySet().contains(nameQuery)) {
-            StringBuilder builder = new StringBuilder();
 
+            StringBuilder builder = new StringBuilder();
             String path = "postgresql/" + nameQuery + ".sql";
 
-
             try (BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(
-                            this.getClass()
-                                    .getClassLoader()
-                                    .getResourceAsStream(path)));) {
+                new InputStreamReader(
+                    this.getClass()
+                        .getClassLoader()
+                        .getResourceAsStream(path)));) {
 
                 String line = null;
                 while ((line = reader.readLine()) != null) {
-                    LOGGER_DAO.info("Requete : " + line);
+
                     builder.append(line);
                 }
-
                 queryMap.put(nameQuery, builder.toString());
-
-            } catch (NullPointerException nulP) {
-                LOGGER_DAO.severe("Erreur null pointeur  : " + nulP);
-            } catch (IOException ioe) {
-                LOGGER_DAO.severe("Erreur  ioe: " + ioe);
-                throw new IOException();
+                LOGGER_DAO.info("construction de la requette fini ");
             }
         }
-
         return queryMap.get(nameQuery);
 
     }

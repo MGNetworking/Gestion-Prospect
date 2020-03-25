@@ -1,0 +1,2 @@
+INSERT INTO gestion.client (client_id, societe_id, chiffre_affaire, employer_nb) VALUES (1, 3, 100000, 10);
+INSERT INTO gestion.client (client_id, societe_id, chiffre_affaire, employer_nb) VALUES (2, 4, 500000, 100);

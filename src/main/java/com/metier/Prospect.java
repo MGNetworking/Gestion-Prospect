@@ -94,9 +94,9 @@ public class Prospect extends Societe {
                     ExceptionEnumProspect.EMPTY_DATE);
 
         // vérification format
-/*        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
+        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
             throw new ExceptionProspect("Date de prospection : la date entré n'est pas comforme ",
-                    ExceptionEnumProspect.MACTH_DATE);*/
+                    ExceptionEnumProspect.MACTH_DATE);
 
 
         this.datePropect = datePropectSt;

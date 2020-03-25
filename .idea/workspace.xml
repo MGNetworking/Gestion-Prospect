@@ -2,16 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e5c699-c49d-4af8-be3a-2582563ac90a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Script SQL/Creation basique/Gestio Client script insert .sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Script SQL/Creation basique/Gestion client script des tables .sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/principale/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,22 +37,248 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="25" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="gestion: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="gestion: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="access methods" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="extensions" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="538">
+                    <caret line="607" column="25" selection-start-line="607" selection-start-column="25" selection-end-line="607" selection-end-column="25" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="253">
+                    <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-1840">
+                    <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+                    <folding>
+                      <element signature="e#2291#2292#0" expanded="true" />
+                      <element signature="e#2325#2326#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-1014">
+                    <caret line="145" selection-start-line="145" selection-end-line="145" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                      <element signature="e#2242#2243#0" expanded="true" />
+                      <element signature="e#2281#2282#0" expanded="true" />
+                      <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
+                      <element signature="e#2404#2405#0" expanded="true" />
+                      <element signature="e#2441#2442#0" expanded="true" />
+                      <element signature="e#4077#4078#0" expanded="true" />
+                      <element signature="e#4118#4119#0" expanded="true" />
+                      <element signature="e#5061#5062#0" expanded="true" />
+                      <element signature="e#5095#5096#0" expanded="true" />
+                      <element signature="e#5890#5891#0" expanded="true" />
+                      <element signature="e#5922#5923#0" expanded="true" />
+                      <element signature="e#6859#6860#0" expanded="true" />
+                      <element signature="e#6887#6888#0" expanded="true" />
+                      <element signature="e#7974#7975#0" expanded="true" />
+                      <element signature="e#8008#8009#0" expanded="true" />
+                      <element signature="e#8174#8175#0" expanded="true" />
+                      <element signature="e#8222#8223#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="422">
+                    <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+                    <folding>
+                      <element signature="e#574#575#0" expanded="true" />
+                      <element signature="e#622#623#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Gestion-Client" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="907" column="69" lean-forward="true" selection-start-line="907" selection-start-column="69" selection-end-line="907" selection-end-column="69" />
+            <state relative-caret-position="1705">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="328" column="9" selection-start-line="328" selection-start-column="9" selection-end-line="328" selection-end-column="9" />
+              <folding>
+                <element signature="e#9246#9247#0" expanded="true" />
+                <element signature="e#9283#9284#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-314">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="30" column="64" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -74,68 +313,67 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Script SQL/Creation basique/Gestio Client script insert .sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/delete_societe.sql" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Script SQL/Creation basique/Gestion client script des tables .sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ClientTest.java" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/select_prospect.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_adresse.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_adresse.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_societe.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/delete_societe.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_client.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/select_client.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_prospect.sql" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_societe.sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/connection.properties" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_prospect.sql" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_client.sql" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_adresse.sql" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_societe.sql" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/postgresql/select_client.sql" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionAdresse.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionClient.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionProspect.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionSociete.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/DAO/Client_DAO.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExecptionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionValideFormulaire.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionCleint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionAdresse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/metier/Adresse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/metier/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionProspect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionSociete.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" />
         <option value="$PROJECT_DIR$/src/main/resource/connection.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java" />
@@ -146,23 +384,34 @@
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/inseert_adresse.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/insert_Client.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/insert_prospect.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/delete_societe.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/select_societe.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/select_client.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/select_prospect.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/Prospect_DAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/Client_DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgresql/Note" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Prospect.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Script SQL/Gestio Client script insert .sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/metier/Societe.java" />
       </list>
     </option>
   </component>
@@ -173,11 +422,27 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Gestion-Client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Gestion-Client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-444" />
-    <option name="y" value="-15" />
-    <option name="width" value="2767" />
-    <option name="height" value="1103" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2214" />
+    <option name="height" value="880" />
   </component>
   <component name="ProjectId" id="1Y4ZPv5KpDB0mBqgIJKHtZhWJ3E" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -186,8 +451,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,7 +502,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="listener" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
@@ -252,21 +535,53 @@
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="persistance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="CatdeaLogs" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -275,6 +590,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -282,16 +598,23 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PostgreSQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Documentation projet/UML/Classe Frame affichage.uml" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\0 DEVELOPPEMENT\0 Projet\Projet Maven\0 reverso\Gestion-client-SGBDR\src\main\resources\Script SQL\Creation basique" />
+      <recent name="C:\0 DEVELOPPEMENT\0 Projet\Projet Maven\0 reverso\Gestion-client-SGBDR\src\main\resources\Script SQL" />
+      <recent name="C:\0 DEVELOPPEMENT\0 Projet\Projet Maven\0 reverso\Gestion-client-SGBDR\src\main\resources\dumpSQL" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.metier" />
@@ -301,6 +624,7 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\0 DEVELOPPEMENT\0 Projet\Projet Maven\0 reverso\Gestion-client-SGBDR\src\main\resources\Script SQL" />
       <recent name="C:\0 DEVELOPPEMENT\0 Projet\Projet Maven\0 reverso\Gestion-client-SGBDR\src\main\java\com\model" />
     </key>
   </component>
@@ -316,22 +640,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.Gestion-Client [clean,compile,exec:java]">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.principale.Main" />
-      <module name="Gestion-Client-SGBDR" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.principale.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdresseTest.exceptionSetVilleNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gestion-Client-SGBDR" />
+  <component name="RunManager" selected="JUnit.SocieteTest.exceptionDomainTeste">
+    <configuration name="SocieteTest.exceptionDomainStErreurTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.metier.*" />
@@ -339,15 +650,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.AdresseTest" />
-      <option name="METHOD_NAME" value="exceptionSetVilleNullTest" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="exceptionDomainStErreurTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProspectTest.testAdd (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gestion-Client-SGBDR" />
+    <configuration name="SocieteTest.exceptionDomainTeste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.metier.*" />
@@ -355,15 +666,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.ProspectTest" />
-      <option name="METHOD_NAME" value="testAdd(int,int,int)" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="exceptionDomainTeste" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProspectTest.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gestion-Client-SGBDR" />
+    <configuration name="SocieteTest.exceptionEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.metier.*" />
@@ -371,15 +682,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.ProspectTest" />
-      <option name="METHOD_NAME" value="testAdd" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="exceptionEmail(java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProspectTest.validSetDatePropectFormatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gestion-Client-SGBDR" />
+    <configuration name="SocieteTest.exceptionSetRaisonSociale" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.metier.*" />
@@ -387,8 +698,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.metier" />
-      <option name="MAIN_CLASS_NAME" value="com.metier.ProspectTest" />
-      <option name="METHOD_NAME" value="validSetDatePropectFormatTest" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="exceptionSetRaisonSociale(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocieteTest.exceptionTelephone" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gestion-Client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.metier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.metier" />
+      <option name="MAIN_CLASS_NAME" value="com.metier.SocieteTest" />
+      <option name="METHOD_NAME" value="exceptionTelephone(java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -422,20 +749,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.AdresseTest.exceptionSetVilleNullTest" />
-      <item itemvalue="JUnit.ProspectTest.testAdd" />
-      <item itemvalue="JUnit.ProspectTest.testAdd (1)" />
-      <item itemvalue="JUnit.ProspectTest.validSetDatePropectFormatTest" />
       <item itemvalue="Maven.Gestion-Client [clean,compile,exec:java]" />
+      <item itemvalue="JUnit.SocieteTest.exceptionEmail" />
+      <item itemvalue="JUnit.SocieteTest.exceptionSetRaisonSociale" />
+      <item itemvalue="JUnit.SocieteTest.exceptionTelephone" />
+      <item itemvalue="JUnit.SocieteTest.exceptionDomainStErreurTest" />
+      <item itemvalue="JUnit.SocieteTest.exceptionDomainTeste" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ProspectTest.testAdd (1)" />
-        <item itemvalue="JUnit.ProspectTest.testAdd" />
-        <item itemvalue="JUnit.ProspectTest.validSetDatePropectFormatTest" />
-        <item itemvalue="JUnit.AdresseTest.exceptionSetVilleNullTest" />
+        <item itemvalue="JUnit.SocieteTest.exceptionDomainTeste" />
+        <item itemvalue="JUnit.SocieteTest.exceptionDomainStErreurTest" />
+        <item itemvalue="JUnit.SocieteTest.exceptionTelephone" />
+        <item itemvalue="JUnit.SocieteTest.exceptionSetRaisonSociale" />
+        <item itemvalue="JUnit.SocieteTest.exceptionEmail" />
       </list>
     </recent_temporary>
   </component>
@@ -467,11 +794,52 @@
       <workItem from="1583689415583" duration="8504000" />
       <workItem from="1583750594846" duration="8237000" />
       <workItem from="1583826064025" duration="7762000" />
+      <workItem from="1584985301612" duration="2879000" />
+      <workItem from="1584988308509" duration="225000" />
+      <workItem from="1584988566153" duration="4851000" />
+      <workItem from="1584999680907" duration="1253000" />
+      <workItem from="1585006476519" duration="2447000" />
+      <workItem from="1585043586288" duration="1760000" />
+      <workItem from="1585049055188" duration="1222000" />
+      <workItem from="1585050608367" duration="15947000" />
+      <workItem from="1585130685026" duration="34829000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="SocieteTest_exceptionTelephone - 2020.03.25 at 23h 39m 19s.xml">
+      <configuration name="SocieteTest.exceptionTelephone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionTelephone - 2020.03.25 at 23h 45m 18s.xml">
+      <configuration name="SocieteTest.exceptionTelephone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionTelephone - 2020.03.25 at 23h 46m 58s.xml">
+      <configuration name="SocieteTest.exceptionTelephone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionTelephone - 2020.03.25 at 23h 47m 03s.xml">
+      <configuration name="SocieteTest.exceptionTelephone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionTelephone - 2020.03.25 at 23h 50m 35s.xml">
+      <configuration name="SocieteTest.exceptionTelephone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionDomainStErreurTest - 2020.03.26 at 00h 03m 34s.xml">
+      <configuration name="SocieteTest.exceptionDomainStErreurTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionDomainTeste - 2020.03.26 at 00h 35m 45s.xml">
+      <configuration name="SocieteTest.exceptionDomainTeste" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionDomainTeste - 2020.03.26 at 00h 35m 56s.xml">
+      <configuration name="SocieteTest.exceptionDomainTeste" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionDomainTeste - 2020.03.26 at 00h 36m 24s.xml">
+      <configuration name="SocieteTest.exceptionDomainTeste" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocieteTest_exceptionDomainTeste - 2020.03.26 at 00h 36m 42s.xml">
+      <configuration name="SocieteTest.exceptionDomainTeste" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250817000" />
+    <option name="totallyTimeSpent" value="316230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -483,37 +851,40 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.12348993" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.22121535" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.27919462" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.5021097" side_tool="true" weight="0.27919462" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.7334778" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5926327" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.53966004" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" />
+      <window_info anchor="bottom" id="SQL Generator" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Console" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.7334778" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.31310943" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.39869988" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" weight="0.32827735" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32827735" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" visible="true" weight="0.3575298" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.19616205" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="7" side_tool="true" weight="0.34496644" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="right" id="Database" order="9" visible="true" weight="0.1705757" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,486 +1009,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="166" column="43" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#getIdentifiant#0;class#Societe#0" />
-            <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
-            <element signature="docComment;method#getRaisonSociale#0;class#Societe#0" />
-            <element signature="docComment;method#setRaisonSociale#0;class#Societe#0" />
-            <element signature="docComment;method#getDomainSociete#0;class#Societe#0" />
-            <element signature="docComment;method#setDomainSociete#0;class#Societe#0" />
-            <element signature="docComment;method#getAdresse#0;class#Societe#0" />
-            <element signature="docComment;method#setAdresseSt#0;class#Societe#0" />
-            <element signature="docComment;method#getTelephone#0;class#Societe#0" />
-            <element signature="docComment;method#setTelephone#0;class#Societe#0" />
-            <element signature="e#6679#6680#0" expanded="true" />
-            <element signature="e#6707#6708#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7687#7688#0" expanded="true" />
-            <element signature="e#7853#7854#0" expanded="true" />
-            <element signature="e#7901#7902#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1721">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#3494#3495#0" expanded="true" />
-            <element signature="e#3526#3527#0" expanded="true" />
-            <element signature="e#4536#4537#0" expanded="true" />
-            <element signature="e#4582#4583#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/util/Properties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="433" selection-start-line="433" selection-end-line="433" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/awt/EventDispatchThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/connection.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionProspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionSociete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/principale/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="44" column="48" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_societe.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_adresse.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_client.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_prospect.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/delete_societe.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/select_client.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/select_prospect.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/javax/swing/GroupLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3761">
-          <caret line="234" column="28" selection-start-line="234" selection-start-column="28" selection-end-line="234" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionQuitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionAdresse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="32" column="89" selection-start-line="32" selection-start-column="89" selection-end-line="32" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/diagramme.uml" />
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/exception.uml" />
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/exception .uml" />
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe architecture.uml" />
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe métier .uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com.metier.Client</node>
-            <node x="" y="">com.metier.Societe</node>
-            <node x="" y="">com.metier.Adresse</node>
-            <node x="" y="">com.metier.Prospect</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9" x="22.0" y="369.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ConnectionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe Frame.uml" />
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe persistance.uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com.persistance.Prospect_DAO</node>
-            <node x="" y="">com.persistance.Client_DAO</node>
-            <node x="" y="">com.persistance.DAO</node>
-            <node x="" y="">com.persistance.ConnectionDAO</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.2000000000000002" x="358.0" y="246.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-            <Category>Properties</Category>
-            <Category>Inner Classes</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe exception .uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com.exception.ExceptionAdresse</node>
-            <node x="" y="">com.exception.ExceptionProspect</node>
-            <node x="" y="">com.exception.ExceptionPersonnaliser</node>
-            <node x="" y="">com.exception.ExceptionSociete</node>
-            <node x="" y="">com.exception.ExceptionClient</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.8999999999999995" x="550.0" y="250.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-            <Category>Properties</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-384">
-          <caret line="38" column="61" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-124">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe Frame menu .uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="15.0" y="508.0">com.listener.ActionValidation</node>
-            <node x="373.0" y="641.0">com.listener.ActionQuitter</node>
-            <node x="0.0" y="162.0">com.listener.ActionAjoutAffich</node>
-            <node x="363.0" y="0.0">com.listener.ActionModifSuppri</node>
-            <node x="676.0" y="170.0">com.listener.ActionRetourMenu</node>
-            <node x="355.0" y="168.0">com.model.MenuFrame</node>
-            <node x="672.0" y="493.0">com.listener.ActionClientProspect</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="com.listener.ActionRetourMenu" target="com.model.MenuFrame">
-              <point x="10.974869382547979" y="0.0" />
-              <point x="0.0" y="5.616768168846107" />
-            </edge>
-            <edge source="com.listener.ActionModifSuppri" target="com.model.MenuFrame">
-              <point x="4.993838805469068" y="-0.24814105865684155" />
-              <point x="4.993838805469068" y="-0.24814105865684155" />
-            </edge>
-            <edge source="com.model.MenuFrame" target="com.listener.ActionRetourMenu">
-              <point x="-2.277931438505732" y="-4.450958139711858" />
-              <point x="-2.277931438505732" y="-4.450958139711858" />
-            </edge>
-            <edge source="com.listener.ActionAjoutAffich" target="com.model.MenuFrame">
-              <point x="35.270470701645365" y="0.0" />
-              <point x="0.0" y="-16.573495777571978" />
-            </edge>
-            <edge source="com.listener.ActionValidation" target="com.model.MenuFrame">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="com.model.MenuFrame" target="com.listener.ActionValidation">
-              <point x="0.0" y="11.491709254104364" />
-              <point x="20.295841343942413" y="0.0" />
-            </edge>
-            <edge source="com.model.MenuFrame" target="com.listener.ActionModifSuppri">
-              <point x="-15.018506387883974" y="0.0" />
-              <point x="-15.018506387883974" y="0.0" />
-            </edge>
-            <edge source="com.model.MenuFrame" target="com.listener.ActionQuitter">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="com.model.MenuFrame" target="com.listener.ActionAjoutAffich">
-              <point x="0.0" y="5.524498592523983" />
-              <point x="-11.756823567215122" y="0.0" />
-            </edge>
-            <edge source="com.listener.ActionClientProspect" target="com.model.MenuFrame">
-              <point x="-9.919566402466387" y="0.0" />
-              <point x="0.0" y="5.789234999391709" />
-            </edge>
-            <edge source="com.model.MenuFrame" target="com.listener.ActionClientProspect">
-              <point x="2.5202714499480408" y="-4.318359852834959" />
-              <point x="2.5202714499480408" y="-4.318359852834931" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.9" x="-132.36360861360862" y="246.66666666666669" />
-          <SelectedNodes>
-            <node>com.listener.ActionValidation</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe Formulaire.uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com.listener.ActionValidation</node>
-            <node x="" y="">com.listener.ActionQuitter</node>
-            <node x="" y="">com.model.FormulaireFrame</node>
-            <node x="" y="">com.listener.ActionAjoutAffich</node>
-            <node x="" y="">com.listener.ActionRetourMenu</node>
-            <node x="" y="">com.listener.ActionValideFormulaire</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.2000000000000002" x="330.0000000000001" y="1426.4166666666665" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Methods</Category>
-            <Category>Fields</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4257">
-          <caret line="169" column="47" selection-start-line="169" selection-start-column="47" selection-end-line="169" selection-end-column="47" />
-          <folding>
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#3911#3912#0" expanded="true" />
-            <element signature="e#3949#3950#0" expanded="true" />
-            <element signature="e#4627#4628#0" expanded="true" />
-            <element signature="e#4673#4674#0" expanded="true" />
-            <element signature="e#6389#6390#0" expanded="true" />
-            <element signature="e#6429#6430#0" expanded="true" />
-            <element signature="e#6585#6586#0" expanded="true" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6867#6868#0" expanded="true" />
-            <element signature="e#6899#6900#0" expanded="true" />
-            <element signature="e#7134#7135#0" expanded="true" />
-            <element signature="e#7174#7175#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Documentation projet/UML/Classe Frame affichage.uml">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1173,26 +1064,223 @@
               <point x="0.0" y="37.5" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="1.2" x="-119.16666666666674" y="180.0" />
+          <settings layout="Hierarchic Group" zoom="1.2" x="-119.0" y="180.0" />
           <SelectedNodes />
           <Categories>
             <Category>Fields</Category>
-            <Category>Properties</Category>
             <Category>Constructors</Category>
             <Category>Methods</Category>
+            <Category>Properties</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/select_client.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        <state relative-caret-position="280">
+          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_societe.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_client.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/Note">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logApp.log" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="939" column="22" selection-start-line="939" selection-start-column="22" selection-end-line="939" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../2 projet Fabien/src/main/java/TesteLog4jGroupe/MyMojo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log/myStruts1App.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/app-info.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_adresse.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0c622cb7-b285-4144-87a0-26c6c9965c64/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://0c622cb7-b285-4144-87a0-26c6c9965c64/database/postgres/access-method/btree">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3af47833-7f23-4203-a73b-650a8e6e9044/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://3af47833-7f23-4203-a73b-650a8e6e9044/database/postgres/schema/gestion/table/adresse">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="525576b9-a097-48de-b0e3-a3370a25d0d5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/connection.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/3af47833-7f23-4203-a73b-650a8e6e9044.SCHEMA:postgres.gestion">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>3af47833-7f23-4203-a73b-650a8e6e9044.SCHEMA:postgres.gestion</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="545.0" y="374.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/metier/ProspectTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/lang/IllegalArgumentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/Creation basique/Gestion client script des tables .sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/insert_prospect.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="40" lean-forward="true" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgresql/update_prospect.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ClientDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="273" column="48" lean-forward="true" selection-start-line="273" selection-start-column="48" selection-end-line="273" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/metier/AdresseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+          <folding>
+            <element signature="e#1188#1189#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1883">
+          <caret line="111" column="41" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionQuitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1203,27 +1291,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controleur/ControleurFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_client.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_societe.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="5" column="152" lean-forward="true" selection-start-line="5" selection-start-column="152" selection-end-line="5" selection-end-column="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/AffichageListeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3080">
+        <state relative-caret-position="3620">
           <caret line="192" column="17" selection-start-line="192" selection-start-column="17" selection-end-line="192" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionAjoutAffich.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="30" column="64" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-314">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="328" column="9" selection-start-line="328" selection-start-column="9" selection-end-line="328" selection-end-column="9" />
+          <folding>
+            <element signature="e#9246#9247#0" expanded="true" />
+            <element signature="e#9283#9284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionClientProspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1705">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_prospect.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_adresse.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/Creation basique/Gestio Client script insert .sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+          <folding>
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/listener/ActionModifSuppri.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Societe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1014">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2242#2243#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="true" />
+            <element signature="docComment;method#setIdentifiant#0;class#Societe#0" />
+            <element signature="e#2404#2405#0" expanded="true" />
+            <element signature="e#2441#2442#0" expanded="true" />
+            <element signature="e#4077#4078#0" expanded="true" />
+            <element signature="e#4118#4119#0" expanded="true" />
+            <element signature="e#5061#5062#0" expanded="true" />
+            <element signature="e#5095#5096#0" expanded="true" />
+            <element signature="e#5890#5891#0" expanded="true" />
+            <element signature="e#5922#5923#0" expanded="true" />
+            <element signature="e#6859#6860#0" expanded="true" />
+            <element signature="e#6887#6888#0" expanded="true" />
+            <element signature="e#7974#7975#0" expanded="true" />
+            <element signature="e#8008#8009#0" expanded="true" />
+            <element signature="e#8174#8175#0" expanded="true" />
+            <element signature="e#8222#8223#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="907" column="69" lean-forward="true" selection-start-line="907" selection-start-column="69" selection-end-line="907" selection-end-column="69" />
+        <state relative-caret-position="538">
+          <caret line="607" column="25" selection-start-line="607" selection-start-column="25" selection-end-line="607" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/exception/ExceptionPersonnaliser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Prospect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1840">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="e#2291#2292#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/metier/SocieteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

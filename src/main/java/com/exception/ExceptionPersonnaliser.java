@@ -72,6 +72,7 @@ public abstract class ExceptionPersonnaliser extends RuntimeException {
 
         IS_NULL_SOCIETE,
         EMPTY_RAISONSOCIALE,
+        MATCH__RAISONSOCIALE,
         DOMAIN_PRIVE_PUBLIC,
         EMPTY_TELEPHONE,
         MATCH_TELEPHONE,

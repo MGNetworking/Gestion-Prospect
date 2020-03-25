@@ -1,9 +1,7 @@
 package com.controleur;
 
 import java.util.List;
-
 import java.sql.SQLException;
-
 import com.metier.Societe.TypeSociete;
 
 import com.metier.Prospect;

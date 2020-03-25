@@ -1,4 +1,4 @@
 update client
-set chiffre_affaire = ?,
+  set chiffre_affaire = ?,
     employer_nb     = ?
-where societe_id = ?;
+  where societe_id = ?;

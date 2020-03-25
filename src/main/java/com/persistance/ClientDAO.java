@@ -12,9 +12,11 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.metier.Societe.DomainSociete;
+
 
 /**
  * Cette classe permet de la gestion de la persistance des données concernant
@@ -66,9 +68,10 @@ public class ClientDAO extends DAO<Client> {
 
             if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
-                // todo ecrire un logger
+                LOGGER_CL_DAO.info("Échec d'exécution de la 1er requette précompilé ");
             } else {
                 insert = true;
+                LOGGER_CL_DAO.info("exécution de la 1er requette précompilé ");
             }
 
             // récupération de la clef généré pour les insertions des table en références
@@ -78,7 +81,7 @@ public class ClientDAO extends DAO<Client> {
 
             // Un objet qui représente une instruction SQL précompilée, pour la table adresse
             PreparedStatement pstAdresse = this.connection.prepareStatement(this.getQuery("insert_adresse"),
-                    Statement.RETURN_GENERATED_KEYS);
+                Statement.RETURN_GENERATED_KEYS);
             pstAdresse.setObject(1, idKey); // ajoute l'id societe
             pstAdresse.setObject(2, Integer.parseInt(client.getAdresse().getCodePost()));
             pstAdresse.setObject(3, client.getAdresse().getNumeroDeRueSt());
@@ -87,28 +90,31 @@ public class ClientDAO extends DAO<Client> {
 
             if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
-                // todo ecrire un logger
+
             } else {
                 insert = true;
             }
 
             // Un objet qui représente une instruction SQL précompilée, pour la table Client
             PreparedStatement pstClient = this.connection.prepareStatement(this.getQuery("insert_client"),
-                    Statement.RETURN_GENERATED_KEYS);
+                Statement.RETURN_GENERATED_KEYS);
+
             pstClient.setObject(1, idKey); // ajoute l'id societe
             pstClient.setObject(2, client.getChiffreAffaire());
             pstClient.setObject(3, client.getNombreEmployer());
 
             if (pstClient.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
-                // todo ecrire un logger
+                LOGGER_CL_DAO.info("Échec d'exécution de la 2eme requette précompilé ");
             } else {
                 insert = true;
+                LOGGER_CL_DAO.info("exécution de la 2eme  requette précompilé ");
             }
         } catch (IOException ioe) {
-            LOGGER_CL_DAO.severe("Erreur create client : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
+
+            LOGGER_CL_DAO.log(Level.SEVERE, ioe.getMessage() + "\n" + ioe.getStackTrace(), ioe.fillInStackTrace());
         }
+
         this.connection.commit();            // validation de la transaction et fin transaction
         this.connection.setAutoCommit(true);
 
@@ -129,7 +135,6 @@ public class ClientDAO extends DAO<Client> {
         boolean operation = false;
         try {
 
-
             PreparedStatement pst = connection.prepareStatement(this.getQuery("delete_societe"));
 
             pst.setInt(1, client.getIdentifiant());
@@ -137,14 +142,13 @@ public class ClientDAO extends DAO<Client> {
 
             if (resultat == 0) { // vérifie la transaction
                 operation = true;
-                // todo ecrire un logger
+
             } else {
                 operation = false;
             }
         } catch (IOException ioe) {
 
-            LOGGER_CL_DAO.severe("Erreur delete client : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
+            LOGGER_CL_DAO.log(Level.SEVERE, ioe.getMessage() + "\n" + ioe.getStackTrace(), ioe.getCause());
         }
         return operation;
     }
@@ -153,7 +157,7 @@ public class ClientDAO extends DAO<Client> {
     public boolean update(Client client) throws SQLException {
 
         boolean operation = false;
-        this.connection.setAutoCommit(false);
+        this.connection.setAutoCommit(false);   // transaction SQL
 
         try {
 
@@ -184,7 +188,6 @@ public class ClientDAO extends DAO<Client> {
             int resultatAd = pstAdClient.executeUpdate();
 
             if (resultatAd == 0) {
-
                 operation = false;
             } else {
                 operation = true;
@@ -198,7 +201,6 @@ public class ClientDAO extends DAO<Client> {
             int resultatPs = psPsClient.executeUpdate();
 
             if (resultatPs == 0) {
-
                 operation = false;
             } else {
                 operation = true;
@@ -208,14 +210,11 @@ public class ClientDAO extends DAO<Client> {
         } catch (SQLException sql) {
 
             throw new SQLException("UPDATE SQL :" + sql.getSQLState() + "\n" +
-                    "Message : " + sql.getMessage() + "\n" +
-                    "Code ERREUR : " + sql.getErrorCode());
+                "Message : " + sql.getMessage() + "\n" +
+                "Code ERREUR : " + sql.getErrorCode());
 
         } catch (IOException ioe) {
-
-            LOGGER_CL_DAO.severe("Erreur update client : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
-
+            LOGGER_CL_DAO.log(Level.SEVERE, ioe.getMessage() + "\n" + ioe.getStackTrace(), ioe.fillInStackTrace());
         } finally {
 
             this.connection.commit();
@@ -242,23 +241,31 @@ public class ClientDAO extends DAO<Client> {
     @Override
     public List<Societe> findAll() throws SQLException {
 
+        boolean operation = false;
         List<Societe> listClient = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rst = null;
+
+
         try {
 
-            pst = this.connection.prepareStatement(this.getQuery("select_client")); // preparation de la requete
-            rst = pst.executeQuery();       // excécute est renvoi le resultat
+            // preparation de la requete
+            pst = this.connection.prepareStatement(this.getQuery("select_client"));
+
+            // excécute est renvoi le resultat
+            rst = pst.executeQuery();
+
+            operation = true;
         } catch (IOException ioe) {
 
-            LOGGER_CL_DAO.severe("Erreur select client : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
-
+            LOGGER_CL_DAO.log(Level.SEVERE, ioe.getMessage() + "\n" + ioe.getStackTrace(), ioe.getCause());
+            operation = false;
         }
 
-        while (rst.next()) {            // créer un client à chaque itération
+        if (operation != false) {
+            while (rst.next()) {            // créer un client à chaque itération
 
-            listClient.add(new Client(
+                listClient.add(new Client(
                     Integer.parseInt(rst.getString("societe_id")),
                     rst.getString("raison_sociale"),
                     DomainSociete.valueOf(rst.getString("domainst")),
@@ -271,11 +278,14 @@ public class ClientDAO extends DAO<Client> {
                     rst.getString("commentaire"),
                     Integer.parseInt(rst.getString("chiffre_affaire")),
                     Integer.parseInt(rst.getString("employer_nb"))
-            ));
+                ));
+            }
+
+            if (rst != null) {                   // fermeture du ResultSet
+                rst.close();
+            }
         }
-        if (rst != null) {                   // fermeture du ResultSet
-            rst.close();
-        }
+
 
         this.trieSociete(listClient);       // trie de la liste
         return listClient;

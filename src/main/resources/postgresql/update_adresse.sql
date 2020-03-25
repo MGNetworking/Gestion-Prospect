@@ -1,6 +1,6 @@
 update adresse
-set numero     = ?,
+  set numero     = ?,
     rue        = ?,
     cd_postale = ?,
     ville      = ?
-where societe_id = ?;
+  where societe_id = ?;

@@ -5,13 +5,21 @@
  */
 package com.persistance;
 
+import com.exception.ExceptionAdresse;
+import com.exception.ExceptionPersonnaliser;
+import com.exception.ExceptionProspect;
+import com.exception.ExceptionSociete;
 import com.metier.Societe;
 import com.metier.Prospect;
 
 import java.io.IOException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.metier.Prospect.Interet;
@@ -26,6 +34,7 @@ import com.metier.Societe.DomainSociete;
 public class ProspectDAO extends DAO<Prospect> {
 
     private static Logger LOGGER_PS_DAO = Logger.getLogger(ProspectDAO.class.getName());
+    private static final DateFormat formatFrancais = new SimpleDateFormat("dd/MM/yyyy");
 
     /**
      * Ce constructeur doit prendre en paramètre en connection a la base de données.
@@ -56,7 +65,7 @@ public class ProspectDAO extends DAO<Prospect> {
 
             //le PreparedStatement est un objet qui représente une instruction SQL précompilée, pour la table societe
             PreparedStatement pstSociete = this.connection.prepareStatement(this.getQuery("insert_societe"),
-                    Statement.RETURN_GENERATED_KEYS);
+                Statement.RETURN_GENERATED_KEYS);
             pstSociete.setObject(1, prospect.getRaisonSociale());
             pstSociete.setObject(2, prospect.getDomainSociete().toString(), Types.OTHER);
             pstSociete.setObject(3, prospect.getTelephone());
@@ -66,7 +75,6 @@ public class ProspectDAO extends DAO<Prospect> {
             if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
                 System.out.println("etape 1: ");
-                // todo ecrire un logger
             } else {
                 insert = true;
             }
@@ -75,11 +83,11 @@ public class ProspectDAO extends DAO<Prospect> {
             ResultSet resultKeys = pstSociete.getGeneratedKeys();
             resultKeys.next();                              // passe l'index au suivant
             int idKey = resultKeys.getInt(1);   //  envoi de la clef
-            System.out.println("Clef : " + idKey);
+            LOGGER_PS_DAO.log(Level.INFO, "Clef : " + idKey);
 
             // Un objet qui représente une instruction SQL précompilée, pour la table adresse
             PreparedStatement pstAdresse = this.connection.prepareStatement(this.getQuery("insert_adresse")
-                    , Statement.RETURN_GENERATED_KEYS);
+                , Statement.RETURN_GENERATED_KEYS);
 
             pstAdresse.setObject(1, idKey); // ajoute l'id societe
             pstAdresse.setObject(2, Integer.parseInt(prospect.getAdresse().getCodePost()));
@@ -90,14 +98,13 @@ public class ProspectDAO extends DAO<Prospect> {
             if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
 
-                // todo ecrire un logger
             } else {
                 insert = true;
             }
 
             // Un objet qui représente une instruction SQL précompilée, pour la table Client
             PreparedStatement pstProspect = this.connection.prepareStatement(this.getQuery("insert_prospect"),
-                    Statement.RETURN_GENERATED_KEYS);
+                Statement.RETURN_GENERATED_KEYS);
 
             pstProspect.setObject(1, idKey); // ajoute l'id societe
             pstProspect.setString(2, prospect.getDatePropect());
@@ -106,13 +113,15 @@ public class ProspectDAO extends DAO<Prospect> {
             if (pstProspect.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
 
-                // todo ecrire un logger
             } else {
                 insert = true;
             }
         } catch (IOException ioe) {
             LOGGER_PS_DAO.severe("requete create prospect: " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
+                "\n" + ioe.getStackTrace());
+        } catch (IllegalArgumentException ill) {
+            LOGGER_PS_DAO.severe("requete create prospect: " + ill.getMessage() +
+                "\n" + ill.getStackTrace());
         }
         this.connection.commit();            // validation de la transaction et fin transaction
         this.connection.setAutoCommit(true);
@@ -139,7 +148,7 @@ public class ProspectDAO extends DAO<Prospect> {
 
             if (resultat == 0) { // vérifie la transaction
                 operation = true;
-                // todo ecrire un logger
+
             } else {
                 operation = false;
             }
@@ -147,7 +156,7 @@ public class ProspectDAO extends DAO<Prospect> {
 
         } catch (IOException ioe) {
             LOGGER_PS_DAO.severe("requete delete prospect : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
+                "\n" + ioe.getStackTrace());
         }
         return operation;
     }
@@ -171,7 +180,7 @@ public class ProspectDAO extends DAO<Prospect> {
             PreparedStatement pstSTProspect = connection.prepareStatement(this.getQuery("update_societe"));
 
             pstSTProspect.setString(1, prospect.getRaisonSociale());
-            pstSTProspect.setString(2, prospect.getDomainSociete().getDomainst());
+            pstSTProspect.setString(2, prospect.getDomainSociete().toString());
             pstSTProspect.setString(3, prospect.getTelephone());
             pstSTProspect.setString(4, prospect.getEmail());
             pstSTProspect.setString(5, prospect.getCommentaire());
@@ -219,14 +228,16 @@ public class ProspectDAO extends DAO<Prospect> {
 
 
         } catch (SQLException sql) {
+
             throw new SQLException("UPDATE SQL :" + sql.getSQLState() + "\n" +
-                    "Message : " + sql.getMessage() + "\n" +
-                    "Code ERREUR : " + sql.getErrorCode());
+                "Message : " + sql.getMessage() + "\n" +
+                "Code ERREUR : " + sql.getErrorCode());
 
         } catch (IOException ioe) {
 
             LOGGER_PS_DAO.severe("requete update prospect : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
+                "\n" + ioe.getStackTrace());
+
         } finally {
 
             this.connection.commit();
@@ -260,26 +271,38 @@ public class ProspectDAO extends DAO<Prospect> {
 
         try {
 
-
             pst = this.connection.prepareStatement(this.getQuery("select_prospect")); // preparation de la requete
             rst = pst.executeQuery();       // excécute est renvoi le resultat
 
             int i = 0;
             while (rst.next()) {            // créer un client à chaque itération
 
+                LOGGER_PS_DAO.log(Level.INFO,rst.getString("societe_id")+
+                    rst.getString("raison_sociale")+
+                    rst.getString("domainst")+
+                    rst.getString("numero")+
+                    rst.getString("rue")+
+                    rst.getString("cd_postale")+
+                    rst.getString("ville")+
+                    rst.getString("telephone")+
+                    rst.getString("email")+
+                    formatFrancais.format(rst.getObject("date_prospection"))+
+                    rst.getString("interet")+
+                    rst.getString("commentaire"));
+
                 listProspect.add(new Prospect(
-                        Integer.parseInt(rst.getString("societe_id")),
-                        rst.getString("raison_sociale"),
-                        DomainSociete.valueOf(rst.getString("domainst")),
-                        Integer.parseInt(rst.getString("numero")),
-                        rst.getString("rue"),
-                        rst.getString("cd_postale"),
-                        rst.getString("ville"),
-                        rst.getString("telephone"),
-                        rst.getString("email"),
-                        rst.getString("date_prospection"),
-                        Interet.valueOf(rst.getString("interet")),
-                        rst.getString("commentaire")
+                    Integer.parseInt(rst.getString("societe_id")),
+                    rst.getString("raison_sociale"),
+                    DomainSociete.valueOf(rst.getString("domainst")),
+                    Integer.parseInt(rst.getString("numero")),
+                    rst.getString("rue"),
+                    rst.getString("cd_postale"),
+                    rst.getString("ville"),
+                    rst.getString("telephone"),
+                    rst.getString("email"),
+                    formatFrancais.format(rst.getObject("date_prospection")),
+                    Interet.valueOf(rst.getString("interet")),
+                    rst.getString("commentaire")
 
                 ));
             }
@@ -288,10 +311,21 @@ public class ProspectDAO extends DAO<Prospect> {
                 rst.close();
             }
 
+        }catch (ExceptionSociete exp){
+
+           throw new ExceptionSociete(exp.getMessage(), exp.getIndicationSociete());
+        }catch (ExceptionProspect exPr){
+
+            throw new ExceptionProspect(exPr.getMessage(), exPr.getIndicationProspect());
+
+        }catch (ExceptionAdresse exAdr){
+
+            throw new ExceptionAdresse(exAdr.getMessage(), exAdr.getIndicationAdresse());
+
         } catch (IOException ioe) {
 
             LOGGER_PS_DAO.severe("requete select  prospect : " + ioe.getMessage() +
-                    "\n" + ioe.getStackTrace());
+                "\n" + ioe.getStackTrace());
         }
         this.trieSociete(listProspect);     // trie de la liste
         return listProspect;
