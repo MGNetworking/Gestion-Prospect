@@ -1,24 +1,23 @@
-package com.listener;
+package com.listener.ListenerMenu;
 
 import com.exception.ExceptionAdresse;
 import com.exception.ExceptionPersonnaliser;
 import com.exception.ExceptionProspect;
 import com.exception.ExceptionSociete;
-import com.metier.Client;
-import com.metier.Prospect;
 import com.metier.Societe;
 
-import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 
 import com.metier.Societe.TypeSociete;
 import com.model.MenuFrame;
 
 import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Cette est une ecouteur d'évenement sur la frame Menu.
+ */
 public class ActionClientProspect implements java.awt.event.ActionListener {
 
     private static final Logger LOGGER_ACTION_CLIENT_PROSPECT = Logger.getLogger(ActionClientProspect.class.getName());
@@ -26,11 +25,11 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
     private MenuFrame menuFrame;
 
     /**
-     * Ce Listener permet de gérer l'action utilisateur dans la frame du menu,
+     * Ce Listener permet de gérer l'action utilisateur dans la frame du menu
      * dans le but de sélectionné la parti client ou prospect.
      *
-     * @param frame
-     * @param controFrame
+     * @param frame       de type MenuFrame
+     * @param controFrame de type controFrame, le controleur des Fenètres
      */
     public ActionClientProspect(MenuFrame frame) {
         this.menuFrame = frame;
@@ -38,10 +37,11 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
     }
 
     /**
-     * Evenement sur les bouton Client et prospect.
+     * Évenement sur les boutons Client et prospect.
      *
      * @param e de type ActionEvent
      * @throws NullPointerException si le choix ne trouve pas de correspondance
+     *                              entre le bouton CLient et Prospect.
      */
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -65,19 +65,16 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
         }
 
         if (choix != null) { // Initialisation des composants
-
-            this.menuFrame.getLabelTitreMenuDeSelection().setText("CHOIX : " + choix);
-
-            // garde en memoire le choix client prospect
-            this.menuFrame.setMemoireMenuClientProspect(choix);
             try {
-                // initialisation du model
-                DefaultComboBoxModel model = new DefaultComboBoxModel(
-                    this.menuFrame.getControleur().getListeSocieteControleur(choix).toArray());
 
-                model.setSelectedItem("Liste des Clients / Prospects");
-                this.menuFrame.getJComboBoxListeSociete().setModel(model);
+                this.menuFrame.getLabelTitreMenuDeSelection().setText("CHOIX : " + choix);
+                // garde en memoire le choix client prospect
+                this.menuFrame.setMemoireMenuClientProspect(choix);
 
+                this.menuFrame.updateComboBoxList(choix);
+
+
+                // Interception des erreurs générer venant de la base de données.
             } catch (ExceptionSociete exp) {
 
                 LOGGER_ACTION_CLIENT_PROSPECT.log(Level.SEVERE, exp.getCause() + "\n" +
@@ -113,8 +110,6 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
                     exc.fillInStackTrace());
 
             }
-
-
         }
 
     }

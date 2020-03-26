@@ -8,12 +8,12 @@ public class ExceptionSociete extends ExceptionPersonnaliser {
     ExceptionEnumSociete indicationSt = ExceptionEnumSociete.IS_NULL_SOCIETE;
 
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
+     * Ce constructeur permet de créer une exception de type ExceptionPersonnaliser
      * et d'ajouté des renseignements pour l'utilisateur.
      * Elle utilise une enumeration de type ExceptionEnumSociete qui permet de
      * retracer l'exception en rapport avec elle.
      *
-     * @param message      de type String
+     * @param message      de type String le message
      * @param indicationSt de type ExceptionEnumSociete, l'ajout des indications
      */
     public ExceptionSociete(String message, ExceptionEnumSociete indicationSt) {
@@ -22,7 +22,7 @@ public class ExceptionSociete extends ExceptionPersonnaliser {
     }
 
     /**
-     * recupére une indication pour les exceptions sociétés
+     * Récupère une indication pour l'exceptions sociétés
      *
      * @return de type enumération ExceptionEnumSociete
      */

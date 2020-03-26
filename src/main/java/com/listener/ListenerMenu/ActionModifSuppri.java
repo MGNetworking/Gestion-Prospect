@@ -1,13 +1,24 @@
-package com.listener;
+package com.listener.ListenerMenu;
 
 import com.model.MenuFrame;
 
 import javax.swing.JButton;
 
+/**
+ * Cette classe est un écouteur d'évenement sur la frame Menu.
+ */
 public class ActionModifSuppri implements java.awt.event.ActionListener {
 
     private MenuFrame menuFrame;
 
+    /**
+     * Ce Listener permet de gérer l'action utilisateur dans la frame du menu
+     * dans le but de modifier la visibilité du choix de la comboBox Client ou prospect.
+     * Si l'utilisateur choisi Modifier ou supprimer le panneau contenant la comboBox
+     * apparaîtra.
+     *
+     * @param frame de type MenuFrame
+     */
     public ActionModifSuppri(MenuFrame frame) {
         this.menuFrame = frame;
     }

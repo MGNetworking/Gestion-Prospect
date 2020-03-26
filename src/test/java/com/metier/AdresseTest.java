@@ -4,80 +4,109 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.exception.ExceptionPersonnaliser;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import com.exception.ExceptionPersonnaliser.*;
+
+import java.util.stream.Stream;
 
 public class AdresseTest {
 
-    Adresse ad ;
+    private Adresse ad;
 
     @BeforeEach
-    void init(){
+    void init() {
         ad = new Adresse();
     }
 
-    @Test
-    @DisplayName("L'objet qui porte nom de la rue Null")
-    void exceptionSetNomRueNullTest(){
+    @ParameterizedTest
+    @ValueSource(strings = {"", "tes", "txt4", "123456", "nom de la rue beaucoup trop long"})
+    @DisplayName("Teste le nom de la rue")
+    void exceptionSetNomRueTest(String nomTest) {
+
+        assertThrows(ExceptionPersonnaliser.class,
+            () -> ad.setNomRue(nomTest), "Adresse le nom de la rue format non respecter : " + nomTest);
+
         assertThrows(NullPointerException.class,
-            ()-> ad.setNomRue(null) , "Adresse le nom de la rue = null");
+            () -> ad.setNomRue(null), "Adresse le nom de la rue = null");
 
     }
 
-    @Test
-    @DisplayName("Le nom de la rue vide")
-    void exceptionSetNomRueVideTest(){
+    static Stream<String> validationRue() {
+        return Stream.of("rue des boulangers", "rue du teste", "avenue du general de gaulle");
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("validationRue")
+    @DisplayName("certifie ok nom de rue")
+    void validationNomRue(String nomRue) {
+
+        assertDoesNotThrow(() -> ad.setNomRue(nomRue),
+            "Certification du nom de la rue : " + nomRue);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "12348", "nom de la ville beaucoup trop long", "cdd"})
+    @DisplayName("Teste le nom de la ville")
+    void exceptionSetVilleTest(String nomVille) {
+
         assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setNomRue("") , "Adresse le nom de la rue est vide");
+            () -> ad.setVille(nomVille), "Format du nom de la ville : " + nomVille);
 
-    }
-
-    @Test
-    @DisplayName("Le nom de la rue vide")
-    void exceptionSetNomRueCharTest(){
-        assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setNomRue("123456") , "Adresse le nom de la rue doit vaoir des caractéres");
-
-    }
-
-    @Test
-    @DisplayName("L'objet qui porte le code societe = null")
-    void exceptionSetCodePostNullTest(){
         assertThrows(NullPointerException.class,
-            () -> ad.setNomRue(null), "Adresse null");
+            () -> ad.setVille(null), "nom de la ville est null");
     }
 
-    @Test
-    @DisplayName("Le code societe est vide ")
-    void exceptionSetCodePostVideTest(){
+    static Stream<String> validationVille() {
+        return Stream.of("Amiens", "Paris", "lille", "marseille");
+    }
+
+    @ParameterizedTest
+    @MethodSource("validationVille")
+    @DisplayName("certifie ok nom de la ville")
+    void validationNomVille(String nomVille) {
+
+        assertDoesNotThrow(() -> ad.setVille(nomVille),
+            "Certification du nom de la ville : " + nomVille);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "1234", "123456", "abcdef"})
+    @DisplayName("Teste le code postale")
+    void exceptionSetCodePostTest(String codePostale) {
         assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setNomRue(""), "Adresse vide ");
-    }
+            () -> ad.setCodePost(codePostale), "Format code postale : " + codePostale);
 
-    @Test
-    @DisplayName("Le format code societe")
-    void exceptionSetCodePostFormatTest(){
-        assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setNomRue("12356"), "Adresse doit étre composer de caratére");
-    }
-
-
-    @Test
-    @DisplayName("L'objet qui porte le nom de ville est null")
-    void exceptionSetVilleNullTest(){
         assertThrows(NullPointerException.class,
-            ()-> ad.setVille(null), "l'oBjet ville est null");
+            () -> ad.setCodePost(null), "code postale null : " + codePostale);
     }
 
-    @Test
-    @DisplayName("L'objet qui porte le nom de ville est vide")
-    void exceptionSetVilleVideTest(){
-        assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setVille(""), "l'oBjet ville est vide");
+    @ParameterizedTest
+    @ValueSource(strings = {"80000", "75000", "68130"})
+    @DisplayName("certifie ok le code postale")
+    void validationCodePostale(String codePostale) {
+        assertDoesNotThrow(() -> ad.setCodePost(codePostale),
+            "Certification du code postale: " + codePostale);
     }
 
-    @Test
-    @DisplayName("Le format de la ville n'est pas respectée")
-    void exceptionSetVilleCharTest(){
+    @ParameterizedTest
+    @ValueSource(ints = {0, -1, 201})
+    @DisplayName("Teste valeur de numero de rue")
+    void exceptionSetNumeroRue(int numeroRue) {
+
         assertThrows(ExceptionPersonnaliser.class,
-            ()-> ad.setVille("pp"), "L'objet ville de type string doit étre composer de caratére");
+            () -> ad.setNumeroDeRueSt(numeroRue), "Format numéro : " + numeroRue);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"123", "1", "200"})
+    @DisplayName("certifie ok le numeroi de la rue")
+    void validationNumeroRue(int nuemroRue) {
+
+        assertDoesNotThrow(() -> ad.setNumeroDeRueSt(nuemroRue),
+            "Certification du numro de la rue : " + nuemroRue);
     }
 }

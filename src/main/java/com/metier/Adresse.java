@@ -4,6 +4,8 @@ import com.exception.ExceptionAdresse;
 import com.exception.ExceptionPersonnaliser;
 import com.exception.ExceptionPersonnaliser.ExceptionEnumAdresse;
 
+import static com.exception.ExceptionPersonnaliser.ExceptionEnumAdresse.*;
+
 /**
  * Cette permet la gestion de l'adresse du client ou prospect.
  *
@@ -57,8 +59,12 @@ public class Adresse {
 
         if (numeroDeRueSt <= 0)
             throw new ExceptionAdresse("Numéro rue <= 0",
-                    ExceptionEnumAdresse.NUMERO_RUE_INF_0);
+                    NUMERO_RUE_INF_0);
 
+        if (numeroDeRueSt > 200){
+            throw new ExceptionAdresse("Numéro rue <= 0",
+                NUMERO_RUE_INF_BIG200);
+        }
 
         this.numeroDeRueSt = numeroDeRueSt;
     }
@@ -92,9 +98,8 @@ public class Adresse {
         }
 
 
-        // permet de verifié le format du nom de la rue
-        // todo les accents ne passe pas le é par exemple
-        if (!(nomRue.matches("[a-z \'A-Z]*"))) {
+        // Verifi le format du nom de la rue de 4 a 30 caractére
+        if (!(nomRue.matches("^\\s*[a-z A-ZéèàêÉîï]{4,30}"))) {
             throw new ExceptionAdresse("Non de la rue : contient des chiffres",
                     ExceptionEnumAdresse.MATCH_NOM_RUE);
         }
@@ -129,8 +134,8 @@ public class Adresse {
                     ExceptionEnumAdresse.EMPTY_CD_POSTALE);
         }
 
-
-        if (!(codePost.matches("^[0-9]{1}[1-9]{1}[0-9]{3}") | codePost.matches("^[1-9]{1}[0-9]{4}"))) {
+        // teste le code postale francais
+        if (!(codePost.matches("\\b[0-9]{5}\\b"))) {
             throw new ExceptionAdresse("Code Postale : Le format non respecté ",
                     ExceptionEnumAdresse.MACTH_CD_POSTALE);
         }
@@ -157,7 +162,7 @@ public class Adresse {
     public void setVille(String ville) throws ExceptionPersonnaliser, NullPointerException {
 
         if (ville == null) {
-            throw new NullPointerException("nom de la ville = null");
+            throw new NullPointerException("Erreur Ville : null");
         }
 
         if (ville.isEmpty()) {
@@ -165,8 +170,9 @@ public class Adresse {
                     ExceptionEnumAdresse.EMPTY_NOM_VILLE);
         }
 
-        if (ville.matches("[a-zA-Z]{1,2}")) {
-            throw new ExceptionAdresse("Ville : format ville 3 caractére non respecter ",
+        // teste 30 caractére avec espace
+        if (!(ville.matches("\\b[a-zA-ZéèàêÉîï\\s]{4,30}\\b"))) {
+            throw new ExceptionAdresse("Ville : format ville 4 caractére non respecter ",
                     ExceptionEnumAdresse.MATCH_NOM_VILLE);
         }
 

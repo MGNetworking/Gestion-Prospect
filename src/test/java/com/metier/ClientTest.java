@@ -3,56 +3,46 @@ package com.metier;
 import com.exception.ExceptionPersonnaliser;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.stream.Stream;
 
 class ClientTest {
 
-    Client cl ;
+    private Client client;
+
     @BeforeEach
-    void init(){
-        cl = new Client();
+    void init() {
+        client = new Client();
     }
 
-    @Test
-    @DisplayName("Client Division par Zero")
-    void exceptioncalculRatioClientEmployerDivisionParZeroTeste(){
-        assertThrows(ArithmeticException.class,
-                () -> cl.calculRatioClientEmployer(10, 0) , "divivsion par 0");
 
-    }
-
-    @Test
-    @DisplayName("Client Moyen du chiffre d'affaire = 1")
-    void exceptioncalculRatioClientEmployerRationEgale1(){
+    @ParameterizedTest
+    @CsvSource({"100,-1", "10,10", "1,0", "0,1"})
+    @DisplayName("Teste calcule du Ratio ")
+    void exceptionCalculRatio(int chiffreAffaire, int nEmployer) {
 
         assertThrows(ExceptionPersonnaliser.class,
-            () -> cl.calculRatioClientEmployer(10, 10) , "la moyen de chiffre d'affaire =1 ");
+            () -> client.calculRatioClientEmployer(chiffreAffaire, nEmployer),
+            "la moyen de chiffre d'affaire : " + chiffreAffaire + " / " + nEmployer);
     }
 
-    @Test
-    @DisplayName("Client Moyen du chiffre d'affaire = 10")
-    void exceptioncalculRatioClientEmployerRationEgale10(){
 
-        assertThrows(ExceptionPersonnaliser.class,
-            () -> cl.calculRatioClientEmployer(100, 11) , "la moyen de chiffre d'affaire doit etre > 10");
-    }
+    @ParameterizedTest
+    @CsvSource({
+        "100, 10",
+        "1000, 100"
+    })
+    @DisplayName("Teste calcule du Ratio ")
+    void valideationCalculRatio(int chiffreAffaire, int nEmployer) {
 
-    @Test
-    @DisplayName("Client Moyen du chiffre d'affaire : AutreTechnique")
-    void exceptioncalculRatioClientEmployer_AutreTechnique_CalculTest(){
-
-        Client client = new Client();
-
-        boolean exceptionArith = false;
-
-        try{
-            client.calculRatioClientEmployer(100,100);
-
-        }catch (ExceptionPersonnaliser ar){
-            exceptionArith = true;
-        }
-
-        assertTrue(exceptionArith);
+        assertDoesNotThrow(() -> client.calculRatioClientEmployer(chiffreAffaire, nEmployer),
+            "la moyen de chiffre d'affaire : " + chiffreAffaire + " / " + nEmployer);
     }
 
 }

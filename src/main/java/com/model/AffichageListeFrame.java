@@ -3,7 +3,7 @@ package com.model;
 import javax.swing.table.DefaultTableModel;
 
 import com.controleur.ControleurFrame;
-import com.listener.ActionQuitter;
+import com.listener.ListenerCommun.ActionQuitter;
 import com.listener.ActionRetourMenu;
 import com.metier.Client;
 import com.metier.Prospect;
@@ -226,7 +226,7 @@ public class AffichageListeFrame extends javax.swing.JFrame {
 
         bpMenu.setText("Menu");
         bpMenu.setPreferredSize(new java.awt.Dimension(80, 32));
-        bpMenu.addActionListener(new ActionRetourMenu(this));
+        bpMenu.addActionListener(new ActionRetourMenu(this, this.controleur));
 
         jButton1.setText("Quitter");
         jButton1.setPreferredSize(new java.awt.Dimension(80, 32));

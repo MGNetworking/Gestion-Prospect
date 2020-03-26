@@ -41,9 +41,9 @@ create table adresse
    adresse_id           serial,
    societe_id			integer not null,
    numero               integer not null,
-   rue                  varchar(50) not null,
-   cd_postale           varchar(6) not null,
-   ville                varchar(50) not null,
+   rue                  varchar(30) not null,
+   cd_postale           varchar(5) not null,
+   ville                varchar(30) not null,
 
    constraint PK_ADRESSE primary key (adresse_id),
    

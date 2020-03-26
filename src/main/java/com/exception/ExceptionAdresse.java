@@ -7,7 +7,7 @@ public class ExceptionAdresse extends ExceptionPersonnaliser {
     ExceptionEnumAdresse indicationAdresse = ExceptionEnumAdresse.IS_NULL_ADRESSE;
 
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
+     * Ce constructeur permet de créer une exception de type ExceptionPersonnaliser
      * et d'ajouté des renseignements pour l'utilisateur.
      * Elle utilise une enumeration de type ExceptionEnumAdresse qui permet de
      * retracer l'exception en rapport avec elle.
@@ -22,7 +22,7 @@ public class ExceptionAdresse extends ExceptionPersonnaliser {
     }
 
     /**
-     * recupére une indication pour les exceptions Adresse
+     * Récupère une indication pour l'exceptions Adresse
      *
      * @return de type enumération ExceptionEnumAdresse
      */

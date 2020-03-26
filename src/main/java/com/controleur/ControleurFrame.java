@@ -2,6 +2,7 @@ package com.controleur;
 
 import java.util.List;
 import java.sql.SQLException;
+
 import com.metier.Societe.TypeSociete;
 
 import com.metier.Prospect;
@@ -18,18 +19,13 @@ import com.persistance.ProspectDAO;
  */
 public class ControleurFrame {
 
-    private ClientDAO client_dao;
-    private ProspectDAO prospect_dao;
+    private ClientDAO client_dao = new ClientDAO(ConnectionDAO.getConnectionPostgres());
+    private ProspectDAO prospect_dao = new ProspectDAO(ConnectionDAO.getConnectionPostgres());
 
     /**
      * Cette est l'interface entre les données est l'application
      */
     public ControleurFrame() {
-
-        // Acces à la base de données
-        this.client_dao = new ClientDAO(ConnectionDAO.getConnectionPostgres());
-        this.prospect_dao = new ProspectDAO(ConnectionDAO.getConnectionPostgres());
-
     }
 
     /**
@@ -38,24 +34,21 @@ public class ControleurFrame {
      * @param choixSociete de type String
      * @return un objet de type List
      */
-    public List<Societe> getListeSocieteControleur(String choixSociete) throws SQLException{
+    public List<Societe> getListeSocieteControleur(String choixSociete) throws SQLException {
 
-        List listSt = null;
-
-        // En fonction du choix renvoie la liste des Client ou prospect
+        // En fonction du choix renvoyer par la slection de dans la liste des Clients ou prospects
         if (choixSociete.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
-            listSt = this.client_dao.findAll();
+            return this.client_dao.findAll();
 
         } else if (choixSociete.equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
-            listSt = this.prospect_dao.findAll();
+            return this.prospect_dao.findAll();
 
         } else {
             throw new SQLException("Erreur sur le renvoi de la liste");
         }
 
-        return listSt;
     }
 
     /**
@@ -65,15 +58,13 @@ public class ControleurFrame {
      */
     public boolean addSocieteControleur(Societe st) throws SQLException {
 
-        boolean operation = false;
-
         if (st instanceof Client) {
-            operation = client_dao.create((Client) st);
+            return client_dao.create((Client) st);
 
         } else if (st instanceof Prospect) {
-            operation = prospect_dao.create((Prospect) st);
+            return prospect_dao.create((Prospect) st);
         }
-        return operation;
+        return false;
     }
 
     /**
@@ -83,37 +74,33 @@ public class ControleurFrame {
      */
     public boolean deleteSocieteControle(Societe st) throws SQLException {
 
-        boolean operation = false;
-
         if (st instanceof Client) {
-            operation = client_dao.delete((Client) st);
+            return client_dao.delete((Client) st);
 
         } else if (st instanceof Prospect) {
-            operation = prospect_dao.delete((Prospect) st);
+            return prospect_dao.delete((Prospect) st);
         }
 
-        return operation;
+        return false;
     }
 
     /**
+     * Permet de mettre a jours un client / prospect
      *
-     * @param st
-     * @return
-     * @throws SQLException
+     * @param st de type Societe
+     * @return boolean true si successFully de la mise a jour
+     * @throws SQLException si problème de type SQl générer pendant la mise à jours.
      */
     public boolean updateSocieteControleur(Societe st) throws SQLException {
 
-        boolean operation = false;
-
         if (st instanceof Client) {
-            operation = client_dao.update((Client) st);
+            return client_dao.update((Client) st);
 
         } else if (st instanceof Prospect) {
-            operation = prospect_dao.update((Prospect) st);
+            return prospect_dao.update((Prospect) st);
 
         }
-
-        return operation;
+        return false;
     }
 
 }

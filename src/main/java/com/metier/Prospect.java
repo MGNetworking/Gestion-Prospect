@@ -94,7 +94,7 @@ public class Prospect extends Societe {
                     ExceptionEnumProspect.EMPTY_DATE);
 
         // vérification format
-        if (!(datePropectSt.matches("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
+        if (!(datePropectSt.matches("\\b[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}\\b")))
             throw new ExceptionProspect("Date de prospection : la date entré n'est pas comforme ",
                     ExceptionEnumProspect.MACTH_DATE);
 
@@ -124,14 +124,8 @@ public class Prospect extends Societe {
 
         // variable null
         if (interesse == null) {
-            throw new NullPointerException("Interet prospect null");
+            throw new ExceptionPersonnaliser("Interet prospect null");
         }
-
-        // patern regex
-        if (!(interesse.equals(Interet.OUI) | interesse.equals(Interet.NON)))
-            throw new ExceptionProspect("Interet : le champs intéret n'a pas été renseigné",
-                    ExceptionEnumProspect.INTERET_OUI_NON);
-
 
         this.interesse = interesse;
 

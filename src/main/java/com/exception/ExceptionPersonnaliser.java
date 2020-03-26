@@ -8,7 +8,7 @@ package com.exception;
 /**
  * @author Maxime
  */
-public abstract class ExceptionPersonnaliser extends RuntimeException {
+public class ExceptionPersonnaliser extends RuntimeException {
 
     /**
      * Ce constructeur permet de créer une exception de type RuntimeException.
@@ -23,10 +23,9 @@ public abstract class ExceptionPersonnaliser extends RuntimeException {
     /**
      * Enumeration pour a gestion des erreur pour la classe Prospect.
      */
-    public enum ExceptionEnumProspect {
+    public static enum ExceptionEnumProspect {
 
         IS_NULL_PROSPECT,
-        INTERET_OUI_NON,
         MACTH_DATE,
         EMPTY_DATE;
 
@@ -40,6 +39,8 @@ public abstract class ExceptionPersonnaliser extends RuntimeException {
     public enum ExceptionEnumClient {
 
         IS_NULL_CLIENT,
+        CALCUL_RATIO_DIVISON_EMPLOYER,
+        CALCUL_RATIO_DIVISON_CHIFFRE,
         CALCUL_RATIO;
 
         ExceptionEnumClient() {
@@ -54,6 +55,7 @@ public abstract class ExceptionPersonnaliser extends RuntimeException {
 
         IS_NULL_ADRESSE,
         NUMERO_RUE_INF_0,
+        NUMERO_RUE_INF_BIG200,
         EMPTY_NOM_RUE,
         MATCH_NOM_RUE,
         EMPTY_CD_POSTALE,
@@ -73,7 +75,6 @@ public abstract class ExceptionPersonnaliser extends RuntimeException {
         IS_NULL_SOCIETE,
         EMPTY_RAISONSOCIALE,
         MATCH__RAISONSOCIALE,
-        DOMAIN_PRIVE_PUBLIC,
         EMPTY_TELEPHONE,
         MATCH_TELEPHONE,
         EMPTY_EMAIL,

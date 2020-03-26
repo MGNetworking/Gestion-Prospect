@@ -1,14 +1,10 @@
 package com.metier;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 import com.exception.ExceptionClient;
 import com.exception.ExceptionPersonnaliser;
-import com.exception.ExceptionPersonnaliser.ExceptionEnumClient;
 
-import java.util.Collections;
+import static com.exception.ExceptionPersonnaliser.ExceptionEnumClient.*;
+
 
 /**
  * Cette classe permet la création d'un client d'entreprise.
@@ -54,7 +50,7 @@ public class Client extends Societe {
 
         // constructeur de la classe Societe.
         super(identifiant, raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
-                villeSt, telephoneSt, emailSt, commentaireSt);
+            villeSt, telephoneSt, emailSt, commentaireSt);
 
         this.calculRatioClientEmployer(chiffreAffaireSt, nombreEmployerST);
 
@@ -106,22 +102,24 @@ public class Client extends Societe {
      *
      * @param chiffreAffaire int le chiffre d'affaire de l'entreprise.
      * @param nEmloyer       int le nombre d'employé
-     * @throws ExceptionPersonnaliser si le ratio est inférieur a 10.
-     * @throws ArithmeticException    dans le cas d'une dividion par zero.
+     * @throws ExceptionPersonnaliser si le ratio est inférieur a 10,
+     *  chiffre d'affaire et le nombre d'employer est égale 0.
      */
-    public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser,
-            ArithmeticException {
+    public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser {
 
-        // vérifaction du nombre d'emplyer
-        if (nEmloyer == 0) {
-            throw new ArithmeticException("division par 0");
+        if (nEmloyer == 0) {        // vérifaction du nombre d'emplyer != 0
+            throw new ExceptionClient("division par 0", CALCUL_RATIO_DIVISON_EMPLOYER);
+        }
+
+        if (chiffreAffaire == 0) {  // vérifaction du chiffre d'affaire != 0
+            throw new ExceptionClient("division par 0", CALCUL_RATIO_DIVISON_CHIFFRE);
         }
 
         int totale = chiffreAffaire / nEmloyer;  // calcul du ratio
 
-        if (totale < 10) { // si ratio est inférieur a 10
+        if (totale < 10) {          // si ratio est inférieur a 10
             throw new ExceptionClient("Ratio :  chiffre d'affaire / employer inférieur à 10",
-                    ExceptionEnumClient.CALCUL_RATIO);
+                CALCUL_RATIO);
         }
 
         // initailisation des variables d'instance.

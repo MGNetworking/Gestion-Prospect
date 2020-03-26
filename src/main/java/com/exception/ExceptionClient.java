@@ -1,6 +1,5 @@
 package com.exception;
 
-
 import com.exception.ExceptionPersonnaliser.ExceptionEnumClient;
 
 public class ExceptionClient extends ExceptionPersonnaliser {
@@ -8,7 +7,7 @@ public class ExceptionClient extends ExceptionPersonnaliser {
     ExceptionEnumClient indicationCl = ExceptionEnumClient.IS_NULL_CLIENT;
 
     /**
-     * Ce constructeur permet de crées une exception de type RuntimeException
+     * Ce constructeur permet de créer une exception de type ExceptionPersonnaliser
      * et d'ajouté des renseignements pour l'utilisateur.
      * Elle utilise une enumeration de type ExceptionEnumClient qui permet de
      * retracer l'exception en rapport avec elle.
@@ -22,7 +21,7 @@ public class ExceptionClient extends ExceptionPersonnaliser {
     }
 
     /**
-     * recupére une indication pour les exceptions clients
+     * Récupère une indication pour l'exceptions clients
      *
      * @return de type enumération ExceptionEnumClient
      */

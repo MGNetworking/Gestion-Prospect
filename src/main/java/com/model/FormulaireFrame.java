@@ -2,10 +2,9 @@ package com.model;
 
 import com.controleur.ControleurFrame;
 import com.exception.*;
-import com.listener.ActionQuitter;
+import com.listener.ListenerCommun.ActionQuitter;
 import com.listener.ActionRetourMenu;
 import com.listener.ActionValideFormulaire;
-import com.metier.Adresse;
 import com.metier.Client;
 import com.metier.Prospect;
 import com.metier.Societe;
@@ -13,10 +12,6 @@ import com.metier.Societe.DomainSociete;
 import com.model.MenuFrame.Action;
 import com.metier.Societe.TypeSociete;
 import com.metier.Prospect.Interet;
-import com.exception.ExceptionPersonnaliser.ExceptionEnumAdresse;
-import com.exception.ExceptionPersonnaliser.ExceptionEnumClient;
-import com.exception.ExceptionPersonnaliser.ExceptionEnumProspect;
-import com.exception.ExceptionPersonnaliser.ExceptionEnumSociete;
 
 
 import javax.swing.*;
@@ -428,7 +423,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
                         }
                     }
                 }
-
             }
 
         } catch (NumberFormatException nub) {       // erreur venant caste d'entier
@@ -441,9 +435,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
         } catch (IllegalArgumentException ill) {    // Exception venant des combobox
 
             JOptionPane.showMessageDialog(null,
-                "Une valeur de sélection comboBox non renseigné .\n" +
-                    "Veuillez fair une sélection dans Domain ou Interét." + ill.getMessage() + ill.getCause(),
-                "ERREUR de saisi : Domain / intéret",
+                "Une valeur dans les combox n'a pas été renseigné .\n" +
+                    "Veuillez fair une sélection dans Domain / Interét.",
+                "ERREUR de saisi : Domain / Intéret",
                 JOptionPane.INFORMATION_MESSAGE);
 
 
@@ -457,6 +451,14 @@ public class FormulaireFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,
                         "Le numero de la rue ne peut pas étre inférieur ou égale à 0.\n" +
                             "veuillez entré une nouvelle valeurs.",
+                        "ERREUR de saisi : numero de rue",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+                case NUMERO_RUE_INF_BIG200: {
+                    JOptionPane.showMessageDialog(null,
+                        "Le numero de la rue est trop grand.\n" +
+                            "Veuillez renseigner un numero de rue plus petit",
                         "ERREUR de saisi : numero de rue",
                         JOptionPane.INFORMATION_MESSAGE);
                     break;
@@ -584,6 +586,23 @@ public class FormulaireFrame extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
+                case CALCUL_RATIO_DIVISON_EMPLOYER: {
+                    JOptionPane.showMessageDialog(null,
+                        "Le nombre d'employer ne peut étre de 0\n" +
+                            "Veuillez resaisir le champs correspondant au nombre d'employer ",
+                        "ERREUR de saisi : nombre d'employer",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+
+                case CALCUL_RATIO_DIVISON_CHIFFRE: {
+                    JOptionPane.showMessageDialog(null,
+                        "Le chiffre d'affaire ne peut étre de 0\n" +
+                            "Veuillez resaisir le champs correspondant au chiffre d'affaire",
+                        "ERREUR de saisi : chiffre d'affaire",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
             }
 
         } catch (ExceptionProspect exp) { // exception sur la classe Prospect
@@ -602,14 +621,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
                         "La date ne correspond pas au format attendu\n" +
                             "Veuillez resaisir la date",
                         "ERREUR de saisi : La date",
-                        JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-                case INTERET_OUI_NON: {
-                    JOptionPane.showMessageDialog(null,
-                        "Vous devez fair une sélection dans la conbBox Interet : OUI ou NON\n" +
-                            "Veuillez fair une sléection",
-                        "ERREUR de saisi : Intéret",
                         JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
@@ -1039,7 +1050,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
         bpMenuFormulaire.setMinimumSize(new java.awt.Dimension(69, 32));
         bpMenuFormulaire.setName("menu"); // NOI18N
         bpMenuFormulaire.setPreferredSize(new java.awt.Dimension(90, 32));
-        bpMenuFormulaire.addActionListener(new ActionRetourMenu(this));
+        bpMenuFormulaire.addActionListener(new ActionRetourMenu(this, this.controleur));
 
         bpQuitterFormulaire.setText("Quitter");
         bpQuitterFormulaire.setName("quitter"); // NOI18N

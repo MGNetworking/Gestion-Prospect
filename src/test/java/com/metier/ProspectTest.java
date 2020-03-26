@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -19,35 +20,17 @@ class ProspectTest {
         prospect = new Prospect();
     }
 
-    @Test
-    @DisplayName("Prospect date null ")
-    void exceptionSetDatePropectNullTest() {
-        assertThrows(NullPointerException.class,
-            () -> prospect.setDatePropect(null), "=> prospect date null");
-    }
+    @ParameterizedTest
+    @ValueSource(strings = {"", "2000/10/05", "01/9/1982", "20-10-2020", "20/10/20"})
+    @DisplayName("Teset sur date les Prospections")
+    void exceptionSetDatePropectTest(String date) {
 
-    @Test
-    @DisplayName("Prospect date vide ")
-    void exceptionSetDatePropectVideTest() {
         assertThrows(ExceptionPersonnaliser.class,
-            () -> prospect.setDatePropect(""), "=> propest date vide");
-    }
+            () -> prospect.setDatePropect(date), "Date prospection est : " + date);
 
-    @Test
-    @DisplayName("Prospect date Format regex ")
-    void exceptionSetDatePropectFormatTest() {
-        assertThrows(ExceptionPersonnaliser.class,
-            () -> prospect.setDatePropect("2000/10/05"), " => propest format date regex");
-    }
-
-    @Test
-    @DisplayName("Prospect Interet null")
-    void exceptionSetInteretNullTest() {
         assertThrows(NullPointerException.class,
-            () -> prospect.setInteresse(null), "=> prospect interet null ");
+            () -> prospect.setDatePropect(null), "Date prospection est null");
     }
-
-/*
 
     static Stream<String> validDates() {
         return Stream.of(
@@ -62,10 +45,20 @@ class ProspectTest {
     @DisplayName("Prospect date Format regex ")
     void validSetDatePropectFormatTest(String value) {
         assertDoesNotThrow(
-            () -> prospect.setDatePropect("20/10/2005"),
-            " => propest format date regex");
+            () -> prospect.setDatePropect(value),
+            "Format ne doit pas renvoyer exce^ption : " + value);
     }
 
+    @Test
+    @DisplayName("Prospect Interet null")
+    void exceptionSetInteretNullTest() {
+
+        assertThrows(ExceptionPersonnaliser.class,
+            () -> prospect.setInteresse(null), "=> prospect interet null ");
+    }
+
+
+    // parti teste perso
     public int add(int a, int b) {
         return a + b;
     }
@@ -76,8 +69,9 @@ class ProspectTest {
         "2, -4, -2"
     })
     void testAdd(int a, int b, int result) {
-        assertEquals(result, add(a, b));
-    }*/
+        assertEquals(result, add(a, b),
+            "Certifie que : " + a + " + " + b + " = " + result);
+    }
 
 
 }
