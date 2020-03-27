@@ -46,7 +46,7 @@ public class ClientDAO extends DAO<Client> {
      *
      * @param client de type Client
      * @return booelan l'etat d'excution de la transaction.
-     * @throws SQLException en cas de problème de liè au données entre la base et le programme
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     @Override
     public boolean create(Client client) throws SQLException {
@@ -81,7 +81,7 @@ public class ClientDAO extends DAO<Client> {
 
             // Un objet qui représente une instruction SQL précompilée, pour la table adresse
             PreparedStatement pstAdresse = this.connection.prepareStatement(this.getQuery("insert_adresse"),
-                Statement.RETURN_GENERATED_KEYS);
+                    Statement.RETURN_GENERATED_KEYS);
             pstAdresse.setObject(1, idKey); // ajoute l'id societe
             pstAdresse.setObject(2, Integer.parseInt(client.getAdresse().getCodePost()));
             pstAdresse.setObject(3, client.getAdresse().getNumeroDeRueSt());
@@ -97,7 +97,7 @@ public class ClientDAO extends DAO<Client> {
 
             // Un objet qui représente une instruction SQL précompilée, pour la table Client
             PreparedStatement pstClient = this.connection.prepareStatement(this.getQuery("insert_client"),
-                Statement.RETURN_GENERATED_KEYS);
+                    Statement.RETURN_GENERATED_KEYS);
 
             pstClient.setObject(1, idKey); // ajoute l'id societe
             pstClient.setObject(2, client.getChiffreAffaire());
@@ -127,7 +127,7 @@ public class ClientDAO extends DAO<Client> {
      *
      * @param client de type Client
      * @return boolean true si l'opération.
-     * @throws SQLException
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     @Override
     public boolean delete(Client client) throws SQLException {
@@ -153,6 +153,13 @@ public class ClientDAO extends DAO<Client> {
         return operation;
     }
 
+    /**
+     * Mes a jour l'objet client passer en paramétre.
+     *
+     * @param client de type client
+     * @return true si l'operation est un succès
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
+     */
     @Override
     public boolean update(Client client) throws SQLException {
 
@@ -210,8 +217,8 @@ public class ClientDAO extends DAO<Client> {
         } catch (SQLException sql) {
 
             throw new SQLException("UPDATE SQL :" + sql.getSQLState() + "\n" +
-                "Message : " + sql.getMessage() + "\n" +
-                "Code ERREUR : " + sql.getErrorCode());
+                    "Message : " + sql.getMessage() + "\n" +
+                    "Code ERREUR : " + sql.getErrorCode());
 
         } catch (IOException ioe) {
             LOGGER_CL_DAO.log(Level.SEVERE, ioe.getMessage() + "\n" + ioe.getStackTrace(), ioe.fillInStackTrace());
@@ -235,8 +242,8 @@ public class ClientDAO extends DAO<Client> {
      * Si l'intégrité est compromie par une exception de type SQLException une erreurs d'excution de la transaction
      * est déclarée stoppé est rien n'est envoyée.
      *
-     * @return
-     * @throws SQLException
+     * @return un objet de type List
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     @Override
     public List<Societe> findAll() throws SQLException {
@@ -266,18 +273,18 @@ public class ClientDAO extends DAO<Client> {
             while (rst.next()) {            // créer un client à chaque itération
 
                 listClient.add(new Client(
-                    Integer.parseInt(rst.getString("societe_id")),
-                    rst.getString("raison_sociale"),
-                    DomainSociete.valueOf(rst.getString("domainst")),
-                    Integer.parseInt(rst.getString("numero")),
-                    rst.getString("rue"),
-                    rst.getString("cd_postale"),
-                    rst.getString("ville"),
-                    rst.getString("telephone"),
-                    rst.getString("email"),
-                    rst.getString("commentaire"),
-                    Integer.parseInt(rst.getString("chiffre_affaire")),
-                    Integer.parseInt(rst.getString("employer_nb"))
+                        Integer.parseInt(rst.getString("societe_id")),
+                        rst.getString("raison_sociale"),
+                        DomainSociete.valueOf(rst.getString("domainst")),
+                        Integer.parseInt(rst.getString("numero")),
+                        rst.getString("rue"),
+                        rst.getString("cd_postale"),
+                        rst.getString("ville"),
+                        rst.getString("telephone"),
+                        rst.getString("email"),
+                        rst.getString("commentaire"),
+                        Integer.parseInt(rst.getString("chiffre_affaire")),
+                        Integer.parseInt(rst.getString("employer_nb"))
                 ));
             }
 
@@ -285,7 +292,6 @@ public class ClientDAO extends DAO<Client> {
                 rst.close();
             }
         }
-
 
         this.trieSociete(listClient);       // trie de la liste
         return listClient;

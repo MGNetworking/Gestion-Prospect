@@ -74,7 +74,6 @@ public class ProspectDAO extends DAO<Prospect> {
 
             if (pstSociete.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
-                System.out.println("etape 1: ");
             } else {
                 insert = true;
             }
@@ -83,7 +82,6 @@ public class ProspectDAO extends DAO<Prospect> {
             ResultSet resultKeys = pstSociete.getGeneratedKeys();
             resultKeys.next();                              // passe l'index au suivant
             int idKey = resultKeys.getInt(1);   //  envoi de la clef
-            LOGGER_PS_DAO.log(Level.INFO, "Clef : " + idKey);
 
             // Un objet qui représente une instruction SQL précompilée, pour la table adresse
             PreparedStatement pstAdresse = this.connection.prepareStatement(this.getQuery("insert_adresse")
@@ -97,7 +95,6 @@ public class ProspectDAO extends DAO<Prospect> {
 
             if (pstAdresse.executeUpdate() == 0) { // permet de vérifier l'envoi qui a était fait : 0 rien, 1 envoyé
                 insert = false;
-
             } else {
                 insert = true;
             }
@@ -239,14 +236,13 @@ public class ProspectDAO extends DAO<Prospect> {
                 "\n" + ioe.getStackTrace());
 
         } finally {
-
             this.connection.commit();
             this.connection.setAutoCommit(true);
         }
 
-
         return operation;
     }
+
 
     @Override
     public Prospect find(Societe societe) {
@@ -259,8 +255,8 @@ public class ProspectDAO extends DAO<Prospect> {
      * Si l'intégrité est compromie par une exception de type SQLException une erreurs d'excution de la transaction
      * est déclarée stoppé est rien n'est envoyée.
      *
-     * @return
-     * @throws SQLException
+     * @return un objet de type List
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     @Override
     public List<Societe> findAll() throws SQLException {

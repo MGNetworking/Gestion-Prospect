@@ -28,53 +28,64 @@ public abstract class DAO<type> {
     protected Connection connection;                            // Instance de la connection SGBD
     protected Map<String, String> queryMap = new HashMap<>();   // liste des requetes
 
+    /**
+     * Ce constructeur prende en paramétre la connection a la base de données.
+     *
+     * @param connec objet de type connection.
+     */
     DAO(Connection connec) {
         this.connection = connec;
     }
 
     /**
-     * Methode pour la création
+     * Méthode pour la création d'un objet en base de données.
      *
-     * @param objet
-     * @return boolean
+     * @param objet l'objet attendu en paramétre.
+     * @return boolean le resultat de l'opération.
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     abstract boolean create(type objet) throws SQLException;
 
     /**
-     * Méthode pour la suppréssion.
+     * Méthode pour la suppréssion d'un objet en base de données.
      *
-     * @param objet
-     * @return boolean
+     * @param objet l'objet attendu en paramétre.
+     * @return boolean le resultat de l'opération.
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     abstract boolean delete(type objet) throws SQLException;
 
     /**
-     * Méthode pour la mise à jour
+     * Méthode pour la mise à jour d'un objet en base de données.
      *
-     * @param objet
-     * @return boolean
+     * @param objet l'objet attendu en paramétre.
+     * @return boolean le resultat de l'opération.
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     abstract boolean update(type objet) throws SQLException;
+
 
     /**
      * Méthode de recherche des informations.
      *
-     * @return boolean
+     * @param societe l'objet attendu en paramétre.
+     * @return un objet de type générique le resultat de l'opération.
      */
     abstract type find(Societe societe);
 
     /**
-     * Import tout les élements de la base de données.
+     * Importe tout les élements de la base de données.
      *
-     * @return
+     * @return un objet de type List
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
-    abstract List<Societe> findAll() throws SQLException, Exception;
+    abstract List<Societe> findAll() throws SQLException;
 
 
     /**
      * Méthode qui permet le trie d'une liste contenant des objets de type Société.
      *
-     * @param list de type list
+     * @param listSociete e type list
      */
     public static void trieSociete(List<Societe> listSociete) {
 
@@ -97,9 +108,10 @@ public abstract class DAO<type> {
     /**
      * Renvoie la requete correspondante au noms passé en paramétre.
      *
-     * @param nameQuery
-     * @return
-     * @throws IOException
+     * @param nameQuery de type String.
+     * @return la requette rechercher grace au nom.
+     * @throws IOException si le nom de la requette n'existe pas
+     *                     ou si un probléme d'ouverture de flux est lever détecter.
      */
     protected String getQuery(String nameQuery) throws IOException {
 
@@ -109,10 +121,10 @@ public abstract class DAO<type> {
             String path = "postgresql/" + nameQuery + ".sql";
 
             try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                    this.getClass()
-                        .getClassLoader()
-                        .getResourceAsStream(path)));) {
+                    new InputStreamReader(
+                            this.getClass()
+                                    .getClassLoader()
+                                    .getResourceAsStream(path)));) {
 
                 String line = null;
                 while ((line = reader.readLine()) != null) {

@@ -33,6 +33,7 @@ public class ControleurFrame {
      *
      * @param choixSociete de type String
      * @return un objet de type List
+     * @throws SQLException en cas d'erreur sur la transaction a la base de données
      */
     public List<Societe> getListeSocieteControleur(String choixSociete) throws SQLException {
 
@@ -55,6 +56,8 @@ public class ControleurFrame {
      * Recupération du client ou prospect
      *
      * @param st de type Societe.
+     * @return true si succés de la transaction.
+     * @throws SQLException renvoie l'exception générer par la transaction.
      */
     public boolean addSocieteControleur(Societe st) throws SQLException {
 
@@ -70,15 +73,17 @@ public class ControleurFrame {
     /**
      * Permet de supprimer un client ou prospect
      *
-     * @param Societe
+     * @param societe de type Societe.
+     * @return true si la requette était exécuter avec succé.
+     * @throws SQLException renvoie l'exception générer par la transaction.
      */
-    public boolean deleteSocieteControle(Societe st) throws SQLException {
+    public boolean deleteSocieteControle(Societe societe) throws SQLException {
 
-        if (st instanceof Client) {
-            return client_dao.delete((Client) st);
+        if (societe instanceof Client) {
+            return client_dao.delete((Client) societe);
 
-        } else if (st instanceof Prospect) {
-            return prospect_dao.delete((Prospect) st);
+        } else if (societe instanceof Prospect) {
+            return prospect_dao.delete((Prospect) societe);
         }
 
         return false;

@@ -28,8 +28,7 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
      * Ce Listener permet de gérer l'action utilisateur dans la frame du menu
      * dans le but de sélectionné la parti client ou prospect.
      *
-     * @param frame       de type MenuFrame
-     * @param controFrame de type controFrame, le controleur des Fenètres
+     * @param frame de type MenuFrame
      */
     public ActionClientProspect(MenuFrame frame) {
         this.menuFrame = frame;
@@ -40,8 +39,6 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
      * Évenement sur les boutons Client et prospect.
      *
      * @param e de type ActionEvent
-     * @throws NullPointerException si le choix ne trouve pas de correspondance
-     *                              entre le bouton CLient et Prospect.
      */
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -78,26 +75,26 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
             } catch (ExceptionSociete exp) {
 
                 LOGGER_ACTION_CLIENT_PROSPECT.log(Level.SEVERE, exp.getCause() + "\n" +
-                    exp.getMessage() + "\n" +
-                    exp.getStackTrace());
+                        exp.getMessage() + "\n" +
+                        exp.getStackTrace());
 
             } catch (ExceptionProspect exPr) {
 
                 LOGGER_ACTION_CLIENT_PROSPECT.log(Level.SEVERE, exPr.getCause() + "\n" +
-                    exPr.getMessage() + "\n" +
-                    exPr.getStackTrace());
+                        exPr.getMessage() + "\n" +
+                        exPr.getStackTrace());
 
             } catch (ExceptionAdresse exAdr) {
 
                 LOGGER_ACTION_CLIENT_PROSPECT.log(Level.SEVERE, exAdr.getCause() + "\n" +
-                    exAdr.getMessage() + "\n" +
-                    exAdr.getStackTrace());
+                        exAdr.getMessage() + "\n" +
+                        exAdr.getStackTrace());
 
             } catch (ExceptionPersonnaliser exp) {
 
                 LOGGER_ACTION_CLIENT_PROSPECT.log(Level.SEVERE, exp.getCause() + "\n" +
-                    exp.getMessage() + "\n" +
-                    exp.getStackTrace());
+                        exp.getMessage() + "\n" +
+                        exp.getStackTrace());
 
             } catch (SQLException sql) {
 
@@ -106,8 +103,8 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
             } catch (Exception exc) {
 
                 LOGGER_ACTION_CLIENT_PROSPECT.log(Level.SEVERE, exc.getMessage() + "\n" +
-                    exc.getCause() + "\n" +
-                    exc.fillInStackTrace());
+                        exc.getCause() + "\n" +
+                        exc.fillInStackTrace());
 
             }
         }

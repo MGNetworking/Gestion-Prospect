@@ -50,7 +50,7 @@ public class Client extends Societe {
 
         // constructeur de la classe Societe.
         super(identifiant, raisonSt, domainSt, numeroDeRueSt, nomRueSt, codePostSt,
-            villeSt, telephoneSt, emailSt, commentaireSt);
+                villeSt, telephoneSt, emailSt, commentaireSt);
 
         this.calculRatioClientEmployer(chiffreAffaireSt, nombreEmployerST);
 
@@ -103,7 +103,7 @@ public class Client extends Societe {
      * @param chiffreAffaire int le chiffre d'affaire de l'entreprise.
      * @param nEmloyer       int le nombre d'employé
      * @throws ExceptionPersonnaliser si le ratio est inférieur a 10,
-     *  chiffre d'affaire et le nombre d'employer est égale 0.
+     *                                chiffre d'affaire et le nombre d'employer est égale 0.
      */
     public void calculRatioClientEmployer(int chiffreAffaire, int nEmloyer) throws ExceptionPersonnaliser {
 
@@ -119,7 +119,7 @@ public class Client extends Societe {
 
         if (totale < 10) {          // si ratio est inférieur a 10
             throw new ExceptionClient("Ratio :  chiffre d'affaire / employer inférieur à 10",
-                CALCUL_RATIO);
+                    CALCUL_RATIO);
         }
 
         // initailisation des variables d'instance.

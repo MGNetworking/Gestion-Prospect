@@ -13,7 +13,7 @@ public class ExceptionAdresse extends ExceptionPersonnaliser {
      * retracer l'exception en rapport avec elle.
      *
      * @param message      de type String
-     * @param indicationTp de type ExceptionEnumAdresse, l'ajout des indications
+     * @param indicationAdresse de type ExceptionEnumAdresse, l'ajout des indications
      */
     public ExceptionAdresse(String message, ExceptionEnumAdresse indicationAdresse) {
         super(message);

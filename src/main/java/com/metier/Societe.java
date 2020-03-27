@@ -191,13 +191,13 @@ public abstract class Societe {
         // si c'est vide
         if (telephone.isEmpty()) {
             throw new ExceptionSociete("Téléphone : vous n'avez pas renseigner le numéro de l'entreprise ",
-                EMPTY_TELEPHONE);
+                    EMPTY_TELEPHONE);
         }
 
         // format du numéro de téléphone
         if (!(telephone.matches("^0\\d(\\s|-)?(\\d{2}(\\s|-)?){4}$"))) {
             throw new ExceptionSociete("Téléphone : le format du numéro n'est pas comforme",
-                MATCH_TELEPHONE);
+                    MATCH_TELEPHONE);
         }
 
 
@@ -224,12 +224,12 @@ public abstract class Societe {
 
         if (adresseEmailSt.isEmpty()) {
             throw new ExceptionSociete("Adresse Email : l'adresse Email doit étre renseigné ",
-                ExceptionEnumSociete.EMPTY_EMAIL);
+                    ExceptionEnumSociete.EMPTY_EMAIL);
         }
-        System.out.println("Email : " + adresseEmailSt + " " + adresseEmailSt.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$"));
+
         if (!adresseEmailSt.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) {
             throw new ExceptionSociete("Adresse Email : entré une adresse eamil valide",
-                ExceptionEnumSociete.MATCH_EMAIL);
+                    ExceptionEnumSociete.MATCH_EMAIL);
         }
 
         this.email = adresseEmailSt;

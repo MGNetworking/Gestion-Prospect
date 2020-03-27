@@ -4,7 +4,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.controleur.ControleurFrame;
 import com.listener.ListenerCommun.ActionQuitter;
-import com.listener.ActionRetourMenu;
+import com.listener.ListenerCommun.ActionRetourMenu;
 import com.metier.Client;
 import com.metier.Prospect;
 import com.metier.Societe;
@@ -24,7 +24,11 @@ public class AffichageListeFrame extends javax.swing.JFrame {
     private ControleurFrame controleur;
 
     /**
-     * Constructeur
+     * Ce contruteur permet d'afficher une liste de client ou de prospect.Il prende en paramétre
+     * le choix fait par le client en String et le controleur de fenètre.
+     *
+     * @param memoireClientProspect de type String
+     * @param controleur de type ControleurFrame.
      */
     public AffichageListeFrame(String memoireClientProspect, ControleurFrame controleur) {
         initComponents();

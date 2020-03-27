@@ -1,4 +1,4 @@
-package com.listener;
+package com.listener.ListenerCommun;
 
 import com.controleur.ControleurFrame;
 import com.model.MenuFrame;
@@ -15,21 +15,25 @@ public class ActionRetourMenu implements ActionListener {
 
     private JFrame jframe;
     private ControleurFrame controleur;
+
     /**
      * Cette permet le retour au menu principale
      *
      * @param frame de type JFrame
+     * @param controleur de type ControleurFrame.
      */
     public ActionRetourMenu(JFrame frame, ControleurFrame controleur) {
         this.jframe = frame;
         this.controleur = controleur;
     }
 
+    /**
+     * Si l'événement est solicité, retour au menu princiaple.
+     *
+     * @param e de type actionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // ici si je fait this.controleur a la place de new ControleurFrame()
-        // quand je revien vers le me
-        // nu apres avoir fait une selection j'ai un nullPointeur
         new MenuFrame(new ControleurFrame());
         this.jframe.dispose();
     }

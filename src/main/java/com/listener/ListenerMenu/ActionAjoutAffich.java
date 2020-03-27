@@ -21,7 +21,8 @@ public class ActionAjoutAffich implements java.awt.event.ActionListener {
     /**
      * Action du bouton Ajout ou Affichage Liste dans le menu principale
      *
-     * @param frame
+     * @param frame de type Jframe
+     * @param controleur de type ControleurFrame
      */
     public ActionAjoutAffich(MenuFrame frame, ControleurFrame controleur) {
         this.menuFrame = frame;

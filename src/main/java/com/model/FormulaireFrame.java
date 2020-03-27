@@ -3,8 +3,8 @@ package com.model;
 import com.controleur.ControleurFrame;
 import com.exception.*;
 import com.listener.ListenerCommun.ActionQuitter;
-import com.listener.ActionRetourMenu;
-import com.listener.ActionValideFormulaire;
+import com.listener.ListenerCommun.ActionRetourMenu;
+import com.listener.ListenerFormulaire.ActionValideFormulaire;
 import com.metier.Client;
 import com.metier.Prospect;
 import com.metier.Societe;
@@ -57,8 +57,10 @@ public class FormulaireFrame extends javax.swing.JFrame {
     /**
      * Constructeur pour la modification, suppression et l'ajout d'un client ou d'un prospect
      *
-     * @param societe        de type Societe
-     * @param actionTypeMenu de type String
+     * @param societe                    de type Societe
+     * @param actionTypeMenu             de type String
+     * @param controleur                 de type controleur.
+     * @param memoirechoixClientProspect de type String
      */
     public FormulaireFrame(Societe societe, Action actionTypeMenu, ControleurFrame controleur, String memoirechoixClientProspect) {
         initComponents();
@@ -131,8 +133,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
     /**
      * Affichage du formulaire vide pour l'ajout d'un client ou prospect.
-     *
-     * @param selectionChoix String contient le titre la page sélectionné.
      */
     public void affichageAjout() {
 
@@ -143,7 +143,6 @@ public class FormulaireFrame extends javax.swing.JFrame {
         this.txTelephone.setToolTipText("Format : xx.xx.xx.xx.xx");
         this.txEmail.setToolTipText("Format : xxxx.xxxx@gmail.com");
 
-        System.out.println("memo : " + memoirechoixClientProspect);
         // si c'est un Client affichage du context pour le client
         if (this.memoirechoixClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
 
@@ -269,21 +268,21 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 client.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
 
                 client.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText().trim()),
-                    this.txNomRue.getText().trim(),
-                    this.txCodePostale.getText().trim(),
-                    this.txVille.getText().trim());
+                        this.txNomRue.getText().trim(),
+                        this.txCodePostale.getText().trim(),
+                        this.txVille.getText().trim());
 
                 client.calculRatioClientEmployer(
-                    Integer.parseInt(this.txChiffreAffaire.getText().trim()),
-                    Integer.parseInt(this.txNombreEmployer.getText().trim()));
+                        Integer.parseInt(this.txChiffreAffaire.getText().trim()),
+                        Integer.parseInt(this.txNombreEmployer.getText().trim()));
 
                 // si c'est ajouter client
                 if (action == true) {
                     // boite de dialogue propose la sauvegarde choix oui 0 / non 1
                     int choix = JOptionPane.showConfirmDialog(null,
-                        "southaitez vous ajouter ce client ",
-                        "Ajouter",
-                        JOptionPane.YES_NO_OPTION);
+                            "southaitez vous ajouter ce client ",
+                            "Ajouter",
+                            JOptionPane.YES_NO_OPTION);
 
                     if (choix == 0) {
 
@@ -292,9 +291,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         if (retourSGBD == true) {
                             JOptionPane.showMessageDialog(null,
-                                "La création à était réalisé avec succés",
-                                "Transaction SGBD",
-                                JOptionPane.INFORMATION_MESSAGE);
+                                    "La création à était réalisé avec succés",
+                                    "Transaction SGBD",
+                                    JOptionPane.INFORMATION_MESSAGE);
 
                             new MenuFrame(this.controleur);
                             this.dispose();
@@ -302,9 +301,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         } else {
                             JOptionPane.showMessageDialog(null,
-                                "échec de l'ajoute du Client",
-                                "Transaction SGBD",
-                                JOptionPane.ERROR_MESSAGE);
+                                    "échec de l'ajoute du Client",
+                                    "Transaction SGBD",
+                                    JOptionPane.ERROR_MESSAGE);
                         }
                     }
 
@@ -313,9 +312,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
                     System.out.println("Client modification : ");
                     // boite de dialogue propose la sauvegarde choix oui 0 / non 1
                     int choix = JOptionPane.showConfirmDialog(null,
-                        "southaitez vous modifié ce client ",
-                        "Modification",
-                        JOptionPane.YES_NO_OPTION);
+                            "southaitez vous modifié ce client ",
+                            "Modification",
+                            JOptionPane.YES_NO_OPTION);
 
                     if (choix == 0) {
 
@@ -324,9 +323,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         if (retourSGBD == true) {
                             JOptionPane.showMessageDialog(null,
-                                "La modification à était réalisé avec succés",
-                                "Transaction SGBD",
-                                JOptionPane.INFORMATION_MESSAGE);
+                                    "La modification à était réalisé avec succés",
+                                    "Transaction SGBD",
+                                    JOptionPane.INFORMATION_MESSAGE);
 
                             new MenuFrame(this.controleur);
                             this.dispose();
@@ -334,9 +333,9 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         } else {
                             JOptionPane.showMessageDialog(null,
-                                "échec de la modification du Client",
-                                "Transaction SGBD",
-                                JOptionPane.ERROR_MESSAGE);
+                                    "échec de la modification du Client",
+                                    "Transaction SGBD",
+                                    JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
@@ -354,24 +353,22 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 prospect.setTelephone(this.txTelephone.getText());
                 prospect.setEmail(this.txEmail.getText());
                 prospect.setCommentaire(this.txCommentaire.getText());
-                System.out.println("valeur domain: " + this.comboDomainSt.getSelectedItem().toString());
                 prospect.setDomainSociete(DomainSociete.valueOf(this.comboDomainSt.getSelectedItem().toString()));
 
                 prospect.setAdresseSt(Integer.parseInt(this.txNumeroAd.getText()),
-                    this.txNomRue.getText(),
-                    this.txCodePostale.getText(),
-                    this.txVille.getText());
+                        this.txNomRue.getText(),
+                        this.txCodePostale.getText(),
+                        this.txVille.getText());
 
                 prospect.setDatePropect(this.txDatePropection.getText());
-                System.out.println("valeur Interet: " + this.comboInteresset.getSelectedItem().toString());
                 prospect.setInteresse(Interet.valueOf(this.comboInteresset.getSelectedItem().toString()));
 
                 // ajouter prospect
                 if (action == true) {
                     // boite de dialogue propose la sauvegarde choix oui 0 / non 1
                     int choix = JOptionPane.showConfirmDialog(null,
-                        "southaitez vous ajouter ce prospect "
-                        , "Ajouter", JOptionPane.YES_NO_OPTION);
+                            "southaitez vous ajouter ce prospect "
+                            , "Ajouter", JOptionPane.YES_NO_OPTION);
 
                     if (choix == 0) {
 
@@ -380,8 +377,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         if (retourSGBD == true) {// permet d'affiché un message
                             JOptionPane.showMessageDialog(null,
-                                "La création a était réalisé avec succés",
-                                "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
+                                    "La création a était réalisé avec succés",
+                                    "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
 
                             new MenuFrame(this.controleur);
                             this.dispose();
@@ -389,8 +386,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         } else {
                             JOptionPane.showMessageDialog(null,
-                                "échec de l'ajoute du Prospect",
-                                "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
+                                    "échec de l'ajoute du Prospect",
+                                    "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
                         }
                     }
 
@@ -399,8 +396,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                     // boite de dialogue propose la sauvegarde choix oui 0 / non 1
                     int choix = JOptionPane.showConfirmDialog(null,
-                        "southaitez vous modifié ce prospect "
-                        , "Modification", JOptionPane.YES_NO_OPTION);
+                            "southaitez vous modifié ce prospect "
+                            , "Modification", JOptionPane.YES_NO_OPTION);
 
                     if (choix == 0) {
 
@@ -409,8 +406,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         if (retourSGBD == true) {// permet d'affiché un message
                             JOptionPane.showMessageDialog(null,
-                                "La modification a était réalisé avec succés",
-                                "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
+                                    "La modification a était réalisé avec succés",
+                                    "Transaction SGBD", JOptionPane.INFORMATION_MESSAGE);
 
                             new MenuFrame(this.controleur);
                             this.dispose();
@@ -418,8 +415,8 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                         } else {
                             JOptionPane.showMessageDialog(null,
-                                "échec de la modification du Prospect",
-                                "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
+                                    "échec de la modification du Prospect",
+                                    "Transaction SGBD", JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
@@ -427,18 +424,18 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         } catch (NumberFormatException nub) {       // erreur venant caste d'entier
             JOptionPane.showMessageDialog(null,
-                "Une erreur c'est produit dans le champs numero d'adresse .\n" +
-                    "veuillez entré une nouvelle valeur numerique.",
-                "ERREUR de saisi : numéro adresse",
-                JOptionPane.INFORMATION_MESSAGE);
+                    "Une erreur c'est produit dans le champs numero d'adresse .\n" +
+                            "veuillez entré une nouvelle valeur numerique.",
+                    "ERREUR de saisi : numéro adresse",
+                    JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IllegalArgumentException ill) {    // Exception venant des combobox
 
             JOptionPane.showMessageDialog(null,
-                "Une valeur dans les combox n'a pas été renseigné .\n" +
-                    "Veuillez fair une sélection dans Domain / Interét.",
-                "ERREUR de saisi : Domain / Intéret",
-                JOptionPane.INFORMATION_MESSAGE);
+                    "Une valeur dans les combox n'a pas été renseigné .\n" +
+                            "Veuillez fair une sélection dans Domain / Interét.",
+                    "ERREUR de saisi : Domain / Intéret",
+                    JOptionPane.INFORMATION_MESSAGE);
 
 
         } catch (ExceptionAdresse exp) {      // Erreur venant des classe métier
@@ -449,66 +446,66 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
                 case NUMERO_RUE_INF_0: {
                     JOptionPane.showMessageDialog(null,
-                        "Le numero de la rue ne peut pas étre inférieur ou égale à 0.\n" +
-                            "veuillez entré une nouvelle valeurs.",
-                        "ERREUR de saisi : numero de rue",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le numero de la rue ne peut pas étre inférieur ou égale à 0.\n" +
+                                    "veuillez entré une nouvelle valeurs.",
+                            "ERREUR de saisi : numero de rue",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case NUMERO_RUE_INF_BIG200: {
                     JOptionPane.showMessageDialog(null,
-                        "Le numero de la rue est trop grand.\n" +
-                            "Veuillez renseigner un numero de rue plus petit",
-                        "ERREUR de saisi : numero de rue",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le numero de la rue est trop grand.\n" +
+                                    "Veuillez renseigner un numero de rue plus petit",
+                            "ERREUR de saisi : numero de rue",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case EMPTY_NOM_RUE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le nom de la rue doit étre renseigner.\n" +
-                            "veuillez renseigner le noms de la rue.",
-                        "ERREUR de saisi : nom de la rue",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le nom de la rue doit étre renseigner.\n" +
+                                    "veuillez renseigner le noms de la rue.",
+                            "ERREUR de saisi : nom de la rue",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case MATCH_NOM_RUE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le nom de la rue doit comporté au minimun 4 caractère.\n",
-                        "ERREUR de saisi : nom de la rue",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le nom de la rue doit comporté au minimun 4 caractère.\n",
+                            "ERREUR de saisi : nom de la rue",
+                            JOptionPane.INFORMATION_MESSAGE);
 
                     break;
                 }
                 case MACTH_CD_POSTALE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le code postale n'est pas complet .\n" +
-                            "Veuillez renseigner un autre noms de rue.",
-                        "ERREUR de saisi : le code postale",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le code postale n'est pas complet .\n" +
+                                    "Veuillez renseigner un autre noms de rue.",
+                            "ERREUR de saisi : le code postale",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case EMPTY_CD_POSTALE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le code postale doit étre renseigné.\n" +
-                            "Veuillez renseigner le code postale.",
-                        "ERREUR de saisi : le code postale",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le code postale doit étre renseigné.\n" +
+                                    "Veuillez renseigner le code postale.",
+                            "ERREUR de saisi : le code postale",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case EMPTY_NOM_VILLE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le noms de la ville est vide .\n" +
-                            "Veuillez entré un nom le nom de la ville.",
-                        "ERREUR de saisi : le nom de la ville",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le noms de la ville est vide .\n" +
+                                    "Veuillez entré un nom le nom de la ville.",
+                            "ERREUR de saisi : le nom de la ville",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case MATCH_NOM_VILLE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le noms de la ville doit comporter un minimum lettre.\n" +
-                            "Veuillez renseigner correctement le nom de la ville.",
-                        "ERREUR de saisi : le nom de la ville",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le noms de la ville doit comporter un minimum lettre.\n" +
+                                    "Veuillez renseigner correctement le nom de la ville.",
+                            "ERREUR de saisi : le nom de la ville",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
 
@@ -520,53 +517,53 @@ public class FormulaireFrame extends javax.swing.JFrame {
             switch (exp.getIndicationSociete()) {
                 case EMPTY_EMAIL: {
                     JOptionPane.showMessageDialog(null,
-                        "L'adresse email n'est pas saisi.\n" +
-                            "Veuillez saisir l'adresse email.",
-                        "ERREUR de saisi : L'adresse email",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "L'adresse email n'est pas saisi.\n" +
+                                    "Veuillez saisir l'adresse email.",
+                            "ERREUR de saisi : L'adresse email",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case MATCH_EMAIL: {
                     JOptionPane.showMessageDialog(null,
-                        "L'adresse Email présente une anomalie, elle n'est pas conforme\n" +
-                            "au standart attendu.\n" +
-                            "Veuillez resaisir l'adresse email.",
-                        "ERREUR de saisi : L'adresse email",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "L'adresse Email présente une anomalie, elle n'est pas conforme\n" +
+                                    "au standart attendu.\n" +
+                                    "Veuillez resaisir l'adresse email.",
+                            "ERREUR de saisi : L'adresse email",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case EMPTY_RAISONSOCIALE: {
                     JOptionPane.showMessageDialog(null,
-                        "La raison sociale est vide\n" +
-                            "Veuillez saisir la raison sociale",
-                        "ERREUR de saisi : La raison sociale",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "La raison sociale est vide\n" +
+                                    "Veuillez saisir la raison sociale",
+                            "ERREUR de saisi : La raison sociale",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
 
                 case MATCH__RAISONSOCIALE: {
                     JOptionPane.showMessageDialog(null,
-                        "La raison sociale a besoin de'un minimum de 3 caractére est aucun chiffre \n" +
-                            "Veuillez saisir la raison sociale",
-                        "ERREUR de saisi : La raison sociale",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "La raison sociale a besoin de'un minimum de 3 caractére est aucun chiffre \n" +
+                                    "Veuillez saisir la raison sociale",
+                            "ERREUR de saisi : La raison sociale",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
 
                 case EMPTY_TELEPHONE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le numéro de téléphone n'est pas renseigné\n" +
-                            "Veuillez saisir le numéro de téléphone",
-                        "ERREUR de saisi : le numéro de téléphone",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le numéro de téléphone n'est pas renseigné\n" +
+                                    "Veuillez saisir le numéro de téléphone",
+                            "ERREUR de saisi : le numéro de téléphone",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case MATCH_TELEPHONE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le numéro de téléphone n'est pas conforme au standart attendu\n" +
-                            "Veuillez resaisir le numéro de téléphone",
-                        "ERREUR de saisi : le numéro de téléphone",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le numéro de téléphone n'est pas conforme au standart attendu\n" +
+                                    "Veuillez resaisir le numéro de téléphone",
+                            "ERREUR de saisi : le numéro de téléphone",
+                            JOptionPane.INFORMATION_MESSAGE);
 
                     break;
                 }
@@ -578,28 +575,28 @@ public class FormulaireFrame extends javax.swing.JFrame {
             switch (exp.getIndicationClient()) {
                 case CALCUL_RATIO: {
                     JOptionPane.showMessageDialog(null,
-                        "Le calcul du ratio chiffre d'affaire nombre d'employés et inferieur a 0\n" +
-                            "Veuillez resaisir l'un des champs correspondant " +
-                            "au chiffre d'affaire et nombre d'employés",
-                        "ERREUR de saisi : le calcul du ratio",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le calcul du ratio chiffre d'affaire nombre d'employés et inferieur a 0\n" +
+                                    "Veuillez resaisir l'un des champs correspondant " +
+                                    "au chiffre d'affaire et nombre d'employés",
+                            "ERREUR de saisi : le calcul du ratio",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case CALCUL_RATIO_DIVISON_EMPLOYER: {
                     JOptionPane.showMessageDialog(null,
-                        "Le nombre d'employer ne peut étre de 0\n" +
-                            "Veuillez resaisir le champs correspondant au nombre d'employer ",
-                        "ERREUR de saisi : nombre d'employer",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le nombre d'employer ne peut étre de 0\n" +
+                                    "Veuillez resaisir le champs correspondant au nombre d'employer ",
+                            "ERREUR de saisi : nombre d'employer",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
 
                 case CALCUL_RATIO_DIVISON_CHIFFRE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le chiffre d'affaire ne peut étre de 0\n" +
-                            "Veuillez resaisir le champs correspondant au chiffre d'affaire",
-                        "ERREUR de saisi : chiffre d'affaire",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "Le chiffre d'affaire ne peut étre de 0\n" +
+                                    "Veuillez resaisir le champs correspondant au chiffre d'affaire",
+                            "ERREUR de saisi : chiffre d'affaire",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
             }
@@ -609,43 +606,43 @@ public class FormulaireFrame extends javax.swing.JFrame {
             switch (exp.getIndicationProspect()) {
                 case EMPTY_DATE: {
                     JOptionPane.showMessageDialog(null,
-                        "La date n'a pas était saisi\n" +
-                            "Veuillez saisir la date",
-                        "ERREUR de saisi : La date",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "La date n'a pas était saisi\n" +
+                                    "Veuillez saisir la date",
+                            "ERREUR de saisi : La date",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
                 case MACTH_DATE: {
                     JOptionPane.showMessageDialog(null,
-                        "La date ne correspond pas au format attendu\n" +
-                            "Veuillez resaisir la date",
-                        "ERREUR de saisi : La date",
-                        JOptionPane.INFORMATION_MESSAGE);
+                            "La date ne correspond pas au format attendu\n" +
+                                    "Veuillez resaisir la date",
+                            "ERREUR de saisi : La date",
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
                 }
             }
 
         } catch (SQLException sql) {                // SQL erreur
             LOGGER_FORMULAIRE_FRAME.log(Level.SEVERE, "SQL Error [State: %s]\n " + "Message : %s",
-                sql.getSQLState() + "\n" +
-                    sql.getMessage() + "\n" +
-                    sql.getErrorCode() + "\n" +
-                    sql.getCause() + "\n" +
-                    sql.getErrorCode());
+                    sql.getSQLState() + "\n" +
+                            sql.getMessage() + "\n" +
+                            sql.getErrorCode() + "\n" +
+                            sql.getCause() + "\n" +
+                            sql.getErrorCode());
 
 
         } catch (NullPointerException nullEx) {     // Exception venant d'une référence
 
             LOGGER_FORMULAIRE_FRAME.log(Level.SEVERE, "Error Null pointeur : " +
-                nullEx.getStackTrace() + " : " +
-                nullEx.getMessage());
+                    nullEx.getStackTrace() + " : " +
+                    nullEx.getMessage());
 
 
         } catch (Exception excep) {                 // Exception venant d'une erreur d'execution
 
             LOGGER_FORMULAIRE_FRAME.log(Level.SEVERE, "Error execution : " +
-                excep.getStackTrace() + " : " +
-                excep.getMessage());
+                    excep.getStackTrace() + " : " +
+                    excep.getMessage());
 
         } finally {                                 // fin de l'insertion du nouveau Prospect ou client
 
@@ -667,7 +664,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
 
         // boite de dialogue choix oui 0 / non 1
         int choix = JOptionPane.showConfirmDialog(null, "Attention, vous allez supprimer un "
-            + nomObjetClasse, "Supprimer", JOptionPane.YES_NO_OPTION);
+                + nomObjetClasse, "Supprimer", JOptionPane.YES_NO_OPTION);
 
         // si l'utilisateur supprime l'object
         if (choix == 0) {
@@ -689,11 +686,11 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 }
             } catch (SQLException sql) {
                 LOGGER_FORMULAIRE_FRAME.log(Level.SEVERE, "SQL Error [State: %s] Message : %s" +
-                    sql.getSQLState(), sql.getMessage());
+                        sql.getSQLState(), sql.getMessage());
 
             } catch (Exception ex) {
                 LOGGER_FORMULAIRE_FRAME.log(Level.SEVERE, "SQL Error [State: %s] Message : %s" +
-                    ex.getStackTrace(), ex.getMessage());
+                        ex.getStackTrace(), ex.getMessage());
             }
 
         }
@@ -765,283 +762,259 @@ public class FormulaireFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout panTitreLayout = new javax.swing.GroupLayout(panTitre);
         panTitre.setLayout(panTitreLayout);
         panTitreLayout.setHorizontalGroup(
-            panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panTitreLayout.createSequentialGroup()
-                    .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panTitreLayout.createSequentialGroup()
-                            .addGap(346, 346, 346)
-                            .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(filler13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panTitreLayout.createSequentialGroup()
-                            .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panTitreLayout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
-                                    .addComponent(labelTitreFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panTitreLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(filler5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(filler9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(filler12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(filler6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(filler11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(filler7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(230, 230, 230))
+                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                .addGap(346, 346, 346)
+                                                .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(filler13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                                .addGap(9, 9, 9)
+                                                                .addComponent(labelTitreFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addComponent(filler5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(filler9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(filler12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(filler6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(filler11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(filler7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(230, 230, 230))
         );
         panTitreLayout.setVerticalGroup(
-            panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panTitreLayout.createSequentialGroup()
-                    .addComponent(filler5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panTitreLayout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panTitreLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(labelTitreFormulaire)))
-                    .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panTitreLayout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(filler9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(51, 51, 51)
-                            .addComponent(filler6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(panTitreLayout.createSequentialGroup()
-                            .addGap(499, 499, 499)
-                            .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(filler5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(filler4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(filler11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panTitreLayout.createSequentialGroup()
-                                    .addGap(23, 23, 23)
-                                    .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(filler12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                .addGap(40, 40, 40)
+                                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(labelTitreFormulaire)))
+                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(filler9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(51, 51, 51)
+                                                .addComponent(filler6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                .addGap(499, 499, 499)
+                                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(filler4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(filler11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(panTitreLayout.createSequentialGroup()
+                                                                .addGap(23, 23, 23)
+                                                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(filler12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
-                            .addComponent(filler7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(filler13, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(251, 251, 251))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panTitreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
+                                                .addComponent(filler7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTitreLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(filler13, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(251, 251, 251))))
         );
 
         labelDateDeProspection.setText("Date de prospection :");
-
         txDatePropection.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelInteret.setText("Interet :");
-
         comboInteresset.setSelectedItem(comboInteresset);
         comboInteresset.setPreferredSize(new java.awt.Dimension(80, 30));
 
         javax.swing.GroupLayout panProspectLayout = new javax.swing.GroupLayout(panProspect);
         panProspect.setLayout(panProspectLayout);
         panProspectLayout.setHorizontalGroup(
-            panProspectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panProspectLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panProspectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(labelDateDeProspection)
-                        .addComponent(txDatePropection, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                        .addComponent(labelInteret)
-                        .addComponent(comboInteresset, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panProspectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panProspectLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panProspectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(labelDateDeProspection)
+                                        .addComponent(txDatePropection, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                        .addComponent(labelInteret)
+                                        .addComponent(comboInteresset, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panProspectLayout.setVerticalGroup(
-            panProspectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panProspectLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelDateDeProspection)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txDatePropection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelInteret)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(comboInteresset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                panProspectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panProspectLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelDateDeProspection)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txDatePropection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelInteret)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboInteresset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         labelNombreEmployer.setText("Nombre d'employés :");
-
         txNombreEmployer.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelChiffreAffaireSt.setText("Chiffre d'affaire :");
-
         txChiffreAffaire.setPreferredSize(new java.awt.Dimension(80, 30));
 
         javax.swing.GroupLayout panClientLayout = new javax.swing.GroupLayout(panClient);
         panClient.setLayout(panClientLayout);
         panClientLayout.setHorizontalGroup(
-            panClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panClientLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelNombreEmployer)
-                        .addComponent(txNombreEmployer, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelChiffreAffaireSt)
-                        .addComponent(txChiffreAffaire, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(98, Short.MAX_VALUE))
+                panClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panClientLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelNombreEmployer)
+                                        .addComponent(txNombreEmployer, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelChiffreAffaireSt)
+                                        .addComponent(txChiffreAffaire, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(98, Short.MAX_VALUE))
         );
         panClientLayout.setVerticalGroup(
-            panClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panClientLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(labelNombreEmployer)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txNombreEmployer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelChiffreAffaireSt)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txChiffreAffaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(7, Short.MAX_VALUE))
+                panClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panClientLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelNombreEmployer)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txNombreEmployer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelChiffreAffaireSt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txChiffreAffaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         labelIdentifiant.setText("Identifiant :");
-
         txID.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelRaisonSocialeSt.setText("Raison Sociale ");
-
         txRaison.setMinimumSize(new java.awt.Dimension(80, 30));
         txRaison.setName("champsNom"); // NOI18N
         txRaison.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelTelephone.setText("Téléphone :");
-
         txTelephone.setMinimumSize(new java.awt.Dimension(80, 30));
         txTelephone.setName("email"); // NOI18N
         txTelephone.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelEmail.setText("Email :");
-
         txEmail.setMinimumSize(new java.awt.Dimension(80, 30));
         txEmail.setName("ville"); // NOI18N
         txEmail.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelDomainSt.setText("Domain :");
-
         comboDomainSt.setSelectedItem(comboDomainSt);
-
         labelVille.setText("Ville :");
-
         txVille.setMinimumSize(new java.awt.Dimension(80, 30));
         txVille.setName("telephone"); // NOI18N
         txVille.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelCodePostale.setText("Code Postale :");
-
         txCodePostale.setMinimumSize(new java.awt.Dimension(80, 30));
         txCodePostale.setName("codePostale"); // NOI18N
         txCodePostale.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelNumeroAdresse.setText("Numéro adresse :");
-
         txNumeroAd.setMinimumSize(new java.awt.Dimension(80, 30));
         txNumeroAd.setName("numeroRue"); // NOI18N
         txNumeroAd.setPreferredSize(new java.awt.Dimension(80, 30));
-
         labelNomDeRue.setText("Nom de rue :");
-
         txNomRue.setMinimumSize(new java.awt.Dimension(80, 30));
         txNomRue.setName("nomRue"); // NOI18N
         txNomRue.setPreferredSize(new java.awt.Dimension(80, 30));
-
         javax.swing.GroupLayout panFormulaireLayout = new javax.swing.GroupLayout(panFormulaire);
         panFormulaire.setLayout(panFormulaireLayout);
         panFormulaireLayout.setHorizontalGroup(
-            panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panFormulaireLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboDomainSt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelDomainSt)
-                            .addComponent(labelVille)
-                            .addComponent(txVille, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panFormulaireLayout.createSequentialGroup()
-                                    .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labelTelephone)
+                panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panFormulaireLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(comboDomainSt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(labelDomainSt)
+                                                .addComponent(labelVille)
+                                                .addComponent(txVille, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panFormulaireLayout.createSequentialGroup()
+                                                                .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(labelTelephone)
+                                                                        .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addComponent(txTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(labelEmail)
+                                                                                        .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addGap(1, 1, 1))
+                                                        .addComponent(txRaison, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(labelIdentifiant)
+                                                .addComponent(txID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(labelRaisonSocialeSt))
                                         .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(labelEmail)
-                                                .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(1, 1, 1))
-                                .addComponent(txRaison, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelIdentifiant)
-                            .addComponent(txID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRaisonSocialeSt))
-                        .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panFormulaireLayout.createSequentialGroup()
-                                .addComponent(labelCodePostale)
-                                .addGap(105, 105, 105))
-                            .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txCodePostale, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txNumeroAd, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelNumeroAdresse)
-                                .addComponent(txNomRue, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelNomDeRue))))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panFormulaireLayout.createSequentialGroup()
+                                                        .addComponent(labelCodePostale)
+                                                        .addGap(105, 105, 105))
+                                                .addGroup(panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(txCodePostale, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txNumeroAd, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(labelNumeroAdresse)
+                                                        .addComponent(txNomRue, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(labelNomDeRue))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panFormulaireLayout.setVerticalGroup(
-            panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panFormulaireLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(labelIdentifiant)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(6, 6, 6)
-                    .addComponent(labelRaisonSocialeSt)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txRaison, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelTelephone)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelEmail)
-                    .addGap(3, 3, 3)
-                    .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelDomainSt)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(comboDomainSt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelVille)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txVille, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelCodePostale)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txCodePostale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelNumeroAdresse)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txNumeroAd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelNomDeRue)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txNomRue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panFormulaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panFormulaireLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelIdentifiant)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(labelRaisonSocialeSt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txRaison, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelTelephone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelEmail)
+                                .addGap(3, 3, 3)
+                                .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelDomainSt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboDomainSt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelVille)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txVille, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelCodePostale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txCodePostale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelNumeroAdresse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txNumeroAd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelNomDeRue)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txNomRue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         bpMenuFormulaire.setText("Menu");
@@ -1059,22 +1032,22 @@ public class FormulaireFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout panFooterLayout = new javax.swing.GroupLayout(panFooter);
         panFooter.setLayout(panFooterLayout);
         panFooterLayout.setHorizontalGroup(
-            panFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panFooterLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bpMenuFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(bpQuitterFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(20, 20, 20))
+                panFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panFooterLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bpMenuFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bpQuitterFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
         );
         panFooterLayout.setVerticalGroup(
-            panFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panFooterLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bpMenuFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bpQuitterFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panFooterLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(bpMenuFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bpQuitterFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         labelCommentaireClient.setText("Commentaire :");
@@ -1088,70 +1061,70 @@ public class FormulaireFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(labelCommentaireClient)
-                    .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txCommentaire, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(labelCommentaireClient)
+                                .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(139, 139, 139)
-                            .addComponent(bpValiderFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(txCommentaire, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(139, 139, 139)
+                                                .addComponent(bpValiderFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(labelCommentaireClient)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txCommentaire, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bpValiderFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelCommentaireClient)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txCommentaire, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bpValiderFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(panClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(panProspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(panTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(panFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(panFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addGap(6, 6, 6)
+                                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(panClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(panProspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(4, 4, 4)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(panProspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(panClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                    .addComponent(panFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(54, 54, 54))
+                                .addContainerGap()
+                                .addComponent(panTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(panFormulaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(panProspect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(panClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                                .addComponent(panFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54))
         );
 
         pack();

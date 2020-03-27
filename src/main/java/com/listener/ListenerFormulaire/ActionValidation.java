@@ -1,4 +1,4 @@
-package com.listener;
+package com.listener.ListenerFormulaire;
 
 import com.controleur.ControleurFrame;
 import com.model.FormulaireFrame;
@@ -16,7 +16,8 @@ public class ActionValidation implements java.awt.event.ActionListener {
     /**
      * Cette evenement gére la validation de la sélection dans la frame du Menu principale
      *
-     * @param frame
+     * @param frame de type Jframe
+     * @param controleur de type {@link ControleurFrame}
      */
     public ActionValidation(MenuFrame frame, ControleurFrame controleur) {
         this.menuFrame = frame;
@@ -51,8 +52,6 @@ public class ActionValidation implements java.awt.event.ActionListener {
 
                 new FormulaireFrame(this.menuFrame.getChoixComboBoxClientProspect(),
                     Action.SUPPRESSION, this.controleur, this.menuFrame.getMemoireClientProspect());
-
-
             }
             this.menuFrame.dispose();     //  libaire les resources de la Frame menu
         }

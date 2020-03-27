@@ -121,7 +121,6 @@ public class Prospect extends Societe {
      */
     public void setInteresse(Interet interesse) throws ExceptionPersonnaliser {
 
-
         // variable null
         if (interesse == null) {
             throw new ExceptionPersonnaliser("Interet prospect null");
