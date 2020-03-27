@@ -30,7 +30,7 @@ public class ActionRetourMenu implements ActionListener {
         // ici si je fait this.controleur a la place de new ControleurFrame()
         // quand je revien vers le me
         // nu apres avoir fait une selection j'ai un nullPointeur
-        new MenuFrame(this.controleur);
+        new MenuFrame(new ControleurFrame());
         this.jframe.dispose();
     }
 }

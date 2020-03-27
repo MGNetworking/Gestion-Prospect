@@ -473,8 +473,7 @@ public class FormulaireFrame extends javax.swing.JFrame {
                 }
                 case MATCH_NOM_RUE: {
                     JOptionPane.showMessageDialog(null,
-                        "Le nom de la rue doit ne pas comporté de chiffre.\n" +
-                            "Veuillez renseigner un autre noms de rue.",
+                        "Le nom de la rue doit comporté au minimun 4 caractère.\n",
                         "ERREUR de saisi : nom de la rue",
                         JOptionPane.INFORMATION_MESSAGE);
 

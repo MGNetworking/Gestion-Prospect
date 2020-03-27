@@ -122,8 +122,6 @@ public class MenuFrame extends javax.swing.JFrame {
 
     }
 
-    // TODO DEBUT
-
     /**
      * Renvoie le controleur
      *
