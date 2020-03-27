@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e5c699-c49d-4af8-be3a-2582563ac90a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -93,11 +92,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
+            <state relative-caret-position="61">
               <caret line="475" column="82" selection-start-line="475" selection-start-column="82" selection-end-line="475" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="117" column="46" selection-start-line="117" selection-start-column="29" selection-end-line="117" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -134,7 +151,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
-              <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+              <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2005#2006#0" expanded="true" />
@@ -228,7 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/postgresql/insert_societe.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/inseert_adresse.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/insert_Client.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/postgresql/insert_prospect.sql" />
@@ -279,6 +295,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/listener/ActionRetourMenu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/MenuFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -338,47 +355,6 @@
               <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="metier" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gestion-Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gestion-client-SGBDR" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -606,7 +582,7 @@
       <workItem from="1585050608367" duration="15947000" />
       <workItem from="1585130685026" duration="35034000" />
       <workItem from="1585212304124" duration="32073000" />
-      <workItem from="1585315587285" duration="699000" />
+      <workItem from="1585315587285" duration="2309000" />
     </task>
     <servers />
   </component>
@@ -643,7 +619,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349207000" />
+    <option name="totallyTimeSpent" value="350817000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -678,7 +654,7 @@
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="13" visible="true" weight="0.1928494" />
+      <window_info anchor="bottom" id="Terminal" order="13" visible="true" weight="0.31852654" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -924,13 +900,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_societe.sql" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_prospect.sql" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Script SQL/dumpSQL/postgres_gestion_adresse.sql" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/persistance/ProspectDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="635">
@@ -1197,7 +1166,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/metier/Adresse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
-          <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+          <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2005#2006#0" expanded="true" />
@@ -1212,8 +1181,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/FormulaireFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
+        <state relative-caret-position="61">
           <caret line="475" column="82" selection-start-line="475" selection-start-column="82" selection-end-line="475" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="117" column="46" selection-start-line="117" selection-start-column="29" selection-end-line="117" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
