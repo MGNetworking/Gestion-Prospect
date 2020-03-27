@@ -19,13 +19,14 @@ import com.persistance.ProspectDAO;
  */
 public class ControleurFrame {
 
-    private ClientDAO client_dao = new ClientDAO(ConnectionDAO.getConnectionPostgres());
+    private ClientDAO client_dao  = new ClientDAO(ConnectionDAO.getConnectionPostgres());
     private ProspectDAO prospect_dao = new ProspectDAO(ConnectionDAO.getConnectionPostgres());
 
     /**
      * Cette est l'interface entre les données est l'application
      */
     public ControleurFrame() {
+
     }
 
     /**

@@ -95,15 +95,16 @@ public class MenuFrame extends javax.swing.JFrame {
         this.initComponents();   // Initialisation des composants
         this.initMenuFrame();    // Initialisation du menu principale
 
+/*
         // initialisation du rendu de la JcomboBox
-        this.jComboBoxListeSociete.setRenderer((list, value, index, isSelected, cellHasFocus) -> {
+       this.jComboBoxListeSociete.setRenderer((list, value, index, isSelected, cellHasFocus) -> {
             String representation = " - ";
 
             if (value != null) {
                 representation = ((Societe) value).getRaisonSociale();
             }
             return new JLabel(representation);
-        });
+        });*/
     }
 
     /**
@@ -179,12 +180,13 @@ public class MenuFrame extends javax.swing.JFrame {
         return choixComboBoxClientProspect;
     }
 
-    /**
+    /*
+    //**
      * Met a jour la liste de la comboBox du menu.
      *
      * @param choixSociete de type String
      * @throws SQLException si une erreur et générer pendant la transaction.
-     */
+     *//*
     public void updateComboBoxList(String choixSociete) throws SQLException {
 
         List<Societe> societeList = this.controleur.getListeSocieteControleur(choixSociete);
@@ -197,16 +199,15 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         }
 
-    }
+    }*/
 
     /**
      * Cette Méthode récupère Le choix du client ou du prospect de la comboBox.
      *
-     * @param memoClientProspect de type String.
      */
-    public void comboBoxMenuListeEvent(String memoClientProspect) {
+    public void comboBoxMenuListeEvent() {
 
-        if (memoClientProspect.equals(TypeSociete.CLIENT.getTypeSociete())) {
+        if (this.getMemoireClientProspect().equals(TypeSociete.CLIENT.getTypeSociete())) {
 
             // récupération du Client dans la liste des Clients
             this.choixComboBoxClientProspect = (Client) this.getJComboBoxListeSociete()
@@ -214,7 +215,7 @@ public class MenuFrame extends javax.swing.JFrame {
 
         }
 
-        if (memoClientProspect.equals(TypeSociete.PROSPECT.getTypeSociete())) {
+        if (this.getMemoireClientProspect().equals(TypeSociete.PROSPECT.getTypeSociete())) {
 
             // récupération du Prospect dans la liste des Prospects
             this.choixComboBoxClientProspect = (Prospect) this.getJComboBoxListeSociete()
@@ -475,7 +476,7 @@ public class MenuFrame extends javax.swing.JFrame {
         jComboBoxListeSociete.setPreferredSize(new java.awt.Dimension(82, 32));
         jComboBoxListeSociete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxMenuListeEvent(getMemoireClientProspect());
+                comboBoxMenuListeEvent();
             }
         });
 

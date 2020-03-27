@@ -17,6 +17,8 @@ import java.util.logging.Logger;
 
 import com.metier.Societe.DomainSociete;
 
+import javax.swing.*;
+
 
 /**
  * Cette classe permet de la gestion de la persistance des données concernant

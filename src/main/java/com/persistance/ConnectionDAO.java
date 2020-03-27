@@ -1,5 +1,6 @@
 package com.persistance;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -28,9 +29,11 @@ public class ConnectionDAO {
             public void run() {
                 if (null != connection) {
                     try {
+
                         connection.close();
                         LOGGER_DAO.info("Fermeture de la onnection");
                     } catch (SQLException sql) {
+
                         LOGGER_DAO.severe(sql.getMessage());
 
                     }
@@ -65,13 +68,20 @@ public class ConnectionDAO {
                 connection = DriverManager.getConnection(
                         (String) proprieteConnection.get("url"), proprieteConnection);
 
-                System.out.println("Connection Reussi");
+                JOptionPane.showMessageDialog(null,
+                        "Connection Reussi",
+                        "Connection",
+                        JOptionPane.INFORMATION_MESSAGE);
+
 
             } catch (IOException ioe) {
                 LOGGER_DAO.severe("le fichier de configuration n'a put étre chargée : " + ioe.getMessage());
+
             } catch (SQLException sql) {
+
                 LOGGER_DAO.severe("La connection a la base de données a échoué" + sql.getMessage() + sql.getSQLState());
             } catch (Exception ex) {
+
                 LOGGER_DAO.severe("Erreur de type : " + ex.getMessage() + ex.getStackTrace());
             }
         }

@@ -64,12 +64,16 @@ public class ActionClientProspect implements java.awt.event.ActionListener {
         if (choix != null) { // Initialisation des composants
             try {
 
-                this.menuFrame.getLabelTitreMenuDeSelection().setText("CHOIX : " + choix);
+/*                this.menuFrame.getLabelTitreMenuDeSelection().setText("CHOIX : " + choix);
                 // garde en memoire le choix client prospect
+                this.menuFrame.updateComboBoxList(choix);*/
+
                 this.menuFrame.setMemoireMenuClientProspect(choix);
 
-                this.menuFrame.updateComboBoxList(choix);
+                DefaultComboBoxModel model = new DefaultComboBoxModel(this.menuFrame.getControleur()
+                        .getListeSocieteControleur(choix).toArray());
 
+                this.menuFrame.getJComboBoxListeSociete().setModel(model);
 
                 // Interception des erreurs générer venant de la base de données.
             } catch (ExceptionSociete exp) {
