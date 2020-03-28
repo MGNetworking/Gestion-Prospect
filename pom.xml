@@ -152,7 +152,7 @@
                     </executions>
                 </plugin>
 
-                <!-- javaDoc commande : mvn install -->
+                <!-- javaDoc commande : mvn install ou javadoc:jar-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
