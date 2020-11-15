@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Gestion-Client-SGBDR" />
         <module name="Gestion-Client" />
+        <module name="Gestion-client-SGBDR" />
       </profile>
     </annotationProcessing>
   </component>

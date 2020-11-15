@@ -12,10 +12,10 @@
       <IntrospectionStateNumber>629</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
-      <Relations>sequence|table|24586|24588|1
-sequence|table|24594|24596|1
-sequence|table|24607|24609|1
+      <Relations>sequence|table|24607|24609|1
 sequence|table|24620|24622|1
+sequence|table|24594|24596|1
+sequence|table|24586|24588|1
 </Relations>
     </database>
     <role id="3" parent="1" name="pg_execute_server_program">
